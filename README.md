@@ -2,6 +2,16 @@
 
 Telefon ve bilgisayarda çalışan HTML futbol oyunu. 5'e 5 / 11'e 11, yapay zekâ, otomatik kaleci, klavye tuş atamaları ve gömülü Türkçe erkek spiker içerir. Bu sürüm tek oyunculudur; internetten yayımlamak çok oyunculu maç özelliği eklemez.
 
+## Savunma güncellemesi
+
+- Otomatik seçim pas alıcısını, topun tahmini gidişini ve kaleye yakın savunmacıyı dikkate alır. Manuel değişim kısa süre korunur.
+- Top rakipte veya boşta: **Pas → basılı tutarak pres**, **Şut → ayakta müdahale**, **Orta → kayarak müdahale**, **Ara pas → ikinci pres**.
+- Ayakta müdahale erişilebilen topa yapılır. Kayma yönü hamle başlayınca sabitlenir; kaçırınca toparlanma süresi vardır. İkinci pres 2,5 saniye ile sınırlıdır.
+- Top kazanılınca hücum tuşları geri gelir; basılı savunma tuşu istemeden şut/pas üretmez.
+- Manuel kaleci kurtarış tuşu kaldırıldı. İki kaleci de aynı otomatik modelle çalışır; reaksiyon, uzanma ve top tutma gücü azaltıldı, kadro puanına bağlı farklar korunur.
+
+Kontroller: `node tests/defense.cjs` (Node.js; ek paket gerekmez).
+
 ## Dosyalar
 
 - `public/index.html`: oyun.
