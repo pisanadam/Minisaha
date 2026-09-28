@@ -402,6 +402,8 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
 <script src="assets/voice-38-53998f5a59.js"></script>
 <script src="assets/voice-39-1802ed47c8.js"></script>
 <script src="assets/voice-40-cbb1be2c4e.js"></script>
+<script src="assets/pronunciation-01-147d49e2ce.js"></script>
+<script src="assets/pronunciation-02-56c13a1f44.js"></script>
 <script>
 (() => {
 'use strict';
@@ -3244,7 +3246,7 @@ function bundledCommentaryParts(line,data,kind){
  const team=data.team||data.player?.team||'blue';
  const values={team:spokenTeamName(team),player:data.player?.roster?.name||spokenTeamName(team),target:data.target?.roster?.name||'takım arkadaşı',blue:spokenTeamName('blue'),red:spokenTeamName('red'),blueScore:String(score.blue),redScore:String(score.red)};
  const parts=[];
- const add=(text,fallback='')=>{const key=bundledAudioKey(text);if(!key)return;if(BUNDLED_VOICE[key])parts.push(key);else if(fallback&&BUNDLED_VOICE[fallback])parts.push(fallback);};
+ const add=(text,fallback='')=>{const key=bundledAudioKey(text);if(!key)return;if(/^\d+$/.test(key)){parts.push(...bundledNumberKeys(key));return;}if(BUNDLED_VOICE[key])parts.push(key);else if(fallback&&BUNDLED_VOICE[fallback])parts.push(fallback);};
  for(const piece of line.split(/(\{\w+\})/g)){
   const match=piece.match(/^\{(\w+)\}$/);
   if(match)add(values[match[1]]||'','oyuncu');else add(piece);
@@ -3268,11 +3270,14 @@ function createBundledUtterance(parts,delivery){
   const gain=ctx.createGain();gain.gain.value=delivery.volume;gain.connect(ctx.destination);job.gain=gain;
   // Recorded male voice remains the sound source; playback tempo varies with
   // match excitement and selected delivery style. No speech service is called.
-  const rate=clamp(delivery.rate,.86,1.18);let at=ctx.currentTime+.025;
+  const eventRate=clamp(delivery.rate,.86,1.18);let at=ctx.currentTime+.025;
   buffers.forEach((buffer,index)=>{
+   const isNumber=/^\d+$/.test(parts[index]);
+   const clearName=Object.hasOwn(COMMENTARY_PRONUNCIATIONS,parts[index]);
+   const rate=isNumber||clearName?clamp(eventRate,.94,1.03):eventRate;
    const source=ctx.createBufferSource();source.buffer=buffer;source.playbackRate.value=rate;source.connect(gain);job.nodes.push(source);
    if(index===buffers.length-1)source.onended=()=>{for(const node of job.nodes){try{node.disconnect();}catch(_){}}gain.disconnect();if(!job.cancelled)job.onend?.();};
-   source.start(at);at+=buffer.duration/rate+.035;
+   source.start(at);at+=buffer.duration/rate+(isNumber?.16:clearName?.10:.035);
   });
  }).catch(()=>{if(!job.cancelled)job.onerror?.({error:'embedded-audio'});});
  return job;
@@ -3341,6 +3346,37 @@ function cleanCommentaryText(value){
   .replace(/[^\p{L}\p{M}\p{N}\s.,!?;:'’()\-]/gu,' ')
   .replace(/\s+/g,' ').replace(/\s+([.,!?;:])/g,'$1').trim();
 }
+const COMMENTARY_PRONUNCIATIONS = {"Liverpool":"Livırpul","Manchester City":"Mençıstır Siti","Manchester United":"Mençıstır Yunayıtıd","Newcastle United":"Nükasıl Yunayıtıd","Leeds United":"Lids Yunayıtıd","Chelsea":"Çelsi","Tottenham Hotspur":"Totnım Hotspör","Nottingham Forest":"Notingım Forest","AFC Bournemouth":"Ey ef si Bornmıth","Brentford":"Brentfırd","Brighton Hove Albion":"Braytın Houv Albiyın","Crystal Palace":"Kristıl Palıs","Fulham":"Fulım","Ipswich Town":"İpsviç Taun","Coventry City":"Kovıntri Siti","Hull City":"Hal Siti","Everton":"Evırtın","Sunderland":"Sandırlınd","Bayern Munich":"Bayern Münih","Borussia Dortmund":"Borusya Dortmund","Borussia Mönchengladbach":"Borusya Mönhıngladbah","Bayer Leverkusen":"Bayer Leverkuzın","RB Leipzig":"Er be Layptsig","VfB Stuttgart":"Fau ef be Ştutgart","Eintracht Frankfurt":"Ayntraht Frankfurt","TSG Hoffenheim":"Te es ge Hofınhaym","SC Freiburg":"Es ce Frayburg","Mainz 05":"Maynts sıfır beş","1. FC Köln":"Bir ef ce Köln","Schalke 04":"Şalke sıfır dört","SC Paderborn 07":"Es ce Paderborn sıfır yedi","Paris Saint-Germain":"Paris Sen Jermen","Olympique Marseille":"Olimpik Marsilya","Olympique Lyonnais":"Olimpik Lyon","LOSC Lille":"Lil","OGC Nice":"Nis","Stade Rennais":"Stad Ren","RC Lens":"Lans","RC Strasbourg":"Strazburg","Toulouse FC":"Tuluz","Stade Brestois":"Brest","Stade de Reims":"Stad dö Rens","AJ Auxerre":"Oser","Juventus":"Yuventus","Lazio":"Latsiyo","Bologna":"Bolonya","Genoa":"Cenova","Cagliari":"Kalyari","Lecce":"Leççe","Sevilla FC":"Seviya","Rayo Vallecano":"Rayo Vayekano","Villarreal CF":"Viyareal","Real Sociedad":"Real Sosyedad","FC Barcelona":"Barselona"};
+
+function turkishNumberWords(value){
+ const n=Number(value),ones=['sıfır','bir','iki','üç','dört','beş','altı','yedi','sekiz','dokuz'];
+ const tens=['','on','yirmi','otuz','kırk','elli','altmış','yetmiş','seksen','doksan'];
+ if(!Number.isSafeInteger(n)||n<0)return String(value);
+ if(n<10)return ones[n];
+ if(n<100)return tens[Math.floor(n/10)]+(n%10?' '+ones[n%10]:'');
+ if(n<1000)return (n>=200?ones[Math.floor(n/100)]+' ':'')+'yüz'+(n%100?' '+turkishNumberWords(n%100):'');
+ if(n<1000000)return (n>=2000?turkishNumberWords(Math.floor(n/1000))+' ':'')+'bin'+(n%1000?' '+turkishNumberWords(n%1000):'');
+ if(n<1000000000)return turkishNumberWords(Math.floor(n/1000000))+' milyon'+(n%1000000?' '+turkishNumberWords(n%1000000):'');
+ return String(n).split('').map(d=>ones[Number(d)]).join(' ');
+}
+function speechCommentaryText(value){
+ let text=cleanCommentaryText(value);
+ for(const [name,pronunciation] of Object.entries(COMMENTARY_PRONUNCIATIONS).sort((a,b)=>b[0].length-a[0].length)){
+  const escaped=name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  const pattern=new RegExp('(^|[^\\p{L}\\p{N}])'+escaped+'(?=$|[^\\p{L}\\p{N}])','giu');
+  text=text.replace(pattern,(_,prefix)=>prefix+pronunciation);
+ }
+ return text.replace(/\d+/g,d=>d.length>1&&d[0]==='0'?d.split('').map(turkishNumberWords).join(' '):turkishNumberWords(d));
+}
+function bundledNumberKeys(value){
+ const n=Number(value);if(!Number.isSafeInteger(n)||n<0)return [];
+ if(BUNDLED_VOICE[String(n)])return [String(n)];
+ if(n<100)return n<10?[String(n)]:[String(Math.floor(n/10)*10),...(n%10?[String(n%10)]:[])];
+ if(n<1000)return [...(n>=200?[String(Math.floor(n/100))]:[]),'100',...(n%100?bundledNumberKeys(n%100):[])];
+ if(n<1000000)return [...(n>=2000?bundledNumberKeys(Math.floor(n/1000)):[]),'1000',...(n%1000?bundledNumberKeys(n%1000):[])];
+ return String(n).split('');
+}
+
 function spokenTeamName(team){return cleanCommentaryText(getCountry(teamChoice[team]).name);}
 
 function stopCommentary(reset=false){
@@ -3384,7 +3420,7 @@ function sayCommentary(kind,data={},priority=1){
  if(kind==='end'&&penaltyResult)text+=' Penaltılar '+penaltyResult.blue+' '+penaltyResult.red+'.';
  else if(kind==='end')text+=' Skor, '+spokenTeamName('blue')+' '+score.blue+', '+spokenTeamName('red')+' '+score.red+'.';
  const embedded=commentary.voice.bundled;
- const u=embedded?createBundledUtterance(bundledCommentaryParts(line,data,kind),delivery):new window.SpeechSynthesisUtterance(cleanCommentaryText(text));
+ const u=embedded?createBundledUtterance(bundledCommentaryParts(line,data,kind),delivery):new window.SpeechSynthesisUtterance(speechCommentaryText(text));
  if(!embedded){u.lang='tr-TR';u.voice=commentary.voice;u.rate=delivery.rate;u.pitch=delivery.pitch;u.volume=delivery.volume;}
  commentary.excitement=delivery.level;
  commentary.current=u;commentary.priority=priority;commentary.lastAt=now;commentary.cooldowns[kind]=now;

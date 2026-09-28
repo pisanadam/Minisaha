@@ -12,6 +12,12 @@ Telefon ve bilgisayarda çalışan HTML futbol oyunu. 5'e 5 / 11'e 11, yapay zek
 
 Kontroller: `node tests/defense.cjs` (Node.js; ek paket gerekmez).
 
+## Spiker telaffuzu
+
+Liverpool dahil 54 takım adı için Türkçe telaffuz sözlüğü eklendi. 0–100 sayıları ve bin sözcüğü rakam yerine Türkçe yazıyla yeniden seslendirildi: toplam 156 düzeltilmiş gömülü MP3 kaydı. Skor sayıları ve düzeltilen takım adları daha yavaş, aralarında belirgin duraklamayla okunur. 100 üzerindeki skorlar mevcut sayı kayıtlarından birleştirilir. Aynı telaffuz ve sayı dönüşümü isteğe bağlı cihaz seslerine de uygulanır; ekrandaki gerçek takım adları değişmez.
+
+Kontrol: `node tests/pronunciation.cjs`. Kayıt metinleri: `audio-source/pronunciations.json`.
+
 ## Dosyalar
 
 - `public/index.html`: oyun.
