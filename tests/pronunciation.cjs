@@ -12,6 +12,7 @@ class El{
 }
 for(const d of JSON.parse(fs.readFileSync(require('path').join(__dirname,'dom-fixture.json')))){const e=new El(d.tag);Object.assign(e,{id:d.id,dataset:d.dataset,textContent:d.text,value:d.value,options:d.options});if(d.options.length)e.value=(d.options.find(o=>o.selected)||d.options[0]).value;all.push(e);if(d.id)ids[d.id]=e;}
 for(const id of ['keyBindingRows','keyBindingStatus','keyboardHelp','keyboardSettings','resetKeyBindings','commentaryProfileSelect','commentaryVoiceSelect','commentaryStatus','commentaryBtn','menuCommentaryBtn','commentaryTestBtn']){if(!ids[id])ids[id]=new El();}
+for(const id of ['pauseMenu','pauseMatchInfo','pauseResume','pauseWatch','pauseFinish','pauseMainMenu','simReturn','simProgress'])ids[id]=new El();
 const context2d=new Proxy({createLinearGradient:()=>({addColorStop(){}})},{get:(o,k)=>k in o?o[k]:(()=>{})});ids.game.getContext=()=>context2d;
 const energy=new El('i');const store={};const errors=[];
 const sandbox={console:{log:console.log,error:(...x)=>errors.push(x.join(' '))},performance:{now:()=>0},Math,Date,JSON,Number,String,Object,Array,Map,Set,Infinity,localStorage:{getItem:k=>store[k]||null,setItem:(k,v)=>store[k]=v},navigator:{getGamepads:()=>[]},screen:{},setTimeout:f=>f(),requestAnimationFrame:()=>{},document:{getElementById:id=>ids[id]||null,createElement:t=>new El(t),querySelector:s=>s==='#energy i'?energy:null,querySelectorAll:s=>s==='[data-tactic]'?all.filter(e=>e.dataset.tactic):all.filter(e=>e.dataset.mode),addEventListener(){},hidden:false},devicePixelRatio:1,addEventListener(){},confirm:()=>true};
@@ -20,7 +21,7 @@ let script=fs.readFileSync(require('path').join(__dirname,'../public/index.html'
 script=script.replace(/\}\)\(\);\s*$/, 'window.inspect = code => eval(code);})();');
 vm.createContext(sandbox);
 const html=fs.readFileSync(require('path').join(__dirname,'../public/index.html'),'utf8');
-for(const m of html.matchAll(/<script src="([^"]+)"><\/script>/g))vm.runInContext(fs.readFileSync(require('path').join(__dirname,'../public',m[1]),'utf8'),sandbox);
+for(const m of html.matchAll(/<script src="([^"]+)"><\/script>/g))vm.runInContext(fs.readFileSync(require('path').join(__dirname,'../public',m[1].split('?')[0]),'utf8'),sandbox);
 vm.runInContext(script,sandbox);
 const run=sandbox.inspect;
 function test(name,f){f();console.log('PASS',name)}

@@ -271,6 +271,14 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
 #commentaryBtn{max-width:135px;overflow:hidden;text-overflow:ellipsis}
 #controls{max-width:calc(100% - 16px);overflow-x:auto}
 .keyBindingRow,.keyBindingHeading{display:grid;grid-template-columns:minmax(110px,1.3fr) repeat(2,minmax(70px,1fr));gap:8px;align-items:center;margin:7px 0;text-align:left}.keyBindingHeading{font-size:11px;opacity:.75}.keyBindingRow button{min-height:36px;padding:7px;font-size:12px}.keyBindingRow span{font-size:12px}.keyBindingRow button.listening{background:#c5fa75;color:#102218;outline:2px solid white}#keyBindingStatus{display:block!important;min-height:18px;margin:10px 0!important;color:#d5f99b!important;font-size:12px!important}#game:focus-visible{outline:2px solid #c5fa75;outline-offset:-3px}
+
+#pauseMenu{position:absolute;inset:0;z-index:40;display:none;align-items:center;justify-content:center;background:#071810dc;padding:16px;backdrop-filter:blur(5px)}
+#pauseCard{width:min(440px,100%);max-height:100%;overflow:auto;padding:22px;border:1px solid #7b9c6855;border-radius:16px;background:#182d22;touch-action:pan-y}
+#pauseCard h2{margin:0 0 8px;color:#e2f1d3}#pauseCard p{font-size:13px;color:#adbea6;line-height:1.5}
+#pauseCard button{display:block;width:100%;margin-top:9px;text-align:left;padding:12px;background:#2b4532;color:#e2f1d3;font-size:14px}
+#pauseCard button:first-of-type{background:#c5fa75;color:#172c1b}#pauseCard button small{display:block;font-size:11px;font-weight:400;margin-top:4px}
+#simReturn{display:none;position:absolute;z-index:12;left:50%;top:76px;transform:translateX(-50%);background:#c5fa75;color:#172c1b;font-size:12px;padding:9px 14px}
+#simProgress{display:none;position:absolute;inset:0;z-index:45;background:#0c1e16f5;align-items:center;justify-content:center;color:#c5fa75;font-size:clamp(17px,4vw,28px);text-align:center;padding:24px}
 </style>
 </head>
 <body>
@@ -324,6 +332,16 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
 
   <div id="message"></div>
 
+  <div id="pauseMenu" role="dialog" aria-modal="true" aria-labelledby="pauseTitle">
+    <div id="pauseCard"><h2 id="pauseTitle">Maç duraklatıldı</h2><p id="pauseMatchInfo"></p>
+      <button id="pauseResume">Maça devam et</button>
+      <button id="pauseWatch">Maçı simüle et<small>İki takımı yapay zekâ yönetsin. İstediğinde kontrolü geri al.</small></button>
+      <button id="pauseFinish">Maç sonuna simüle et<small>Mevcut skor korunur; kalan süre, uzatma ve penaltılar tamamlanır.</small></button>
+      <button id="pauseMainMenu">Ana menüye dön</button>
+    </div>
+  </div>
+  <button id="simReturn">Kontrolü geri al</button>
+  <div id="simProgress" role="status" aria-live="polite">Maç tamamlanıyor…</div>
   <div id="endScreen">
     <div id="endCard">
       <h1>Maç Bitti</h1>
@@ -404,6 +422,13 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
 <script src="assets/voice-40-cbb1be2c4e.js"></script>
 <script src="assets/pronunciation-01-147d49e2ce.js"></script>
 <script src="assets/pronunciation-02-56c13a1f44.js"></script>
+<script src="assets/rosters-national-a0c199bec5.js"></script>
+<script src="assets/rosters-premier-d40a2b855a.js"></script>
+<script src="assets/rosters-laliga-31a1817e37.js"></script>
+<script src="assets/rosters-seriea-6815c185f6.js"></script>
+<script src="assets/rosters-bundesliga-25110012cb.js"></script>
+<script src="assets/rosters-ligue1-b5408b80c0.js"></script>
+<script src="assets/rosters-superlig-5258a743b3.js"></script>
 <script>
 (() => {
 'use strict';
@@ -480,73 +505,45 @@ const POSITIONS={
  RW:{name:'Sağ kanat',short:'SĞK',role:'fw',pace:1.10,shot:1.03,pass:.99,tackle:.82,task:'Çizgiyi açar, çapraz koşu ve geriye pas arar.'},
  ST:{name:'Santrfor',short:'SF',role:'fw',pace:1.03,shot:1.19,pass:.85,tackle:.78,task:'Savunma arkasına koşar, ceza alanında bitirir.'}
 };
-// Playable squad data.  Every selectable team receives an 11-player lineup
-// and five substitutes; famous teams use recognisable names while the other
-// teams get stable generated players so no selection is left without a squad.
-const ROSTER_TEMPLATES={
- turkiye:[['Uğurcan Çakır','GK',78],['Ferdi Kadıoğlu','LB',82],['Abdülkerim Bardakcı','CB',78],['Kaan Ayhan','CB',77],['Zeki Çelik','RB',76],['İsmail Yüksek','DM',78],['Hakan Çalhanoğlu','CM',86],['Arda Güler','AM',85],['Kenan Yıldız','LW',82],['Barış Alper Yılmaz','RW',80],['Enes Ünal','ST',78],['Altay Bayındır','GK',76],['Orkun Kökçü','CM',81],['Yusuf Yazıcı','AM',77],['Cengiz Ünder','RW',78],['Semih Kılıçsoy','ST',76]],
- premier_liverpool:[['Alisson','GK',89],['Andy Robertson','LB',86],['Virgil van Dijk','CB',89],['Ibrahima Konaté','CB',85],['Trent Alexander-Arnold','RB',86],['Ryan Gravenberch','DM',82],['Alexis Mac Allister','CM',86],['Florian Wirtz','AM',88],['Luis Díaz','LW',86],['Mohamed Salah','RW',89],['Alexander Isak','ST',88],['Caoimhin Kelleher','GK',78],['Dominik Szoboszlai','CM',84],['Curtis Jones','CM',80],['Cody Gakpo','LW',83],['Darwin Núñez','ST',82]],
- superlig_galatasaray:[['Fernando Muslera','GK',82],['İsmail Jakobs','LB',78],['Davinson Sánchez','CB',82],['Abdülkerim Bardakcı','CB',78],['Kaan Ayhan','RB',77],['Lucas Torreira','DM',84],['Gabriel Sara','CM',82],['Mertens','AM',82],['Barış Alper Yılmaz','LW',80],['Yunus Akgün','RW',78],['Victor Osimhen','ST',89],['Günay Güvenç','GK',75],['Álvaro Morata','ST',83],['Leroy Sané','RW',86],['Berkan Kutlu','CM',74],['Kerem Demirbay','CM',77]],
- superlig_fenerbahce:[['Dominik Livaković','GK',83],['Jayden Oosterwolde','LB',78],['Çağlar Söyüncü','CB',80],['Alexander Djiku','CB',78],['Bright Osayi-Samuel','RB',78],['Fred','DM',83],['İrfan Can Kahveci','CM',81],['Sebastian Szymański','AM',82],['Dušan Tadić','LW',82],['İsmail Yüksek','RW',78],['Edin Džeko','ST',82],['İrfan Can Eğribayat','GK',75],['Milan Škriniar','CB',82],['Sofyan Amrabat','DM',81],['Oğuz Aydın','RW',77],['En-Nesyri','ST',82]],
- premier_manchestercity:[['Ederson','GK',88],['Joško Gvardiol','LB',84],['Rúben Dias','CB',88],['John Stones','CB',85],['Kyle Walker','RB',84],['Rodri','DM',91],['Bernardo Silva','CM',88],['Kevin De Bruyne','AM',89],['Jérémy Doku','LW',84],['Phil Foden','RW',88],['Erling Haaland','ST',91],['Stefan Ortega','GK',80],['Mateo Kovačić','CM',84],['Jack Grealish','LW',83],['Savinho','RW',82],['Omar Marmoush','ST',82]],
- laliga_barcelona:[['Joan García','GK',82],['Alejandro Balde','LB',82],['Pau Cubarsí','CB',83],['Ronald Araújo','CB',86],['Jules Koundé','RB',86],['Frenkie de Jong','DM',87],['Pedri','CM',89],['Dani Olmo','AM',84],['Raphinha','LW',88],['Lamine Yamal','RW',89],['Robert Lewandowski','ST',88],['Wojciech Szczęsny','GK',80],['Gavi','CM',83],['Fermín López','AM',79],['Ferran Torres','LW',80],['Marcus Rashford','ST',82]],
- laliga_realmadrid:[['Thibaut Courtois','GK',89],['Ferland Mendy','LB',84],['Antonio Rüdiger','CB',86],['Éder Militão','CB',85],['Trent Alexander-Arnold','RB',86],['Aurélien Tchouaméni','DM',85],['Federico Valverde','CM',88],['Jude Bellingham','AM',90],['Vinícius Júnior','LW',90],['Rodrygo','RW',85],['Kylian Mbappé','ST',91],['Andriy Lunin','GK',80],['Eduardo Camavinga','CM',83],['Arda Güler','AM',85],['Brahim Díaz','RW',82],['Endrick','ST',77]],
- bundesliga_bayern:[['Manuel Neuer','GK',85],['Alphonso Davies','LB',84],['Dayot Upamecano','CB',82],['Kim Min-jae','CB',84],['Joshua Kimmich','RB',86],['Leon Goretzka','DM',83],['Jamal Musiala','CM',88],['Michael Olise','AM',85],['Kingsley Coman','LW',84],['Serge Gnabry','RW',82],['Harry Kane','ST',90],['Jonas Urbig','GK',75],['Leroy Sané','RW',85],['Konrad Laimer','DM',80],['Thomas Müller','AM',80],['Nicolas Jackson','ST',81]],
- ligue1_psg:[['Gianluigi Donnarumma','GK',88],['Nuno Mendes','LB',86],['Marquinhos','CB',87],['Lucas Hernández','CB',82],['Achraf Hakimi','RB',87],['João Neves','DM',84],['Vitinha','CM',87],['Désiré Doué','AM',82],['Khvicha Kvaratskhelia','LW',86],['Ousmane Dembélé','RW',90],['Gonçalo Ramos','ST',82],['Matvey Safonov','GK',78],['Fabián Ruiz','CM',82],['Warren Zaïre-Emery','CM',80],['Bradley Barcola','LW',83],['Lee Kang-in','AM',82]]
- ,premier_manchesterunited:[['André Onana','GK',82],['Diogo Dalot','LB',80],['Lisandro Martínez','CB',84],['Matthijs de Ligt','CB',84],['Noussair Mazraoui','RB',80],['Casemiro','DM',82],['Bruno Fernandes','CM',87],['Mason Mount','AM',78],['Marcus Rashford','LW',82],['Amad Diallo','RW',80],['Rasmus Højlund','ST',81],['Altay Bayındır','GK',76],['Harry Maguire','CB',80],['Manuel Ugarte','DM',80],['Alejandro Garnacho','LW',83],['Joshua Zirkzee','ST',78]],
- premier_arsenal:[['David Raya','GK',86],['Oleksandr Zinchenko','LB',80],['William Saliba','CB',87],['Gabriel Magalhães','CB',86],['Ben White','RB',84],['Declan Rice','DM',87],['Martin Ødegaard','CM',88],['Kai Havertz','AM',84],['Gabriel Martinelli','LW',83],['Bukayo Saka','RW',88],['Gabriel Jesus','ST',81],['Neto','GK',78],['Jorginho','CM',80],['Thomas Partey','DM',81],['Leandro Trossard','LW',82],['Gabriel Martinelli','ST',83]],
- premier_chelsea:[['Robert Sánchez','GK',79],['Marc Cucurella','LB',81],['Levi Colwill','CB',80],['Wesley Fofana','CB',81],['Reece James','RB',82],['Moisés Caicedo','DM',84],['Enzo Fernández','CM',84],['Cole Palmer','AM',88],['Mykhailo Mudryk','LW',78],['Pedro Neto','RW',82],['Nicolas Jackson','ST',81],['Filip Jørgensen','GK',76],['Tosin Adarabioyo','CB',78],['Roméo Lavia','DM',78],['Christopher Nkunku','AM',82],['João Félix','ST',80]],
- laliga_atleticomadrid:[['Jan Oblak','GK',88],['Javi Galán','LB',78],['José María Giménez','CB',84],['Robin Le Normand','CB',84],['Nahuel Molina','RB',81],['Rodrigo De Paul','DM',85],['Marcos Llorente','CM',84],['Antoine Griezmann','AM',88],['Samuel Lino','LW',82],['Giuliano Simeone','RW',77],['Julián Álvarez','ST',87],['Juan Musso','GK',79],['Axel Witsel','CB',78],['Conor Gallagher','CM',81],['Alexander Sørloth','ST',82],['Ángel Correa','AM',81]],
- seriea_juventus:[['Michele Di Gregorio','GK',81],['Andrea Cambiaso','LB',82],['Bremer','CB',86],['Federico Gatti','CB',80],['Timothy Weah','RB',79],['Manuel Locatelli','DM',83],['Khephren Thuram','CM',80],['Teun Koopmeiners','AM',84],['Kenan Yıldız','LW',82],['Nicolò Fagioli','RW',79],['Dušan Vlahović','ST',85],['Mattia Perin','GK',78],['Danilo','CB',80],['Douglas Luiz','DM',82],['Francisco Conceição','RW',81],['Arkadiusz Milik','ST',78]],
- seriea_inter:[['Yann Sommer','GK',84],['Federico Dimarco','LB',86],['Alessandro Bastoni','CB',87],['Stefan de Vrij','CB',82],['Denzel Dumfries','RB',83],['Hakan Çalhanoğlu','DM',86],['Nicolò Barella','CM',87],['Henrikh Mkhitaryan','AM',82],['Carlos Augusto','LW',79],['Lautaro Martínez','RW',89],['Marcus Thuram','ST',85],['Josep Martínez','GK',77],['Benjamin Pavard','CB',84],['Piotr Zieliński','CM',82],['Mehdi Taremi','ST',80],['Kristjan Asllani','DM',78]],
- bundesliga_dortmund:[['Gregor Kobel','GK',88],['Julian Ryerson','LB',79],['Nico Schlotterbeck','CB',84],['Waldemar Anton','CB',81],['Yan Couto','RB',80],['Emre Can','DM',81],['Julian Brandt','CM',84],['Giovanni Reyna','AM',79],['Jamie Gittens','LW',82],['Karim Adeyemi','RW',83],['Serhou Guirassy','ST',85],['Alexander Meyer','GK',75],['Niklas Süle','CB',80],['Marcel Sabitzer','CM',82],['Donyell Malen','RW',81],['Maximilian Beier','ST',79]],
- eredivisie_ajax:[['Remko Pasveer','GK',76],['Jorrel Hato','LB',78],['Josip Šutalo','CB',78],['Youri Baas','CB',75],['Devyne Rensch','RB',77],['Jordan Henderson','DM',80],['Kenneth Taylor','CM',78],['Davy Klaassen','AM',79],['Steven Bergwijn','LW',81],['Bertrand Traoré','RW',80],['Brian Brobbey','ST',82],['Diant Ramaj','GK',77],['Anton Gaaei','RB',74],['Branco van den Boomen','CM',77],['Mika Godts','LW',76],['Wout Weghorst','ST',78]],
- portugal_benfica:[['Anatoliy Trubin','GK',82],['Álvaro Carreras','LB',79],['Nicolás Otamendi','CB',82],['António Silva','CB',82],['Alexander Bah','RB',80],['Florentino Luís','DM',82],['Orkun Kökçü','CM',81],['Ángel Di María','AM',84],['Kerem Aktürkoğlu','LW',81],['Fredrik Aursnes','RW',81],['Vangelis Pavlidis','ST',82],['Samuel Sochukwuma','GK',75],['Tomás Araújo','CB',77],['Renato Sanches','CM',78],['Bruma','LW',79],['Arthur Cabral','ST',77]],
- portugal_porto:[['Diogo Costa','GK',84],['Wendell','LB',79],['David Carmo','CB',78],['Pepe','CB',80],['João Mário','RB',79],['Alan Varela','DM',81],['Stephen Eustáquio','CM',80],['Pepê','AM',81],['Galeno','LW',82],['Francisco Moura','RW',77],['Samu Omorodion','ST',81],['Cláudio Ramos','GK',75],['Nehuén Pérez','CB',79],['Nico González','CM',80],['Fábio Vieira','AM',79],['Danny Namaso','ST',76]]
- ,superlig_genclerbirligi:[['Erhan Erentürk','GK',73],['Kévin Rodrigues','LB',72],['Goutas','CB',71],['Metehan Baltacı','CB',70],['Uğur Çiftçi','RB',72],['Rafael Luís','DM',70],['Amir Hadžiahmetović','CM',75],['Yohan Gbouo','AM',68],['Amadou Ciss','LW',70],['Traoré','RW',70],['Sekou Koita','ST',71],['Devis Epassy','GK',72],['Muhammet Ensar Çavuşoğlu','CB',66],['Orakpo','ST',63],['Gökhan Gül','CM',67],['Metehan Mimaroğlu','LW',68]]
- ,superlig_besiktas:[['Mert Günok','GK',79],['Arthur Masuaku','LB',78],['Felix Uduokhai','CB',78],['Gabriel Paulista','CB',79],['Jonas Svensson','RB',76],['Al-Musrati','DM',78],['Gedson Fernandes','CM',81],['Rafa Silva','AM',84],['Semih Kılıçsoy','LW',76],['Milot Rashica','RW',78],['Ciro Immobile','ST',83],['Ersin Destanoğlu','GK',73],['Emirhan Topçu','CB',75],['Salih Uçan','CM',74],['João Mário','AM',76],['Mustafa Hekimoğlu','ST',70]],
- superlig_trabzonspor:[['Uğurcan Çakır','GK',78],['Stefano Denswil','LB',76],['Savic','CB',80],['Batagov','CB',74],['Pedro Malheiro','RB',76],['Okay Yokuşlu','DM',78],['Ozan Tufan','CM',77],['Muhammed Cham','AM',78],['Anthony Nwakaeme','LW',78],['Edin Višća','RW',78],['Simon Banza','ST',82],['Onuralp Çevikkan','GK',68],['Hüseyin Türkmen','CB',72],['John Lundstram','DM',76],['Enis Bardhi','AM',76],['Umut Bozok','ST',73]],
- superlig_basaksehir:[['Volkan Babacan','GK',75],['Lucas Lima','LB',76],['Leo Duarte','CB',76],['Opoku','CB',75],['Ömer Ali Şahiner','RB',74],['Mahmut Tekdemir','DM',74],['Crespo','CM',76],['Miguel Crespo','AM',76],['Davidson','LW',77],['Krzysztof Piątek','ST',82],['João Figueiredo','RW',76],['Muhammed Şengezer','GK',73],['Ömer Faruk Beyaz','CM',70],['Berkay Özcan','AM',75],['Serdar Gürler','RW',74],['Kenyaik','ST',70]],
- superlig_eyupspor:[['Berke Özer','GK',78],['Caner Erkin','LB',76],['Robin Yalçın','CB',72],['İbrahim Akdağ','CB',72],['Uğur Demirok','RB',71],['Tayfur Bingöl','DM',73],['Emre Akbaba','CM',77],['Ahmed Kutucu','AM',78],['Melih Kabasakal','LW',70],['Halil Akbunar','RW',74],['Mame Thiam','ST',78],['Erdem Canpolat','GK',69],['Murat Uçar','RB',70],['Pa Dibba','ST',73],['Samed Kaya','CM',68],['Prince Ampem','LW',72]]
-};
+// Offline team-specific 2026–27 squads. See roster-source/manifest.json.
 const rosterCache={};
-// FC27-style fallback pool: real professional players keep every team card
-// readable even when a lower-league team's full database row is unavailable.
-const FALLBACK_NAMES=['Uğurcan Çakır','Altay Bayındır','Mert Günok','Ferdi Kadıoğlu','Kaan Ayhan','Zeki Çelik','Abdülkerim Bardakcı','Çağlar Söyüncü','Hakan Çalhanoğlu','İsmail Yüksek','Orkun Kökçü','Yusuf Yazıcı','Arda Güler','Kenan Yıldız','Barış Alper Yılmaz','Cengiz Ünder','Semih Kılıçsoy','Alisson','Ederson','Thibaut Courtois','Virgil van Dijk','Rúben Dias','Jude Bellingham','Kevin De Bruyne','Mohamed Salah','Kylian Mbappé','Harry Kane','Pedri','Lamine Yamal','Victor Osimhen','Ousmane Dembélé','Rodri','Bukayo Saka','Lautaro Martínez','Vinícius Júnior','Robert Lewandowski','Erling Haaland','Bruno Fernandes','Antoine Griezmann','Jamal Musiala','Nicolò Barella','Achraf Hakimi','Federico Valverde','Désiré Doué','Khvicha Kvaratskhelia','Julián Álvarez','Nuno Mendes','Marquinhos','Gianluigi Donnarumma'];
-// National-team cores keep the generated 16-player card tied to its actual
-// country. Remaining squad slots use the same verified real-player pool.
-const REAL_TEAM_CORES={
- canada:['Alphonso Davies','Jonathan David','Stephen Eustáquio','Tajon Buchanan'],mexico:['Guillermo Ochoa','Edson Álvarez','Santiago Giménez','Hirving Lozano'],usa:['Christian Pulisic','Weston McKennie','Tyler Adams','Folarin Balogun'],
- argentina:['Emiliano Martínez','Lionel Messi','Julián Álvarez','Enzo Fernández'],bolivia:['Guillermo Viscarra','Luis Haquín','Ramiro Vaca','Miguel Terceros'],brazil:['Alisson','Marquinhos','Vinícius Júnior','Rodrygo'],colombia:['Luis Díaz','James Rodríguez','Jhon Arias','Richard Ríos'],ecuador:['Moisés Caicedo','Piero Hincapié','Enner Valencia','Kendry Páez'],paraguay:['Julio Enciso','Miguel Almirón','Matías Rojas','Antonio Sanabria'],uruguay:['Federico Valverde','Darwin Núñez','Ronald Araújo','Luis Suárez'],
- australia:['Mathew Ryan','Harry Souttar','Jackson Irvine','Craig Goodwin'],iran:['Alireza Beiranvand','Mehdi Taremi','Sardar Azmoun','Saman Ghoddos'],iraq:['Aymen Hussein','Ali Jasim','Amir Al-Ammari','Mohanad Ali'],japan:['Zion Suzuki','Takefusa Kubo','Kaoru Mitoma','Wataru Endo'],jordan:['Yazeed Abu Layla','Mousa Al-Taamari','Yazan Al-Naimat','Nizar Mahmoud'],qatar:['Akram Afif','Almoez Ali','Hassan Al-Haydos','Meshaal Barsham'],saudi:['Salem Al-Dawsari','Yasser Al-Shahrani','Firas Al-Braikan','Mohammed Kanno'],southkorea:['Son Heung-min','Kim Min-jae','Lee Kang-in','Hwang Hee-chan'],uzbekistan:['Eldor Shomurodov','Abbosbek Fayzullaev','Oston Urunov','Jaloliddin Masharipov'],
- algeria:['Riyad Mahrez','Ismaël Bennacer','Amine Gouiri','Ramy Bensebaini'],capeverde:['Ryan Mendes','Bebé','Logan Costa','Jovane Cabral'],egypt:['Mohamed Salah','Omar Marmoush','Mohamed Elneny','Mostafa Mohamed'],ghana:['Thomas Partey','Mohammed Kudus','Jordan Ayew','Inaki Williams'],ivorycoast:['Franck Kessié','Simon Adingra','Wilfried Zaha','Sébastien Haller'],morocco:['Achraf Hakimi','Brahim Díaz','Youssef En-Nesyri','Sofyan Amrabat'],nigeria:['Victor Osimhen','Ademola Lookman','Samuel Chukwueze','Alex Iwobi'],senegal:['Sadio Mané','Kalidou Koulibaly','Ismaïla Sarr','Nicolas Jackson'],southafrica:['Ronwen Williams','Percy Tau','Teboho Mokoena','Lyle Foster'],tunisia:['Ellyes Skhiri','Hannibal Mejbri','Youssef Msakni','Montassar Talbi'],cameroon:['André Onana','Bryan Mbeumo','Vincent Aboubakar','Karl Toko Ekambi'],
- costarica:['Keylor Navas','Manfred Ugalde','Joel Campbell','Francisco Calvo'],curacao:['Eloy Room','Leandro Bacuna','Juninho Bacuna','Rangelo Janga'],haiti:['Duckens Nazon','Frantzdy Pierrot','Dylan Saint-Louis','Carlens Arcus'],honduras:['Luis Palma','Anthony Lozano','Alberth Elis','Denil Maldonado'],jamaica:['Leon Bailey','Michail Antonio','Demarai Gray','Ethan Pinnock'],panama:['Michael Murillo','Adalberto Carrasquilla','José Fajardo','Édgar Bárcenas'],
- england:['Jordan Pickford','Jude Bellingham','Harry Kane','Bukayo Saka'],france:['Mike Maignan','Kylian Mbappé','Antoine Griezmann','Ousmane Dembélé'],germany:['Marc-André ter Stegen','Joshua Kimmich','Jamal Musiala','Florian Wirtz'],netherlands:['Virgil van Dijk','Frenkie de Jong','Xavi Simons','Cody Gakpo'],norway:['Erling Haaland','Martin Ødegaard','Alexander Sørloth','Antonio Nusa'],portugal:['Diogo Costa','Bruno Fernandes','Bernardo Silva','Rafael Leão'],scotland:['Andrew Robertson','Scott McTominay','John McGinn','Billy Gilmour'],spain:['Unai Simón','Rodri','Pedri','Lamine Yamal'],sweden:['Viktor Gyökeres','Alexander Isak','Dejan Kulusevski','Isak Hien'],switzerland:['Gregor Kobel','Granit Xhaka','Manuel Akanji','Breel Embolo'],turkiye:['Uğurcan Çakır','Hakan Çalhanoğlu','Arda Güler','Kenan Yıldız'],belgium:['Kevin De Bruyne','Thibaut Courtois','Jérémy Doku','Romelu Lukaku']
-};
+const VERIFIED_ROSTERS=window.MINISAHA_ROSTERS||{};
 function rosterFor(teamKey){
  if(rosterCache[teamKey])return rosterCache[teamKey];
- const named=ROSTER_TEMPLATES[teamKey];
- const t=getCountry(teamKey),positions=['GK','LB','CB','CB','RB','DM','CM','AM','LW','RW','ST','GK','CM','AM','RW','ST'];
- let hash=0;for(const c of teamKey)hash=(hash*31+c.charCodeAt(0))>>>0;
- // Use a coprime stride so a 16-player squad never repeats a name from the
- // real-name pool (the previous stride could cycle after only seven entries).
- const core=REAL_TEAM_CORES[teamKey]||[];
- const available=core.concat(FALLBACK_NAMES.filter(n=>!core.includes(n)));
- const list=named||positions.map((pos,i)=>[i<core.length?core[i]:available[(hash+(i-core.length)*11)%available.length],pos,Math.round(68+(i%5)*2+(teamKey.includes('real')?8:0))]);
- return rosterCache[teamKey]=list.map((r,i)=>{const [name,pos,overall]=r;const pace=Math.round(clamp(overall+(pos==='LW'||pos==='RW'?5:pos==='CB'?-6:0),55,99));const shot=Math.round(clamp(overall+(pos==='ST'?7:pos==='GK'?-30:0),35,99));const pass=Math.round(clamp(overall+(pos==='CM'||pos==='AM'?4:0),45,99));const tackle=Math.round(clamp(overall+(pos==='CB'||pos==='DM'?6:pos==='ST'?-15:0),35,99));const dribble=Math.round(clamp(overall+(pos==='LW'||pos==='RW'||pos==='AM'?5:0),35,99));const physical=Math.round(clamp(overall+(pos==='CB'||pos==='ST'?5:0),35,99));return {name,position:pos,overall,pace,shot,pass,tackle,dribble,physical,strength:physical,jumping:Math.round(clamp(physical+(pos==='GK'||pos==='CB'?4:0),35,99)),finishing:Math.round(clamp(shot+(pos==='ST'?4:0),30,99))};});
+ const source=VERIFIED_ROSTERS[teamKey];
+ if(!source||source.players.length<11)throw new Error('Takım kadrosu yüklenemedi: '+teamKey);
+ // No generated names, cross-team player pools, duplicate padding or stale network cache.
+ return rosterCache[teamKey]=source.players.map(p=>({...p,positions:[...p.positions]}));
 }
-// FC26 fallback importer. It uses the public FC26 DataHub CSV when the game
-// is opened online, then replaces only teams with a verified club match.
-// This prevents a player's real name from being assigned to another club.
-const FC26_PLAYERS_URL='https://raw.githubusercontent.com/ismailoksuz/EAFC26-DataHub/main/data/players.csv';
-const remoteCsvField=(row,names)=>{for(const n of names){if(row[n]!=null&&String(row[n]).trim())return String(row[n]).trim();}return '';};
-const normalizeClub=s=>String(s||'').toLocaleLowerCase('tr').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/g,'');
-function parseCsvRows(text){const rows=[];let row=[],cell='',quoted=false;for(let i=0;i<text.length;i++){const c=text[i];if(c==='"'){if(quoted&&text[i+1]==='"'){cell+='"';i++;}else quoted=!quoted;}else if(c===','&&!quoted){row.push(cell);cell='';}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some(v=>String(v).trim()))rows.push(row);row=[];cell='';}else cell+=c;}if(cell||row.length){row.push(cell);rows.push(row);}if(!rows.length)return [];const headers=rows.shift().map(x=>String(x).trim());return rows.map(r=>Object.fromEntries(headers.map((h,i)=>[h,String(r[i]??'').trim()])));}
-function fc26Position(pos){pos=String(pos||'').toUpperCase();if(pos.includes('GK'))return 'GK';if(pos.includes('LB')||pos.includes('LWB'))return 'LB';if(pos.includes('RB')||pos.includes('RWB'))return 'RB';if(pos.includes('CB'))return 'CB';if(pos.includes('CDM')||pos.includes('DM'))return 'DM';if(pos.includes('CAM')||pos.includes('CF'))return 'AM';if(pos.includes('CM'))return 'CM';if(pos.includes('LM')||pos.includes('LW'))return 'LW';if(pos.includes('RM')||pos.includes('RW'))return 'RW';return 'ST';}
-async function loadFC26Rosters(){try{
- const saved=localStorage.getItem('mini-saha-fc26-rosters-v1');
- if(saved){const cached=JSON.parse(saved);let count=0;for(const [key,list] of Object.entries(cached)){if(Array.isArray(list)&&list.length>=11){ROSTER_TEMPLATES[key]=list;delete rosterCache[key];count++;}}if(count){setupTeams();applyTeamNames();renderSquad();setMessage(`Kayıtlı FC26 kadroları yüklendi: ${count} takım`,2);return;}}
- const res=await fetch(FC26_PLAYERS_URL,{cache:'no-store'});if(!res.ok)return;const text=await res.text();const rows=parseCsvRows(text);if(!rows.length)return;const byClub=new Map();for(const r of rows){const club=remoteCsvField(r,['Club','club','Team','team','club_name']);if(!club)continue;const k=normalizeClub(club);if(!byClub.has(k))byClub.set(k,[]);byClub.get(k).push(r);}let imported=0;const importedPayload={};for(const t of COUNTRY_TEAMS){if(!t.key.includes('_'))continue;const wanted=normalizeClub(t.name);let group=byClub.get(wanted);if(!group){for(const [k,v] of byClub){if(k===wanted||k.includes(wanted)||wanted.includes(k)){group=v;break;}}}if(!group||group.length<11)continue;const picked=group.map(r=>{const pos=fc26Position(remoteCsvField(r,['Position','position','Pos']));const overall=Number(remoteCsvField(r,['Overall','overall','OVR','Rating']))||65;return [remoteCsvField(r,['Name','name','Player','player_name']),pos,overall];}).filter(x=>x[0]);picked.sort((a,b)=>b[2]-a[2]);const unique=[];const seen=new Set();for(const p of picked){if(!seen.has(p[0])){seen.add(p[0]);unique.push(p);}if(unique.length===16)break;}if(unique.length<11)continue;while(unique.length<16)unique.push(unique[unique.length%unique.length]);const finalList=unique.slice(0,16);ROSTER_TEMPLATES[t.key]=finalList;importedPayload[t.key]=finalList;delete rosterCache[t.key];imported++;}if(imported){try{localStorage.setItem('mini-saha-fc26-rosters-v1',JSON.stringify(importedPayload));}catch(_){}setupTeams();applyTeamNames();renderSquad();setMessage(`FC26 kadroları kaydedildi: ${imported} takım`,2);}}catch(_){/* offline/local file: curated rosters remain active */}}
+const lineupCache=new Map();
+function positionPenalty(card,slot){
+ const positions=card.positions||[card.position];
+ if(positions.includes(slot))return 0;
+ if(slot==='GK'||positions.includes('GK'))return 10000;
+ const family=p=>['CB','LB','RB','D'].includes(p)?'D':['ST','LW','RW','F'].includes(p)?'F':'M';
+ const close={CB:['DM'],LB:['LM','RB'],RB:['RM','LB'],DM:['CM','CB'],CM:['DM','AM'],AM:['CM','LW','RW','ST'],LM:['LW','CM'],RM:['RW','CM'],LW:['LM','RW','AM'],RW:['RM','LW','AM'],ST:['AM','LW','RW']};
+ return Math.min(...positions.map(p=>p===family(slot)?14:close[slot]?.includes(p)?9:family(p)===family(slot)?17:32));
+}
+function lineupFor(teamKey,shape){
+ const cacheKey=teamKey+':'+shape.map(s=>s[0]).join(',');
+ if(lineupCache.has(cacheKey))return lineupCache.get(cacheKey);
+ const roster=rosterFor(teamKey),n=shape.length,m=roster.length;
+ // Rectangular Hungarian assignment: maximize the whole lineup, not a greedy first-five slice.
+ const cost=shape.map(([slot])=>roster.map(p=>100-p.overall+positionPenalty(p,slot)));
+ const u=Array(n+1).fill(0),v=Array(m+1).fill(0),assigned=Array(m+1).fill(0),way=Array(m+1).fill(0);
+ for(let i=1;i<=n;i++){
+  assigned[0]=i;let j0=0;const min=Array(m+1).fill(Infinity),used=Array(m+1).fill(false);
+  do{
+   used[j0]=true;const i0=assigned[j0];let delta=Infinity,j1=0;
+   for(let j=1;j<=m;j++)if(!used[j]){const cur=cost[i0-1][j-1]-u[i0]-v[j];if(cur<min[j]){min[j]=cur;way[j]=j0;}if(min[j]<delta){delta=min[j];j1=j;}}
+   for(let j=0;j<=m;j++){if(used[j]){u[assigned[j]]+=delta;v[j]-=delta;}else min[j]-=delta;}
+   j0=j1;
+  }while(assigned[j0]!==0);
+  do{const j1=way[j0];assigned[j0]=assigned[j1];j0=j1;}while(j0!==0);
+ }
+ const result=Array(n);for(let j=1;j<=m;j++)if(assigned[j])result[assigned[j]-1]=roster[j-1];
+ lineupCache.set(cacheKey,result);return result;
+}
 const FORMATIONS={
  '433':[['GK',108,310],['LB',220,112],['CB',205,246],['CB',205,374],['RB',220,508],['CM',338,192],['DM',290,310],['CM',338,428],['LW',438,118],['ST',448,310],['RW',438,502]],
  '4231':[['GK',108,310],['LB',220,112],['CB',205,246],['CB',205,374],['RB',220,508],['DM',303,233],['DM',303,387],['LW',412,120],['AM',377,310],['RW',412,500],['ST',458,310]],
@@ -708,19 +705,19 @@ function aiDribbleTarget(p){
 function renderSquad(){
  const box=document.getElementById('squadList');box.replaceChildren();
  document.getElementById('formationSelect').disabled=matchSize===5;
- document.getElementById('squadSummary').textContent='Kadrolar · '+teamLong('blue')+' / '+teamLong('red')+' · '+shapeName();
+ document.getElementById('squadSummary').textContent='Kadrolar · '+teamLong('blue')+' / '+teamLong('red')+' · '+shapeName()+' · Kadro: 28.09.2026 · Puanlar: FC26 / tahmini';
  const renderTeam=(team,players)=>{
   const roster=rosterFor(teamChoice[team]);
-  const heading=document.createElement('div');heading.className='squadRow';heading.innerHTML='<strong>'+teamTitle(team)+' İlk 11</strong><span>'+roster.slice(0,11).map(r=>r.name+' · '+r.overall).join(' | ')+'</span>';box.append(heading);
+  const heading=document.createElement('div');heading.className='squadRow';heading.innerHTML='<strong>'+teamTitle(team)+' İlk '+players.length+'</strong><span>'+players.map(p=>p.roster).map(r=>r.name+' · '+r.overall).join(' | ')+'</span>';box.append(heading);
   players.forEach(p=>{
    const item=document.createElement('div');item.className='squadRow';
    const title=document.createElement('strong'),desc=document.createElement('span');
-   const r=roster[p.num-1]||roster[0];p.roster=r;
-   title.textContent='#'+p.num+' · '+r.name+' · '+r.overall;
+   const r=p.roster;
+   title.textContent='#'+(r.jersey||p.num)+' · '+r.name+' · '+r.overall+(r.ratingSource==='estimate'?' (tahmini)':'');
    desc.textContent=profile(p).short+' · Hız '+r.pace+' · Şut '+r.shot+' · Pas '+r.pass+' · Savunma '+r.tackle;
    item.append(title,desc);box.append(item);
   });
-  const bench=roster.slice(11);if(bench.length){const sub=document.createElement('div');sub.className='squadRow';sub.innerHTML='<strong>'+teamTitle(team)+' Yedekler</strong><span>'+bench.map(r=>`${r.name} (${r.overall})`).join(' · ')+'</span>';box.append(sub);}
+  const active=new Set(players.map(p=>p.roster.id));const bench=roster.filter(r=>!active.has(r.id));if(bench.length){const sub=document.createElement('div');sub.className='squadRow';sub.innerHTML='<strong>'+teamTitle(team)+' Yedekler</strong><span>'+bench.map(r=>`${r.name} (${r.overall})`).join(' · ')+'</span>';box.append(sub);}
  };
  renderTeam('blue',blue);renderTeam('red',red);
 }
@@ -3404,6 +3401,7 @@ function commentaryText(line,data={}){
  return cleanCommentaryText(line.replace(/\{(\w+)\}/g,(_,key)=>values[key]||''));
 }
 function sayCommentary(kind,data={},priority=1){
+ if(fastSimulation)return false;
  if(!commentatorEnabled||!commentary.unlocked||!commentarySupported()||!commentary.voice||document.hidden)return false;
  const now=performance.now();
  if(priority<6&&now<commentary.holdUntil)return false;
@@ -3489,6 +3487,7 @@ function initCommentary(){
 let soundEnabled = false, audioContext = null;
 let history = [];
 let pausedFrom = 'playing';
+let simulationMode = 'manual', fastSimulation = false, simulationJob = 0;
 let setPiece=null;
 
 const KEY_ACTIONS={up:'İleri / yukarı',down:'Geri / aşağı',left:'Sola git',right:'Sağa git',pass:'Pas / pres',through:'Ara pas / ikinci pres',cross:'Orta / kayarak müdahale',shoot:'Şut / ayakta müdahale',sprint:'Koş',switch:'Oyuncu değiştir',pause:'Duraklat / devam et'};
@@ -3644,10 +3643,10 @@ function applyTeamNames(){
   el.matchLabel.textContent = `${teamLong('blue')} vs ${teamLong('red')}`;
 }
 
-function makePlayer(team, role, num, x, y, position){
+function makePlayer(team, role, num, x, y, position, assignedCard){
   const data=POSITIONS[position]||POSITIONS.CM;
   const roster=rosterFor(teamChoice[team]);
-  const card=roster[num-1]||roster[0],rating=card?.overall||75;
+  const card=assignedCard||lineupFor(teamChoice[team],FORMATIONS[matchSize===11?formation:'5'])[num-1],rating=card.overall;
   return {
     team, role, position:position||"CM",roster:card,overall:rating,runTimer:0,assignment:"Pozisyon al", num, x, y, vx:0, vy:0, r: PLAYER_SCALE*(role==='gk'?(matchSize===11?14:17):(matchSize===11?11:15)),
     speed: (role==='gk'?250:(matchSize===11?236:268)*data.pace)*(0.60+clamp((rating-75)*.002,-.06,.06)), accel: (role==='gk'?8.5:9.5)*.60,
@@ -3666,8 +3665,9 @@ function resetStats(){
 
 function setupTeams(){
   const shape=FORMATIONS[matchSize===11?formation:'5'];
-  blue=shape.map(([position,x,y],i)=>makePlayer('blue',POSITIONS[position].role,i+1,x,y,position));
-  red=shape.map(([position,x,y],i)=>makePlayer('red',POSITIONS[position].role,i+1,W-x,H-y,position));
+  const blueLineup=lineupFor(teamChoice.blue,shape),redLineup=lineupFor(teamChoice.red,shape);
+  blue=shape.map(([position,x,y],i)=>makePlayer('blue',POSITIONS[position].role,i+1,x,y,position,blueLineup[i]));
+  red=shape.map(([position,x,y],i)=>makePlayer('red',POSITIONS[position].role,i+1,W-x,H-y,position,redLineup[i]));
   players=blue.concat(red);selected=blue[matchSize===11?6:3];brains={blue:null,red:null};
   renderSquad();
 }
@@ -3692,6 +3692,7 @@ function resetKickoff(teamToStart='blue'){
 }
 
 function fullReset(){
+  simulationJob++;fastSimulation=false;simulationMode="manual";syncSimulationUI();
   bindingCapture=null;renderKeyBindings();
   stopCommentary(true);
   attackPlan={style:'central',previous:'',until:0,sequence:0,ownerTeam:null,passes:[],actions:[]};setPiece=null;
@@ -3699,6 +3700,7 @@ function fullReset(){
   REGULATION_SECONDS = Number(document.getElementById('duration').value) || 90;
   elapsed = 0; goalPause = 0; scoringLock = 0; manualLock = 0; keeperControlLock = 0;
   extraTimeStarted = false; stoppageSeconds = 0; penalty = null; penaltyTimer = 0; penaltyResult = null; passAssist = null; offsideLine = null;
+  applyTeamNames();
   resetStats();
   resetKickoff('blue');
   setPiece=null;
@@ -3736,16 +3738,68 @@ function startGame(){
 }
 
 function togglePause(){
+  if(fastSimulation)return;
   if(state==='playing' || state==='penalties'){
     pausedFrom=state; state='paused'; clearInput();stopCommentary();
     el.penaltyScreen.style.display='none'; el.pause.textContent='Devam et';
+    document.getElementById('pauseMatchInfo').textContent=`${teamLong('blue')} ${score.blue}–${score.red} ${teamLong('red')} · ${minuteMark()}`;
+    document.getElementById('pauseMenu').style.display='flex';
+    document.getElementById('pauseResume').focus?.();
   }else if(state==='paused'){
     state=pausedFrom; clearInput();
+    document.getElementById('pauseMenu').style.display='none';
     if(state==='penalties') el.penaltyScreen.style.display='flex';
     el.pause.textContent='Duraklat';
   }
 }
 
+
+function syncSimulationUI(){
+ document.getElementById('pauseMenu').style.display='none';
+ document.getElementById('simReturn').style.display=simulationMode==='watch'&&!fastSimulation?'block':'none';
+ document.getElementById('simProgress').style.display=fastSimulation?'flex':'none';
+ document.getElementById('pauseWatch').disabled=simulationMode==='watch';
+}
+function watchSimulation(){
+ if(state!=='paused')return;
+ simulationMode='watch';clearInput();togglePause();syncSimulationUI();
+ setMessage('Simülasyon · Kontrolü geri alabilirsin',1.5);
+}
+function resumeManualControl(){
+ if(fastSimulation||simulationMode!=='watch')return;
+ simulationMode='manual';clearInput();syncSimulationUI();
+ if(state==='paused')togglePause();
+ if(ball.owner?.team==='blue')selected=ball.owner;else selected=nearestBlueToBall();
+ focusGame();setMessage('Kontrol sende',.8);
+}
+function simulateToEnd(){
+ if(state!=='paused'||fastSimulation)return;
+ simulationMode='watch';togglePause();fastSimulation=true;stopCommentary();clearInput();
+ const job=++simulationJob;syncSimulationUI();
+ const advance=()=>{
+  if(job!==simulationJob||!fastSimulation)return;
+  try{
+   // Fixed physics steps: do not stretch dt or manufacture a random final score.
+   const started=performance.now();let steps=0;
+   while((state==='playing'||state==='penalties')&&steps<360&&performance.now()-started<20){updateGame(1/60);steps++;}
+   if(!fastSimulation)return;
+   document.getElementById('simProgress').textContent=`Maç tamamlanıyor… ${minuteMark()} · ${score.blue}–${score.red}`;
+   setTimeout(advance,0);
+  }catch(err){emergencyEnd(err);}
+ };
+ setTimeout(advance,0);
+}
+function autoPenaltyAction(){
+ if(!penalty||penalty.locked||penalty.finished)return;
+ const side=penalty.stage==='shoot'?'blue':'red';
+ const takers=squad(side).filter(p=>p.role!=='gk').sort((a,b)=>b.roster.finishing-a.roster.finishing);
+ const shooter=takers[penaltyTaken(side)%takers.length],keeper=squad(otherTeam(side))[0];
+ const chance=clamp(.73+(shooter.roster.finishing-75)*.004-(keeper.overall-75)*.003,.48,.9);
+ const goal=Math.random()<chance,dirs=['left','center','right'],shotDir=dirs[Math.floor(Math.random()*3)];
+ penalty.locked=true;
+ penalty.scene={phase:'anim',kind:penalty.stage,t:0,duration:.88,success:side==='blue'?goal:!goal,shotDir,keeperDive:goal?dirs[(dirs.indexOf(shotDir)+1)%3]:shotDir,caught:!goal};
+ updatePenaltyUI();setPenaltyButtons(false);
+}
 
 function isFullscreen(){
   return !!(document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement);
@@ -3777,8 +3831,8 @@ async function toggleFullscreen(){
 
 el.start.addEventListener('click', startGame);
 el.menuStart.addEventListener('click', startGame);
-el.blueTeamSelect.addEventListener('change', () => { applyTeamNames(); setMessage(teamLong('blue'), .6); });
-el.redTeamSelect.addEventListener('change', () => { applyTeamNames(); setMessage(teamLong('red'), .6); });
+el.blueTeamSelect.addEventListener('change', () => { applyTeamNames(); if(state==='ready')setupTeams(); setMessage(teamLong('blue'), .6); });
+el.redTeamSelect.addEventListener('change', () => { applyTeamNames(); if(state==='ready')setupTeams(); setMessage(teamLong('red'), .6); });
 el.pause.addEventListener('click', togglePause);
 el.restart.addEventListener('click', () => { fullReset(); startGame(); });
 if(el.fullscreen) el.fullscreen.addEventListener('click', toggleFullscreen);
@@ -4110,12 +4164,12 @@ function updateBlueSupport(dt){
   }
 }
 
-function aiParams(){
+function aiParams(team="red"){
  const base=DIFF[el.diff.value]||DIFF.amateur;
  // Small score-based correction keeps matches competitive without scripting
  // a result: a trailing AI gets at most +8% quality, a leading AI at most
  // -8%. This removes the extreme easy/hard swings caused by random actions.
- const deficit=clamp((score.blue-score.red)*.035,-.08,.08), q=1+deficit;
+ const deficit=clamp((score[otherTeam(team)]-score[team])*.035,-.08,.08), q=1+deficit;
  return {...base,speed:base.speed*q,react:clamp(base.react+deficit*.55,0,1),pass:clamp(base.pass+deficit*.60,0,1),shoot:clamp(base.shoot+deficit*.55,0,1),tackle:clamp(base.tackle+deficit*.55,0,1),keep:clamp(base.keep+deficit*.45,0,1),err:base.err*(1-deficit*.60),decision:base.decision*(1-deficit*.35)};
 }
 
@@ -4145,21 +4199,21 @@ function redCoverSpot(p,carrier){
 }
 
 function attackingOptions(owner,d){
- const marker=nearestPlayer(blue,owner.x,owner.y,true);
+ const marker=nearestPlayer(squad(otherTeam(owner.team)),owner.x,owner.y,true);
  const space=marker?dist(owner.x,owner.y,marker.x,marker.y):200;
  const pressured=space<82;
  const shot=planAIShot(owner),options=[];
- const forwardRoom=Math.max(0,owner.x-FIELD.l-110);
+ const forwardRoom=Math.max(0,localX(owner.team,owner.x)-FIELD.l-110);
  options.push({kind:'dribble',value:55+Math.min(space,140)*.22+Math.min(45,forwardRoom*.12)-Math.max(0,82-space)*.7-Math.max(0,owner.holdTime-2)*12});
  if(shot&&shot.quality>.12){
   const clearChance=shot.distance<260&&shot.lane>.72&&shot.quality>.34;
   options.push({kind:'shoot',shot,value:clearChance?230:shot.quality*190+d.shoot*18});
  }
- const target=choosePassTarget(owner,'red',false);
+ const target=choosePassTarget(owner,owner.team,false);
  if(target){
-  const lane=laneQuality(owner,target.x,target.y),marker=nearestPlayer(blue,target.x,target.y,true);
+  const lane=laneQuality(owner,target.x,target.y),marker=nearestPlayer(squad(otherTeam(owner.team)),target.x,target.y,true);
   const receiverSpace=marker?dist(target.x,target.y,marker.x,marker.y):200;
-  const ahead=owner.x-target.x;
+  const ahead=(target.x-owner.x)*(owner.team==='blue'?1:-1);
   // Pressure allows a safe relief pass; open space rewards progression.
   // Never ban a third pass just because the previous two were passes.
   if(lane>.28&&receiverSpace>25){
@@ -4172,15 +4226,17 @@ function attackingOptions(owner,d){
   }
  }
  const cross=chooseCrossTarget(owner);
- if(cross&&Math.abs(owner.y-FIELD.cy)>110&&owner.x<FIELD.cx+30){
+ if(cross&&Math.abs(owner.y-FIELD.cy)>110&&localX(owner.team,owner.x)>FIELD.cx-30){
   options.push({kind:'cross',target:cross,value:55+d.pass*25+(attackPlan.style==='left'||attackPlan.style==='right'?14:0)});
  }
  return options;
 }
 
-function updateRedAI(dt){
- const d=aiParams(),owner=ball.owner?.team==='red'?ball.owner:null;
- for(const p of red)p.aiAction=Math.max(0,p.aiAction-dt);
+function updateRedAI(dt){updateTeamAI('red',dt);}
+function updateTeamAI(team,dt){
+ const members=squad(team);
+ const d=aiParams(team),owner=ball.owner?.team===team?ball.owner:null;
+ for(const p of members)p.aiAction=Math.max(0,p.aiAction-dt);
  if(owner){
   owner.assignment='Topu taşı';
   if(owner.role==='gk'){
@@ -4202,10 +4258,10 @@ function updateRedAI(dt){
   }
   if(ball.owner===owner&&owner.role!=='gk'){const target=aiDribbleTarget(owner);moveToward(owner,target.x,target.y,dt,d.speed,8);}
  }
- for(const p of red){
+ for(const p of members){
   if(p===owner||p.role==='gk')continue;
-  if(passAssist&&passAssist.team==='red'&&passAssist.target===p&&!ball.owner){p.assignment='Pas al';moveToward(p,passAssist.x,passAssist.y,dt,d.speed*(passAssist.through?1.16:1.06),4);continue;}
-  const pressing=brains.red?.presser===p||brains.red?.second===p;
+  if(passAssist&&passAssist.team===team&&passAssist.target===p&&!ball.owner){p.assignment='Pas al';moveToward(p,passAssist.x,passAssist.y,dt,d.speed*(passAssist.through?1.16:1.06),4);continue;}
+  const pressing=brains[team]?.presser===p||brains[team]?.second===p;
   followPlan(p,dt,d.speed*(pressing?.76+d.react*.4:.86));
  }
 }
@@ -4213,7 +4269,7 @@ function updateRedAI(dt){
 function choosePassTarget(p,team,through=false){
   const mates=team==='blue'?blue:red,attackDir=team==='blue'?1:-1;
   let ax=0,ay=0;
-  if(team==='blue'){
+  if(team==='blue'&&simulationMode==='manual'){
     const gp=getGamepadInput();
     const axis=keyboardAxis();ax=axis.x+mobile.x+gp.x;ay=axis.y+mobile.y+gp.y;
   }
@@ -4221,7 +4277,7 @@ function choosePassTarget(p,team,through=false){
   if(aiming)return directionalReceiver(p,aim,through);
   let best=null,bs=-Infinity;
   for(const m of mates){
-    if(m===p || (m.role==='gk' && team==='red') || (m.role==='gk' && (through || (team==='blue'&&!aiming))) || isOffsidePass(p,m))continue;
+    if(m===p || (m.role==='gk' && (team==='red'||simulationMode!=='manual')) || (m.role==='gk' && (through || (team==='blue'&&!aiming))) || isOffsidePass(p,m))continue;
     const dx=m.x-p.x,dy=m.y-p.y,d=Math.hypot(dx,dy);
     if(d<35||d>620)continue;
     const alignment=aiming?(dx*aim.x+dy*aim.y)/d:0;
@@ -4230,18 +4286,18 @@ function choosePassTarget(p,team,through=false){
     const opponent=nearestPlayer(team==='blue'?red:blue,m.x,m.y,true);
     const open=dist(m.x,m.y,opponent.x,opponent.y);
     const passLane=laneQuality(p,m.x,m.y),lane=passLane*125-70;
-    if(team==='red'&&(passLane<=.28||open<=25))continue;
+    if((team==='red'||simulationMode!=='manual')&&(passLane<=.28||open<=25))continue;
     const pressure=dist(p.x,p.y,...(()=>{const n=nearestPlayer(team==='blue'?red:blue,p.x,p.y,true);return[n.x,n.y]})());
     // Do not retreat with the ball when a safe forward option exists. A
     // backward pass is reserved for real pressure, not for a comfortable
     // lead or a random decision roll.
-    if(team==='red'&&forward< -20&&pressure>82)continue;
+    if((team==='red'||simulationMode!=='manual')&&forward< -20&&pressure>82)continue;
     // Backward passes are relief passes only when the carrier is genuinely
     // under pressure. An open player should progress or switch play instead.
-    const relief=team==='red'&&pressure<82&&forward<0&&open>55?28:0;
+    const relief=(team==='red'||simulationMode!=='manual')&&pressure<82&&forward<0&&open>55?28:0;
     const preferredY=attackPlan.style==='left'?140:attackPlan.style==='right'?480:FIELD.cy;
-    const routeBias=team==='red'?(attackPlan.style==='switch'?Math.abs(m.y-p.y)*.11:Math.max(0,35-Math.abs(m.y-preferredY)*.15)):0;
-    const variety=team==='red'?Math.sin(m.num*17+p.num*11+attackPlan.sequence*7)*12:0;
+    const routeBias=(team==='red'||simulationMode!=='manual')?(attackPlan.style==='switch'?Math.abs(m.y-p.y)*.11:Math.max(0,35-Math.abs(m.y-preferredY)*.15)):0;
+    const variety=(team==='red'||simulationMode!=='manual')?Math.sin(m.num*17+p.num*11+attackPlan.sequence*7)*12:0;
     const progression=forward>0?forward*(aiming?.20:.82):forward*(pressure<82?.12:.95);
     const value=Math.min(open,140)*.7+progression-d*.14+lane+relief+(through?Math.max(0,forward)*.3:0)+alignment*220+routeBias+variety-repeatPassPenalty(p,m)*(pressure<82?.45:1)-(m.role==='gk'?140:0);
     if(value>bs){bs=value;best=m;}
@@ -4453,7 +4509,7 @@ function passBall(p, through=false, targetOverride=null, power=.22){
     tx = p.x + p.faceX*(through?180:115);
     ty = p.y + p.faceY*(through?130:70);
   }
-  if(p.team==='red'&&through){const spread=(1-clamp(aiParams().pass*profile(p).pass,0,1))*55;tx+=rnd(-spread,spread);ty+=rnd(-spread,spread);}
+  if((p.team==='red'||simulationMode!=='manual')&&through){const spread=(1-clamp(aiParams(p.team).pass*profile(p).pass,0,1))*55;tx+=rnd(-spread,spread);ty+=rnd(-spread,spread);}
   tx = clamp(tx, FIELD.l+25, FIELD.r-25);
   ty = clamp(ty, FIELD.t+25, FIELD.b-25);
   const n=norm(tx-ball.x,ty-ball.y);
@@ -4484,7 +4540,7 @@ function shootBall(p, power=0.65, aimX=0, aimY=0, ai=null){
   const targetX = team==='blue' ? FIELD.r + 15 : FIELD.l - 15;
   const ownHalf = team==='blue' ? p.x < FIELD.cx : p.x > FIELD.cx;
   const goalDist = dist(p.x,p.y,targetX,GOAL.cy);
-  const baseErr = (team==='red' ? (ai||aiParams()).err : 16)/profile(p).shot;
+  const baseErr = (team==='red'||simulationMode!=='manual' ? (ai||aiParams(team)).err : 16)/profile(p).shot;
   const farPenalty = clamp((goalDist-250)/260, 0, 1);
   const ownPenalty = ownHalf ? .70 : 0;
   const err = (baseErr + farPenalty*32 + ownPenalty*55) * (1.12-power*.48);
@@ -4586,7 +4642,7 @@ function updateKeepers(dt){
   if(ball.owner===gk){
    gk.trackingShot=false;gk.readTimer=0;
    gk.diveTime=0;
-   if(gk.team==='blue'&&gk===selected)continue;
+   if(simulationMode==='manual'&&gk.team==='blue'&&gk===selected)continue;
    gk.vx=0;gk.vy=0;gk.faceX=gk.team==='blue'?1:-1;gk.faceY=0;
    continue;
   }
@@ -4597,7 +4653,7 @@ function updateKeepers(dt){
   if(gk.diveTime>0){
    moveKeeperDive(gk,skill,dt);continue;
   }
-  if(gk===selected&&gk.team==='blue'&&ball.owner===gk)continue;
+  if(simulationMode==='manual'&&gk===selected&&gk.team==='blue'&&ball.owner===gk)continue;
   const ownLeft=gk.team==='blue',goalX=ownLeft?FIELD.l+29:FIELD.r-29;
   const incoming=incomingKeeperBall(gk);
   if(incoming){
@@ -4801,9 +4857,9 @@ function updateAutoTackles(dt){
  for(const p of opponents){
   const d=dist(p.x,p.y,ball.x,ball.y),reach=p.r+ball.r+10;
   if(p.role==='gk'||p.recoverTime>0||d>reach||p.tackleCD>0){p.contactTime=0;continue;}
-  if(p===selected&&p.team==='blue'&&d>p.r+ball.r-3){p.contactTime=0;continue;}
+  if(simulationMode==='manual'&&p===selected&&p.team==='blue'&&d>p.r+ball.r-3){p.contactTime=0;continue;}
   p.contactTime=(p.contactTime||0)+dt;
-  const base=p.team==='red'?lerp(.28,.085,difficulty.tackle):.10;
+  const base=(p.team==='red'||simulationMode!=='manual')?lerp(.28,.085,difficulty.tackle):.10;
   const stationary=Math.hypot(carrier.vx,carrier.vy)<55;
   const needed=base/profile(p).tackle*(stationary?.55:1);
   if(p.contactTime>=needed||d<p.r+ball.r-3)touching.push({p,d});
@@ -4921,7 +4977,7 @@ function updateSetPiece(dt,inp){
  // Only a successful kick may end a restart. A stale owner/input must not
  // accidentally enable pressing on the next frame after a goal.
  ball.owner=taker;ball.vx=0;ball.vy=0;
-  if(setPiece.team==='red'){
+  if(setPiece.team==='red'||simulationMode!=='manual'){
   if(setPiece.age>.48){const target=chooseRestartTarget(taker,{x:0,y:0});const done=setPiece.kind==='corner'?crossBall(taker,.38,target):passBall(taker,false,target,.38);if(done)finishSetPiece();return;}
  }else{
   setPiece.previewTarget=chooseRestartTarget(taker,inp);
@@ -5068,6 +5124,7 @@ function updateGame(dt){
 
 
   updatePossession(dt);
+  if(simulationMode==='manual'){
   if(inp.qPressed)cycleSelected();
   updateAutoSelect(dt);
   const movementInput=handleDefense(inp,dt);
@@ -5079,6 +5136,7 @@ function updateGame(dt){
   }
   handleActions(inp, dt);
   updateBlueSupport(dt);
+  }else{updateTeamAI('blue',dt);}
   updateRedAI(dt);
   updateKeepers(dt);
   updatePlayers(dt);
@@ -5092,6 +5150,7 @@ function updateGame(dt){
 }
 
 function updateHud(){
+  if(fastSimulation)return;
   document.getElementById('playerStatus').textContent = setPiece ? 'DURAN TOP · '+setPiece.kind.toUpperCase() : selected ? '#'+selected.num+' · '+profile(selected).name.toLocaleUpperCase('tr')+' · '+(autoSprinting&&selected.sprinting?'KOŞU':shapeName()) : 'HAZIR';
   document.getElementById('liveStats').textContent='ŞUT '+stats.blue.shots+'–'+stats.red.shots+' · TOP '+possessionPct('blue');
   updateDefensiveButtons();
@@ -5236,6 +5295,7 @@ function resolveSaveMeter(v){
   return false;
 }
 function penaltyAction(){
+  if(simulationMode!=='manual')return;
   if(state !== 'penalties' || !penalty || penalty.finished || penalty.locked) return;
   try{
     penalty.locked = true;
@@ -5309,6 +5369,10 @@ function finishPenaltyStage(){
 }
 function updatePenaltyShootout(dt){
   if(state !== 'penalties' || !penalty || penalty.finished) return;
+  if(!penalty.locked&&simulationMode!=='manual'){
+    penaltyTimer+=dt;
+    if(penaltyTimer>.45){penaltyTimer=0;autoPenaltyAction();}
+  }
   if(!penalty.locked){
     const speed = penalty.stage === 'shoot' ? 0.88 : 1.38;
     penalty.meter += penalty.meterDir * dt * speed;
@@ -5338,6 +5402,7 @@ function finishPenalties(){
   endMatch();
 }
 function emergencyEnd(err){
+  simulationJob++;fastSimulation=false;simulationMode='manual';syncSimulationUI();
   console.error('Game recovered from error:', err);
   state = 'ended';
   if(el.penaltyScreen) el.penaltyScreen.style.display = 'none';
@@ -5348,6 +5413,7 @@ function emergencyEnd(err){
 }
 
 function endMatch(){
+  simulationJob++;fastSimulation=false;simulationMode="manual";syncSimulationUI();
   clearInput(); tone(820,.28,.07);
   state='ended';
   sayCommentary('end',{},7);
@@ -5665,8 +5731,8 @@ let fatalError = false;
 let accumulator=0;
 function loop(now){
   const frame=Math.min(Math.max((now-last)/1000,0),.2);last=now;
-  accumulator+=frame;
-  if(!fatalError){
+  if(!fastSimulation)accumulator+=frame;else accumulator=0;
+  if(!fatalError&&!fastSimulation){
     try{
       while(accumulator>=1/60){updateGame(1/60);accumulator-=1/60;}
       render();
@@ -5695,6 +5761,7 @@ function kit(team){
   return {main:pair[0],trim:pair[1]||'#f1f3e9'};
 }
 function tone(freq,duration,volume=.06){
+  if(fastSimulation)return;
   if(!soundEnabled) return;
   try{
     audioContext ||= new (window.AudioContext||window.webkitAudioContext)();
@@ -5752,6 +5819,11 @@ function openMenu(){
   else if(was!=='paused') togglePause();
 }
 function initEnhancements(){
+ document.getElementById('pauseResume').addEventListener('click',()=>{togglePause();focusGame();});
+ document.getElementById('pauseWatch').addEventListener('click',watchSimulation);
+ document.getElementById('pauseFinish').addEventListener('click',simulateToEnd);
+ document.getElementById('pauseMainMenu').addEventListener('click',openMenu);
+ document.getElementById('simReturn').addEventListener('click',resumeManualControl);
   document.getElementById('difficultySlot').append(el.diff);
   el.diff.setAttribute('aria-label','Zorluk');
   el.start.style.display='none';
@@ -5797,12 +5869,12 @@ function initEnhancements(){
   el.redTeamSelect.addEventListener('change',saveSettings);
   document.getElementById('randomRival').addEventListener('click',()=>{
     const list=COUNTRY_TEAMS.filter(t=>t.key!==teamChoice.blue);teamChoice.red=list[Math.floor(Math.random()*list.length)].key;
-    document.getElementById('redSearch').value='';filterTeams('red');applyTeamNames();saveSettings();
+    document.getElementById('redSearch').value='';filterTeams('red');applyTeamNames();if(state==='ready')setupTeams();saveSettings();
   });
   document.getElementById('mSwitch').addEventListener('pointerdown',e=>{e.preventDefault();if(state==='playing')cycleSelected();});
   document.getElementById('menuBtn').addEventListener('click',openMenu);
   document.getElementById('endMenu').addEventListener('click',()=>fullReset());
-  function suspend(){stopCommentary();clearInput();if(state==='playing'||state==='penalties')togglePause();}
+  function suspend(){stopCommentary();clearInput();if(!fastSimulation&&(state==='playing'||state==='penalties'))togglePause();}
   window.addEventListener('blur',suspend);
   document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
   const scale=Math.min(window.devicePixelRatio||1,2);canvas.width=W*scale;canvas.height=H*scale;ctx.scale(scale,scale);
@@ -5812,7 +5884,7 @@ initEnhancements();
 populateTeamSelects();
 fullReset();
 renderHistory();
-loadFC26Rosters();
+
 requestAnimationFrame(loop);
 
 

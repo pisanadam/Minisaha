@@ -2,6 +2,20 @@
 
 Telefon ve bilgisayarda çalışan HTML futbol oyunu. 5'e 5 / 11'e 11, yapay zekâ, otomatik kaleci, klavye tuş atamaları ve gömülü Türkçe erkek spiker içerir. Bu sürüm tek oyunculudur; internetten yayımlamak çok oyunculu maç özelliği eklemez.
 
+## Kadrolar ve maç simülasyonu (28.09.2026)
+
+- Seçilebilir **162 takımın tamamı**, toplam **4.641 takım-oyuncu kaydı**: kulüpler için 2026–27, millî takımlar için 2026 kadroları. Bu sayı benzersiz futbolcu sayısı değildir; bir futbolcu kulübünde ve millî takımında bulunabilir.
+- Kaynak anlık görüntüleri ve takım kimlikleri `roster-source/` içinde. ESPN takım kadroları esas alındı; Gençlerbirliği 28 kişilik tescil listesi ve kulüp sayfasıyla ayrıca düzeltildi. Millî takım listeleri 2026 oyuncu havuzudur; her maçın birebir çağrı listesi olduğu iddia edilmez.
+- Eski rastgele isim havuzu, başka kulüpten isim aktaran eşleştirme ve tarayıcıdaki FC26 kadro önbelleği kaldırıldı. Kadrolar ağ bağlantısı gerekmeden yüklenir.
+- İlk 11 ve ilk 5, bütün kadro içinden mevkiler ve puanlar birlikte değerlendirilerek seçilir. Kadro ekranı gerçek sahadaki oyuncuları ve kalan bütün yedekleri gösterir; takım değişimi önceki oyuncuları taşımaz.
+- **3.453 kaydın puanları FC26 verisidir**, kalan **1.188 kayıt oyun içi tahminidir** ve ekranda belirtilir. Resmî FC27 reytingi iddiası yoktur. Güncel kulüp üyeliği eski FC26 CSV'sinden alınmaz. Kaynağın yalnızca genel D/M/F mevkisi verdiği oyuncuda ayrıntılı doğal mevki uydurulmaz; uygun mevki ailesi içinde dizilişe atanır.
+- Duraklatma menüsünde **Maçı simüle et**: iki takımı aynı yapay zekâ yönetir; **Kontrolü geri al** ile oyuna dönülür.
+- **Maç sonuna simüle et**: mevcut skor, geçen süre ve goller korunur; aynı fizik motoru sabit adımlarla kalan maçı tamamlar. Uzatma, kadro gücüne bağlı otomatik penaltılar, golcü/zaman kayıtları, istatistik ve maç geçmişi dahil.
+
+Kontroller: `node tests/rosters-simulation.cjs`, `node tests/defense.cjs`, `node tests/pronunciation.cjs`.
+
+Kadroları yeniden üretmek için manifestteki SHA256 ile doğrulanan FC26 CSV'sini indirin; `python3 tools/build_rosters.py /path/to/players.csv` çalıştırın. Kaynak JSON'ları bilinçli olarak takım kimliğiyle eşleştirilir; otomatik bulanık kulüp eşleştirmesi yoktur. Üretilen dosyalarda içerik özeti kullanıldığı için eski tarayıcı önbelleği kadroyu geri getirmez. Sonra `SHA256SUMS` dosyasını güncelleyin.
+
 ## Savunma güncellemesi
 
 - Otomatik seçim pas alıcısını, topun tahmini gidişini ve kaleye yakın savunmacıyı dikkate alır. Manuel değişim kısa süre korunur.
