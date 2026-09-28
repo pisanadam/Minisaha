@@ -13,15 +13,15 @@ Sesler bu repodan yüklenir; ziyaretçinin cihazında erkek ses kurulması gerek
 
 ## Server.pro VPS / Nginx kurulumu
 
-Hedef IPv4: **43.226.0.124**. deSEC ekranında `minisaha` A kaydı bu IP'ye yönlendirilmiştir. Tam alan adı henüz bildirilmedi; aşağıdaki `TAM_ALAN_ADI` yerine deSEC'teki ana alanın başına `minisaha.` eklenmiş adresi yazın.
+Hedef IPv4: **43.226.0.124**. deSEC ekranında `minisaha` A kaydı bu IP'ye yönlendirilmiştir. Tam adres: **minisaha.pisankus.dedyn.io**. Genel DNS sorgusu bu adresin `43.226.0.124` IP'sine yönlendiğini doğrulamıştır.
 
 Bu kurulum Linux terminali ve sudo yetkisi olan, Nginx'in hâlihazırda çalıştığı VPS içindir. Sadece oyun sunucusu paneli, Apache, Caddy veya panelin yönettiği farklı bir web düzeni varsa önce o düzene uygun sanal sunucu ayarı gerekir. Script farklı web sunucularını kaldırmaz ve paket kurmaz.
 
 ```bash
 git clone https://github.com/pisanadam/Minisaha.git
 cd Minisaha
-sudo python3 deploy/install.py TAM_ALAN_ADI --check
-sudo python3 deploy/install.py TAM_ALAN_ADI
+sudo python3 deploy/install.py minisaha.pisankus.dedyn.io --check
+sudo python3 deploy/install.py minisaha.pisankus.dedyn.io
 ```
 
 Script yalnızca `/var/www/minisaha/` ve `/etc/nginx/sites-available/minisaha.conf` ile buna ait etkinleştirme bağlantısını kullanır. Varsayılan siteye ve diğer alan adlarına dokunmaz. Alan adı zaten kullanılıyorsa veya hedef başka bir kuruluma aitse durur. Yeni sürüm ayrı dizine kopyalanır, bağlantı atomik değiştirilir. Nginx yapılandırma testi başarısız olursa önceki bağlantı geri yüklenir. Eski sürümler korunur.
@@ -33,7 +33,7 @@ Nginx aynı IP'deki siteleri `server_name` ile ayırır. deSEC'teki diğer A kay
 DNS yayıldıktan ve HTTP üzerinden oyun açıldıktan sonra, sunucuda Certbot'un Nginx eklentisi kuruluysa:
 
 ```bash
-sudo certbot --nginx -d TAM_ALAN_ADI
+sudo certbot --nginx -d minisaha.pisankus.dedyn.io
 ```
 
 Sunucuda başka sertifika yöneticisi/panel varsa onun alan adına özel HTTPS seçeneğini kullanın. Güncelleme scripti mevcut Mini Saha Nginx dosyasını yeniden yazmaz; sertifika ayarları korunur.
@@ -44,13 +44,13 @@ GitHub'a yüklemek sunucudaki dosyaları kendiliğinden güncellemez. Sunucudaki
 
 ```bash
 git pull --ff-only
-sudo python3 deploy/install.py TAM_ALAN_ADI
+sudo python3 deploy/install.py minisaha.pisankus.dedyn.io
 ```
 
 Sunucuda açılışı doğrulayın:
 
 ```bash
-curl -I -H 'Host: TAM_ALAN_ADI' http://127.0.0.1/
+curl -I -H 'Host: minisaha.pisankus.dedyn.io' http://127.0.0.1/
 ```
 
 ## GitHub Pages alternatifi
