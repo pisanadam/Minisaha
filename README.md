@@ -133,3 +133,7 @@ Piper `tr_TR-dfki-medium` ile üretilmiş, kırpılmış ve MP3'e dönüştürü
 - [Nginx yapılandırma testi ve reload](https://nginx.org/en/docs/switches.html)
 - [GitHub Pages yayın kaynağı](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 - [deSEC DNS kayıtları](https://desec.readthedocs.io/en/latest/dns/rrsets.html)
+
+### Maç sonu sürprizi
+
+Yerel takım (çevrimiçi maçta da kendi takımın) maç sonunda en az 10 gol farkla kazanırsa üç yerleşik fotoğraftan biri rastgele tam ekran gösterilir. Maç başına bir kez çalışır; 2,5 saniyede veya dokunma/Escape ile kapanır. Kısa ses, Efekt ayarına uyar. Görsel yüklenemezse sonuç ekranı kullanılmaya devam eder. `node tests/jumpscare.cjs` sınır skorlarını, tekrar tetiklemeyi, sıfırlamayı ve sunucu ayrımını doğrular.

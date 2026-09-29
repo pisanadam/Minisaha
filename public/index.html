@@ -281,10 +281,19 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
 #simProgress{display:none;position:absolute;inset:0;z-index:45;background:#0c1e16f5;align-items:center;justify-content:center;color:#c5fa75;font-size:clamp(17px,4vw,28px);text-align:center;padding:24px}
 
 #matchmakeBtn{background:#6cadde;color:#102519;flex:1}#onlineStatus{font-size:12px!important;line-height:1.5}#onlineMatchBar{display:none;position:absolute;z-index:9;top:78px;left:50%;transform:translateX(-50%);font-size:11px;background:#0c211bdc;padding:6px 12px;border-radius:8px;max-width:90%;text-align:center;pointer-events:none}
+#victoryScare{position:fixed;inset:0;z-index:9999;display:none;place-items:center;background:#000;overflow:hidden;touch-action:manipulation;cursor:pointer}
+#victoryScare img{width:100%;height:100%;object-fit:contain;animation:scareZoom .16s ease-out both;pointer-events:none}
+#victoryScare button{position:absolute;right:16px;top:16px;z-index:1;background:#000b;color:white;border:1px solid #fff8;padding:10px 16px}
+@keyframes scareZoom{from{transform:scale(.75)}to{transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){#victoryScare img{animation:none}}
 </style>
 </head>
 <body>
 <div id="wrap">
+  <div id="victoryScare" role="dialog" aria-modal="true" aria-label="Maç sonu sürprizi" aria-hidden="true">
+    <img id="victoryScareImage" alt="Maç sonu sürpriz fotoğrafı" decoding="async">
+    <button id="closeVictoryScare" type="button">Kapat ✕</button>
+  </div>
   <canvas id="game" width="1000" height="620"></canvas>
 
   <div id="hud">
@@ -3695,6 +3704,7 @@ function resetKickoff(teamToStart='blue'){
 }
 
 function fullReset(){
+  closeVictoryScare();victoryScareUsed=false;
   simulationJob++;fastSimulation=false;simulationMode="manual";syncSimulationUI();
   bindingCapture=null;renderKeyBindings();
   stopCommentary(true);
@@ -3852,6 +3862,7 @@ el.penaltyButtons.addEventListener('click', e => {
 
 window.addEventListener('keydown',e=>{
  const code=keyboardCode(e);
+ if(victoryScareVisible){e.preventDefault();if(['Escape','Enter','Space'].includes(code))closeVictoryScare();return;}
  if(bindingCapture){captureBinding(e,code);return;}
  if(e.ctrlKey||e.altKey||e.metaKey||/^(INPUT|SELECT|TEXTAREA)$/.test(e.target?.tagName)||e.target?.isContentEditable)return;
  if(suppressedKeyCodes.has(code))return;
@@ -5417,6 +5428,39 @@ function emergencyEnd(err){
   if(el.statsRows) el.statsRows.innerHTML = '<tr><td>Oyun güvenli moda geçti</td><td>-</td><td>-</td></tr>';
 }
 
+// Local blue is always the viewer's team, including the mirrored online client.
+const VICTORY_SCARE_IMAGES=['assets/jumpscare-1.jpg','assets/jumpscare-2.jpg','assets/jumpscare-3.jpg'];
+let victoryScareUsed=false,victoryScareVisible=false,victoryScareJob=0,victoryScareFocus=null;
+function closeVictoryScare(){
+  victoryScareJob++;victoryScareVisible=false;
+  const overlay=document.getElementById('victoryScare'),img=document.getElementById('victoryScareImage');
+  if(img){img.onload=null;img.onerror=null;}
+  if(overlay){overlay.style.display='none';overlay.setAttribute('aria-hidden','true');}
+  if(victoryScareFocus?.isConnected)victoryScareFocus.focus?.({preventScroll:true});
+  victoryScareFocus=null;
+}
+function showVictoryScare(){
+  if(onlineServer||victoryScareUsed||state!=='ended'||score.blue-score.red<10)return;
+  victoryScareUsed=true;
+  const overlay=document.getElementById('victoryScare'),img=document.getElementById('victoryScareImage');
+  if(!overlay||!img)return;
+  const job=++victoryScareJob;
+  img.onload=()=>{
+    if(job!==victoryScareJob||state!=='ended'||victoryScareVisible)return;
+    victoryScareVisible=true;victoryScareFocus=document.activeElement;
+    overlay.style.display='grid';overlay.setAttribute('aria-hidden','false');
+    document.getElementById('closeVictoryScare')?.focus?.({preventScroll:true});
+    tone(180,.3,.07);
+    setTimeout(()=>{if(job===victoryScareJob)closeVictoryScare();},2500);
+  };
+  img.onerror=()=>{if(job===victoryScareJob)closeVictoryScare();};
+  img.src=VICTORY_SCARE_IMAGES[Math.floor(Math.random()*VICTORY_SCARE_IMAGES.length)];
+  if(img.complete&&img.naturalWidth>0)img.onload();
+  // A slow or failed asset must never appear over the next match/menu.
+  setTimeout(()=>{if(job===victoryScareJob&&!victoryScareVisible)closeVictoryScare();},5000);
+}
+document.getElementById('victoryScare')?.addEventListener('click',closeVictoryScare);
+
 function endMatch(){
   simulationJob++;fastSimulation=false;simulationMode="manual";syncSimulationUI();
   clearInput(); tone(820,.28,.07);
@@ -5445,6 +5489,7 @@ function endMatch(){
   document.getElementById('goalTimeline').textContent=stats.goals.length?'GOLLER · '+stats.goals.map(g=>`${g.time} ${g.player} (${getCountry(teamChoice[g.team]).short})`).join(' / '):'Bu maçta gol olmadı.';
   recordMatch();
   el.end.style.display='flex';
+  showVictoryScare();
 }
 
 function drawPitch(){
