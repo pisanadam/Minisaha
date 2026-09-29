@@ -1,6 +1,32 @@
 # Mini Saha
 
-Telefon ve bilgisayarda çalışan HTML futbol oyunu. 5'e 5 / 11'e 11, yapay zekâ, otomatik kaleci, klavye tuş atamaları ve gömülü Türkçe erkek spiker içerir. Bu sürüm tek oyunculudur; internetten yayımlamak çok oyunculu maç özelliği eklemez.
+Telefon ve bilgisayarda çalışan HTML futbol oyunu. 5'e 5 / 11'e 11, yapay zekâ, otomatik kaleci, klavye tuş atamaları ve gömülü Türkçe erkek spiker içerir. Tek oyunculu maçlara ek olarak sunucu servisi kurulduğunda iki kişi çevrimiçi karşılaşabilir.
+
+## Çevrimiçi eşleştirme
+
+Ana menüde takımını ve **5’e 5 / 11’e 11** modunu seç, **Eşleştirmeye gir** düğmesine bas. Aynı oyuncu sayısını seçen iki kişi sırayla eşleşir; tek kişi varsa rakip beklenir. Her oyuncu kendi takımını ve seçili futbolcusunu yönetir. Takım arkadaşları pozisyon alır; rakibin top taşıyan oyuncusunun yerine yapay zekâ oynamaz. Her iki ekran da kendi takımını soldan sağa hücum ederken gösterir.
+
+Maçlar üç dakikadır. Beraberlikte uzatma, ardından iki taraf için kadro gücüne bağlı otomatik penaltılar vardır. Çevrimiçi maç duraklatılamaz veya maç sonuna simüle edilemez. Sıradan çıkılabilir; maçtan ayrılan/kopan rakip diğer oyuncuya bildirilir. Bağlantı kısa süreli koparsa akış yeniden bağlanabilir; 8 saniye boyunca bağlantısı gelmeyen oyuncunun odası kapanır. Maçlar kalıcı sunucu veritabanına kaydedilmez; servis yeniden başlatılırsa aktif maçlar sona erer.
+
+Kurulum (mevcut Server.pro / Nginx / HTTPS kurulumu üstüne):
+
+```bash
+cd ~/Minisaha
+git pull --ff-only
+sudo apt update && sudo apt install -y nodejs
+sudo python3 deploy/install.py minisaha.pisankus.dedyn.io
+sudo python3 deploy/install-online.py minisaha.pisankus.dedyn.io
+```
+
+Sonraki güncellemelerde iki Python kurulum komutunu da çalıştırın. Node.js 18+ gerekir; npm paketi gerekmez. Kurulum mevcut Mini Saha TLS/Certbot ayarlarını ve diğer siteleri korur, yalnızca Mini Saha vhost’una `/online/` yolu ekler. Servis `www-data` ile `127.0.0.1:8787` adresinde çalışır; bu portu internete açmayın. `systemd` servisi sunucu açılışında başlar ve hata durumunda yeniden başlatılır. Sağlık adresi: `https://minisaha.pisankus.dedyn.io/online/health`.
+
+- Servis durumu: `sudo systemctl status minisaha-online`
+- Hata kaydı: `sudo journalctl -u minisaha-online -n 50 --no-pager`
+- Değişiklik yapmadan kontrol: `sudo python3 deploy/install-online.py minisaha.pisankus.dedyn.io --check`
+
+Tek bir yetkili sunucu 60 Hz fizik hesabı yapar ve yaklaşık 20 Hz durum yayınlar; istemciler yalnızca yön ve tuş komutları gönderir. İstemci skor/konum belirleyemez. Oturum belirteçleri rastgele üretilir, eski sıra numaraları ve geçersiz girdiler reddedilir. Kuyruklar oyuncu sayısına göre ayrıdır. Varsayılan sınır sekiz eşzamanlı maçtır. SSE ile durum akışı ve aynı kökenden HTTP komutları kullanılır; Nginx akış tamponlaması kapalıdır. Bu sürüm oda kodu, arkadaş daveti, hesap veya dereceli sıralama içermez.
+
+Yerel doğrulama: `node tests/online.cjs` iki gerçek HTTP istemcisini eşleştirir; hareket, pas, ortak durum, iki farklı kuyruk, ayrılma, zaman aşımı, iki tarafın şutu ve maç sonunu doğrular. `python3 tests/online-deploy.py` TLS korumasını ve tekrar kurulumu sınar. Sunucuda kurulum yapılmadan GitHub Pages tek başına eşleştirme servisini çalıştıramaz.
 
 ## Kadrolar ve maç simülasyonu (28.09.2026)
 

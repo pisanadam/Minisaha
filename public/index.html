@@ -279,6 +279,8 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
 #pauseCard button:first-of-type{background:#c5fa75;color:#172c1b}#pauseCard button small{display:block;font-size:11px;font-weight:400;margin-top:4px}
 #simReturn{display:none;position:absolute;z-index:12;left:50%;top:76px;transform:translateX(-50%);background:#c5fa75;color:#172c1b;font-size:12px;padding:9px 14px}
 #simProgress{display:none;position:absolute;inset:0;z-index:45;background:#0c1e16f5;align-items:center;justify-content:center;color:#c5fa75;font-size:clamp(17px,4vw,28px);text-align:center;padding:24px}
+
+#matchmakeBtn{background:#6cadde;color:#102519;flex:1}#onlineStatus{font-size:12px!important;line-height:1.5}#onlineMatchBar{display:none;position:absolute;z-index:9;top:78px;left:50%;transform:translateX(-50%);font-size:11px;background:#0c211bdc;padding:6px 12px;border-radius:8px;max-width:90%;text-align:center;pointer-events:none}
 </style>
 </head>
 <body>
@@ -324,13 +326,14 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
         <label>DİZİLİŞ<select id="formationSelect"><option value="433">4–3–3</option><option value="4231">4–2–3–1</option><option value="442">4–4–2</option></select></label><label>TAKTİK<select id="tactic"><option value="balanced">Dengeli</option><option value="attack">Hücum</option><option value="defend">Savunma</option></select></label>
       </div><p id="difficultyInfo"></p>
       <div class="menuActions"><button id="menuCommentaryBtn" aria-pressed="true">Spiker: açık</button><button id="commentaryTestBtn">Sesi dene 🔊</button></div><label for="commentaryProfileSelect">ANLATIM TARZI</label><select id="commentaryProfileSelect" aria-label="Spiker anlatım tarzı"><option value="balanced">Dengeli · Maç spikeri</option><option value="passionate">Coşkulu · Tribün heyecanı</option><option value="radio">Tok ses · Radyo anlatımı</option><option value="analyst">Sakin · Analist</option></select><label for="commentaryVoiceSelect">SPİKER SESİ</label><select id="commentaryVoiceSelect" aria-label="Spiker sesi"></select><p id="commentaryStatus" role="status">Türkçe sesli anlatım · 999 replik varyasyonu</p><div class="menuActions"><button id="menuStart">SAHAYA ÇIK <span>↗</span></button><button id="randomRival" aria-label="Rastgele rakip seç">Rastgele rakip</button></div>
+      <div class="menuActions"><button id="matchmakeBtn">Eşleştirmeye gir</button><button id="cancelMatchmake" style="display:none">Sıradan çık</button></div><p id="onlineStatus" role="status" aria-live="polite">Çevrimiçi: seçtiğin takımla gerçek rakibe karşı. Aynı oyuncu sayısını seçenler eşleşir; maçlar 3 dakika sürer.</p>
       <details id="keyboardSettings" class="helpDetails"><summary>Klavye ve tuş atamaları</summary><p>Bilgisayarda klavyeyle oyna. Bir tuş alanına tıkla, ardından istediğin tuşa bas. Her hareket için iki tuş seçebilirsin. Esc: atamayı iptal et · Delete: seçili atamayı temizle.</p><div class="keyBindingHeading"><span>Hareket</span><span>Birinci tuş</span><span>İkinci tuş</span></div><div id="keyBindingRows"></div><p id="keyBindingStatus" role="status" aria-live="polite"></p><button id="resetKeyBindings" type="button">Varsayılana dön</button></details><details class="helpDetails"><summary>Nasıl oynanır?</summary><p id="keyboardHelp"></p><p>Telefonda sol çubuğu ve sağdaki tuşları kullan. Şut yönünü hareket çubuğuyla belirle. Joystick’i dış kenarda 0,5 saniyeden uzun tutunca otomatik koşarsın. Yavaşlamak için çubuğu merkeze yaklaştır. Pas, ara pas ve orta: basılı tutarak güç biriktir, bırakınca vur. Kısa dokunuşlarda da mesafeye uygun hız kullanılır. Top rakipteyken: PAS → PRES (basılı tut), ŞUT → AYAKTA MÜDAHALE, ORTA → KAYARAK MÜDAHALE, ARA PAS → İKİNCİ PRES (basılı tut). Pres sırasında çubukla yön verebilirsin. İkinci pres en fazla 2,5 saniye sürer. Müdahaleler yalnızca erişilebilen topa işler; kaymayı kaçırınca toparlanmak zaman alır. Kaleciler iki takımda da otomatik çalışır. Oyuncu seçimi pas alıcısına ve topun gidişine göre yapılır. Gamepad: sol analog, A/✕ pas, B/○ şut, Y/△ ara pas, X/□ orta, analog dış kenarda 0,5 saniye: koşu; RT/R2 sprint, LB/L1 oyuncu değiştir.</p><p>Beraberlikte 30 saniye uzatma, ardından zamanlama barıyla penaltılar. Takımlar oyun içi seçim listesidir.</p></details>
       <details class="helpDetails"><summary id="squadSummary">Kadro ve görevler</summary><div id="squadList"></div><p>Kanatlar hızlı, stoperler top kapmada, orta sahalar pasta, santrforlar bitiricilikte güçlüdür. Saha üzerindeki kısaltmalar mevkileri gösterir.</p></details><details class="helpDetails"><summary>Ses kaynağı ve lisans</summary><p>Gömülü erkek ses: Piper tr_TR-dfki-medium modeliyle üretilen sentetik Türkçe konuşma. Kaynak veri: © 2009 DFKI GmbH, <a href="https://github.com/marytts/dfki-ot-data/" target="_blank" rel="noopener">DFKI OT</a>. Ses verileri ve bu oyundaki dönüştürülmüş kayıtlar: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> (atıf, ticari olmayan kullanım, aynı lisansla paylaşım). Kayıtlar sentezlendi, sessizlikleri kısaltıldı ve MP3 biçimine çevrildi.</p></details><div id="history" aria-label="Son maçlar"></div>
       
     </div>
   </div>
 
-  <div id="message"></div>
+  <div id="onlineMatchBar" role="status"></div><div id="message"></div>
 
   <div id="pauseMenu" role="dialog" aria-modal="true" aria-labelledby="pauseTitle">
     <div id="pauseCard"><h2 id="pauseTitle">Maç duraklatıldı</h2><p id="pauseMatchInfo"></p>
@@ -3632,7 +3635,7 @@ function populateTeamSelects(){
 function applyTeamNames(){
   teamChoice.blue = el.blueTeamSelect.value || teamChoice.blue;
   teamChoice.red = el.redTeamSelect.value || teamChoice.red;
-  if(teamChoice.blue === teamChoice.red){
+  if(teamChoice.blue === teamChoice.red&&!net.active&&!onlineServer){
     const idx = COUNTRY_TEAMS.findIndex(t=>t.key===teamChoice.red);
     teamChoice.red = COUNTRY_TEAMS[(idx+1)%COUNTRY_TEAMS.length].key;
     if(!Array.from(el.redTeamSelect.options).some(o=>o.value===teamChoice.red))filterTeams('red');
@@ -3716,6 +3719,7 @@ function fullReset(){
 }
 
 function startGame(){
+  if(net.active&&!onlineServer)return;
   bindingCapture=null;renderKeyBindings();  if(state === 'ended') fullReset();
   if(state==='paused'){togglePause();return;}
   if(state === 'ready' || state === 'paused'){
@@ -3738,6 +3742,7 @@ function startGame(){
 }
 
 function togglePause(){
+  if(net.active){setMessage('Çevrimiçi maç duraklatılamaz',1);return;}
   if(fastSimulation)return;
   if(state==='playing' || state==='penalties'){
     pausedFrom=state; state='paused'; clearInput();stopCommentary();
@@ -3834,7 +3839,7 @@ el.menuStart.addEventListener('click', startGame);
 el.blueTeamSelect.addEventListener('change', () => { applyTeamNames(); if(state==='ready')setupTeams(); setMessage(teamLong('blue'), .6); });
 el.redTeamSelect.addEventListener('change', () => { applyTeamNames(); if(state==='ready')setupTeams(); setMessage(teamLong('red'), .6); });
 el.pause.addEventListener('click', togglePause);
-el.restart.addEventListener('click', () => { fullReset(); startGame(); });
+el.restart.addEventListener('click', () => { if(net.active){openMenu();return;}fullReset(); startGame(); });
 if(el.fullscreen) el.fullscreen.addEventListener('click', toggleFullscreen);
 document.addEventListener('fullscreenchange', updateFullscreenButton);
 document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
@@ -4044,7 +4049,7 @@ function updateAutoSelect(dt){
  }else{switchCandidate=null;switchCandidateTime=0;}
 }
 function startDefensiveTackle(p,sliding,aim){
- if(!p||p.role==='gk'||setPiece||goalPause>0||state!=='playing'||!defendingControls()||p.tackleCD>0||p.recoverTime>0)return false;
+ if(!p||p.role==='gk'||setPiece||goalPause>0||state!=='playing'||(!onlineServer?!defendingControls():ball.owner?.team===p.team)||p.tackleCD>0||p.recoverTime>0)return false;
  const direction=Math.hypot(aim.x||0,aim.y||0)>.2?norm(aim.x,aim.y):norm(ball.x-p.x,ball.y-p.y);
  p.tackleX=direction.x;p.tackleY=direction.y;p.faceX=direction.x;p.faceY=direction.y;
  p.tackleTime=sliding?.40:.18;p.slideTime=sliding?.40:0;
@@ -4078,7 +4083,7 @@ function handleDefense(inp,dt){
 }
 function resolveDefensiveTackles(){
  if(setPiece||ball.z>8||goalPause>0)return;
- for(const p of blue){
+ for(const p of (onlineServer?players:blue)){
   if(!(p.tackleTime>0)||p.tackleHit||ball.owner?.team===p.team)continue;
   const sliding=p.slideTime>0,reach=p.r+ball.r+(sliding?13:8);
   const dx=ball.x-p.x,dy=ball.y-p.y,d=Math.hypot(dx,dy);
@@ -4509,7 +4514,7 @@ function passBall(p, through=false, targetOverride=null, power=.22){
     tx = p.x + p.faceX*(through?180:115);
     ty = p.y + p.faceY*(through?130:70);
   }
-  if((p.team==='red'||simulationMode!=='manual')&&through){const spread=(1-clamp(aiParams(p.team).pass*profile(p).pass,0,1))*55;tx+=rnd(-spread,spread);ty+=rnd(-spread,spread);}
+  if(!onlineServer&&(p.team==='red'||simulationMode!=='manual')&&through){const spread=(1-clamp(aiParams(p.team).pass*profile(p).pass,0,1))*55;tx+=rnd(-spread,spread);ty+=rnd(-spread,spread);}
   tx = clamp(tx, FIELD.l+25, FIELD.r-25);
   ty = clamp(ty, FIELD.t+25, FIELD.b-25);
   const n=norm(tx-ball.x,ty-ball.y);
@@ -4642,7 +4647,7 @@ function updateKeepers(dt){
   if(ball.owner===gk){
    gk.trackingShot=false;gk.readTimer=0;
    gk.diveTime=0;
-   if(simulationMode==='manual'&&gk.team==='blue'&&gk===selected)continue;
+   if(onlineServer||simulationMode==='manual'&&gk.team==='blue'&&gk===selected)continue;
    gk.vx=0;gk.vy=0;gk.faceX=gk.team==='blue'?1:-1;gk.faceY=0;
    continue;
   }
@@ -4705,7 +4710,7 @@ function constrainPlayer(p){
 
 function updatePlayers(dt){
   for(const p of players){
-    if(p!==selected) p.stamina=clamp(p.stamina+dt*.11,0,1);
+    if(onlineServer?p!==onlineHumans[p.team].selected:p!==selected) p.stamina=clamp(p.stamina+dt*.11,0,1);
     p.cooldown=Math.max(0,p.cooldown-dt);
     p.tackleCD=Math.max(0,p.tackleCD-dt);
     p.stealGrace=Math.max(0,(p.stealGrace||0)-dt);
@@ -4857,9 +4862,9 @@ function updateAutoTackles(dt){
  for(const p of opponents){
   const d=dist(p.x,p.y,ball.x,ball.y),reach=p.r+ball.r+10;
   if(p.role==='gk'||p.recoverTime>0||d>reach||p.tackleCD>0){p.contactTime=0;continue;}
-  if(simulationMode==='manual'&&p===selected&&p.team==='blue'&&d>p.r+ball.r-3){p.contactTime=0;continue;}
+  if((onlineServer?p===onlineHumans[p.team].selected:simulationMode==='manual'&&p===selected&&p.team==='blue')&&d>p.r+ball.r-3){p.contactTime=0;continue;}
   p.contactTime=(p.contactTime||0)+dt;
-  const base=(p.team==='red'||simulationMode!=='manual')?lerp(.28,.085,difficulty.tackle):.10;
+  const base=(!onlineServer&&(p.team==='red'||simulationMode!=='manual'))?lerp(.28,.085,difficulty.tackle):.10;
   const stationary=Math.hypot(carrier.vx,carrier.vy)<55;
   const needed=base/profile(p).tackle*(stationary?.55:1);
   if(p.contactTime>=needed||d<p.r+ball.r-3)touching.push({p,d});
@@ -5730,6 +5735,7 @@ function render(){
 let fatalError = false;
 let accumulator=0;
 function loop(now){
+  if(net.active&&!onlineServer){onlineClientFrame(now);last=now;accumulator=0;if(net.phase==='playing')render();requestAnimationFrame(loop);return;}
   const frame=Math.min(Math.max((now-last)/1000,0),.2);last=now;
   if(!fastSimulation)accumulator+=frame;else accumulator=0;
   if(!fatalError&&!fastSimulation){
@@ -5812,6 +5818,7 @@ function filterTeams(side){
   select.value=teamChoice[side];
 }
 function openMenu(){
+  if(net.active){if(net.phase==='waiting'||net.phase==='joining'||window.confirm('Çevrimiçi maçtan ayrılmak istiyor musun?')){leaveOnline();fullReset();onlineStatus('Eşleştirmeden ayrıldın.');}return;}
   if(state==='ready' || state==='ended'){fullReset();return;}
   const was=state;
   if(state!=='paused') togglePause();
@@ -5819,6 +5826,8 @@ function openMenu(){
   else if(was!=='paused') togglePause();
 }
 function initEnhancements(){
+ document.getElementById('matchmakeBtn').addEventListener('click',joinOnline);
+ document.getElementById('cancelMatchmake').addEventListener('click',()=>{leaveOnline();onlineStatus('Eşleştirmeden ayrıldın.');});
  document.getElementById('pauseResume').addEventListener('click',()=>{togglePause();focusGame();});
  document.getElementById('pauseWatch').addEventListener('click',watchSimulation);
  document.getElementById('pauseFinish').addEventListener('click',simulateToEnd);
@@ -5878,6 +5887,197 @@ function initEnhancements(){
   window.addEventListener('blur',suspend);
   document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
   const scale=Math.min(window.devicePixelRatio||1,2);canvas.width=W*scale;canvas.height=H*scale;ctx.scale(scale,scale);
+}
+
+// Shared authoritative multiplayer path. Browsers render snapshots; only the server steps this engine.
+let onlineServer=false;
+const onlineHumans={blue:{},red:{}};
+function onlineResetHuman(side){onlineHumans[side]={selected:null,input:{x:0,y:0},previous:{},pending:[],charge:null,blocked:{},switchTime:0,pressTime:0,pressCooldown:0,sprintTime:0};}
+function onlineInput(side,data){
+ const h=onlineHumans[side];
+ if(h.pending.length<24)h.pending.push(data);
+}
+function onlineSelect(side,h,dt){
+ const members=squad(side),dir=side==='blue'?1:-1;
+ h.switchTime=Math.max(0,(h.switchTime||0)-dt);
+ const best=members.filter(p=>p.role!=='gk').sort((a,b)=>{
+  const metric=p=>dist(p.x,p.y,ball.x+ball.vx*.25,ball.y+ball.vy*.25)+(ball.owner&&(p.x-ball.x)*dir>0?55:0)+(p.recoverTime||0)*90;
+  return metric(a)-metric(b);
+ });
+ if(!members.includes(h.selected))h.selected=best[0];
+ if(ball.owner?.team===side)h.selected=ball.owner;
+ else if(passAssist?.team===side&&h.switchTime<=0)h.selected=passAssist.target;
+ else if(h.input.switch&&!h.previous.switch){h.selected=best.find(p=>p!==h.selected)||best[0];h.switchTime=1.2;}
+ else if(h.switchTime<=0&&best[0]!==h.selected&&dist(h.selected.x,h.selected.y,ball.x,ball.y)>dist(best[0].x,best[0].y,ball.x,ball.y)+65){h.selected=best[0];h.switchTime=.7;}
+ if(setPiece?.team===side)h.selected=setPiece.taker;
+}
+function onlineControl(side,dt,stationary=false){
+ const h=onlineHumans[side];
+ // Process button transitions in order, even a tap entirely between server ticks.
+ const batch=h.pending.splice(0);if(!batch.length)batch.push(h.input);
+ for(let i=0;i<batch.length;i++){
+  h.input=batch[i];const input=h.input,step=i===batch.length-1?dt:0;
+  onlineSelect(side,h,step);const p=h.selected;if(!p)continue;
+  const defending=!setPiece&&ball.owner?.team!==side;
+  for(const kind of ['pass','shoot','cross','through']){
+   const down=!!input[kind],pressed=down&&!h.previous[kind],released=!down&&h.previous[kind];
+   if(defending){
+    h.charge=null;if(down)h.blocked[kind]=true;
+    if(pressed&&(kind==='shoot'||kind==='cross'))startDefensiveTackle(p,kind==='cross',input);
+   }else if(!h.blocked[kind]){
+    if(pressed&&canUseBall(p)&&(!setPiece||setPiece.team===side))h.charge={kind,player:p,power:0,aim:{x:input.x,y:input.y}};
+    if(h.charge?.kind===kind&&down){h.charge.power=clamp(h.charge.power+step/.9,0,1);if(Math.hypot(input.x,input.y)>.18)h.charge.aim={x:input.x,y:input.y};}
+    if(released&&h.charge?.kind===kind){
+     const c=h.charge;h.charge=null;
+     if(canUseBall(c.player)&&(!setPiece||setPiece.team===side)){
+      const aim=Math.hypot(input.x,input.y)>.18?input:c.aim;
+      const target=setPiece?chooseRestartTarget(c.player,aim):Math.hypot(aim.x,aim.y)>.18?directionalReceiver(c.player,aim,kind==='through'):choosePassTarget(c.player,side,kind==='through');
+      let done=false;
+      if(kind==='shoot')done=shootBall(c.player,.3+c.power*.7,aim.x,aim.y,{err:16});
+      else if(target)done=kind==='cross'?crossBall(c.player,c.power,target):passBall(c.player,kind==='through',target,c.power);
+      if(done&&setPiece)setPiece.released=true;
+     }
+    }
+   }
+   if(!down)h.blocked[kind]=false;
+  }
+  h.previous={...input};
+  if(!step||stationary)continue;
+  let move={x:input.x,y:input.y};h.sprintTime=Math.hypot(input.x,input.y)>.92?h.sprintTime+dt:0;
+  move.sprint=!!input.sprint||h.sprintTime>.5;
+  if(defending&&input.pass&&Math.hypot(move.x,move.y)<.18){const target=ball.owner||ball,n=norm(target.x-p.x,target.y-p.y);move={x:n.x*.9,y:n.y*.9,sprint:false};}
+  if(passAssist?.team===side&&passAssist.target===p&&!ball.owner&&Math.hypot(input.x,input.y)<.18)moveToward(p,passAssist.x,passAssist.y,dt,1.1,4);
+  else if(p.role!=='gk'||ball.owner===p)controlPlayer(p,move,dt);
+  h.pressCooldown=Math.max(0,h.pressCooldown-dt);h.pressTime=defending&&input.through&&!h.pressCooldown?h.pressTime+dt:0;
+  let helper=null;
+  if(h.pressTime>2.5){h.pressCooldown=2;h.pressTime=0;}
+  if(h.pressTime>0)helper=membersForPress(side,p);
+  for(const mate of squad(side)){
+   if(mate===p||mate.role==='gk'||mate.recoverTime>0)continue;
+   if(mate===helper)moveToward(mate,ball.x,ball.y,dt,.96,15);
+   else if(passAssist?.target===mate&&!ball.owner)moveToward(mate,passAssist.x,passAssist.y,dt,1.1,4);
+   else followPlan(mate,dt,.88);
+  }
+ }
+ if(h.charge&&!canUseBall(h.charge.player))h.charge=null;
+}
+function membersForPress(side,selectedPlayer){return squad(side).filter(p=>p!==selectedPlayer&&p.role!=='gk').sort((a,b)=>dist(a.x,a.y,ball.x,ball.y)-dist(b.x,b.y,ball.x,ball.y))[0];}
+function onlineStep(dt){
+ scoringLock=Math.max(0,scoringLock-dt);messageTimer=Math.max(0,messageTimer-dt);
+ if(state==='ended')return;
+ if(state==='penalties'){const old=simulationMode;simulationMode='watch';updatePenaltyShootout(dt);simulationMode=old;return;}
+ if(setPiece){
+  setPiece.age+=dt;for(const p of players){p.vx=0;p.vy=0;p.cooldown=Math.max(0,p.cooldown-dt);}
+  ball.owner=setPiece.taker;
+  onlineControl('blue',dt,true);onlineControl('red',dt,true);
+  if(setPiece.age>10&&!setPiece.released){const t=setPiece.taker,target=chooseRestartTarget(t,{x:0,y:0});setPiece.released=setPiece.kind==='corner'?crossBall(t,.35,target):passBall(t,false,target,.35);}
+  if(setPiece.released)finishSetPiece();return;
+ }
+ elapsed+=dt;
+ const end=REGULATION_SECONDS+stoppageSeconds;
+ if(elapsed>=end&&!extraTimeStarted){if(score.blue!==score.red){endMatch();return;}extraTimeStarted=true;}
+ if(extraTimeStarted&&elapsed>=end+EXTRA_SECONDS){if(score.blue===score.red)startPenaltyShootout();else endMatch();return;}
+ if(goalPause>0){finishGoalPause(dt);return;}
+ refreshAttackPlan();updateTacticalPlans(dt);updatePossession(dt);
+ onlineControl('blue',dt);onlineControl('red',dt);selected=onlineHumans.blue.selected;
+ updateKeepers(dt);updatePlayers(dt);updatePassAssist(dt);resolveDefensiveTackles();updateAutoTackles(dt);updateDribble(dt);updateBallFree(dt);
+}
+const ONLINE_FIELDS=['x','y','vx','vy','faceX','faceY','stamina','diveTime','diveY','slideTime','tackleX','tackleY','sprinting'];
+function onlineSnapshot(){
+ return {state,elapsed,score:{...score},stats:JSON.parse(JSON.stringify(stats)),extraTimeStarted,stoppageSeconds,goalPause,penaltyResult,penalty:state==='penalties'?{blue:penalty.blue,red:penalty.red}:null,
+ players:players.map(p=>ONLINE_FIELDS.map(k=>p[k]||0)),selected:['blue','red'].map(s=>players.indexOf(onlineHumans[s].selected)),charge:['blue','red'].map(s=>onlineHumans[s].charge?.power||0),
+ ball:{x:ball.x,y:ball.y,vx:ball.vx,vy:ball.vy,z:ball.z,r:ball.r,owner:players.indexOf(ball.owner),lastTouch:ball.lastTouch},
+ restart:setPiece?{kind:setPiece.kind,team:setPiece.team,taker:players.indexOf(setPiece.taker),target:players.indexOf(setPiece.previewTarget||setPiece.target||setPiece.defaultTarget)}:null};
+}
+window.MINISAHA_ENGINE={
+ teams:()=>COUNTRY_TEAMS.map(t=>t.key),
+ boot(config){onlineServer=true;matchSize=config.size;formation='433';el.blueTeamSelect.value=config.blue;el.redTeamSelect.value=config.red;document.getElementById('duration').value='180';el.diff.value='pro';fullReset();startGame();teamChoice.blue=config.blue;teamChoice.red=config.red;setupTeams();resetKickoff();state='playing';beginSetPiece('kickoff','blue',FIELD.cx,FIELD.cy);for(const s of ['blue','red'])onlineResetHuman(s);},
+ input:onlineInput,step:onlineStep,snapshot:onlineSnapshot
+};
+
+const net={active:false,phase:'idle',token:null,stream:null,side:'blue',match:null,lastSnapshot:0,lastSend:0,sending:false,queue:[],seq:0,joinId:0,previous:'',goals:0};
+function onlineStatus(text){document.getElementById('onlineStatus').textContent=text;}
+function onlineButtons(){
+ for(const id of ['menuStart','blueTeamSelect','redTeamSelect','duration','formationSelect'])document.getElementById(id).disabled=net.active||(id==='formationSelect'&&matchSize===5);
+ document.querySelectorAll('[data-mode]').forEach(b=>b.disabled=net.active);
+ document.getElementById('matchmakeBtn').disabled=net.active;document.getElementById('cancelMatchmake').style.display=net.active?'inline-block':'none';}
+async function joinOnline(){
+ if(net.active||state!=='ready')return;
+ const attempt=++net.joinId;net.active=true;net.phase='joining';onlineButtons();onlineStatus('Eşleştirmeye bağlanılıyor…');
+ try{
+  const response=await fetch('/online/join',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({team:el.blueTeamSelect.value,size:matchSize,version:1}),signal:AbortSignal.timeout(10000)});
+  if(!response.ok)throw new Error(response.status===503?'Eşleştirme dolu; birazdan tekrar dene.':'Çevrimiçi servis kullanılamıyor. Sunucu güncellemesi gerekiyor.');
+  const data=await response.json();
+  if(attempt!==net.joinId){fetch('/online/leave',{method:'POST',headers:{Authorization:'Bearer '+data.token}}).catch(()=>{});return;}
+  net.token=data.token;net.phase='waiting';net.lastSnapshot=performance.now();onlineStatus(`${matchSize}’e ${matchSize} rakip aranıyor…`);
+  const stream=net.stream=new EventSource('/online/events?token='+encodeURIComponent(net.token));
+  stream.onmessage=e=>{
+   if(net.stream!==stream)return;
+   try{const m=JSON.parse(e.data);net.lastSnapshot=performance.now();
+    if(m.type==='waiting')onlineStatus('Rakip aranıyor… Diğer oyuncu da aynı modu seçip eşleştirmeye girmeli.');
+    else if(m.type==='match'){startOnlineMatch(m);}
+    else if(m.type==='state'&&net.match===m.match){applyOnlineState(m.state);}
+    else if(m.type==='left'){const hadMatch=net.phase==='playing';leaveOnline(false);fullReset();onlineStatus(hadMatch?'Rakibin bağlantısı koptu. Yeniden eşleşebilirsin.':'Eşleştirme sona erdi.');}
+   }catch(err){onlineStatus('Bağlantı verisi okunamadı.');}
+  };
+  stream.onerror=()=>{if(net.stream===stream)onlineStatus('Bağlantı yeniden kuruluyor…');};
+ }catch(err){if(attempt===net.joinId){leaveOnline(false);onlineStatus(err.message||'Eşleştirme bağlantısı kurulamadı.');}}
+}
+function leaveOnline(notify=true){
+ const token=net.token;++net.joinId;net.stream?.close();net.stream=null;net.active=false;net.token=null;net.phase='idle';net.match=null;net.queue=[];net.previous='';net.blend=null;clearInput();onlineButtons();
+ if(notify&&token)fetch('/online/leave',{method:'POST',headers:{Authorization:'Bearer '+token},keepalive:true}).catch(()=>{});
+ document.getElementById('onlineMatchBar').style.display='none';
+}
+function startOnlineMatch(m){
+ if(net.match===m.match)return;
+ net.match=m.match;net.side=m.side;net.phase='playing';net.seq=0;net.queue=[];net.previous='';net.goals=0;net.blend=null;net.blendReady=false;
+ matchSize=m.size;formation='433';document.getElementById('duration').value='180';
+ teamChoice.blue=m[net.side];teamChoice.red=m[net.side==='blue'?'red':'blue'];populateTeamSelects();fullReset();
+ state='playing';el.teamMenu.style.display='none';el.end.style.display='none';document.getElementById('onlineMatchBar').style.display='block';
+ onlineStatus('Rakip bulundu. Canlı maç başladı!');document.getElementById('onlineMatchBar').textContent='ÇEVRİMİÇİ · Sen '+getCountry(teamChoice.blue).name+' · 3 dakika';
+ clearInput();activateCommentary();sayCommentary('start',{},6);focusGame();
+}
+function applyOnlineState(s){
+ const from=players.map(p=>[p.x,p.y]),ballFrom=[ball.x,ball.y];
+ const reverse=net.side==='red',swap=t=>reverse?(t==='blue'?'red':t==='red'?'blue':t):t;
+ const localIndex=i=>i<0?-1:reverse?(i<matchSize?i+matchSize:i-matchSize):i;
+ for(let i=0;i<s.players.length;i++){
+  const p=players[localIndex(i)];if(!p)continue;
+  ONLINE_FIELDS.forEach((k,j)=>p[k]=s.players[i][j]);
+  if(reverse){p.x=W-p.x;p.y=H-p.y;for(const k of ['vx','vy','faceX','faceY','tackleX','tackleY','diveY'])p[k]*=-1;}
+ }
+ Object.assign(ball,s.ball);if(reverse){ball.x=W-ball.x;ball.y=H-ball.y;ball.vx*=-1;ball.vy*=-1;}
+ ball.owner=players[localIndex(s.ball.owner)]||null;ball.lastTouch=swap(s.ball.lastTouch);
+ score.blue=s.score[net.side];score.red=s.score[reverse?'blue':'red'];
+ stats.blue=s.stats[net.side];stats.red=s.stats[reverse?'blue':'red'];stats.goals=s.stats.goals.map(g=>({...g,team:swap(g.team)}));
+ net.blend=net.blendReady&&!s.restart&&!s.goalPause?{at:performance.now(),from,to:players.map(p=>[p.x,p.y]),ballFrom,ballTo:[ball.x,ball.y]}:null;net.blendReady=true;
+ elapsed=s.elapsed;extraTimeStarted=s.extraTimeStarted;stoppageSeconds=s.stoppageSeconds;goalPause=s.goalPause;
+ selected=players[localIndex(s.selected[reverse?1:0])]||blue[1];shotCharge=s.charge[reverse?1:0];
+ setPiece=s.restart?{kind:s.restart.kind,team:swap(s.restart.team),taker:players[localIndex(s.restart.taker)],previewTarget:players[localIndex(s.restart.target)]}:null;
+ if(stats.goals.length>net.goals){sayCommentary('goal',{team:stats.goals.at(-1).team},7);net.goals=stats.goals.length;}
+ if(s.state==='penalties'){state='playing';document.getElementById('onlineMatchBar').textContent=`ÇEVRİMİÇİ · Otomatik penaltılar ${s.penalty.blue}–${s.penalty.red}`;}
+ else state=s.state==='ended'?'playing':s.state;
+ updateHud();
+ if(s.state==='ended'){
+  penaltyResult=s.penaltyResult?{blue:s.penaltyResult[net.side],red:s.penaltyResult[reverse?'blue':'red'],winner:swap(s.penaltyResult.winner)}:null;
+  endMatch();leaveOnline(false);onlineStatus('Çevrimiçi maç tamamlandı.');
+ }
+}
+function onlineClientFrame(now){
+ if(!net.active)return;
+ if(net.phase!=='joining'&&now-net.lastSnapshot>12000){leaveOnline();fullReset();onlineStatus('Bağlantı kesildi. Tekrar eşleştirmeye girebilirsin.');return;}
+ if(net.phase!=='playing')return;
+ if(net.blend){const b=net.blend,t=clamp((now-b.at)/50,0,1);players.forEach((p,i)=>{p.x=lerp(b.from[i][0],b.to[i][0],t);p.y=lerp(b.from[i][1],b.to[i][1],t);});ball.x=lerp(b.ballFrom[0],b.ballTo[0],t);ball.y=lerp(b.ballFrom[1],b.ballTo[1],t);}
+ const inp=inputState(1/60),input={x:inp.x,y:inp.y,sprint:inp.sprint,switch:inp.qPressed};
+ for(const k of ['pass','through','cross','shoot'])input[k]=!!inp[k+'Down'];
+ for(const k of ['pass','through','cross','shoot'])if(inp[k+'Release']&&!input[k])net.queue.push({...input,[k]:true});
+ const serialized=JSON.stringify(input);
+ if(serialized!==net.previous){net.queue.push(input);net.previous=serialized;}
+ if(net.queue.length>20)net.queue=net.queue.slice(-20);
+ if(net.sending||now-net.lastSend<33)return;
+ net.sending=true;net.lastSend=now;const token=net.token,batch=net.queue.splice(0);if(!batch.length)batch.push(input);
+ fetch('/online/input',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+token},body:JSON.stringify({seq:++net.seq,inputs:batch}),signal:AbortSignal.timeout(2500)})
+ .catch(()=>{}).finally(()=>{net.sending=false;});
 }
 
 initEnhancements();

@@ -1,4 +1,10 @@
-const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const fs=require('fs'),vm=require('vm'),path=require('path');
+const root=process.env.MINISAHA_ROOT||path.join(__dirname,'..');
+const html=fs.readFileSync(path.join(root,'public/index.html'),'utf8');
+const program=new vm.Script(html.match(/<script>([\s\S]*?)<\/script>/)[1]);
+const loader={window:{MINISAHA_ROSTERS:{}}};vm.createContext(loader);
+for(const name of fs.readdirSync(path.join(root,'public/assets')).filter(n=>n.startsWith('rosters-')))vm.runInContext(fs.readFileSync(path.join(root,'public/assets',name),'utf8'),loader);
+module.exports=function createEngine(){
 const all=[], ids={};
 class El{
  constructor(tag='div'){this.tagName=tag.toUpperCase();this.style={};this.dataset={};this.children=[];this.events={};this.textContent='';this.value='';this.options=[];const c=new Set();this.classList={add:x=>c.add(x),remove:x=>c.delete(x),toggle:(x,f)=>{f??=!c.has(x);f?c.add(x):c.delete(x)},contains:x=>c.has(x)};}
@@ -13,17 +19,12 @@ class El{
 for(const d of JSON.parse(fs.readFileSync(require('path').join(__dirname,'dom-fixture.json')))){const e=new El(d.tag);Object.assign(e,{id:d.id,dataset:d.dataset,textContent:d.text,value:d.value,options:d.options});if(d.options.length)e.value=(d.options.find(o=>o.selected)||d.options[0]).value;all.push(e);if(d.id)ids[d.id]=e;}
 for(const id of ['keyBindingRows','keyBindingStatus','keyboardHelp','keyboardSettings','resetKeyBindings','commentaryProfileSelect','commentaryVoiceSelect','commentaryStatus','commentaryBtn','menuCommentaryBtn','commentaryTestBtn']){if(!ids[id])ids[id]=new El();}
 for(const id of ['pauseMenu','pauseMatchInfo','pauseResume','pauseWatch','pauseFinish','pauseMainMenu','simReturn','simProgress'])ids[id]=new El();
-for(const id of ['matchmakeBtn','cancelMatchmake','onlineStatus','onlineMatchBar'])ids[id]=new El();
+for(const m of html.matchAll(/id="([^"]+)"/g))if(!ids[m[1]])ids[m[1]]=new El();
 const context2d=new Proxy({createLinearGradient:()=>({addColorStop(){}})},{get:(o,k)=>k in o?o[k]:(()=>{})});ids.game.getContext=()=>context2d;
 const timers=[];
 const energy=new El('i');const store={};const errors=[];
 const sandbox={console:{log:console.log,error:(...x)=>errors.push(x.join(' '))},performance:{now:()=>0},Math,Date,JSON,Number,String,Object,Array,Map,Set,Infinity,localStorage:{getItem:k=>store[k]||null,setItem:(k,v)=>store[k]=v},navigator:{getGamepads:()=>[]},screen:{},setTimeout:f=>timers.push(f),requestAnimationFrame:()=>{},document:{getElementById:id=>ids[id]||null,createElement:t=>new El(t),querySelector:s=>s==='#energy i'?energy:null,querySelectorAll:s=>s==='[data-tactic]'?all.filter(e=>e.dataset.tactic):all.filter(e=>e.dataset.mode),addEventListener(){},hidden:false},devicePixelRatio:1,addEventListener(){},confirm:()=>true};
 sandbox.window=sandbox;sandbox.MINISAHA_BUNDLED_VOICE={};
-let script=fs.readFileSync(require('path').join(__dirname,'../public/index.html'),'utf8').match(/<script>([\s\S]*?)<\/script>/)[1];
-script=script.replace(/\}\)\(\);\s*$/, 'window.inspect = code => eval(code);})();');
-vm.createContext(sandbox);
-for(const name of fs.readdirSync(require('path').join(__dirname,'../public/assets')).filter(n=>n.startsWith('rosters-')))vm.runInContext(fs.readFileSync(require('path').join(__dirname,'../public/assets',name),'utf8'),sandbox);
-vm.runInContext(script,sandbox);
-const run=sandbox.inspect;
 
-module.exports={run,ids,sandbox,errors,timers};
+sandbox.MINISAHA_ROSTERS=loader.window.MINISAHA_ROSTERS;vm.createContext(sandbox);program.runInContext(sandbox,{timeout:3000});return sandbox.MINISAHA_ENGINE;
+};
