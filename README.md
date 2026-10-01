@@ -4,7 +4,17 @@ Telefon ve bilgisayarda çalışan HTML futbol oyunu. 5'e 5 / 11'e 11, yapay zek
 
 ## Çevrimiçi eşleştirme
 
-Ana menüde takımını ve **5’e 5 / 11’e 11** modunu seç, **Eşleştirmeye gir** düğmesine bas. Aynı oyuncu sayısını seçen iki kişi sırayla eşleşir; tek kişi varsa rakip beklenir. Her oyuncu kendi takımını ve seçili futbolcusunu yönetir. Takım arkadaşları pozisyon alır; rakibin top taşıyan oyuncusunun yerine yapay zekâ oynamaz. Her iki ekran da kendi takımını soldan sağa hücum ederken gösterir.
+Ana menüde takımını ve **5’e 5 / 11’e 11** modunu seç, **Arkadaşlarla / çevrimiçi oyna** düğmesine bas ve oyuncu adını gir. **Host ol** ile en fazla 20 karakter başlık ve 50 karakter açıklamayla oda aç; arkadaşın **Hosta katıl** ile oda listesinden seni seçsin. **Rastgele eşleşme**, aynı oyuncu sayısını seçen iki kişiyi ayrı kuyrukta buluşturur. Arkadaş odaları rastgele kuyruğa karışmaz. Her iki ekran kendi takımını soldan sağa hücum ederken gösterir.
+
+Oyuncu adı hesap değildir ve kalıcı kaydedilmez; her sayfa yenilemede boşalır. Aynı normalleştirilmiş ad sunucuda eşzamanlı kullanılamaz. Ayrılınca ad serbest kalır; beklenmedik kopuşta en geç 8 saniye içinde temizlenir. Açık oda listesinde başlık, açıklama, host adı ve oyuncu sayısı görünür. Host ayrılınca oda kapanır. Bağlantı isteği 10 saniyede zaman aşımına uğrar; beklerken saha çizilmeye devam eder, **Ayrıl / iptal et** ile çıkılabilir.
+
+Server.pro shell’e tek seferde yapıştır:
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/pisanadam/Minisaha/main/deploy/update.sh) minisaha.pisankus.dedyn.io
+```
+
+Güncelleme geçici temiz checkout kullanır, mevcut repo değişikliklerini silmez; önce kurulum düzenini ve HTTP testlerini doğrular, sonra çevrimiçi servisi ve oyunu günceller. Aktif maçlar servis yeniden başlatıldığında sonlanır.
 
 Maçlar üç dakikadır. Beraberlikte uzatma, ardından iki taraf için kadro gücüne bağlı otomatik penaltılar vardır. Çevrimiçi maç duraklatılamaz veya maç sonuna simüle edilemez. Sıradan çıkılabilir; maçtan ayrılan/kopan rakip diğer oyuncuya bildirilir. Bağlantı kısa süreli koparsa akış yeniden bağlanabilir; 8 saniye boyunca bağlantısı gelmeyen oyuncunun odası kapanır. Maçlar kalıcı sunucu veritabanına kaydedilmez; servis yeniden başlatılırsa aktif maçlar sona erer.
 
@@ -24,9 +34,9 @@ Sonraki güncellemelerde iki Python kurulum komutunu da çalıştırın. Node.js
 - Hata kaydı: `sudo journalctl -u minisaha-online -n 50 --no-pager`
 - Değişiklik yapmadan kontrol: `sudo python3 deploy/install-online.py minisaha.pisankus.dedyn.io --check`
 
-Tek bir yetkili sunucu 60 Hz fizik hesabı yapar ve yaklaşık 20 Hz durum yayınlar; istemciler yalnızca yön ve tuş komutları gönderir. İstemci skor/konum belirleyemez. Oturum belirteçleri rastgele üretilir, eski sıra numaraları ve geçersiz girdiler reddedilir. Kuyruklar oyuncu sayısına göre ayrıdır. Varsayılan sınır sekiz eşzamanlı maçtır. SSE ile durum akışı ve aynı kökenden HTTP komutları kullanılır; Nginx akış tamponlaması kapalıdır. Bu sürüm oda kodu, arkadaş daveti, hesap veya dereceli sıralama içermez.
+Tek bir yetkili sunucu 60 Hz fizik hesabı yapar ve yaklaşık 20 Hz durum yayınlar; istemciler yalnızca yön ve tuş komutları gönderir. İstemci skor/konum belirleyemez. Oturum belirteçleri rastgele üretilir, eski sıra numaraları ve geçersiz girdiler reddedilir. Kuyruklar oyuncu sayısına göre ayrıdır. Varsayılan sınır sekiz eşzamanlı maçtır. SSE ile durum akışı ve aynı kökenden HTTP komutları kullanılır; Nginx akış tamponlaması kapalıdır. Bu sürüm hesap veya dereceli sıralama içermez; arkadaş odaları listeden seçilir.
 
-Yerel doğrulama: `node tests/online.cjs` iki gerçek HTTP istemcisini eşleştirir; hareket, pas, ortak durum, iki farklı kuyruk, ayrılma, zaman aşımı, iki tarafın şutu ve maç sonunu doğrular. `python3 tests/online-deploy.py` TLS korumasını ve tekrar kurulumu sınar. Sunucuda kurulum yapılmadan GitHub Pages tek başına eşleştirme servisini çalıştıramaz.
+Yerel doğrulama: `node tests/online.cjs` iki gerçek HTTP istemcisini eşleştirir; hareket, pas, ortak durum, iki farklı kuyruk, ayrılma, zaman aşımı, iki tarafın şutu ve maç sonunu doğrular. `node tests/lobbies.cjs` oda açma/katılma, ad tekilliği, uzunluk sınırları ve bağlantı temizliğini doğrular. `python3 tests/online-deploy.py` TLS korumasını ve tekrar kurulumu sınar. Sunucuda kurulum yapılmadan GitHub Pages tek başına eşleştirme servisini çalıştıramaz.
 
 ## Kadrolar ve maç simülasyonu (28.09.2026)
 

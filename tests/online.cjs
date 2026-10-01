@@ -4,14 +4,14 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
  const app=createMatchServer({disconnectMs:500});await new Promise(r=>app.server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+app.server.address().port;
  const clients=[];
  async function post(path,data,token){return fetch(base+path,{method:'POST',headers:{'Content-Type':'application/json',...(token?{Authorization:'Bearer '+token}:{})},body:JSON.stringify(data)});}
- async function client(team,size){const r=await post('/online/join',{team,size,version:1});assert.equal(r.status,200);const c={token:(await r.json()).token,events:[],seq:0,abort:new AbortController()};clients.push(c);
+ async function client(team,size){const r=await post('/online/join',{team,size,version:2,name:'player'+clients.length});assert.equal(r.status,200);const c={token:(await r.json()).token,events:[],seq:0,abort:new AbortController()};clients.push(c);
   const stream=await fetch(base+'/online/events?token='+c.token,{signal:c.abort.signal});const reader=stream.body.getReader();let text='';
   c.done=(async()=>{try{while(true){const {value,done}=await reader.read();if(done)break;text+=new TextDecoder().decode(value);let at;while((at=text.indexOf('\n\n'))>=0){const frame=text.slice(0,at);text=text.slice(at+2);if(frame.startsWith('data: '))c.events.push(JSON.parse(frame.slice(6)));}}}catch(e){if(e.name!=='AbortError')throw e;}})();return c;
  }
  async function until(test){for(let i=0;i<100;i++){if(test())return;await wait(20);}throw new Error('timed out');}
  const input=(c,inputs)=>post('/online/input',{seq:++c.seq,inputs},c.token);
  try{
-  assert.equal((await post('/online/join',{team:'made-up',size:5,version:1})).status,400);
+  assert.equal((await post('/online/join',{team:'made-up',size:5,version:2,name:'invalid'})).status,400);
   assert.equal((await post('/online/input',{},'fake')).status,401);
   const a=await client('superlig_fenerbahce',5),different=await client('turkiye',11);
   await wait(80);assert(!a.events.some(e=>e.type==='match'));assert(!different.events.some(e=>e.type==='match'));

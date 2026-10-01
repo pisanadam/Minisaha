@@ -14,6 +14,7 @@ for(const d of JSON.parse(fs.readFileSync(require('path').join(__dirname,'dom-fi
 for(const id of ['keyBindingRows','keyBindingStatus','keyboardHelp','keyboardSettings','resetKeyBindings','commentaryProfileSelect','commentaryVoiceSelect','commentaryStatus','commentaryBtn','menuCommentaryBtn','commentaryTestBtn']){if(!ids[id])ids[id]=new El();}
 for(const id of ['pauseMenu','pauseMatchInfo','pauseResume','pauseWatch','pauseFinish','pauseMainMenu','simReturn','simProgress'])ids[id]=new El();
 for(const id of ['matchmakeBtn','cancelMatchmake','onlineStatus','onlineMatchBar','victoryScare','victoryScareImage','closeVictoryScare'])ids[id]=new El();
+for(const m of fs.readFileSync(require('path').join(__dirname,'../public/index.html'),'utf8').matchAll(/id="([^"]+)"/g))if(!ids[m[1]])ids[m[1]]=new El();
 const context2d=new Proxy({createLinearGradient:()=>({addColorStop(){}})},{get:(o,k)=>k in o?o[k]:(()=>{})});ids.game.getContext=()=>context2d;
 const timers=[],windowEvents={};
 const energy=new El('i');const store={};const errors=[];

@@ -81,7 +81,7 @@ WantedBy=multi-user.target
         healthy=False
         for _ in range(30):
             try:
-                if json.load(urllib.request.urlopen('http://127.0.0.1:8787/online/health',timeout=1)).get('version')==1:healthy=True;break
+                if json.load(urllib.request.urlopen('http://127.0.0.1:8787/online/health',timeout=1)).get('version')==2:healthy=True;break
             except Exception:time.sleep(.2)
         if not healthy:raise RuntimeError('Çevrimiçi servis başlatılamadı.')
         subprocess.run(['nginx','-s','reload'],check=True)

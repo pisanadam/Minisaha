@@ -280,7 +280,7 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
 #simReturn{display:none;position:absolute;z-index:12;left:50%;top:76px;transform:translateX(-50%);background:#c5fa75;color:#172c1b;font-size:12px;padding:9px 14px}
 #simProgress{display:none;position:absolute;inset:0;z-index:45;background:#0c1e16f5;align-items:center;justify-content:center;color:#c5fa75;font-size:clamp(17px,4vw,28px);text-align:center;padding:24px}
 
-#matchmakeBtn{background:#6cadde;color:#102519;flex:1}#onlineStatus{font-size:12px!important;line-height:1.5}#onlineMatchBar{display:none;position:absolute;z-index:9;top:78px;left:50%;transform:translateX(-50%);font-size:11px;background:#0c211bdc;padding:6px 12px;border-radius:8px;max-width:90%;text-align:center;pointer-events:none}
+#matchmakeBtn{background:#6cadde;color:#102519;flex:1}#onlineLobbyPanel input{display:block;width:100%;box-sizing:border-box;background:#102219;color:#eff8e9;border:1px solid #698466;border-radius:8px;padding:11px;margin:8px 0}#onlineLobbyPanel .menuActions{flex-wrap:wrap}#onlineLobbyPanel .menuActions button{flex:1;min-width:95px}#onlineRooms p{display:block!important;overflow-wrap:anywhere;margin:12px 0 4px}#onlineStatus{display:block!important;font-size:12px!important;line-height:1.5}#onlineMatchBar{display:none;position:absolute;z-index:9;top:78px;left:50%;transform:translateX(-50%);font-size:11px;background:#0c211bdc;padding:6px 12px;border-radius:8px;max-width:90%;text-align:center;pointer-events:none}
 #victoryScare{position:fixed;inset:0;z-index:9999;display:none;place-items:center;background:#000;overflow:hidden;touch-action:manipulation;cursor:pointer}
 #victoryScare img{width:100%;height:100%;object-fit:contain;animation:scareZoom .16s ease-out both;pointer-events:none}
 #victoryScare button{position:absolute;right:16px;top:16px;z-index:1;background:#000b;color:white;border:1px solid #fff8;padding:10px 16px}
@@ -335,7 +335,13 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
         <label>DİZİLİŞ<select id="formationSelect"><option value="433">4–3–3</option><option value="4231">4–2–3–1</option><option value="442">4–4–2</option></select></label><label>TAKTİK<select id="tactic"><option value="balanced">Dengeli</option><option value="attack">Hücum</option><option value="defend">Savunma</option></select></label>
       </div><p id="difficultyInfo"></p>
       <div class="menuActions"><button id="menuCommentaryBtn" aria-pressed="true">Spiker: açık</button><button id="commentaryTestBtn">Sesi dene 🔊</button></div><label for="commentaryProfileSelect">ANLATIM TARZI</label><select id="commentaryProfileSelect" aria-label="Spiker anlatım tarzı"><option value="balanced">Dengeli · Maç spikeri</option><option value="passionate">Coşkulu · Tribün heyecanı</option><option value="radio">Tok ses · Radyo anlatımı</option><option value="analyst">Sakin · Analist</option></select><label for="commentaryVoiceSelect">SPİKER SESİ</label><select id="commentaryVoiceSelect" aria-label="Spiker sesi"></select><p id="commentaryStatus" role="status">Türkçe sesli anlatım · 999 replik varyasyonu</p><div class="menuActions"><button id="menuStart">SAHAYA ÇIK <span>↗</span></button><button id="randomRival" aria-label="Rastgele rakip seç">Rastgele rakip</button></div>
-      <div class="menuActions"><button id="matchmakeBtn">Eşleştirmeye gir</button><button id="cancelMatchmake" style="display:none">Sıradan çık</button></div><p id="onlineStatus" role="status" aria-live="polite">Çevrimiçi: seçtiğin takımla gerçek rakibe karşı. Aynı oyuncu sayısını seçenler eşleşir; maçlar 3 dakika sürer.</p>
+      <div class="menuActions"><button id="matchmakeBtn">Arkadaşlarla / çevrimiçi oyna</button><button id="cancelMatchmake" style="display:none">Ayrıl / iptal et</button></div>
+      <div id="onlineLobbyPanel" style="display:none">
+        <label for="onlineName">OYUNCU ADIN</label><input id="onlineName" maxlength="20" autocomplete="off" placeholder="Her yenilemede yeniden gir">
+        <div class="menuActions"><button id="hostOnlineBtn">Host ol</button><button id="browseOnlineBtn">Hosta katıl</button><button id="randomOnlineBtn">Rastgele eşleşme</button></div>
+        <div id="hostOnlineForm" style="display:none"><label for="onlineTitle">ODA BAŞLIĞI · EN FAZLA 20 KARAKTER</label><input id="onlineTitle" maxlength="20" placeholder="Oda başlığı"><label for="onlineDescription">AÇIKLAMA · EN FAZLA 50 KARAKTER</label><input id="onlineDescription" maxlength="50" placeholder="Açıklama (isteğe bağlı)"><button id="createOnlineBtn">Odayı aç</button></div>
+        <div id="onlineRooms" aria-live="polite"></div>
+      </div><p id="onlineStatus" role="status" aria-live="polite">Host ol, arkadaşının odasına katıl veya rastgele rakip bul. Maçlar 3 dakika.</p>
       <details id="keyboardSettings" class="helpDetails"><summary>Klavye ve tuş atamaları</summary><p>Bilgisayarda klavyeyle oyna. Bir tuş alanına tıkla, ardından istediğin tuşa bas. Her hareket için iki tuş seçebilirsin. Esc: atamayı iptal et · Delete: seçili atamayı temizle.</p><div class="keyBindingHeading"><span>Hareket</span><span>Birinci tuş</span><span>İkinci tuş</span></div><div id="keyBindingRows"></div><p id="keyBindingStatus" role="status" aria-live="polite"></p><button id="resetKeyBindings" type="button">Varsayılana dön</button></details><details class="helpDetails"><summary>Nasıl oynanır?</summary><p id="keyboardHelp"></p><p>Telefonda sol çubuğu ve sağdaki tuşları kullan. Şut yönünü hareket çubuğuyla belirle. Joystick’i dış kenarda 0,5 saniyeden uzun tutunca otomatik koşarsın. Yavaşlamak için çubuğu merkeze yaklaştır. Pas, ara pas ve orta: basılı tutarak güç biriktir, bırakınca vur. Kısa dokunuşlarda da mesafeye uygun hız kullanılır. Top rakipteyken: PAS → PRES (basılı tut), ŞUT → AYAKTA MÜDAHALE, ORTA → KAYARAK MÜDAHALE, ARA PAS → İKİNCİ PRES (basılı tut). Pres sırasında çubukla yön verebilirsin. İkinci pres en fazla 2,5 saniye sürer. Müdahaleler yalnızca erişilebilen topa işler; kaymayı kaçırınca toparlanmak zaman alır. Kaleciler iki takımda da otomatik çalışır. Oyuncu seçimi pas alıcısına ve topun gidişine göre yapılır. Gamepad: sol analog, A/✕ pas, B/○ şut, Y/△ ara pas, X/□ orta, analog dış kenarda 0,5 saniye: koşu; RT/R2 sprint, LB/L1 oyuncu değiştir.</p><p>Beraberlikte 30 saniye uzatma, ardından zamanlama barıyla penaltılar. Takımlar oyun içi seçim listesidir.</p></details>
       <details class="helpDetails"><summary id="squadSummary">Kadro ve görevler</summary><div id="squadList"></div><p>Kanatlar hızlı, stoperler top kapmada, orta sahalar pasta, santrforlar bitiricilikte güçlüdür. Saha üzerindeki kısaltmalar mevkileri gösterir.</p></details><details class="helpDetails"><summary>Ses kaynağı ve lisans</summary><p>Gömülü erkek ses: Piper tr_TR-dfki-medium modeliyle üretilen sentetik Türkçe konuşma. Kaynak veri: © 2009 DFKI GmbH, <a href="https://github.com/marytts/dfki-ot-data/" target="_blank" rel="noopener">DFKI OT</a>. Ses verileri ve bu oyundaki dönüştürülmüş kayıtlar: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> (atıf, ticari olmayan kullanım, aynı lisansla paylaşım). Kayıtlar sentezlendi, sessizlikleri kısaltıldı ve MP3 biçimine çevrildi.</p></details><div id="history" aria-label="Son maçlar"></div>
       
@@ -5780,7 +5786,7 @@ function render(){
 let fatalError = false;
 let accumulator=0;
 function loop(now){
-  if(net.active&&!onlineServer){onlineClientFrame(now);last=now;accumulator=0;if(net.phase==='playing')render();requestAnimationFrame(loop);return;}
+  if(net.active&&!onlineServer){onlineClientFrame(now);last=now;accumulator=0;render();requestAnimationFrame(loop);return;}
   const frame=Math.min(Math.max((now-last)/1000,0),.2);last=now;
   if(!fastSimulation)accumulator+=frame;else accumulator=0;
   if(!fatalError&&!fastSimulation){
@@ -5871,7 +5877,11 @@ function openMenu(){
   else if(was!=='paused') togglePause();
 }
 function initEnhancements(){
- document.getElementById('matchmakeBtn').addEventListener('click',joinOnline);
+ document.getElementById('matchmakeBtn').addEventListener('click',()=>{document.getElementById('onlineLobbyPanel').style.display='block';});
+ document.getElementById('hostOnlineBtn').addEventListener('click',()=>{document.getElementById('hostOnlineForm').style.display='block';document.getElementById('onlineRooms').replaceChildren();});
+ document.getElementById('browseOnlineBtn').addEventListener('click',browseOnline);
+ document.getElementById('randomOnlineBtn').addEventListener('click',()=>joinOnline('random'));
+ document.getElementById('createOnlineBtn').addEventListener('click',()=>joinOnline('host'));
  document.getElementById('cancelMatchmake').addEventListener('click',()=>{leaveOnline();onlineStatus('Eşleştirmeden ayrıldın.');});
  document.getElementById('pauseResume').addEventListener('click',()=>{togglePause();focusGame();});
  document.getElementById('pauseWatch').addEventListener('click',watchSimulation);
@@ -6045,21 +6055,36 @@ function onlineStatus(text){document.getElementById('onlineStatus').textContent=
 function onlineButtons(){
  for(const id of ['menuStart','blueTeamSelect','redTeamSelect','duration','formationSelect'])document.getElementById(id).disabled=net.active||(id==='formationSelect'&&matchSize===5);
  document.querySelectorAll('[data-mode]').forEach(b=>b.disabled=net.active);
+ for(const id of ['onlineName','onlineTitle','onlineDescription','hostOnlineBtn','browseOnlineBtn','randomOnlineBtn','createOnlineBtn'])document.getElementById(id).disabled=net.active;
  document.getElementById('matchmakeBtn').disabled=net.active;document.getElementById('cancelMatchmake').style.display=net.active?'inline-block':'none';}
-async function joinOnline(){
+async function onlineFetch(url,options={},timeout=10000){
+ const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),timeout);
+ try{return await fetch(url,{...options,signal:controller.signal});}finally{clearTimeout(timer);}
+}
+async function browseOnline(){
+ if(net.active)return;const box=document.getElementById('onlineRooms');box.replaceChildren();document.getElementById('hostOnlineForm').style.display='none';onlineStatus('Odalar yükleniyor…');
+ try{const r=await onlineFetch('/online/rooms');if(!r.ok)throw new Error('Oda listesi alınamadı; çevrimiçi servis kurulmalı.');const data=await r.json();if(net.active)return;
+  for(const room of data.rooms){const row=document.createElement('div'),text=document.createElement('p'),button=document.createElement('button');text.textContent=room.title+' · '+room.host+' · '+room.size+'’e '+room.size+' — '+room.description;button.textContent='Katıl';button.addEventListener('click',()=>joinOnline('join',room.id,room.size));row.append(text,button);box.append(row);}
+  onlineStatus(data.rooms.length?'Bir oda seç.':'Açık oda yok. Arkadaşın Host ol ile oda açabilir.');
+ }catch(e){onlineStatus(e.name==='AbortError'?'Sunucu yanıt vermedi. Tekrar deneyebilirsin.':e.message);}
+}
+async function joinOnline(mode='random',room=null,size=matchSize){
  if(net.active||state!=='ready')return;
+ const name=document.getElementById('onlineName').value.normalize('NFKC').trim();if(!name||[...name].length>20){onlineStatus('1–20 karakterlik oyuncu adını gir.');return;}
+ const title=document.getElementById('onlineTitle').value.trim(),description=document.getElementById('onlineDescription').value.trim();
+ if(mode==='host'&&(!title||[...title].length>20||[...description].length>50)){onlineStatus('Başlık 1–20, açıklama en fazla 50 karakter olmalı.');return;}
  const attempt=++net.joinId;net.active=true;net.phase='joining';onlineButtons();onlineStatus('Eşleştirmeye bağlanılıyor…');
  try{
-  const response=await fetch('/online/join',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({team:el.blueTeamSelect.value,size:matchSize,version:1}),signal:AbortSignal.timeout(10000)});
-  if(!response.ok)throw new Error(response.status===503?'Eşleştirme dolu; birazdan tekrar dene.':'Çevrimiçi servis kullanılamıyor. Sunucu güncellemesi gerekiyor.');
+  const response=await onlineFetch('/online/join',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({team:el.blueTeamSelect.value,size,version:2,name,mode,room,title,description})});
   const data=await response.json();
+  if(!response.ok)throw new Error(({'name-taken':'Bu ad şu anda kullanılıyor. Başka bir ad gir.','room':'Oda dolmuş veya kapanmış. Listeyi yenile.','full':'Sunucu dolu; birazdan tekrar dene.','selection':'Sunucu güncellemesi gerekiyor.','name':'Geçerli bir oyuncu adı gir.','room-size':'Odanın oyuncu sayısı değişmiş.'})[data.error]||'Çevrimiçi servis kullanılamıyor. Sunucu güncellemesi gerekiyor.');
   if(attempt!==net.joinId){fetch('/online/leave',{method:'POST',headers:{Authorization:'Bearer '+data.token}}).catch(()=>{});return;}
   net.token=data.token;net.phase='waiting';net.lastSnapshot=performance.now();onlineStatus(`${matchSize}’e ${matchSize} rakip aranıyor…`);
   const stream=net.stream=new EventSource('/online/events?token='+encodeURIComponent(net.token));
   stream.onmessage=e=>{
    if(net.stream!==stream)return;
    try{const m=JSON.parse(e.data);net.lastSnapshot=performance.now();
-    if(m.type==='waiting')onlineStatus('Rakip aranıyor… Diğer oyuncu da aynı modu seçip eşleştirmeye girmeli.');
+    if(m.type==='waiting')onlineStatus(m.mode==='host'?'Oda açık: '+m.title+' · Kod: '+m.room+' · Arkadaşın Hosta katıl ile seni seçsin.':m.mode==='join'?'Odaya bağlanılıyor…':'Rastgele rakip aranıyor… Ayrıl / iptal et ile çıkabilirsin.');
     else if(m.type==='match'){startOnlineMatch(m);}
     else if(m.type==='state'&&net.match===m.match){applyOnlineState(m.state);}
     else if(m.type==='left'){const hadMatch=net.phase==='playing';leaveOnline(false);fullReset();onlineStatus(hadMatch?'Rakibin bağlantısı koptu. Yeniden eşleşebilirsin.':'Eşleştirme sona erdi.');}
@@ -6069,7 +6094,7 @@ async function joinOnline(){
  }catch(err){if(attempt===net.joinId){leaveOnline(false);onlineStatus(err.message||'Eşleştirme bağlantısı kurulamadı.');}}
 }
 function leaveOnline(notify=true){
- const token=net.token;++net.joinId;net.stream?.close();net.stream=null;net.active=false;net.token=null;net.phase='idle';net.match=null;net.queue=[];net.previous='';net.blend=null;clearInput();onlineButtons();
+ const token=net.token;++net.joinId;net.sending=false;net.stream?.close();net.stream=null;net.active=false;net.token=null;net.phase='idle';net.match=null;net.queue=[];net.previous='';net.blend=null;clearInput();onlineButtons();
  if(notify&&token)fetch('/online/leave',{method:'POST',headers:{Authorization:'Bearer '+token},keepalive:true}).catch(()=>{});
  document.getElementById('onlineMatchBar').style.display='none';
 }
@@ -6121,10 +6146,13 @@ function onlineClientFrame(now){
  if(net.queue.length>20)net.queue=net.queue.slice(-20);
  if(net.sending||now-net.lastSend<33)return;
  net.sending=true;net.lastSend=now;const token=net.token,batch=net.queue.splice(0);if(!batch.length)batch.push(input);
- fetch('/online/input',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+token},body:JSON.stringify({seq:++net.seq,inputs:batch}),signal:AbortSignal.timeout(2500)})
- .catch(()=>{}).finally(()=>{net.sending=false;});
+ onlineFetch('/online/input',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+token},body:JSON.stringify({seq:++net.seq,inputs:batch})},2500)
+ .catch(()=>{}).finally(()=>{if(net.token===token)net.sending=false;});
 }
 
+addEventListener('pagehide',()=>leaveOnline());
+addEventListener('pageshow',()=>{document.getElementById('onlineName').value='';if(net.active){leaveOnline();fullReset();}});
+document.getElementById('onlineName').value='';
 initEnhancements();
 populateTeamSelects();
 fullReset();
