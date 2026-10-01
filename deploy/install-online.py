@@ -10,7 +10,8 @@ def nginx_online(text):
         proxy_http_version 1.1;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header Connection "";
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
         proxy_buffering off;
         proxy_cache off;
         proxy_read_timeout 60s;
@@ -67,22 +68,28 @@ WorkingDirectory=/var/lib/minisaha-online/current
 ExecStart={node} /var/lib/minisaha-online/current/server/server.cjs
 Environment=PUBLIC_ORIGIN={origin}
 Environment=PORT=8787
+Environment=MINISAHA_VOICE_PYTHON=/var/lib/minisaha-voice/venv/bin/python
+Environment=MINISAHA_VOICE_MODEL=/var/lib/minisaha-voice/tr_TR-dfki-medium.onnx
+Environment=MINISAHA_VOICE_CACHE=/var/cache/minisaha-voice
 Restart=on-failure
 RestartSec=2
 NoNewPrivileges=true
 PrivateTmp=true
 ProtectSystem=strict
 ProtectHome=true
+ReadWritePaths=/var/cache/minisaha-voice
 [Install]
 WantedBy=multi-user.target
 ''')
         config.write_text(new_config);subprocess.run(['nginx','-t'],check=True)
         subprocess.run(['systemctl','daemon-reload'],check=True);subprocess.run(['systemctl','enable','--now','minisaha-online'],check=True);subprocess.run(['systemctl','restart','minisaha-online'],check=True)
         healthy=False
-        for _ in range(30):
+        for _ in range(100):
             try:
-                if json.load(urllib.request.urlopen('http://127.0.0.1:8787/online/health',timeout=1)).get('version')==2:healthy=True;break
-            except Exception:time.sleep(.2)
+                health=json.load(urllib.request.urlopen('http://127.0.0.1:8787/online/health',timeout=1))
+                if health.get('version')==3 and health.get('voiceReady'):healthy=True;break
+            except Exception:pass
+            time.sleep(.2)
         if not healthy:raise RuntimeError('Çevrimiçi servis başlatılamadı.')
         subprocess.run(['nginx','-s','reload'],check=True)
     except Exception:
@@ -95,5 +102,5 @@ WantedBy=multi-user.target
         if old_unit:subprocess.run(['systemctl','restart','minisaha-online'],check=False)
         raise
     print('Eşleştirme servisi hazır: '+origin+'/online/health')
-    print('İki cihazdan aynı oyuncu sayısını seçip Eşleştirmeye gir düğmesine basın.')
+    print('İki oyuncu Rastgele eşleşme veya Host ol / Hosta katıl ile bağlanıp teklifi kabul etsin.')
 if __name__=='__main__':main()

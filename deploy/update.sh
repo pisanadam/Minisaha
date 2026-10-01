@@ -17,11 +17,17 @@ node -e 'if(Number(process.versions.node.split(".")[0])<18){console.error("Node.
 "${SUDO[@]}" python3 deploy/install-online.py "$DOMAIN" --check
 node tests/online.cjs
 node tests/lobbies.cjs
+node tests/online-socket.cjs
+node tests/online-client.cjs
+node tests/keeper-hands.cjs
+node tests/substitutions.cjs
+"${SUDO[@]}" apt-get update
+"${SUDO[@]}" python3 deploy/install-voice.py
 "${SUDO[@]}" python3 deploy/install-online.py "$DOMAIN"
 "${SUDO[@]}" python3 deploy/install.py "$DOMAIN"
 python3 - "$DOMAIN" <<'PY'
 import json,sys,urllib.request
 # Existing HTTPS redirects are validated by the backend check in the installer.
-assert json.load(urllib.request.urlopen('http://127.0.0.1:8787/online/health',timeout=5))['version']==2
+assert json.load(urllib.request.urlopen('http://127.0.0.1:8787/online/health',timeout=5))['version']==3
 print('Mini Saha güncellendi: https://'+sys.argv[1]+' — sayfayı yenile.')
 PY

@@ -4,39 +4,52 @@ Telefon ve bilgisayarda çalışan HTML futbol oyunu. 5'e 5 / 11'e 11, yapay zek
 
 ## Çevrimiçi eşleştirme
 
-Ana menüde takımını ve **5’e 5 / 11’e 11** modunu seç, **Arkadaşlarla / çevrimiçi oyna** düğmesine bas ve oyuncu adını gir. **Host ol** ile en fazla 20 karakter başlık ve 50 karakter açıklamayla oda aç; arkadaşın **Hosta katıl** ile oda listesinden seni seçsin. **Rastgele eşleşme**, aynı oyuncu sayısını seçen iki kişiyi ayrı kuyrukta buluşturur. Arkadaş odaları rastgele kuyruğa karışmaz. Her iki ekran kendi takımını soldan sağa hücum ederken gösterir.
+Ana menüde takımını seç, **Arkadaşlarla / çevrimiçi oyna** düğmesine bas ve oyuncu adını gir. **Host ol** ile en fazla 20 karakter başlık ve 50 karakter açıklamayla oda aç; arkadaşın **Hosta katıl** listesinden seni seçsin. **Rastgele eşleşme** diğer rastgele bekleyen oyuncuyu bulur; arkadaş odaları kuyruğa karışmaz. Rastgele sırada 5 ve 11 tercihi farklı oyuncular da eşleşebilir: sıraya önce girenin oyuncu sayısı teklif ekranında gösterilir. Boş arkadaş odaları maç kapasitesini tüketmez.
 
-Oyuncu adı hesap değildir ve kalıcı kaydedilmez; her sayfa yenilemede boşalır. Aynı normalleştirilmiş ad sunucuda eşzamanlı kullanılamaz. Ayrılınca ad serbest kalır; beklenmedik kopuşta en geç 8 saniye içinde temizlenir. Açık oda listesinde başlık, açıklama, host adı ve oyuncu sayısı görünür. Host ayrılınca oda kapanır. Bağlantı isteği 10 saniyede zaman aşımına uğrar; beklerken saha çizilmeye devam eder, **Ayrıl / iptal et** ile çıkılabilir.
+**Oyun bulundu!** ekranı kendi takımını, rakip takımını, rakibin oyuncu adını ve gerçek ilk 5 / ilk 11’i ad, mevki ve puanla gösterir. **Kabul et / İptal et** vardır. İki taraf kabul edene kadar maçın süresi ve fiziği başlamaz. Teklif 30 saniye geçerlidir; iptal veya zaman aşımında bekleyen diğer rastgele oyuncu tekrar sıraya alınır.
 
-Server.pro shell’e tek seferde yapıştır:
+Oyuncu adı hesap değildir ve kalıcı kaydedilmez; her sayfa yenilemede boşalır. Aynı normalleştirilmiş ad sunucuda eşzamanlı kullanılamaz. Ayrılınca ad serbest kalır; beklenmedik kopuşta en geç 8 saniye içinde temizlenir. Host ayrılınca oda kapanır. Bağlantı isteği 10 saniyede zaman aşımına uğrar; beklerken **Ayrıl / iptal et** ile çıkılabilir.
+
+Maçlar üç dakikadır; beraberlikte uzatma ve otomatik penaltılar vardır. İki ekran da kendi takımını soldan sağa hücum ederken gösterir. Sunucu 60 Hz fizik hesaplar ve 30 Hz durum yayınlar. Tarayıcılar durum üretmez; hareket ve tuş geçişlerini sürekli WebSocket üzerinden gönderir. Kısa dokunuşun basma/bırakma geçişi ve gerçek tutma gücü korunur; önceki HTTP yanıtı beklenmez. WebSocket açılamazsa SSE/HTTP yedeği kullanılır; bu yol daha fazla gecikme yapabilir. İnternet gecikmesi tamamen ortadan kalkmaz.
+
+### Duraklatma ve oyuncu değişiklikleri
+
+**Duraklat → Oyuncu değiştir** ile sahadan çıkacak oyuncuyu ve gerçek kadrodaki yedeği seç. Kadro kaynağı önceki sürümle aynıdır: 2026–27 kadroları; FC26 veya tahmini puanlar. FC27 / eFootball’dan yeni resmî veri çekildiği iddia edilmez.
+
+- 11’e 11’de her takım 5 oyuncu değiştirebilir; çıkan oyuncu geri giremez. 5’e 5’te dönüşümlü değişiklik yapılabilir.
+- Kaleci yerine kaleci, saha oyuncusu yerine saha oyuncusu seçilir. Giren oyuncu kendi adı ve puanıyla, tam enerjiyle gelir; skor ve zaman korunur. Değişiklikler gol sonrası santrada da korunur.
+- Çevrimiçi duraklatma iki oyuncunun maçını birlikte durdurur. Yalnızca duraklatan kişi kendi takımını değiştirebilir veya maçı devam ettirebilir. 45 saniye sonunda oyun otomatik devam eder. Çevrimiçi simülasyon yoktur.
+- Spiker çıkan ve giren oyuncuyu isimleriyle söyler; iki tarayıcı da aynı değişikliği görür.
+
+### Kalecinin elindeki top
+
+Kaleci erişebildiği, tutmaya uygun topu yakalar; çok sert veya yetişilemeyen vuruşları otomatik garantiyle tutmaz. Top elindeyken sabit durur ve topa rakip müdahale edemez. Kendi takımında pas alıcısını sahadaki oyuncuya dokunarak veya listeden seç: ardından **Pas**. Kaleci bu durumda şut/orta atmaz veya topu sürmez. Aynı davranış yerel ve çevrimiçi maçta kullanılır.
+
+### 3.000 replik ve duygulu spiker
+
+Olaylara göre seçilen **3.000 benzersiz replik** vardır. Gol, kurtarış, kaçan fırsat, baskı, son dakikalar ve oyuncu değişikliği ayrı havuzlardan seçilir. Golde daha canlı tempo ve ton, kaçan fırsatta daha düşük ton, yakın skorlu son anlarda daha fazla heyecan; isim ve değişiklik anonsunda açık ve sakin telaffuz kullanılır. Sıradan paslarda gol coşkusu uygulanmaz. Replik torbası ve bekleme aralıkları tekrar/üst üste konuşmayı azaltır.
+
+146 yabancı oyuncu adı için Türkçe okunuş düzeltmeleri vardır; görünen gerçek isimler değişmez. Yeni replikler ve isimler, gömülü sesle aynı **Piper tr_TR-dfki-medium** modeliyle VPS’de üretilir ve MP3 önbelleğine alınır. 3.000 repliğin tümü önceden kaydedilmiş dosyalar değildir; eksik parçalar ilk kullanımda oluşturulur. Ses modeli ayrı işlemde ve tek CPU iş parçacığında çalışır. Telefona Türkçe ses kurulması gerekmez. GitHub Pages veya sunucusuz HTML’de yalnızca önceden gömülü kayıtlar tam çalışır; yeni sesler için çevrimiçi servis gerekir.
+
+### Server.pro güncelleme
+
+Shell’e tek seferde yapıştır:
 
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/pisanadam/Minisaha/main/deploy/update.sh) minisaha.pisankus.dedyn.io
 ```
 
-Güncelleme geçici temiz checkout kullanır, mevcut repo değişikliklerini silmez; önce kurulum düzenini ve HTTP testlerini doğrular, sonra çevrimiçi servisi ve oyunu günceller. Aktif maçlar servis yeniden başlatıldığında sonlanır.
+Güncelleme temiz geçici checkout kullanır; kurulum düzenini ve bağlantı testlerini kontrol eder, Python sanal ortamına Piper 1.8.0 ve Türkçe ses modelini, gerekiyorsa Node.js 18+ ve FFmpeg’i kurar. Ardından ses hazır durumunu doğrulayıp çevrimiçi servisi ve oyunu günceller. İlk ses kurulumu model indirdiği için daha uzun sürebilir. Aktif maçlar servis yeniden başlatıldığında sonlanır.
 
-Maçlar üç dakikadır. Beraberlikte uzatma, ardından iki taraf için kadro gücüne bağlı otomatik penaltılar vardır. Çevrimiçi maç duraklatılamaz veya maç sonuna simüle edilemez. Sıradan çıkılabilir; maçtan ayrılan/kopan rakip diğer oyuncuya bildirilir. Bağlantı kısa süreli koparsa akış yeniden bağlanabilir; 8 saniye boyunca bağlantısı gelmeyen oyuncunun odası kapanır. Maçlar kalıcı sunucu veritabanına kaydedilmez; servis yeniden başlatılırsa aktif maçlar sona erer.
-
-Kurulum (mevcut Server.pro / Nginx / HTTPS kurulumu üstüne):
-
-```bash
-cd ~/Minisaha
-git pull --ff-only
-sudo apt update && sudo apt install -y nodejs
-sudo python3 deploy/install.py minisaha.pisankus.dedyn.io
-sudo python3 deploy/install-online.py minisaha.pisankus.dedyn.io
-```
-
-Sonraki güncellemelerde iki Python kurulum komutunu da çalıştırın. Node.js 18+ gerekir; npm paketi gerekmez. Kurulum mevcut Mini Saha TLS/Certbot ayarlarını ve diğer siteleri korur, yalnızca Mini Saha vhost’una `/online/` yolu ekler. Servis `www-data` ile `127.0.0.1:8787` adresinde çalışır; bu portu internete açmayın. `systemd` servisi sunucu açılışında başlar ve hata durumunda yeniden başlatılır. Sağlık adresi: `https://minisaha.pisankus.dedyn.io/online/health`.
-
-- Servis durumu: `sudo systemctl status minisaha-online`
+- Servis: `sudo systemctl status minisaha-online`
 - Hata kaydı: `sudo journalctl -u minisaha-online -n 50 --no-pager`
-- Değişiklik yapmadan kontrol: `sudo python3 deploy/install-online.py minisaha.pisankus.dedyn.io --check`
+- Sağlık: `https://minisaha.pisankus.dedyn.io/online/health` → `version: 3`, `voiceReady: true`.
+- WebSocket: aynı alan adındaki `/online/socket`; Nginx yükseltme başlıklarını aktarır. Backend yalnızca `127.0.0.1:8787` dinler.
+- Kurulum mevcut Mini Saha TLS ayarlarını ve diğer siteleri korur. Maçlar/odalar RAM’de tutulur; yeniden başlatmada sonlanır.
 
-Tek bir yetkili sunucu 60 Hz fizik hesabı yapar ve yaklaşık 20 Hz durum yayınlar; istemciler yalnızca yön ve tuş komutları gönderir. İstemci skor/konum belirleyemez. Oturum belirteçleri rastgele üretilir, eski sıra numaraları ve geçersiz girdiler reddedilir. Kuyruklar oyuncu sayısına göre ayrıdır. Varsayılan sınır sekiz eşzamanlı maçtır. SSE ile durum akışı ve aynı kökenden HTTP komutları kullanılır; Nginx akış tamponlaması kapalıdır. Bu sürüm hesap veya dereceli sıralama içermez; arkadaş odaları listeden seçilir.
+Doğrulama: `tests/online.cjs`, `tests/lobbies.cjs`, `tests/online-socket.cjs`, `tests/online-client.cjs`, `tests/keeper-hands.cjs`, `tests/substitutions.cjs`, `tests/online-deploy.py`. İki gerçek bağlantı; teklif/kabul, karışık oyuncu sayısı, iptal/zaman aşımı, hareket ve tuş geçişleri, ortak duraklatma ve yetkili değişiklikleri sınar.
 
-Yerel doğrulama: `node tests/online.cjs` iki gerçek HTTP istemcisini eşleştirir; hareket, pas, ortak durum, iki farklı kuyruk, ayrılma, zaman aşımı, iki tarafın şutu ve maç sonunu doğrular. `node tests/lobbies.cjs` oda açma/katılma, ad tekilliği, uzunluk sınırları ve bağlantı temizliğini doğrular. `python3 tests/online-deploy.py` TLS korumasını ve tekrar kurulumu sınar. Sunucuda kurulum yapılmadan GitHub Pages tek başına eşleştirme servisini çalıştıramaz.
+Ses altyapısı: [Piper Python API](https://github.com/OHF-Voice/piper1-gpl/blob/main/docs/API_PYTHON.md), [Türkçe DFKI model ve lisans bilgileri](https://huggingface.co/rhasspy/piper-voices/tree/v1.0.0/tr/tr_TR/dfki/medium). Piper GPL-3.0; DFKI ses verisinin CC BY-NC-SA 4.0 atfı oyun içinde korunmuştur.
 
 ## Kadrolar ve maç simülasyonu (28.09.2026)
 
