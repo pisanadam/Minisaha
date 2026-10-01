@@ -280,7 +280,7 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
 #simReturn{display:none;position:absolute;z-index:12;left:50%;top:76px;transform:translateX(-50%);background:#c5fa75;color:#172c1b;font-size:12px;padding:9px 14px}
 #simProgress{display:none;position:absolute;inset:0;z-index:45;background:#0c1e16f5;align-items:center;justify-content:center;color:#c5fa75;font-size:clamp(17px,4vw,28px);text-align:center;padding:24px}
 
-#onlineOffer{position:absolute;inset:0;z-index:40;background:#06130ded;display:flex;align-items:center;justify-content:center;padding:12px}#onlineOffer .offerCard{width:min(620px,95%);max-height:95%;overflow:auto;background:#193528;border:1px solid #82aa68;border-radius:16px;padding:18px;color:#eff8e9}#onlineOffer h2{margin:0 0 12px}#onlineOffer .offerTeams{display:grid;grid-template-columns:1fr 1fr;gap:18px}#onlineOffer ol{padding-left:25px;font-size:12px;line-height:1.8}#onlineAcceptBtn{background:#cef389;color:#152414}#keeperPassBar{position:absolute;z-index:12;left:50%;top:112px;transform:translateX(-50%);width:min(360px,90%);background:#102d23ee;padding:8px;border-radius:8px;color:white;font-size:11px}#keeperPassSelect{width:100%;padding:6px;margin-top:5px}#matchmakeBtn{background:#6cadde;color:#102519;flex:1}#onlineLobbyPanel input{display:block;width:100%;box-sizing:border-box;background:#102219;color:#eff8e9;border:1px solid #698466;border-radius:8px;padding:11px;margin:8px 0}#onlineLobbyPanel .menuActions{flex-wrap:wrap}#onlineLobbyPanel .menuActions button{flex:1;min-width:95px}#onlineRooms p{display:block!important;overflow-wrap:anywhere;margin:12px 0 4px}#onlineStatus{display:block!important;font-size:12px!important;line-height:1.5}#onlineMatchBar{display:none;position:absolute;z-index:9;top:78px;left:50%;transform:translateX(-50%);font-size:11px;background:#0c211bdc;padding:6px 12px;border-radius:8px;max-width:90%;text-align:center;pointer-events:none}
+#onlineOffer{position:absolute;inset:0;z-index:40;background:#06130ded;display:flex;align-items:center;justify-content:center;padding:12px}#onlineOffer .offerCard{width:min(620px,95%);max-height:95%;overflow:auto;background:#193528;border:1px solid #82aa68;border-radius:16px;padding:18px;color:#eff8e9}#onlineOffer h2{margin:0 0 12px}#onlineOffer .offerTeams{display:grid;grid-template-columns:1fr 1fr;gap:18px}#onlineOffer ol{padding-left:25px;font-size:12px;line-height:1.8}#onlineAcceptBtn{background:#cef389;color:#152414}#keeperPassBar{position:absolute;z-index:12;left:50%;top:112px;transform:translateX(-50%);width:min(360px,90%);background:#102d23ee;padding:8px;border-radius:8px;color:white;font-size:11px}#keeperPassBar{pointer-events:none}#matchmakeBtn{background:#6cadde;color:#102519;flex:1}#onlineLobbyPanel input{display:block;width:100%;box-sizing:border-box;background:#102219;color:#eff8e9;border:1px solid #698466;border-radius:8px;padding:11px;margin:8px 0}#onlineLobbyPanel .menuActions{flex-wrap:wrap}#onlineLobbyPanel .menuActions button{flex:1;min-width:95px}#onlineRooms p{display:block!important;overflow-wrap:anywhere;margin:12px 0 4px}#onlineStatus{display:block!important;font-size:12px!important;line-height:1.5}#onlineMatchBar{display:none;position:absolute;z-index:9;top:78px;left:50%;transform:translateX(-50%);font-size:11px;background:#0c211bdc;padding:6px 12px;border-radius:8px;max-width:90%;text-align:center;pointer-events:none}
 #victoryScare{position:fixed;inset:0;z-index:9999;display:none;place-items:center;background:#000;overflow:hidden;touch-action:manipulation;cursor:pointer}
 #victoryScare img{width:100%;height:100%;object-fit:contain;animation:scareZoom .16s ease-out both;pointer-events:none}
 #victoryScare button{position:absolute;right:16px;top:16px;z-index:1;background:#000b;color:white;border:1px solid #fff8;padding:10px 16px}
@@ -334,7 +334,7 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
         <label>MAÇ SÜRESİ<select id="duration"><option value="90">90 saniye</option><option value="180">3 dakika</option><option value="300">5 dakika</option></select></label>
         <label>DİZİLİŞ<select id="formationSelect"><option value="433">4–3–3</option><option value="4231">4–2–3–1</option><option value="442">4–4–2</option></select></label><label>TAKTİK<select id="tactic"><option value="balanced">Dengeli</option><option value="attack">Hücum</option><option value="defend">Savunma</option></select></label>
       </div><p id="difficultyInfo"></p>
-      <div class="menuActions"><button id="menuCommentaryBtn" aria-pressed="true">Spiker: açık</button><button id="commentaryTestBtn">Sesi dene 🔊</button></div><label for="commentaryProfileSelect">ANLATIM TARZI</label><select id="commentaryProfileSelect" aria-label="Spiker anlatım tarzı"><option value="balanced">Dengeli · Maç spikeri</option><option value="passionate">Coşkulu · Tribün heyecanı</option><option value="radio">Tok ses · Radyo anlatımı</option><option value="analyst">Sakin · Analist</option></select><label for="commentaryVoiceSelect">SPİKER SESİ</label><select id="commentaryVoiceSelect" aria-label="Spiker sesi"></select><p id="commentaryStatus" role="status">Türkçe sesli anlatım · 3.000 replik varyasyonu</p><div class="menuActions"><button id="menuStart">SAHAYA ÇIK <span>↗</span></button><button id="randomRival" aria-label="Rastgele rakip seç">Rastgele rakip</button></div>
+      <div class="menuActions"><button id="menuCommentaryBtn" aria-pressed="true">Spiker: açık</button><button id="commentaryTestBtn">Sesi dene 🔊</button></div><label for="commentaryProfileSelect">ANLATIM TARZI</label><select id="commentaryProfileSelect" aria-label="Spiker anlatım tarzı"><option value="balanced">Dengeli · Maç spikeri</option><option value="passionate">Coşkulu · Tribün heyecanı</option><option value="radio">Tok ses · Radyo anlatımı</option><option value="analyst">Sakin · Analist</option></select><label for="commentaryAllegianceSelect">Spikerin tuttuğu taraf</label><select id="commentaryAllegianceSelect"><option value="neutral">Tarafsız</option><option value="blue">Bizim takım</option><option value="red">Rakip takım</option></select><small id="commentaryAllegianceHint">Tek oyunculuda spikerin desteklediği tarafı seç.</small><label for="commentaryVoiceSelect">SPİKER SESİ</label><select id="commentaryVoiceSelect" aria-label="Spiker sesi"></select><p id="commentaryStatus" role="status">Türkçe sesli anlatım · 3.000 replik varyasyonu</p><div class="menuActions"><button id="menuStart">SAHAYA ÇIK <span>↗</span></button><button id="randomRival" aria-label="Rastgele rakip seç">Rastgele rakip</button></div>
       <div class="menuActions"><button id="matchmakeBtn">Arkadaşlarla / çevrimiçi oyna</button><button id="cancelMatchmake" style="display:none">Ayrıl / iptal et</button></div>
       <div id="onlineLobbyPanel" style="display:none">
         <label for="onlineName">OYUNCU ADIN</label><input id="onlineName" maxlength="20" autocomplete="off" placeholder="Her yenilemede yeniden gir">
@@ -349,7 +349,7 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
   </div>
 
   <div id="onlineOffer" style="display:none" role="dialog" aria-modal="true" aria-labelledby="onlineOfferTitle"><div class="offerCard"><h2 id="onlineOfferTitle">Oyun bulundu!</h2><p id="onlineOfferInfo"></p><div class="offerTeams"><div><h3 id="offerYourTeam"></h3><ol id="offerYourLineup"></ol></div><div><h3 id="offerRivalTeam"></h3><ol id="offerRivalLineup"></ol></div></div><p id="onlineOfferStatus" role="status"></p><div class="menuActions"><button id="onlineAcceptBtn">Kabul et</button><button id="onlineDeclineBtn">İptal et</button></div></div></div>
-  <div id="keeperPassBar" style="display:none"><label for="keeperPassSelect">Kaleci topu elinde tutuyor · Oyuncuyu seç ve Pas’a bas</label><select id="keeperPassSelect"><option value="">Oyuncu seç</option></select></div>
+  <div id="keeperPassBar" style="display:none"><span id="keeperPassHint">Sahadaki oyuncuya dokun, sonra Pas’a bas: kaleci eliyle yüksekten atsın.</span></div>
   <div id="onlineMatchBar" role="status"></div><div id="message"></div>
 
   <div id="pauseMenu" role="dialog" aria-modal="true" aria-labelledby="pauseTitle">
@@ -5306,7 +5306,28 @@ function createBundledUtterance(parts,delivery){
 
 const GOAL_CALLS = ["Süper gol!", "Harika gol!", "Muhteşem gol!", "Mükemmel bitiriş!", "Ne güzel bir gol!", "Şahane gol!", "Olağanüstü gol!", "Müthiş gol!", "İşte gol!", "Ve top ağlarda!", "Hücum golle sonuçlandı!", "Beklenen gol geldi!", "Ağlar havalandı!", "Gol sevinci başladı!", "Çok güzel bir gol!", "Usta işi bir bitiriş!", "Kaleciyi geçti, gol!", "Şimdi gol zamanı!", "Top filelerle buluştu!", "Güzel vuruş, güzel gol!", "Golü buldular!", "Sonunda ağları buldu!", "Gol sesi yükseliyor!", "Bu kez top ağlarda!", "Futbolun güzelliği, işte gol!", "Gözümüzün önünde nefis bir gol!", "Vuruş ve gol!", "Ağlarda şimdi top var!", "Harika bir bitiriş geldi!", "Skoru değiştiren vuruş!", "Müthiş bir gol sevinci!", "Top çizgiyi geçti!", "Güzel hücum, güzel sonuç!", "Golü attı, sevince koşuyor!", "Ne müthiş bir bitiriş!", "Son dokunuş, top ağlarda!", "Bu gol alkışı hak ediyor!", "Topu ağlara göndermeyi başardı!", "Kalede top var, gol!", "Güzel bir gol izledik!", "Hücumun ödülü geldi!", "Mücadele golle taçlandı!", "Gol sevinci sahayı sardı!", "Ağları sarsan vuruş!", "Nefis bir gol izliyoruz!", "Tribünleri ayağa kaldıran gol!", "Başardı, top filelerde!", "Tamamladı, gol oldu!", "Kaleyi buldu ve golü yaptı!", "İşte aradıkları gol!"];
 let commentatorEnabled=true;
-let commentaryVoiceChoice='bundled',commentaryProfile='passionate';
+let commentaryVoiceChoice='bundled',commentaryProfile='passionate',commentaryAllegiance='neutral';
+let commentaryOnlineNeutral=false;
+function effectiveCommentaryAllegiance(){return commentaryOnlineNeutral?'neutral':commentaryAllegiance;}
+function syncCommentaryAllegianceUI(){
+ const select=document.getElementById('commentaryAllegianceSelect');
+ select.disabled=commentaryOnlineNeutral;select.value=effectiveCommentaryAllegiance();
+ document.getElementById('commentaryAllegianceHint').textContent=commentaryOnlineNeutral?'Çok oyunculuda spiker her zaman tarafsızdır.':'Tek oyunculuda spikerin desteklediği tarafı seç.';
+}
+const SUPPORTER_COMMENTARY={
+ goal:['İşte bizim takımın golü! Harika bir sevinç!','Rakip takım golü buldu. Bu gole cevap vermeliyiz.'],
+ save:['Kalecimiz harika kurtardı! İçimiz rahatladı.','Rakip kaleci gole izin vermedi.'],
+ miss:['Ah, bu fırsatı kaçırmamalıydık!','Rakip fırsatı kaçırdı, rahat bir nefes aldık.'],
+ attack:['Haydi bizim takım! Bu hücumdan gol bekliyoruz.','Rakip geliyor, savunmamız dikkatli olmalı.'],
+ shot:['Haydi, bu vuruş gol olsun!','Rakip vuruyor! Kalecimize güveniyoruz.'],
+ cross:['Güzel bir orta bekliyoruz! Haydi bizim takım!','Rakip ortalıyor, dikkatli olmalıyız.']
+};
+function commentaryEventTeam(data){return data.team||data.player?.team;}
+function biasedCommentaryLine(kind,data,line){
+ const allegiance=effectiveCommentaryAllegiance(),team=commentaryEventTeam(data);
+ const lines=SUPPORTER_COMMENTARY[['equalizer','lead'].includes(kind)?'goal':kind];
+ return allegiance==='neutral'||!team||!lines?line:lines[team===allegiance?0:1];
+}
 let commentaryProfileVoices={};
 const COMMENTARY_PROFILES={
  balanced:{name:'Dengeli',rate:1.01,pitch:.96,energy:.75,volume:.84,gap:3400,voiceIndex:0,goalCall:''},
@@ -5325,8 +5346,11 @@ function commentaryDelivery(kind,data={}){
  const tense=!data.preview&&elapsed>REGULATION_SECONDS*.8&&Math.abs(score.blue-score.red)<=1;
  if(tense&&['shot','save','attack','counter','lead','equalizer'].includes(kind))intensity=Math.min(1,intensity+.15);
  if(kind==='miss')intensity=.15;if(kind==='substitution')intensity=.12;
- const level=Math.max(intensity,kind==='substitution'||kind==='miss'?0:commentary.excitement*.55);
- return {level,emotion:kind==='miss'?'disappointed':['goal','lead','equalizer'].includes(kind)?'excited':kind==='substitution'?'clear':tense?'tense':'calm',rate:kind==='substitution'?.96:kind==='miss'?.89:clamp(style.rate+level*.19*style.energy,.85,1.28),pitch:kind==='miss'?.86:clamp(style.pitch+level*.16*style.energy,.75,1.18),volume:Math.min(1,style.volume+level*.15)};
+ const allegiance=effectiveCommentaryAllegiance(),team=commentaryEventTeam(data),biased=allegiance!=='neutral'&&!!team,favored=team===allegiance;
+ if(biased&&['goal','lead','equalizer'].includes(kind)&&!favored)intensity=.12;
+ if(biased&&kind==='miss'&&!favored)intensity=.35;
+ const level=Math.max(intensity,kind==='substitution'||kind==='miss'?0:biased&&['goal','lead','equalizer'].includes(kind)&&!favored?0:commentary.excitement*.55);
+ return {level,emotion:kind==='miss'?(biased&&!favored?'relieved':'disappointed'):['goal','lead','equalizer'].includes(kind)?(biased&&!favored?'disappointed':'excited'):kind==='substitution'?'clear':tense?'tense':'calm',rate:kind==='substitution'?.96:kind==='miss'?(biased&&!favored?1.04:.89):clamp(style.rate+level*.19*style.energy,.85,1.28),pitch:kind==='miss'?(biased&&!favored?.98:.86):clamp(style.pitch+level*.16*style.energy,.75,1.18),volume:Math.min(1,style.volume+level*.15)};
 }
 const commentary={excitement:0,demoId:0,previewing:false,voice:null,voices:[],voiceNotice:'',unlocked:false,current:null,priority:0,lastAt:-Infinity,holdUntil:0,cooldowns:{},bags:{},lastCore:{},tick:0,late:false,turnover:null,seed:917231,error:''};
 function commentaryRandom(){let x=commentary.seed;x^=x<<13;x^=x>>>17;x^=x<<5;commentary.seed=x>>>0;return commentary.seed/4294967296;}
@@ -5435,7 +5459,7 @@ function sayCommentary(kind,data={},priority=1){
  if(commentary.current){if(priority<commentary.priority||(priority===commentary.priority&&priority<6))return false;stopCommentary();}
  else if(priority<3&&now-commentary.lastAt<activeCommentaryProfile().gap)return false;
  const goalEvent=['goal','equalizer','lead'].includes(kind);
- const line=data.previewText||pickCommentary(kind);if(!line)return false;
+ const line=data.previewText||biasedCommentaryLine(kind,data,pickCommentary(kind));if(!line)return false;
  let text=commentaryText(line,data);
  const delivery=commentaryDelivery(kind,data);
  if(!data.preview&&kind==='equalizer')text+=' Beraberlik geldi!';
@@ -5491,6 +5515,11 @@ function updateCommentary(dt){
  sayCommentary(kind,{player:p,team:p.team},1);
 }
 function initCommentary(){
+ syncCommentaryAllegianceUI();
+ document.getElementById('commentaryAllegianceSelect').addEventListener('change',e=>{
+  if(!commentaryOnlineNeutral&&['neutral','blue','red'].includes(e.target.value)){commentaryAllegiance=e.target.value;stopCommentary();saveSettings();}
+  syncCommentaryAllegianceUI();
+ });
  const profileSelect=document.getElementById('commentaryProfileSelect');
  if(profileSelect){profileSelect.value=commentaryProfile;profileSelect.addEventListener('change',e=>{
   if(!COMMENTARY_PROFILES[e.target.value])return;
@@ -5614,7 +5643,7 @@ canvas.addEventListener('pointerdown', e=>{
   const mates=blue.filter(p=>p!==(keeper?ball.owner:setPiece.taker));
   let target=null,best=52;
   for(const p of mates){const d=Math.hypot(p.x-px,p.y-py);if(d<best){best=d;target=p;}}
-  if(target){if(keeper){keeperPassTarget=target;document.getElementById('keeperPassSelect').value=String(blue.indexOf(target));}else setPiece.target=target;setMessage('#'+target.num+' hedef seçildi',.55);e.preventDefault();}
+  if(target){if(keeper){keeperPassTarget=target;updateKeeperPassUI();}else setPiece.target=target;setMessage('#'+target.num+' hedef seçildi',.55);e.preventDefault();}
 });
 
 const ball = {
@@ -6487,6 +6516,21 @@ function chooseCrossTarget(p){
  }
  return target;
 }
+function throwKeeperBall(p,target,power=.25){
+ if(ball.owner!==p||!ball.held||p.role!=='gk'||!target||target.team!==p.team||target.role==='gk'||!squad(p.team).includes(target))return false;
+ const n=norm(target.x-p.x,target.y-p.y);
+ ball.x=p.x+n.x*(p.r+7);ball.y=p.y+n.y*(p.r+7);
+ const travel=dist(ball.x,ball.y,target.x,target.y),flight=clamp(.85+travel/900+clamp(power,0,1)*.2,.9,1.7),drag=.12;
+ const speed=travel*drag/(1-Math.exp(-drag*flight));
+ const aim=norm(target.x-ball.x,target.y-ball.y);
+ ball.kicker=p;ball.kickerCleared=false;ball.owner=null;ball.held=false;ball.vx=aim.x*speed;ball.vy=aim.y*speed;
+ ball.z=12;ball.vz=(140*flight*flight-ball.z)/flight;ball.pickupDelay=.1;
+ ball.lastTouch=p.team;ball.lastPlayer=p;ball.shotTeam=null;ball.shotOnTarget=false;ball.saveCounted=false;
+ passAssist={team:p.team,target,x:target.x,y:target.y,through:true,time:flight+1.3,cross:true,handThrow:true};
+ p.cooldown=.24;stats[p.team].passes++;recordAIPass(p,target,'cross');sayCommentary('cross',{player:p,target,team:p.team},3);tone(300,.09,.055);
+ if(p.team==='blue'){keeperPassTarget=null;setMessage('Kaleciden yüksek el pası',.6);}
+ return true;
+}
 function crossBall(p,power=.25,targetOverride=null){
  if(!canUseBall(p))return false;
  const target=targetOverride||chooseCrossTarget(p);
@@ -7098,7 +7142,8 @@ function handleActions(inp,dt){
     let done=false;
     if(actor.role==='gk'&&ball.held&&kind!=='pass'){setMessage('Kaleci elinde: oyuncu seç ve Pas’a bas',.6);continue;}
     if(actor.role==='gk'&&ball.held&&!target){setMessage('Önce pas vereceğin oyuncuyu seç',.6);continue;}
-    if(kind==='shoot')done=shootBall(actor,.3+power*.7,aim?.x||0,aim?.y||0,null);
+    if(actor.role==='gk'&&ball.held)done=throwKeeperBall(actor,target,power);
+    else if(kind==='shoot')done=shootBall(actor,.3+power*.7,aim?.x||0,aim?.y||0,null);
     else if((aim||restarting)&&!target)setMessage('Bu yönde pas verecek oyuncu yok',.6);
     else if(kind==='cross')done=crossBall(actor,power,target);
     else done=passBall(actor,kind==='through',target,power);
@@ -7187,9 +7232,10 @@ function updateGame(dt){
 }
 
 function updateKeeperPassUI(){
- const holder=ball.owner,bar=document.getElementById('keeperPassBar'),select=document.getElementById('keeperPassSelect');
- if(!holder||holder.team!=='blue'||holder.role!=='gk'||!ball.held){bar.style.display='none';select.keeperOwner=null;return;}
- bar.style.display='block';if(select.keeperOwner!==holder){select.keeperOwner=holder;select.replaceChildren();const placeholder=document.createElement('option');placeholder.value='';placeholder.textContent='Oyuncu seç';select.append(placeholder);for(const [i,p] of blue.entries()){if(p.role==='gk')continue;const opt=document.createElement('option');opt.value=String(i);opt.textContent='#'+p.num+' '+p.roster.name;select.append(opt);}select.value=keeperPassTarget?String(blue.indexOf(keeperPassTarget)):'';}
+ const holder=ball.owner,bar=document.getElementById('keeperPassBar');
+ if(!holder||holder.team!=='blue'||holder.role!=='gk'||!ball.held){bar.style.display='none';return;}
+ bar.style.display='block';
+ document.getElementById('keeperPassHint').textContent=keeperPassTarget?'#'+keeperPassTarget.num+' '+keeperPassTarget.roster.name+' seçildi · Pas’a bas: eliyle yüksekten atsın.':'Sahadaki oyuncuya dokun, sonra Pas’a bas: kaleci eliyle yüksekten atsın.';
 }
 function updateHud(){
  updateKeeperPassUI();
@@ -7583,7 +7629,7 @@ function drawPlayer(p){
   if(p===supportPresser){ctx.save();ctx.strokeStyle='#ffda75';ctx.lineWidth=2;ctx.beginPath();ctx.arc(p.x,p.y,p.r+5,0,TAU);ctx.stroke();ctx.restore();}
   if(p.role==='gk'&&p.diveTime>0){ctx.save();ctx.strokeStyle='#d8ff9d';ctx.lineWidth=9*PLAYER_SCALE;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(p.x,p.y+p.diveY*(p.r+7*PLAYER_SCALE));ctx.stroke();ctx.restore();}
   ctx.save();
-  if(setPiece?.team==='blue'&&p===(setPiece.previewTarget||setPiece.target||setPiece.defaultTarget)){
+  if((setPiece?.team==='blue'&&p===(setPiece.previewTarget||setPiece.target||setPiece.defaultTarget))||(ball.held&&ball.owner?.team==='blue'&&p===keeperPassTarget)){
     ctx.strokeStyle='#ffd76a';ctx.lineWidth=3;ctx.beginPath();ctx.arc(p.x,p.y,p.r+10,0,TAU);ctx.stroke();
   }
   ctx.fillStyle='rgba(0,0,0,.28)';ctx.beginPath();ctx.ellipse(p.x+3*PLAYER_SCALE,p.y+7*PLAYER_SCALE,p.r+2*PLAYER_SCALE,p.r*.65,0,0,TAU);ctx.fill();
@@ -7852,7 +7898,7 @@ function tone(freq,duration,volume=.06){
   }catch(e){}
 }
 function saveSettings(){
-  try{localStorage.setItem('miniSaha.settings.v2',JSON.stringify({blue:teamChoice.blue,red:teamChoice.red,difficulty:el.diff.value,duration:document.getElementById('duration').value,tactic,soundEnabled,commentatorEnabled,commentaryVoiceChoice,embeddedVoiceVersion:1,commentaryProfile,commentaryProfileVoices,matchSize,formation,keyBindings}));}catch(e){}
+  try{localStorage.setItem('miniSaha.settings.v2',JSON.stringify({blue:teamChoice.blue,red:teamChoice.red,difficulty:el.diff.value,duration:document.getElementById('duration').value,tactic,soundEnabled,commentatorEnabled,commentaryVoiceChoice,embeddedVoiceVersion:1,commentaryProfile,commentaryProfileVoices,commentaryAllegiance,matchSize,formation,keyBindings}));}catch(e){}
 }
 function recordMatch(){
   if(historySaved) return;
@@ -7909,7 +7955,6 @@ function initEnhancements(){
  document.getElementById('subConfirmBtn').addEventListener('click',confirmSubstitution);
  document.getElementById('onlineAcceptBtn').addEventListener('click',acceptOnline);
  document.getElementById('onlineDeclineBtn').addEventListener('click',()=>{leaveOnline();fullReset();onlineStatus('Maç iptal edildi.');});
- document.getElementById('keeperPassSelect').addEventListener('change',e=>{keeperPassTarget=blue[Number(e.target.value)]||null;if(e.target.value==='')keeperPassTarget=null;});
  document.getElementById('cancelMatchmake').addEventListener('click',()=>{leaveOnline();onlineStatus('Eşleştirmeden ayrıldın.');});
  document.getElementById('pauseResume').addEventListener('click',()=>{togglePause();focusGame();});
  document.getElementById('pauseWatch').addEventListener('click',watchSimulation);
@@ -7930,6 +7975,7 @@ function initEnhancements(){
       matchSize=s.matchSize===11?11:5;
       formation=['433','4231','442'].includes(s.formation)?s.formation:'433';
       tactic=['balanced','attack','defend'].includes(s.tactic)?s.tactic:'balanced';soundEnabled=s.soundEnabled===true;commentatorEnabled=s.commentatorEnabled!==false;
+      if(['neutral','blue','red'].includes(s.commentaryAllegiance))commentaryAllegiance=s.commentaryAllegiance;
       if(COMMENTARY_PROFILES[s.commentaryProfile])commentaryProfile=s.commentaryProfile;
       if(s.commentaryProfileVoices&&typeof s.commentaryProfileVoices==='object')for(const key of Object.keys(COMMENTARY_PROFILES)){const v=s.commentaryProfileVoices[key];if(typeof v==='string'&&(v==='bundled'||v==='male'||v==='auto'||v.startsWith('voice:')))commentaryProfileVoices[key]=v;}
       if(typeof s.commentaryVoiceChoice==='string'&&(s.commentaryVoiceChoice==='bundled'||s.commentaryVoiceChoice==='male'||s.commentaryVoiceChoice==='auto'||s.commentaryVoiceChoice.startsWith('voice:')))commentaryVoiceChoice=s.commentaryVoiceChoice;
@@ -8020,7 +8066,8 @@ function onlineControl(side,dt,stationary=false){
       const target=heldKeeper?squad(side)[input.target]:setPiece?chooseRestartTarget(c.player,aim):Math.hypot(aim.x,aim.y)>.18?directionalReceiver(c.player,aim,kind==='through'):choosePassTarget(c.player,side,kind==='through');
       let done=false;
       if(heldKeeper&&(kind!=='pass'||!target||target.role==='gk'))continue;
-      if(kind==='shoot')done=shootBall(c.player,.3+c.power*.7,aim.x,aim.y,{err:16});
+      if(heldKeeper)done=throwKeeperBall(c.player,target,c.power);
+      else if(kind==='shoot')done=shootBall(c.player,.3+c.power*.7,aim.x,aim.y,{err:16});
       else if(target)done=kind==='cross'?crossBall(c.player,c.power,target):passBall(c.player,kind==='through',target,c.power);
       if(done&&setPiece)setPiece.released=true;
      }
@@ -8115,17 +8162,18 @@ function onlineSnapshot(){
 window.MINISAHA_ENGINE={
  teams:()=>COUNTRY_TEAMS.map(t=>t.key),
  lineups:()=>Object.fromEntries(['blue','red'].map(side=>[side,squad(side).map(p=>({name:p.roster.name,position:p.position,overall:p.overall,num:p.num}))])),
- boot(config){onlineServer=true;matchSize=config.size;formation='433';el.blueTeamSelect.value=config.blue;el.redTeamSelect.value=config.red;document.getElementById('duration').value='180';el.diff.value='pro';fullReset();startGame();teamChoice.blue=config.blue;teamChoice.red=config.red;setupTeams();resetKickoff();state='playing';beginSetPiece('kickoff','blue',FIELD.cx,FIELD.cy);for(const s of ['blue','red'])onlineResetHuman(s);},
+ boot(config){onlineServer=true;commentaryOnlineNeutral=true;matchSize=config.size;formation='433';el.blueTeamSelect.value=config.blue;el.redTeamSelect.value=config.red;document.getElementById('duration').value='180';el.diff.value='pro';fullReset();startGame();teamChoice.blue=config.blue;teamChoice.red=config.red;setupTeams();resetKickoff();state='playing';beginSetPiece('kickoff','blue',FIELD.cx,FIELD.cy);for(const s of ['blue','red'])onlineResetHuman(s);},
  pause(on){if(on&&state==='playing'){state='paused';clearInput();for(const side of ['blue','red']){const h=onlineHumans[side];h.pending=[];h.input={x:0,y:0};h.previous={};h.charge=null;}return true;}if(!on&&state==='paused'){state='playing';return true;}return false;},
  substitute:substitutePlayer,
  speechText:speechCommentaryText,
- speechCatalog:()=>new Set([...COUNTRY_TEAMS.flatMap(t=>[t.name,...rosterFor(t.key).map(p=>p.name)]),...Object.values(COMMENTARY_LINES).flat().flatMap(line=>line.split(/\{\w+\}/g).map(bundledAudioKey).filter(Boolean)),...['Golü atan','Oyuncu değişikliği','oyundan çıkıyor','oyuna giriyor']]),
+ speechCatalog:()=>new Set([...COUNTRY_TEAMS.flatMap(t=>[t.name,...rosterFor(t.key).map(p=>p.name)]),...Object.values(COMMENTARY_LINES).flat().flatMap(line=>line.split(/\{\w+\}/g).map(bundledAudioKey).filter(Boolean)),...Object.values(SUPPORTER_COMMENTARY).flat().map(bundledAudioKey),...['Golü atan','Oyuncu değişikliği','oyundan çıkıyor','oyuna giriyor']]),
  input:onlineInput,step:onlineStep,snapshot:onlineSnapshot
 };
 
 const net={active:false,phase:'idle',token:null,stream:null,side:'blue',match:null,lastSnapshot:0,lastSend:0,sending:false,queue:[],seq:0,joinId:0,previous:'',goals:0,socket:null,offer:null,buttonAt:{},lastPing:0,rtt:0};
 function onlineStatus(text){document.getElementById('onlineStatus').textContent=text;}
 function onlineButtons(){
+ commentaryOnlineNeutral=net.active||onlineServer;syncCommentaryAllegianceUI();
  for(const id of ['menuStart','blueTeamSelect','redTeamSelect','duration','formationSelect'])document.getElementById(id).disabled=net.active||(id==='formationSelect'&&matchSize===5);
  document.querySelectorAll('[data-mode]').forEach(b=>b.disabled=net.active);
  for(const id of ['onlineName','onlineTitle','onlineDescription','hostOnlineBtn','browseOnlineBtn','randomOnlineBtn','createOnlineBtn'])document.getElementById(id).disabled=net.active;

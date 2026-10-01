@@ -23,11 +23,13 @@ Maçlar üç dakikadır; beraberlikte uzatma ve otomatik penaltılar vardır. İ
 
 ### Kalecinin elindeki top
 
-Kaleci erişebildiği, tutmaya uygun topu yakalar; çok sert veya yetişilemeyen vuruşları otomatik garantiyle tutmaz. Top elindeyken sabit durur ve topa rakip müdahale edemez. Kendi takımında pas alıcısını sahadaki oyuncuya dokunarak veya listeden seç: ardından **Pas**. Kaleci bu durumda şut/orta atmaz veya topu sürmez. Aynı davranış yerel ve çevrimiçi maçta kullanılır.
+Kaleci erişebildiği, tutmaya uygun topu yakalar; çok sert veya yetişilemeyen vuruşları otomatik garantiyle tutmaz. Top elindeyken sabit durur ve topa rakip müdahale edemez. Kendi takımında pas alıcısını korner ve taçtaki gibi **sahadaki oyuncuya dokunarak** seç: ardından **Pas**. Seçilen oyuncunun çevresinde sarı halka görünür. Kaleci topu eliyle yüksekten seçilen hedefe atar; şut atmaz veya topu sürmez. Aynı davranış yerel ve çevrimiçi maçta kullanılır.
 
 ### 3.000 replik ve duygulu spiker
 
 Olaylara göre seçilen **3.000 benzersiz replik** vardır. Gol, kurtarış, kaçan fırsat, baskı, son dakikalar ve oyuncu değişikliği ayrı havuzlardan seçilir. Golde daha canlı tempo ve ton, kaçan fırsatta daha düşük ton, yakın skorlu son anlarda daha fazla heyecan; isim ve değişiklik anonsunda açık ve sakin telaffuz kullanılır. Sıradan paslarda gol coşkusu uygulanmaz. Replik torbası ve bekleme aralıkları tekrar/üst üste konuşmayı azaltır.
+
+**Spikerin tuttuğu taraf** menüsünde Tarafsız / Bizim takım / Rakip takım seçilebilir. Tek oyunculuda desteklediği takımın golüne sevinir, kaçan fırsatına üzülür; rakip golünde tonu düşer. Çok oyunculuda seçim devre dışıdır ve her zaman tarafsız anlatır. Çevrimiçi maçtan çıkınca kaydedilen tek oyunculu tercihi geri gelir.
 
 146 yabancı oyuncu adı için Türkçe okunuş düzeltmeleri vardır; görünen gerçek isimler değişmez. Yeni replikler ve isimler, gömülü sesle aynı **Piper tr_TR-dfki-medium** modeliyle VPS’de üretilir ve MP3 önbelleğine alınır. 3.000 repliğin tümü önceden kaydedilmiş dosyalar değildir; eksik parçalar ilk kullanımda oluşturulur. Ses modeli ayrı işlemde ve tek CPU iş parçacığında çalışır. Telefona Türkçe ses kurulması gerekmez. GitHub Pages veya sunucusuz HTML’de yalnızca önceden gömülü kayıtlar tam çalışır; yeni sesler için çevrimiçi servis gerekir.
 
