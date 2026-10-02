@@ -319,6 +319,63 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
 .leagueNextCard{padding:22px;border-radius:12px;background:linear-gradient(120deg,#304d32,#183323);border:1px solid #a0ba6744}.leagueNextCard h3{font-size:22px;line-height:1.4;margin:14px 0}.leagueHubBody p{font-size:12px;line-height:1.6;color:#bed0b4}#leagueHub #leagueNextBtn,#leagueHub #leagueAdvanceBtn{background:#c5fa75;color:#18301d;font-weight:bold;margin-top:12px;min-width:180px}
 #leagueHub select{padding:8px;border-radius:7px;background:#21392a;color:#eff7e2;border:1px solid #6a855a}.leagueDataNote{font-size:10px!important;opacity:.75}#leagueMovementInfo{white-space:pre-line}#leagueSquadCards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}.leagueRosterCard{padding:12px;background:#203c2d;border:1px solid #5a76534d;border-radius:8px}.leagueRosterCard strong,.leagueRosterCard span{display:block;font-size:12px;line-height:1.6}.leagueRosterCard span{color:#b2cba3}
 @media(max-width:550px){.leagueHubHeader{padding:15px;gap:8px}.leagueHubHeader h2{font-size:17px}.leagueHubBody{padding:12px}.leagueMetrics>div{padding:10px}.leagueMetrics strong{font-size:23px}#leagueHubClose{font-size:10px!important;padding:8px!important}.leagueNextCard{padding:16px}.leagueNextCard h3{font-size:18px}.leagueHubNav{gap:0;padding:7px}#leagueHub .leagueHubNav button{font-size:11px;padding:9px 10px}}
+
+/* Main menu: four focused views, shared match setup and comfortable mobile targets. */
+#teamMenu{padding:16px;background:radial-gradient(ellipse at 0 0,#254932ee,#081713f5 65%)}
+#teamCard{width:min(840px,100%);padding:0;max-height:100%;border-radius:20px;overflow:auto;box-sizing:border-box}
+#teamCard [hidden]{display:none!important}
+.mainMenuHeader{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 28px 22px;background:linear-gradient(120deg,#254332,#13271e);border-bottom:1px solid #99bb6d22}
+#teamCard .mainMenuHeader h2{font-size:42px;letter-spacing:-2px;margin:0 0 8px}
+#teamCard .mainMenuHeader p{display:block;margin:0;font-size:12px;font-weight:400;color:#b6c9b7}
+.mainMenuHeader .eyebrow{letter-spacing:2px;font-size:9px}.mainMenuBadge{font-size:9px;letter-spacing:1px;padding:9px 12px;border:1px solid #a4c67444;border-radius:99px;color:#d1eba9;white-space:nowrap}
+.mainMenuNav{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:10px 18px;background:#10231a;border-bottom:1px solid #98b96b22;position:sticky;top:0;z-index:2}
+#teamCard .mainMenuNav button{background:transparent;border:1px solid transparent;border-radius:9px;color:#b9cfb8;min-height:48px;font-size:12px;font-weight:700;padding:10px 8px;margin:0;white-space:nowrap}
+.mainMenuNav button span{font-size:9px;color:#91a788;margin-right:7px}
+#teamCard .mainMenuNav button[aria-pressed="true"]{color:#19331d;background:#ccf68c;border-color:#ddffaa}
+#teamCard .mainMenuNav button[aria-pressed="true"] span{color:#527333}
+#teamCard button:focus-visible,#teamCard summary:focus-visible,#teamCard input:focus-visible,#teamCard select:focus-visible{outline:2px solid #e6f9b9;outline-offset:3px}
+.mainMenuBody{padding:22px 26px 26px}.menuSection{padding:0;margin:0 0 22px}
+#teamCard h3{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:16px;margin:0 0 16px;color:#eff6e8;font-weight:750}
+#teamCard h3 span{font-size:10px;font-weight:400;color:#a7bea0}
+#teamCard .teamGrid{gap:12px;margin-bottom:14px}#teamCard .teamPick{padding:14px;background:#142a20;border-color:#91ae6b33}
+#teamCard .teamPick label{font-size:10px;letter-spacing:1px;margin-bottom:10px}
+#teamCard input,#teamCard select{box-sizing:border-box;min-height:42px;max-width:100%;border-radius:8px;font-size:13px}
+#teamCard .teamPick input{width:100%;margin:0 0 8px;padding:10px;background:#0d2118;border:1px solid #637d5a;color:#e6efdf}
+#teamCard .teamPick select{width:100%;padding:9px;background:#20372a;border-color:#647e5a}
+#teamCard .modeSwitch{margin:0 0 14px;gap:8px}#teamCard .modeSwitch button{min-height:48px;font-size:13px}
+#teamCard .settingsGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0}#teamCard .settingsGrid label{font-size:10px}
+#teamCard .settingsGrid select{margin-top:8px;padding:10px;font-size:12px}
+#teamCard #difficultyInfo{display:block;font-size:11px;font-weight:400;line-height:1.5;margin:12px 0 0;color:#a9c3a4}
+#teamCard .menuActions{margin-top:14px;align-items:stretch}#teamCard .menuActions button{min-height:44px;border-radius:9px}
+#teamCard #menuStart{padding:14px 18px;font-size:14px}#teamCard #randomRival{font-size:12px;min-width:135px}
+#mainViewOnline .sectionHeading p{display:block!important;font-size:12px;font-weight:400;line-height:1.6;color:#a8bfa7;margin-bottom:14px}
+#mainViewOnline #matchmakeBtn{display:none}#mainViewOnline>.menuActions{margin:0}
+#teamCard #onlineLobbyPanel{padding:16px;background:#142b21;border:1px solid #7e9c5c33;border-radius:12px}
+#teamCard #onlineLobbyPanel label{font-size:10px;letter-spacing:1px;color:#b8cda8}
+#teamCard #onlineLobbyPanel .menuActions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:12px}
+#teamCard #onlineLobbyPanel .menuActions button{min-width:0;font-size:12px;padding:10px 6px;background:#2c4932;color:#e5f1d3}
+#teamCard #randomOnlineBtn{background:#c5ef88!important;color:#1c331f!important}
+#teamCard #createOnlineBtn{min-height:44px;width:100%;margin-top:10px;background:#c5ef88;color:#1b321e}
+#teamCard #onlineStatus{font-weight:400;margin:12px 0 0;color:#b8caa8}
+#teamCard #leaguePanel p{font-weight:400;color:#adc3a9;line-height:1.7;margin-bottom:16px}
+#teamCard #leaguePanel label{display:block;font-size:11px;color:#b8cda8;margin-top:14px}
+#teamCard #leaguePanel select{padding:11px;margin-top:8px}
+#teamCard #leagueCreateBtn,#teamCard #leagueOpenBtn{min-height:44px;margin:12px 8px 0 0}
+#teamCard #leagueOpenBtn{background:#2e4934;color:#e2f0cf;border:1px solid #8aa66855}
+#teamCard #leagueStatus{padding:12px 0;border-top:1px solid #8ca66b22;margin:18px 0 0;font-size:11px}
+#mainViewSettings .menuSection+.menuSection{border-top:1px solid #94ae6d33;padding-top:20px}
+#teamCard .audioSettingsGrid{display:grid;grid-template-columns:minmax(0,1fr);gap:7px;max-width:100%;margin-top:18px}
+#teamCard .audioSettingsGrid label{font-size:10px;font-weight:700;letter-spacing:1px;margin-top:8px;color:#b4cda6}
+#teamCard .audioSettingsGrid select{width:100%;max-width:none;margin:0;padding:10px;background:#20382a;color:#edf5e5;border:1px solid #6d875b}
+#teamCard #commentaryAllegianceHint{font-size:11px;line-height:1.5;color:#9cb891}
+#teamCard #commentaryStatus{display:block!important;margin:10px 0 0;font-size:11px;line-height:1.6;font-weight:400}
+#teamCard .helpDetails{margin-top:12px;padding-top:0;border:1px solid #8ea76b22;border-radius:10px;background:#142a20;overflow:hidden}
+#teamCard .helpDetails summary{padding:13px 14px;font-size:12px;color:#d2e4c0;min-height:44px;box-sizing:border-box}
+#teamCard .helpDetails>p,#teamCard .helpDetails>div,#teamCard .helpDetails>button{margin-left:14px!important;margin-right:14px!important}
+#teamCard .helpDetails p{display:block!important}#teamCard .historyTitle{margin-top:22px}
+@media(max-width:550px){#teamMenu{padding:8px}#teamCard{width:100%;max-height:100%;border-radius:14px}.mainMenuHeader{padding:20px 16px 18px}#teamCard .mainMenuHeader h2{font-size:34px}.mainMenuBadge{display:none}.mainMenuNav{padding:8px;gap:3px}#teamCard .mainMenuNav button{font-size:10px;padding:10px 3px;white-space:normal;line-height:1.4}.mainMenuNav button span{display:none}.mainMenuBody{padding:18px 14px}.teamGrid{grid-template-columns:1fr!important}#teamCard .teamPick{padding:12px}#teamCard .settingsGrid{gap:10px}#teamCard h3 span{font-size:9px}#teamCard #randomRival{min-width:110px;font-size:11px}#teamCard #onlineLobbyPanel{padding:12px}#teamCard #onlineLobbyPanel .menuActions{grid-template-columns:1fr}#teamCard #leagueCreateBtn,#teamCard #leagueOpenBtn{width:100%;margin-right:0}}
+@media(max-height:500px) and (orientation:landscape){#teamMenu{padding:8px}#teamCard{width:min(840px,100%);max-height:100%}.mainMenuHeader{padding:14px 20px}.mainMenuHeader .eyebrow,#teamCard .mainMenuHeader p{display:none}.mainMenuHeader h2{font-size:28px!important;margin:0!important}.mainMenuBody{padding:16px 20px}.teamGrid{grid-template-columns:1fr 1fr!important}}
+
 </style>
 </head>
 <body>
@@ -350,9 +407,15 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
 
   <div id="teamMenu">
     <div id="teamCard">
-      <div class="eyebrow">5’E 5 / 11’E 11 · V2.2</div><h2>MİNİ <em>SAHA.</em></h2>
-      <p>Takımını seç. Oyununu kur. Sahaya çık.</p>
-      <div class="teamGrid">
+      <header class="mainMenuHeader"><div><div class="eyebrow">FUTBOL · 5’E 5 / 11’E 11</div><h2>MİNİ <em>SAHA.</em></h2><p>Takımını seç, sahaya çık.</p></div><span class="mainMenuBadge">KULÜP MERKEZİ</span></header>
+      <nav class="mainMenuNav" aria-label="Oyun menüsü">
+        <button id="mainTabQuick" aria-pressed="true" aria-controls="mainViewQuick"><span>01</span>Hızlı Maç</button>
+        <button id="mainTabLeague" aria-pressed="false" aria-controls="mainViewLeague"><span>02</span>Lig Kariyeri</button>
+        <button id="mainTabOnline" aria-pressed="false" aria-controls="mainViewOnline"><span>03</span>Çok Oyunculu</button>
+        <button id="mainTabSettings" aria-pressed="false" aria-controls="mainViewSettings"><span>04</span>Ayarlar</button>
+      </nav>
+      <div class="mainMenuBody">
+      <section id="mainMatchSetup" class="menuSection"><h3>Maçını kur <span>Takım ve saha düzeni</span></h3>      <div class="teamGrid">
         <div class="teamPick">
           <label for="blueTeamSelect">SENİN TAKIMIN →</label>
           <input id="blueSearch" type="search" placeholder="Takım ara…" aria-label="Kendi takımını ara"><select id="blueTeamSelect"></select>
@@ -363,21 +426,25 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
         </div>
       </div>
       <div class="modeSwitch" role="group" aria-label="Oyuncu sayısı"><button data-mode="5" class="active">5’E 5 <small>Hızlı maç</small></button><button data-mode="11">11’E 11 <small>11 farklı diziliş</small></button></div><div class="settingsGrid">
-        <label>ZORLUK<span id="difficultySlot"></span></label>
-        <label>MAÇ SÜRESİ<select id="duration"><option value="90">90 saniye</option><option value="180">3 dakika</option><option value="300">5 dakika</option></select></label>
+        <label id="menuDifficultyLabel" class="localMatchSetting">ZORLUK<span id="difficultySlot"></span></label>
+        <label id="menuDurationLabel" class="localMatchSetting">MAÇ SÜRESİ<select id="duration"><option value="90">90 saniye</option><option value="180">3 dakika</option><option value="300">5 dakika</option></select></label>
         <label>DİZİLİŞ<select id="formationSelect"><option value="433">4–3–3</option><option value="4231">4–2–3–1</option><option value="442">4–4–2</option></select></label><label>TAKTİK<select id="tactic"><option value="balanced">Dengeli</option><option value="attack">Hücum</option><option value="defend">Savunma</option></select></label>
-      </div><p id="difficultyInfo"></p>
-      <div class="menuActions"><button id="menuCommentaryBtn" aria-pressed="true">Spiker: açık</button><button id="commentaryTestBtn">Sesi dene 🔊</button></div><label for="commentaryProfileSelect">ANLATIM TARZI</label><select id="commentaryProfileSelect" aria-label="Spiker anlatım tarzı"><option value="balanced">Dengeli · Maç spikeri</option><option value="passionate">Coşkulu · Tribün heyecanı</option><option value="radio">Tok ses · Radyo anlatımı</option><option value="analyst">Sakin · Analist</option></select><label for="commentaryAllegianceSelect">Spikerin tuttuğu taraf</label><select id="commentaryAllegianceSelect"><option value="neutral">Tarafsız</option><option value="blue">Bizim takım</option><option value="red">Rakip takım</option></select><small id="commentaryAllegianceHint">Tek oyunculuda spikerin desteklediği tarafı seç.</small><label for="commentaryVoiceSelect">SPİKER SESİ</label><select id="commentaryVoiceSelect" aria-label="Spiker sesi"></select><p id="commentaryStatus" role="status">Türkçe sesli anlatım · 3.000 replik varyasyonu</p><div class="menuActions"><button id="menuStart">SAHAYA ÇIK <span>↗</span></button><button id="randomRival" aria-label="Rastgele rakip seç">Rastgele rakip</button></div>
-      <div class="menuActions"><button id="matchmakeBtn">Arkadaşlarla / çevrimiçi oyna</button><button id="cancelMatchmake" style="display:none">Ayrıl / iptal et</button></div>
+      </div><p id="difficultyInfo" class="localMatchSetting"></p>
+</section>
+      <section id="mainViewQuick" aria-labelledby="mainTabQuick"><div class="menuActions"><button id="menuStart">SAHAYA ÇIK <span>↗</span></button><button id="randomRival" aria-label="Rastgele rakip seç">Rastgele rakip</button></div>
+<details class="helpDetails"><summary id="squadSummary">Kadro ve görevler</summary><div id="squadList"></div><p>Kanatlar hızlı, stoperler top kapmada, orta sahalar pasta, santrforlar bitiricilikte güçlüdür. Saha üzerindeki kısaltmalar mevkileri gösterir.</p></details><div id="history" aria-label="Son maçlar"></div></section>
+      <section id="mainViewLeague" aria-labelledby="mainTabLeague" hidden><section id="leaguePanel" class="menuSection"><h3>Lig kariyeri <span>2026–27</span></h3><p>Ligini ve takımını seç; kendi maçlarını oyna veya simüle et. Diğer maçlar kadro gücüne göre tamamlanır. Fikstür oyun tarafından oluşturulur.</p><label for="leagueSelect">Lig</label><select id="leagueSelect"></select><label for="leagueTeamSelect">Takımın</label><select id="leagueTeamSelect"></select><button id="leagueCreateBtn">Yeni sezon kur</button><p id="leagueStatus" role="status"></p><button id="leagueOpenBtn" style="display:none">Kulüp merkezine devam et ↗</button></section></section>
+      <section id="mainViewOnline" aria-labelledby="mainTabOnline" hidden><div class="sectionHeading"><h3>Birlikte sahaya çık</h3><p>Oda aç, arkadaşına katıl veya rastgele rakip bul.</p></div>      <div class="menuActions"><button id="matchmakeBtn">Arkadaşlarla / çevrimiçi oyna</button><button id="cancelMatchmake" style="display:none">Ayrıl / iptal et</button></div>
       <div id="onlineLobbyPanel" style="display:none">
         <label for="onlineName">OYUNCU ADIN</label><input id="onlineName" maxlength="20" autocomplete="off" placeholder="Her yenilemede yeniden gir">
         <div class="menuActions"><button id="hostOnlineBtn">Host ol</button><button id="browseOnlineBtn">Hosta katıl</button><button id="randomOnlineBtn">Rastgele eşleşme</button></div>
         <div id="hostOnlineForm" style="display:none"><label for="onlineTitle">ODA BAŞLIĞI · EN FAZLA 20 KARAKTER</label><input id="onlineTitle" maxlength="20" placeholder="Oda başlığı"><label for="onlineDescription">AÇIKLAMA · EN FAZLA 50 KARAKTER</label><input id="onlineDescription" maxlength="50" placeholder="Açıklama (isteğe bağlı)"><button id="createOnlineBtn">Odayı aç</button></div>
         <div id="onlineRooms" aria-live="polite"></div>
       </div><p id="onlineStatus" role="status" aria-live="polite">Host ol, arkadaşının odasına katıl veya rastgele rakip bul. Maçlar 3 dakika.</p>
-      <details id="leaguePanel" class="helpDetails"><summary>Lig sezonu · 2026–27</summary><p>Ligini ve takımını seç; kendi maçlarını oyna veya simüle et. Diğer maçlar kadro gücüne göre tamamlanır. Fikstür oyun tarafından oluşturulur.</p><label for="leagueSelect">Lig</label><select id="leagueSelect"></select><label for="leagueTeamSelect">Takımın</label><select id="leagueTeamSelect"></select><button id="leagueCreateBtn">Yeni sezon kur</button><p id="leagueStatus" role="status"></p><button id="leagueOpenBtn" style="display:none">Kulüp merkezine devam et ↗</button></details><details id="keyboardSettings" class="helpDetails"><summary>Klavye ve tuş atamaları</summary><p>Bilgisayarda klavyeyle oyna. Bir tuş alanına tıkla, ardından istediğin tuşa bas. Her hareket için iki tuş seçebilirsin. Esc: atamayı iptal et · Delete: seçili atamayı temizle.</p><div class="keyBindingHeading"><span>Hareket</span><span>Birinci tuş</span><span>İkinci tuş</span></div><div id="keyBindingRows"></div><p id="keyBindingStatus" role="status" aria-live="polite"></p><button id="resetKeyBindings" type="button">Varsayılana dön</button></details><details class="helpDetails"><summary>Nasıl oynanır?</summary><p id="keyboardHelp"></p><p>Telefonda sol çubuğu ve sağdaki tuşları kullan. Şut yönünü hareket çubuğuyla belirle. Joystick’i dış kenarda 0,5 saniyeden uzun tutunca otomatik koşarsın. Yavaşlamak için çubuğu merkeze yaklaştır. Pas, ara pas ve orta: basılı tutarak güç biriktir, bırakınca vur. Kısa dokunuşlarda da mesafeye uygun hız kullanılır. Top rakipteyken: PAS → PRES (basılı tut), ŞUT → AYAKTA MÜDAHALE, ORTA → KAYARAK MÜDAHALE, ARA PAS → İKİNCİ PRES (basılı tut). Pres sırasında çubukla yön verebilirsin. İkinci pres en fazla 2,5 saniye sürer. Müdahaleler yalnızca erişilebilen topa işler; kaymayı kaçırınca toparlanmak zaman alır. Kaleciler iki takımda da otomatik çalışır. Oyuncu seçimi pas alıcısına ve topun gidişine göre yapılır. Gamepad: sol analog, A/✕ pas, B/○ şut, Y/△ ara pas, X/□ orta, analog dış kenarda 0,5 saniye: koşu; RT/R2 sprint, LB/L1 oyuncu değiştir.</p><p>Beraberlikte 30 saniye uzatma, ardından zamanlama barıyla penaltılar. Takımlar oyun içi seçim listesidir.</p></details>
-      <details class="helpDetails"><summary id="squadSummary">Kadro ve görevler</summary><div id="squadList"></div><p>Kanatlar hızlı, stoperler top kapmada, orta sahalar pasta, santrforlar bitiricilikte güçlüdür. Saha üzerindeki kısaltmalar mevkileri gösterir.</p></details><details class="helpDetails"><summary>Ses kaynağı ve lisans</summary><p>Gömülü erkek ses: Piper tr_TR-dfki-medium modeliyle üretilen sentetik Türkçe konuşma. Kaynak veri: © 2009 DFKI GmbH, <a href="https://github.com/marytts/dfki-ot-data/" target="_blank" rel="noopener">DFKI OT</a>. Ses verileri ve bu oyundaki dönüştürülmüş kayıtlar: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> (atıf, ticari olmayan kullanım, aynı lisansla paylaşım). Kayıtlar sentezlendi, sessizlikleri kısaltıldı ve MP3 biçimine çevrildi.</p></details><div id="history" aria-label="Son maçlar"></div>
-      
+</section>
+      <section id="mainViewSettings" aria-labelledby="mainTabSettings" hidden><section class="menuSection"><h3>Spiker <span>Ses ve anlatım</span></h3>      <div class="menuActions"><button id="menuCommentaryBtn" aria-pressed="true">Spiker: açık</button><button id="commentaryTestBtn">Sesi dene 🔊</button></div><div class="audioSettingsGrid"><label for="commentaryProfileSelect">ANLATIM TARZI</label><select id="commentaryProfileSelect" aria-label="Spiker anlatım tarzı"><option value="balanced">Dengeli · Maç spikeri</option><option value="passionate">Coşkulu · Tribün heyecanı</option><option value="radio">Tok ses · Radyo anlatımı</option><option value="analyst">Sakin · Analist</option></select><label for="commentaryAllegianceSelect">Spikerin tuttuğu taraf</label><select id="commentaryAllegianceSelect"><option value="neutral">Tarafsız</option><option value="blue">Bizim takım</option><option value="red">Rakip takım</option></select><small id="commentaryAllegianceHint">Tek oyunculuda spikerin desteklediği tarafı seç.</small><label for="commentaryVoiceSelect">SPİKER SESİ</label><select id="commentaryVoiceSelect" aria-label="Spiker sesi"></select><p id="commentaryStatus" role="status">Türkçe sesli anlatım · 3.000 replik varyasyonu</p></div></section><section class="menuSection"><h3>Kontroller ve yardım</h3><details id="keyboardSettings" class="helpDetails"><summary>Klavye ve tuş atamaları</summary><p>Bilgisayarda klavyeyle oyna. Bir tuş alanına tıkla, ardından istediğin tuşa bas. Her hareket için iki tuş seçebilirsin. Esc: atamayı iptal et · Delete: seçili atamayı temizle.</p><div class="keyBindingHeading"><span>Hareket</span><span>Birinci tuş</span><span>İkinci tuş</span></div><div id="keyBindingRows"></div><p id="keyBindingStatus" role="status" aria-live="polite"></p><button id="resetKeyBindings" type="button">Varsayılana dön</button></details><details class="helpDetails"><summary>Nasıl oynanır?</summary><p id="keyboardHelp"></p><p>Telefonda sol çubuğu ve sağdaki tuşları kullan. Şut yönünü hareket çubuğuyla belirle. Joystick’i dış kenarda 0,5 saniyeden uzun tutunca otomatik koşarsın. Yavaşlamak için çubuğu merkeze yaklaştır. Pas, ara pas ve orta: basılı tutarak güç biriktir, bırakınca vur. Kısa dokunuşlarda da mesafeye uygun hız kullanılır. Top rakipteyken: PAS → PRES (basılı tut), ŞUT → AYAKTA MÜDAHALE, ORTA → KAYARAK MÜDAHALE, ARA PAS → İKİNCİ PRES (basılı tut). Pres sırasında çubukla yön verebilirsin. İkinci pres en fazla 2,5 saniye sürer. Müdahaleler yalnızca erişilebilen topa işler; kaymayı kaçırınca toparlanmak zaman alır. Kaleciler iki takımda da otomatik çalışır. Oyuncu seçimi pas alıcısına ve topun gidişine göre yapılır. Gamepad: sol analog, A/✕ pas, B/○ şut, Y/△ ara pas, X/□ orta, analog dış kenarda 0,5 saniye: koşu; RT/R2 sprint, LB/L1 oyuncu değiştir.</p><p>Beraberlikte 30 saniye uzatma, ardından zamanlama barıyla penaltılar. Takımlar oyun içi seçim listesidir.</p></details>
+      <details class="helpDetails"><summary>Ses kaynağı ve lisans</summary><p>Gömülü erkek ses: Piper tr_TR-dfki-medium modeliyle üretilen sentetik Türkçe konuşma. Kaynak veri: © 2009 DFKI GmbH, <a href="https://github.com/marytts/dfki-ot-data/" target="_blank" rel="noopener">DFKI OT</a>. Ses verileri ve bu oyundaki dönüştürülmüş kayıtlar: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> (atıf, ticari olmayan kullanım, aynı lisansla paylaşım). Kayıtlar sentezlendi, sessizlikleri kısaltıldı ve MP3 biçimine çevrildi.</p></details></section></section>
+      </div>
     </div>
   </div>
 
@@ -8343,6 +8410,21 @@ window.MINISAHA_ENGINE={
 };
 
 
+function showMainMenuTab(tab){
+ if(net.active&&(tab==='Quick'||tab==='League'))tab='Online';
+ for(const name of ['Quick','League','Online','Settings']){
+  document.getElementById('mainView'+name).hidden=name!==tab;
+  document.getElementById('mainTab'+name).setAttribute('aria-pressed',String(name===tab));
+ }
+ document.getElementById('mainMatchSetup').hidden=!['Quick','Online'].includes(tab);
+ // Online games have their own fixed difficulty and duration.
+ for(const id of ['menuDurationLabel','menuDifficultyLabel'])document.getElementById(id).hidden=tab==='Online';
+ document.getElementById('difficultyInfo').hidden=tab==='Online';
+ if(tab==='Online')document.getElementById('onlineLobbyPanel').style.display='block';
+ document.getElementById('teamCard').scrollTop=0;
+}
+function initMainMenu(){for(const tab of ['Quick','League','Online','Settings'])document.getElementById('mainTab'+tab).addEventListener('click',()=>showMainMenuTab(tab));showMainMenuTab('Quick');}
+
 const LEAGUE_STORAGE='miniSaha.league.v1';
 const LEAGUES={superlig:'Trendyol Süper Lig',premier:'Premier League',laliga:'La Liga',seriea:'Serie A',bundesliga:'Bundesliga',ligue1:'Ligue 1',tff1:'Trendyol 1. Lig',championship:'EFL Championship',laliga2:'La Liga Hypermotion',serieb:'Serie B',bundesliga2:'2. Bundesliga',ligue2:'Ligue 2'};
 const LEAGUE_PAIRS={superlig:'tff1',premier:'championship',laliga:'laliga2',seriea:'serieb',bundesliga:'bundesliga2',ligue1:'ligue2'};
@@ -8514,6 +8596,7 @@ function initLeague(){
 const net={active:false,phase:'idle',token:null,stream:null,side:'blue',match:null,lastSnapshot:0,lastSend:0,sending:false,queue:[],seq:0,joinId:0,previous:'',goals:0,socket:null,offer:null,buttonAt:{},lastPing:0,rtt:0};
 function onlineStatus(text){document.getElementById('onlineStatus').textContent=text;}
 function onlineButtons(){
+ if(net.active)showMainMenuTab('Online');
  renderLeague();
  commentaryOnlineNeutral=net.active||onlineServer;syncCommentaryAllegianceUI();
  for(const id of ['menuStart','blueTeamSelect','redTeamSelect','duration','formationSelect'])document.getElementById(id).disabled=net.active;
@@ -8688,6 +8771,7 @@ document.getElementById('onlineName').value='';
 initEnhancements();
 populateTeamSelects();
 initLeague();
+initMainMenu();
 fullReset();
 renderHistory();
 
