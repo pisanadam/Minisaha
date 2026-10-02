@@ -967,9 +967,22 @@ function incomingKeeperBall(gk){
  if(ball.owner)return null;
  const left=gk.team==='blue';
  if(left?ball.vx>=-45:ball.vx<=45)return null;
- const t=(gk.x-ball.x)/ball.vx;
- if(t<-.025||t>.5)return null;
- return {time:Math.max(0,t),y:ball.y+ball.vy*Math.max(0,t)};
+ const linearTime=(gk.x-ball.x)/ball.vx;
+ if(linearTime<-.025)return null;
+ const goalX=left?FIELD.l:FIELD.r,goalY=ball.y+ball.vy*((goalX-ball.x)/ball.vx);
+ if(goalY<GOAL.top-ball.r||goalY>GOAL.bot+ball.r)return null;
+ // X and Y slow by the same drag: the path is straight, arrival time is not.
+ const drag=ball.z>0?.12:-Math.log(.988)*60,remaining=1-drag*Math.max(0,linearTime);
+ if(remaining<=0)return null;
+ const time=-Math.log(remaining)/drag;
+ if(time>1.1)return null;
+ return {time,y:ball.y+ball.vy*Math.max(0,linearTime)};
+}
+function keeperPositionY(gk,goalX){
+ const goalLine=gk.team==='blue'?FIELD.l:FIELD.r;
+ const depth=Math.abs(goalX-goalLine),distance=Math.max(depth,Math.abs(ball.x-goalLine));
+ // Cover the shooting angle; do not follow a winger all the way to one post.
+ return clamp(GOAL.cy+(ball.y-GOAL.cy)*depth/distance,GOAL.top+gk.r,GOAL.bot-gk.r);
 }
 function beginKeeperDive(gk,direction){
  const incoming=incomingKeeperBall(gk),skill=keeperSkills(gk);
@@ -6927,7 +6940,7 @@ function updateKeepers(dt){
    }
   }else{
    gk.trackingShot=false;gk.readTimer=0;
-   gk.aimY=clamp(lerp(GOAL.cy,ball.y,.40),GOAL.top+gk.r,GOAL.bot-gk.r);
+   gk.aimY=keeperPositionY(gk,goalX);
   }
   if(gk.diveCooldown>skill.recovery-.45){gk.vx*=.7;gk.vy*=.7;continue;}
   moveToward(gk,goalX,gk.aimY||GOAL.cy,dt,skill.movement,3);

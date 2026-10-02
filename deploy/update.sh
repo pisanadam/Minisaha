@@ -26,6 +26,7 @@ node tests/simulation-ratings.cjs
 node tests/formations.cjs
 node tests/substitution-ui.cjs
 node tests/keeper-movement.cjs
+node tests/keeper-angles.cjs
 node tests/league.cjs
 node tests/league-promotion.cjs
 "${SUDO[@]}" apt-get update
