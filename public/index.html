@@ -354,7 +354,7 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
 
   <div id="pauseMenu" role="dialog" aria-modal="true" aria-labelledby="pauseTitle">
     <div id="pauseCard"><h2 id="pauseTitle">Maç duraklatıldı</h2><p id="pauseMatchInfo"></p>
-      <div id="substitutionPanel"><h3>Oyuncu değiştir</h3><label for="subOutSelect">Çıkacak oyuncu</label><select id="subOutSelect"></select><label for="subInSelect">Girecek yedek</label><select id="subInSelect"></select><button id="subConfirmBtn">Değişikliği yap</button><p id="subStatus" role="status"></p></div>
+      <div id="substitutionPanel"><h3>Diziliş ve oyuncu değiştir</h3><label for="pauseFormationSelect">Diziliş</label><select id="pauseFormationSelect"></select><button id="pauseFormationApply">Dizilişi uygula</button><p id="pauseFormationStatus" role="status"></p><label for="subOutSelect">Çıkacak oyuncu</label><select id="subOutSelect"></select><label for="subInSelect">Girecek yedek</label><select id="subInSelect"></select><button id="subConfirmBtn">Değişikliği yap</button><p id="subStatus" role="status"></p></div>
       <button id="pauseResume">Maça devam et</button>
       <button id="pauseWatch">Maçı simüle et<small>İki takımı yapay zekâ yönetsin. İstediğinde kontrolü geri al.</small></button>
       <button id="pauseFinish">Maç sonuna simüle et<small>Mevcut skor korunur; kalan süre, uzatma ve penaltılar tamamlanır.</small></button>
@@ -548,7 +548,10 @@ function positionPenalty(card,slot){
 function lineupFor(teamKey,shape){
  const cacheKey=teamKey+':'+shape.map(s=>s[0]).join(',');
  if(lineupCache.has(cacheKey))return lineupCache.get(cacheKey);
- const roster=rosterFor(teamKey),n=shape.length,m=roster.length;
+ const result=assignLineup(rosterFor(teamKey),shape);lineupCache.set(cacheKey,result);return result;
+}
+function assignLineup(roster,shape){
+ const n=shape.length,m=roster.length;
  // Rectangular Hungarian assignment: maximize the whole lineup, not a greedy first-five slice.
  const cost=shape.map(([slot])=>roster.map(p=>100-p.overall+positionPenalty(p,slot)));
  const u=Array(n+1).fill(0),v=Array(m+1).fill(0),assigned=Array(m+1).fill(0),way=Array(m+1).fill(0);
@@ -563,7 +566,7 @@ function lineupFor(teamKey,shape){
   do{const j1=way[j0];assigned[j0]=assigned[j1];j0=j1;}while(j0!==0);
  }
  const result=Array(n);for(let j=1;j<=m;j++)if(assigned[j])result[assigned[j]-1]=roster[j-1];
- lineupCache.set(cacheKey,result);return result;
+ return result;
 }
 const FORMATIONS={
  '433':[['GK',108,310],['LB',220,112],['CB',205,246],['CB',205,374],['RB',220,508],['CM',338,192],['DM',290,310],['CM',338,428],['LW',438,118],['ST',448,310],['RW',438,502]],
@@ -571,7 +574,38 @@ const FORMATIONS={
  '442':[['GK',108,310],['LB',218,112],['CB',202,246],['CB',202,374],['RB',218,508],['LM',340,125],['CM',325,248],['CM',325,372],['RM',340,495],['ST',446,243],['ST',446,377]],
  '5':[['GK',108,310],['CB',242,310],['CM',364,182],['AM',364,438],['ST',448,310]]
 };
-let formation='433';
+// Rows are counted without the goalkeeper; each slot drives roster assignment
+// and the actual home position used by the tactical AI.
+function formationRows(rows){
+ return [['GK',108,310],...rows.flatMap(([x,positions])=>positions.map((position,i)=>[position,x,positions.length===1?310:positions.length===2?210+i*200:positions.length===3?142+i*168:112+i*396/(positions.length-1)]))];
+}
+Object.assign(FORMATIONS,{
+ '4141':formationRows([[218,['LB','CB','CB','RB']],[286,['DM']],[366,['LM','CM','CM','RM']],[454,['ST']]]),
+ '41212':formationRows([[218,['LB','CB','CB','RB']],[280,['DM']],[342,['CM','CM']],[394,['AM']],[456,['ST','ST']]]),
+ '352':formationRows([[210,['CB','CB','CB']],[318,['LM','CM','DM','CM','RM']],[454,['ST','ST']]]),
+ '343':formationRows([[210,['CB','CB','CB']],[330,['LM','CM','CM','RM']],[446,['LW','ST','RW']]]),
+ '532':formationRows([[210,['LB','CB','CB','CB','RB']],[330,['CM','DM','CM']],[448,['ST','ST']]]),
+ '541':formationRows([[210,['LB','CB','CB','CB','RB']],[350,['LM','CM','CM','RM']],[454,['ST']]]),
+ '4321':formationRows([[218,['LB','CB','CB','RB']],[320,['CM','DM','CM']],[396,['AM','AM']],[456,['ST']]]),
+ '4222':formationRows([[218,['LB','CB','CB','RB']],[300,['DM','DM']],[380,['AM','AM']],[456,['ST','ST']]]),
+ '5_22':formationRows([[242,['CB','CB']],[438,['ST','ST']]]),
+ '5_211':formationRows([[242,['CB','CB']],[354,['CM']],[448,['ST']]]),
+ '5_112':formationRows([[242,['CB']],[344,['AM']],[448,['ST','ST']]]),
+ '5_13':formationRows([[242,['CB']],[430,['LW','ST','RW']]]),
+ '5_31':formationRows([[242,['LB','CB','RB']],[448,['ST']]])
+});
+const FORMATION_LABELS={'433':'4–3–3','4231':'4–2–3–1','442':'4–4–2','4141':'4–1–4–1','41212':'4–1–2–1–2','352':'3–5–2','343':'3–4–3','532':'5–3–2','541':'5–4–1','4321':'4–3–2–1','4222':'4–2–2–2','5':'1–2–1','5_22':'2–2','5_211':'2–1–1','5_112':'1–1–2','5_13':'1–3','5_31':'3–1'};
+let formation='433',formation5='5',teamFormationKeys={};
+function formationKeys(size=matchSize){return Object.keys(FORMATIONS).filter(key=>FORMATIONS[key].length===size);}
+function activeFormationKey(){return matchSize===5?formation5:formation;}
+function formationForTeam(team){return teamFormationKeys[team]||activeFormationKey();}
+function syncFormationSelect(){
+ const select=document.getElementById('formationSelect'),keys=formationKeys();
+ if(select.formationSize!==matchSize){
+  select.replaceChildren();for(const key of keys){const option=document.createElement('option');option.value=key;option.textContent=FORMATION_LABELS[key];select.append(option);}select.formationSize=matchSize;
+ }
+ select.value=activeFormationKey();select.disabled=net.active||onlineServer;
+}
 let brains={blue:null,red:null};
 function squad(team){return team==='blue'?blue:red;}
 function otherTeam(team){return team==='blue'?'red':'blue';}
@@ -601,7 +635,7 @@ function simulationTeamStrength(team){
  };
  return {attack:mean('finishing',p=>p.role==='fw'?3:p.position==='AM'?2:.35),passing:mean('pass',p=>p.role==='mid'?2:1),defense:mean('tackle',p=>p.role==='def'?3:p.position==='DM'?2:.25),overall:mean('overall',()=>1)};
 }
-function shapeName(){return matchSize===5?'1–2–1':({'433':'4–3–3','4231':'4–2–3–1','442':'4–4–2'}[formation]);}
+function shapeName(){return FORMATION_LABELS[activeFormationKey()];}
 function teamMentality(team){
  if(team==='blue')return tactic;
  const diff=score.red-score.blue,late=elapsed>REGULATION_SECONDS*.64;
@@ -748,7 +782,7 @@ function aiDribbleTarget(p){
 }
 function renderSquad(){
  const box=document.getElementById('squadList');box.replaceChildren();
- document.getElementById('formationSelect').disabled=matchSize===5;
+ syncFormationSelect();
  document.getElementById('squadSummary').textContent='Kadrolar · '+teamLong('blue')+' / '+teamLong('red')+' · '+shapeName()+' · Kadro: 28.09.2026 · Puanlar: FC26 / tahmini';
  const renderTeam=(team,players)=>{
   const roster=rosterFor(teamChoice[team]);
@@ -5725,7 +5759,7 @@ function applyTeamNames(){
 function makePlayer(team, role, num, x, y, position, assignedCard){
   const data=POSITIONS[position]||POSITIONS.CM;
   const roster=rosterFor(teamChoice[team]);
-  const card=assignedCard||lineupFor(teamChoice[team],FORMATIONS[matchSize===11?formation:'5'])[num-1],rating=card.overall;
+  const card=assignedCard||lineupFor(teamChoice[team],FORMATIONS[formationForTeam(team)])[num-1],rating=card.overall;
   return {
     team, role, position:position||"CM",roster:card,overall:rating,runTimer:0,assignment:"Pozisyon al", num, x, y, vx:0, vy:0, r: PLAYER_SCALE*(role==='gk'?(matchSize===11?14:17):(matchSize===11?11:15)),
     speed: (role==='gk'?250:(matchSize===11?236:268)*data.pace)*(0.60+clamp((rating-75)*.002,-.06,.06)), accel: (role==='gk'?8.5:9.5)*.60,
@@ -5743,11 +5777,13 @@ function resetStats(){
 }
 
 function setupTeams(){
-  const shape=FORMATIONS[matchSize===11?formation:'5'];
-  const signature=shape.map(p=>p[0]).join(','),blueKey=teamChoice.blue+':'+signature,redKey=teamChoice.red+':'+signature;
-  const blueLineup=activeRosterKeys.blue===blueKey?activeRosters.blue:lineupFor(teamChoice.blue,shape),redLineup=activeRosterKeys.red===redKey?activeRosters.red:lineupFor(teamChoice.red,shape);activeRosters={blue:blueLineup,red:redLineup};activeRosterKeys={blue:blueKey,red:redKey};
-  blue=shape.map(([position,x,y],i)=>makePlayer('blue',POSITIONS[position].role,i+1,x,y,position,blueLineup[i]));
-  red=shape.map(([position,x,y],i)=>makePlayer('red',POSITIONS[position].role,i+1,W-x,H-y,position,redLineup[i]));
+  const build=team=>{
+   const shape=FORMATIONS[formationForTeam(team)],key=teamChoice[team]+':'+shape.map(p=>p[0]).join(',');
+   const lineup=activeRosterKeys[team]===key?activeRosters[team]:lineupFor(teamChoice[team],shape);
+   activeRosters[team]=lineup;activeRosterKeys[team]=key;
+   return shape.map(([position,x,y],i)=>makePlayer(team,POSITIONS[position].role,i+1,team==='blue'?x:W-x,team==='blue'?y:H-y,position,lineup[i]));
+  };
+  blue=build('blue');red=build('red');
   players=blue.concat(red);selected=blue[matchSize===11?6:3];brains={blue:null,red:null};
   renderSquad();
 }
@@ -5772,7 +5808,7 @@ function resetKickoff(teamToStart='blue'){
 }
 
 function fullReset(){
- activeRosters={};activeRosterKeys={};substitutionLog=[];usedSubs={blue:new Set(),red:new Set()};keeperPassTarget=null;
+ activeRosters={};activeRosterKeys={};teamFormationKeys={};substitutionLog=[];usedSubs={blue:new Set(),red:new Set()};keeperPassTarget=null;
   closeVictoryScare();victoryScareUsed=false;
   simulationJob++;fastSimulation=false;simulationMode="manual";syncSimulationUI();
   bindingCapture=null;renderKeyBindings();
@@ -7930,7 +7966,7 @@ function tone(freq,duration,volume=.06){
   }catch(e){}
 }
 function saveSettings(){
-  try{localStorage.setItem('miniSaha.settings.v2',JSON.stringify({blue:teamChoice.blue,red:teamChoice.red,difficulty:el.diff.value,duration:document.getElementById('duration').value,tactic,soundEnabled,commentatorEnabled,commentaryVoiceChoice,embeddedVoiceVersion:1,commentaryProfile,commentaryProfileVoices,commentaryAllegiance,matchSize,formation,keyBindings}));}catch(e){}
+  try{localStorage.setItem('miniSaha.settings.v2',JSON.stringify({blue:teamChoice.blue,red:teamChoice.red,difficulty:el.diff.value,duration:document.getElementById('duration').value,tactic,soundEnabled,commentatorEnabled,commentaryVoiceChoice,embeddedVoiceVersion:1,commentaryProfile,commentaryProfileVoices,commentaryAllegiance,matchSize,formation,formation5,keyBindings}));}catch(e){}
 }
 function recordMatch(){
   if(historySaved) return;
@@ -7985,6 +8021,7 @@ function initEnhancements(){
  document.getElementById('subOutSelect').addEventListener('change',renderBenchChoices);
  document.getElementById('subInSelect').addEventListener('change',prewarmSubstitution);
  document.getElementById('subConfirmBtn').addEventListener('click',confirmSubstitution);
+ document.getElementById('pauseFormationApply').addEventListener('click',confirmFormation);
  document.getElementById('onlineAcceptBtn').addEventListener('click',acceptOnline);
  document.getElementById('onlineDeclineBtn').addEventListener('click',()=>{leaveOnline();fullReset();onlineStatus('Maç iptal edildi.');});
  document.getElementById('cancelMatchmake').addEventListener('click',()=>{leaveOnline();onlineStatus('Eşleştirmeden ayrıldın.');});
@@ -8005,7 +8042,8 @@ function initEnhancements(){
       if(DIFF[s.difficulty])el.diff.value=s.difficulty;
       if(['90','180','300'].includes(s.duration))document.getElementById('duration').value=s.duration;
       matchSize=s.matchSize===11?11:5;
-      formation=['433','4231','442'].includes(s.formation)?s.formation:'433';
+      formation=formationKeys(11).includes(s.formation)?s.formation:'433';
+      formation5=formationKeys(5).includes(s.formation5)?s.formation5:'5';
       tactic=['balanced','attack','defend'].includes(s.tactic)?s.tactic:'balanced';soundEnabled=s.soundEnabled===true;commentatorEnabled=s.commentatorEnabled!==false;
       if(['neutral','blue','red'].includes(s.commentaryAllegiance))commentaryAllegiance=s.commentaryAllegiance;
       if(COMMENTARY_PROFILES[s.commentaryProfile])commentaryProfile=s.commentaryProfile;
@@ -8017,8 +8055,8 @@ function initEnhancements(){
     if(Array.isArray(saved))history=saved.filter(m=>m&&typeof m.blue==='string'&&typeof m.red==='string'&&Number.isFinite(m.b)&&Number.isFinite(m.r)).slice(0,5);
   }catch(e){}
   initCommentary();initKeyBindings();canvas.tabIndex=0;canvas.setAttribute('aria-label','Futbol sahası. Klavye kontrolleri menüde düzenlenebilir.');canvas.addEventListener('pointerdown',focusGame);
-  const formationSelect=document.getElementById('formationSelect');formationSelect.value=formation;
-  formationSelect.addEventListener('change',()=>{formation=formationSelect.value;fullReset();saveSettings();});
+  const formationSelect=document.getElementById('formationSelect');syncFormationSelect();
+  formationSelect.addEventListener('change',()=>{if(!formationKeys().includes(formationSelect.value)||net.active)return;if(matchSize===5)formation5=formationSelect.value;else formation=formationSelect.value;fullReset();saveSettings();});
   function modeLabel(){document.querySelectorAll('[data-mode]').forEach(b=>{b.classList.toggle('active',Number(b.dataset.mode)===matchSize);b.setAttribute('aria-pressed',String(Number(b.dataset.mode)===matchSize));});}
   modeLabel();
   document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{matchSize=Number(b.dataset.mode);modeLabel();fullReset();saveSettings();}));
@@ -8127,6 +8165,37 @@ function onlineControl(side,dt,stationary=false){
  }
  if(h.charge&&!canUseBall(h.charge.player))h.charge=null;
 }
+function changeFormation(side,key){
+ if(state!=='paused'||!['blue','red'].includes(side))return {ok:false,error:'Önce maçı duraklat.'};
+ if(!formationKeys().includes(key))return {ok:false,error:'Bu maç türü için geçerli bir diziliş seç.'};
+ const old=squad(side),shape=FORMATIONS[key],cards=assignLineup(old.map(p=>p.roster),shape);
+ const ordered=cards.map(card=>old.find(p=>p.roster.id===card.id));
+ // Preserve the opponent's shape, current players, ball, stamina and match
+ // records. Only their roles/home positions change; no player teleports.
+ teamFormationKeys={blue:formationForTeam('blue'),red:formationForTeam('red'),...teamFormationKeys};teamFormationKeys[side]=key;
+ for(let i=0;i<ordered.length;i++){
+  const p=ordered[i],[position,x,y]=shape[i],layout=makePlayer(side,POSITIONS[position].role,i+1,p.x,p.y,position,p.roster);
+  for(const field of ['role','position','num','speed','accel','r'])p[field]=layout[field];
+  p.homeX=side==='blue'?x:W-x;p.homeY=side==='blue'?y:H-y;p.targetX=p.homeX;p.targetY=p.homeY;
+ }
+ if(side==='blue'){blue=ordered;if(matchSize===5)formation5=key;else formation=key;}else red=ordered;
+ players=blue.concat(red);activeRosters[side]=ordered.map(p=>p.roster);activeRosterKeys[side]=teamChoice[side]+':'+shape.map(p=>p[0]).join(',');brains={blue:null,red:null};
+ if(onlineServer){const selectedPlayer=onlineHumans[side].selected;onlineResetHuman(side);if(ordered.includes(selectedPlayer))onlineHumans[side].selected=selectedPlayer;}
+ else clearInput();renderSquad();return {ok:true};
+}
+function renderPauseFormation(){
+ const select=document.getElementById('pauseFormationSelect');
+ if(select.formationSize!==matchSize){select.replaceChildren();for(const key of formationKeys()){const option=document.createElement('option');option.value=key;option.textContent=FORMATION_LABELS[key];select.append(option);}select.formationSize=matchSize;}
+ select.value=formationForTeam('blue');const disabled=net.active&&net.pauseBy!==net.side;
+ select.disabled=disabled;document.getElementById('pauseFormationApply').disabled=disabled;
+ document.getElementById('pauseFormationStatus').textContent=disabled?'Dizilişi yalnızca maçı duraklatan oyuncu değiştirebilir.':'Sahadaki oyuncular korunur; mevki ve yerleşim yeni dizilişe uyarlanır.';
+}
+function confirmFormation(){
+ const key=document.getElementById('pauseFormationSelect').value;
+ if(net.active){requestOnlineAction('formation',{key});return;}
+ const result=changeFormation('blue',key);if(result.ok){saveSettings();renderSubstitutions();}
+ document.getElementById('pauseFormationStatus').textContent=result.ok?'Diziliş değişti: '+FORMATION_LABELS[key]:result.error;
+}
 function substitutePlayer(side,index,inId){
  if(state!=='paused'||!Number.isSafeInteger(index))return {ok:false,error:'Önce maçı duraklat.'};
  const team=squad(side),old=team[index],card=rosterFor(teamChoice[side]).find(p=>p.id===inId);
@@ -8134,10 +8203,11 @@ function substitutePlayer(side,index,inId){
  if((old.role==='gk')!==(card.positions.includes('GK')))return {ok:false,error:'Kaleci yerine kaleci; saha oyuncusu yerine saha oyuncusu seç.'};
  if(matchSize===11&&substitutionLog.filter(s=>s.team===side).length>=5)return {ok:false,error:'Beş oyuncu değişikliği hakkı kullanıldı.'};
  const outgoing=old.roster,entry={team:side,out:outgoing.name,incoming:card.name,outId:outgoing.id,inId:card.id,time:minuteMark()};
- usedSubs[side].add(outgoing.id);const replacement=makePlayer(side,old.role,old.num,old.x,old.y,old.position,card);Object.assign(old,replacement);activeRosters[side]=team.map(p=>p.roster);substitutionLog.push(entry);renderSquad();
+ usedSubs[side].add(outgoing.id);const replacement=makePlayer(side,old.role,old.num,old.x,old.y,old.position,card);replacement.homeX=old.homeX;replacement.homeY=old.homeY;replacement.targetX=old.homeX;replacement.targetY=old.homeY;Object.assign(old,replacement);activeRosters[side]=team.map(p=>p.roster);substitutionLog.push(entry);renderSquad();
  if(!onlineServer)announceSubstitution(entry);return {ok:true};
 }
 function renderSubstitutions(){
+ renderPauseFormation();
  const select=document.getElementById('subOutSelect'),oldValue=select.value;select.replaceChildren();for(const [i,p] of blue.entries()){const opt=document.createElement('option');opt.value=String(i);opt.textContent=p.roster.name+' · '+p.position+' · '+p.overall;select.append(opt);}select.value=oldValue||'0';renderBenchChoices();
 }
 function renderBenchChoices(){
@@ -8186,7 +8256,7 @@ function onlineStep(dt){
 }
 const ONLINE_FIELDS=['x','y','vx','vy','faceX','faceY','stamina','diveTime','diveY','slideTime','tackleX','tackleY','sprinting'];
 function onlineSnapshot(){
- return {lineupIds:players.map(p=>p.roster.id),substitutions:substitutionLog,state,elapsed,score:{...score},stats:JSON.parse(JSON.stringify(stats)),extraTimeStarted,stoppageSeconds,goalPause,penaltyResult,penalty:state==='penalties'?{blue:penalty.blue,red:penalty.red}:null,
+ return {formations:{blue:formationForTeam('blue'),red:formationForTeam('red')},lineupIds:players.map(p=>p.roster.id),substitutions:substitutionLog,state,elapsed,score:{...score},stats:JSON.parse(JSON.stringify(stats)),extraTimeStarted,stoppageSeconds,goalPause,penaltyResult,penalty:state==='penalties'?{blue:penalty.blue,red:penalty.red}:null,
  players:players.map(p=>ONLINE_FIELDS.map(k=>p[k]||0)),selected:['blue','red'].map(s=>players.indexOf(onlineHumans[s].selected)),charge:['blue','red'].map(s=>onlineHumans[s].charge?.power||0),
  ball:{held:!!(ball.held&&ball.owner?.role==='gk'),x:ball.x,y:ball.y,vx:ball.vx,vy:ball.vy,z:ball.z,r:ball.r,owner:players.indexOf(ball.owner),lastTouch:ball.lastTouch},
  restart:setPiece?{kind:setPiece.kind,team:setPiece.team,taker:players.indexOf(setPiece.taker),target:players.indexOf(setPiece.previewTarget||setPiece.target||setPiece.defaultTarget)}:null};
@@ -8194,9 +8264,10 @@ function onlineSnapshot(){
 window.MINISAHA_ENGINE={
  teams:()=>COUNTRY_TEAMS.map(t=>t.key),
  lineups:()=>Object.fromEntries(['blue','red'].map(side=>[side,squad(side).map(p=>({name:p.roster.name,position:p.position,overall:p.overall,num:p.num}))])),
- boot(config){onlineServer=true;commentaryOnlineNeutral=true;matchSize=config.size;formation='433';el.blueTeamSelect.value=config.blue;el.redTeamSelect.value=config.red;document.getElementById('duration').value='180';el.diff.value='pro';fullReset();startGame();teamChoice.blue=config.blue;teamChoice.red=config.red;setupTeams();resetKickoff();state='playing';beginSetPiece('kickoff','blue',FIELD.cx,FIELD.cy);for(const s of ['blue','red'])onlineResetHuman(s);},
+ boot(config){onlineServer=true;commentaryOnlineNeutral=true;matchSize=config.size;formation='433';formation5='5';el.blueTeamSelect.value=config.blue;el.redTeamSelect.value=config.red;document.getElementById('duration').value='180';el.diff.value='pro';fullReset();startGame();teamChoice.blue=config.blue;teamChoice.red=config.red;setupTeams();resetKickoff();state='playing';beginSetPiece('kickoff','blue',FIELD.cx,FIELD.cy);for(const s of ['blue','red'])onlineResetHuman(s);},
  pause(on){if(on&&state==='playing'){state='paused';clearInput();for(const side of ['blue','red']){const h=onlineHumans[side];h.pending=[];h.input={x:0,y:0};h.previous={};h.charge=null;}return true;}if(!on&&state==='paused'){state='playing';return true;}return false;},
  substitute:substitutePlayer,
+ formation:changeFormation,
  speechText:speechCommentaryText,
  speechCatalog:()=>new Set([...COUNTRY_TEAMS.flatMap(t=>[t.name,...rosterFor(t.key).map(p=>p.name)]),...Object.values(COMMENTARY_LINES).flat().flatMap(line=>line.split(/\{\w+\}/g).map(bundledAudioKey).filter(Boolean)),...Object.values(SUPPORTER_COMMENTARY).flat().map(bundledAudioKey),...['Golü atan','Oyuncu değişikliği','oyundan çıkıyor','oyuna giriyor']]),
  input:onlineInput,step:onlineStep,snapshot:onlineSnapshot
@@ -8206,7 +8277,7 @@ const net={active:false,phase:'idle',token:null,stream:null,side:'blue',match:nu
 function onlineStatus(text){document.getElementById('onlineStatus').textContent=text;}
 function onlineButtons(){
  commentaryOnlineNeutral=net.active||onlineServer;syncCommentaryAllegianceUI();
- for(const id of ['menuStart','blueTeamSelect','redTeamSelect','duration','formationSelect'])document.getElementById(id).disabled=net.active||(id==='formationSelect'&&matchSize===5);
+ for(const id of ['menuStart','blueTeamSelect','redTeamSelect','duration','formationSelect'])document.getElementById(id).disabled=net.active;
  document.querySelectorAll('[data-mode]').forEach(b=>b.disabled=net.active);
  for(const id of ['onlineName','onlineTitle','onlineDescription','hostOnlineBtn','browseOnlineBtn','randomOnlineBtn','createOnlineBtn'])document.getElementById(id).disabled=net.active;
  document.getElementById('matchmakeBtn').disabled=net.active;document.getElementById('cancelMatchmake').style.display=net.active?'inline-block':'none';}
@@ -8293,7 +8364,7 @@ function leaveOnline(notify=true){
 function startOnlineMatch(m){
  if(net.match===m.match)return;
  net.match=m.match;net.side=m.side;net.phase='playing';net.seq=0;net.queue=[];net.previous='';net.goals=0;net.subSeen=0;net.blend=null;net.blendReady=false;net.buttonAt={};document.getElementById('onlineOffer').style.display='none';
- matchSize=m.size;formation='433';document.getElementById('duration').value='180';
+ matchSize=m.size;formation='433';formation5='5';document.getElementById('duration').value='180';
  teamChoice.blue=m[net.side];teamChoice.red=m[net.side==='blue'?'red':'blue'];populateTeamSelects();fullReset();
  state='playing';el.teamMenu.style.display='none';el.end.style.display='none';document.getElementById('onlineMatchBar').style.display='block';
  onlineStatus('Rakip bulundu. Canlı maç başladı!');document.getElementById('onlineMatchBar').textContent='ÇEVRİMİÇİ · Sen '+getCountry(teamChoice.blue).name+' · 3 dakika';
@@ -8301,7 +8372,16 @@ function startOnlineMatch(m){
 }
 function applyOnlineState(s){
  const reverse=net.side==='red';let changed=false;
- if(s.lineupIds)for(let i=0;i<s.lineupIds.length;i++){const j=reverse?(i<matchSize?i+matchSize:i-matchSize):i,p=players[j],team=j<matchSize?'blue':'red';if(p&&p.roster.id!==s.lineupIds[i]){const card=rosterFor(teamChoice[team]).find(c=>c.id===s.lineupIds[i]);if(card){Object.assign(p,makePlayer(team,p.role,p.num,p.x,p.y,p.position,card));changed=true;}}}
+ if(s.formations)teamFormationKeys={blue:formationForTeam('blue'),red:formationForTeam('red'),...teamFormationKeys};
+ if(s.formations)for(const side of ['blue','red']){
+  const key=s.formations[reverse?otherTeam(side):side];if(!formationKeys().includes(key)||key===formationForTeam(side))continue;
+  teamFormationKeys[side]=key;const shape=FORMATIONS[key];
+  squad(side).forEach((p,i)=>{const [position,x,y]=shape[i];p.position=position;p.role=POSITIONS[position].role;p.homeX=side==='blue'?x:W-x;p.homeY=side==='blue'?y:H-y;});
+  if(side==='blue'){if(matchSize===5)formation5=key;else formation=key;}
+  activeRosterKeys[side]=teamChoice[side]+':'+shape.map(p=>p[0]).join(',');changed=true;
+ }
+
+ if(s.lineupIds)for(let i=0;i<s.lineupIds.length;i++){const j=reverse?(i<matchSize?i+matchSize:i-matchSize):i,p=players[j],team=j<matchSize?'blue':'red';if(p&&p.roster.id!==s.lineupIds[i]){const card=rosterFor(teamChoice[team]).find(c=>c.id===s.lineupIds[i]);if(card){const replacement=makePlayer(team,p.role,p.num,p.x,p.y,p.position,card);replacement.homeX=p.homeX;replacement.homeY=p.homeY;Object.assign(p,replacement);changed=true;}}}
  if(changed){activeRosters={blue:blue.map(p=>p.roster),red:red.map(p=>p.roster)};renderSquad();if(s.state==='paused')renderSubstitutions();}
  const previousHolder=ball.owner;
  const from=players.map(p=>[p.x,p.y]),ballFrom=[ball.x,ball.y];

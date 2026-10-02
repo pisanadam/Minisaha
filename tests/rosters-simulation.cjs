@@ -10,8 +10,8 @@ test('162 squads complete, unique, GK available, no generated fallback',()=>{
  assert.equal(run('typeof loadFC26Rosters'),'undefined');
 });
 test('every team in all 11v11 formations and 5v5 has unique correct-team players and exactly one keeper',()=>{
- for(const t of run('COUNTRY_TEAMS.map(t=>t.key)'))for(const f of ['433','4231','442','5']){
-  run(`teamChoice.blue='${t}';matchSize=${f==='5'?5:11};formation='${f==='5'?'433':f}';setupTeams();`);
+ for(const t of run('COUNTRY_TEAMS.map(t=>t.key)'))for(const f of run('Object.keys(FORMATIONS)')){
+  run(`teamChoice.blue='${t}';matchSize=FORMATIONS['${f}'].length;if(matchSize===5)formation5='${f}';else formation='${f}';setupTeams();`);
   assert(run('new Set(blue.map(p=>p.roster.id)).size===matchSize'),t+' '+f);
   assert(run('blue[0].roster.position===\'GK\'&&blue.slice(1).every(p=>p.roster.position!==\'GK\')'),t+' '+f);
   assert(run('blue.every(p=>rosterFor(teamChoice.blue).includes(p.roster))'),t+' '+f);

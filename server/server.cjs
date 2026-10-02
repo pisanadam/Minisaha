@@ -58,6 +58,7 @@ function createMatchServer({maxRooms=8,disconnectMs=8000,offerMs=30000}={}){
   }else{
    if(!r.pause||r.pause.by!==s.side)return {status:403,error:'Yalnızca maçı duraklatan oyuncu değişiklik yapabilir.'};
    if(type==='resume'){r.engine.pause(false);r.pause=null;r.last=performance.now();r.accumulator=0;}
+   else if(type==='formation'){const result=r.engine.formation(s.side,data.key);if(!result.ok)return {status:400,error:result.error};}
    else if(type==='substitute'){const result=r.engine.substitute(s.side,data.index,data.inId);if(!result.ok)return {status:400,error:result.error};}
    else return {status:400,error:'action'};
   }
@@ -94,7 +95,7 @@ function createMatchServer({maxRooms=8,disconnectMs=8000,offerMs=30000}={}){
    }
    if(path==='/online/leave'&&req.method==='POST'){remove(s,'declined');return json(res,200,{ok:true});}
    if(path==='/online/accept'&&req.method==='POST'){const r=accept(s);return json(res,r.status,r.error?{error:r.error}:{ok:true});}
-   if(['/online/pause','/online/resume','/online/substitute'].includes(path)&&req.method==='POST'){const r=action(s,path.split('/').pop(),await body(req));return json(res,r.status,r.error?{error:r.error}:{ok:true});}
+   if(['/online/pause','/online/resume','/online/substitute','/online/formation'].includes(path)&&req.method==='POST'){const r=action(s,path.split('/').pop(),await body(req));return json(res,r.status,r.error?{error:r.error}:{ok:true});}
    if(path==='/online/input'&&req.method==='POST'){const r=input(s,await body(req));return json(res,r.status,r.error?{error:r.error}:{ok:true});}
    json(res,404,{error:'not-found'});
   }catch{if(!res.headersSent)json(res,400,{error:'bad-request'});else res.end();}
