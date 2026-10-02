@@ -21,6 +21,16 @@ counts=collections.Counter();manifest={'date':'2026-09-28','rosterSeason':'2026â
 htmlPath=ROOT/'public/index.html';html=htmlPath.read_text()
 for file in sorted((ROOT/'roster-source').glob('*.json')):
  if file.name=='manifest.json':continue
+ if file.name=='lower.json':
+  # Reviewed lower-tier asset preserves its team catalogue and ID-reused ratings.
+  prior=json.loads((ROOT/'roster-source/manifest.json').read_text())
+  asset=ROOT/'public/assets'/prior['lowerAsset']
+  raw=asset.read_text().split('window.MINISAHA_ROSTERS||{},',1)[1].split(');\nwindow.MINISAHA_LOWER_TEAMS=',1)[0]
+  for key,t in json.loads(raw).items():
+   manifest['teams'][key]=prior['teams'][key]
+   counts.update(p['ratingSource'] for p in t['players'])
+  manifest['lowerAsset']=prior['lowerAsset'];manifest['lowerScope']=prior['lowerScope']
+  continue
  data=json.loads(file.read_text());out={}
  for key,t in data.items():
   pairs=[(a,match(a)) for a in t['players']];known=[int(r['overall']) for a,r in pairs if r];base=round(statistics.median(known)) if known else 66

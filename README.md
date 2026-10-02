@@ -21,9 +21,25 @@ Maçlar üç dakikadır; beraberlikte uzatma ve otomatik penaltılar vardır. İ
 - Çevrimiçi duraklatma iki oyuncunun maçını birlikte durdurur. Yalnızca duraklatan kişi kendi takımını değiştirebilir veya maçı devam ettirebilir. 45 saniye sonunda oyun otomatik devam eder. Çevrimiçi simülasyon yoktur.
 - Spiker çıkan ve giren oyuncuyu isimleriyle söyler; iki tarayıcı da aynı değişikliği görür.
 
+### Saha görünümünde oyuncu değişiklikleri
+
+Duraklatma ekranında ilk 5 / ilk 11, seçilen dizilişte saha üzerinde kartlarla görünür. Kartlarda isim, mevki, puan ve enerji gösterilir; çıkacak oyuncuyu kartına dokunarak seç. Aşağıdaki yedek kartlarında doğal/alternatif mevkiler ve puanlar yer alır. O mevkinin doğal veya yakın alternatiflerinde oynayan uygun yedekler önce sıralanır; en uygun seçenek **Önerilen** olarak işaretlenir. Mevki dışı oyuncular ayrıca belirtilir. Kaleci/saha uyumsuzluğu, 11’e 11 yeniden giriş ve değişiklik sınırı, çevrimiçi duraklatma sahibi kuralları korunur.
+
+### Lig sezonu · 2026–27
+
+Ana menüde **Lig sezonu** bölümünden ligini ve kulübünü seç. FC kariyer ekranı düzenini izleyen ayrı kulüp merkezi **Genel Bakış, Puan Tablosu, Fikstür, Kadro** sekmeleri içerir. Sonraki maç, sıra, puan ve hafta ana ekrandadır; puan tablosunda ülkenin iki ligi arasında geçiş yapılır.
+
+Altı ülkenin üst ve ikinci ligleri: Süper Lig / Trendyol 1. Lig, Premier League / Championship, La Liga / Hypermotion, Serie A / Serie B, Bundesliga / 2. Bundesliga, Ligue 1 / Ligue 2. 2026–27 kadro anlık görüntülerinden çift devreli oyun fikstürü üretilir; gerçek resmî maç takvimi değildir. 18/20/22/24 takımlı ligler 34/38/42/46 haftadır.
+
+**Maça çık** ile takımını 11’e 11 yönet veya duraklatıp simüle et. Normal lig maçında beraberlik korunur. Diğer maçlar gerçek kadroların bitiricilik, pas, savunma ve kaleci puanlarıyla simüle edilir. Sıralama puan, averaj ve atılan goldür; bu sade oyun kuralıdır.
+
+Sezon sonunda yükselme/düşme ve ülkeye göre play-off/baraj sonuçları hesaplanıp kaydedilir. Türkiye, İngiltere, İspanya ve İtalya’da üç; Almanya/Fransa’da iki doğrudan değişim, baraj sonucuna göre üçüncü değişim vardır. Türkiye 3–7 ve İngiltere 2026–27’de 3–8 play-off modelidir. Play-off maçları otomatik simüle edilir, sonuçları merkezde gösterilir. İspanyol rezerv takımlar yükselmez. **Sonraki sezona geç** seçilen kulübü ve kadrosunu korur, yeni lig üyeleriyle yeni fikstür kurar. Alt lige düşsen de kariyer devam eder. İki kademeli kariyer üçüncü lige düşmeyi modellemez; resmî başa baş eşitlik, rezerv takım ana kulüp sınırlamaları ve alt kademelerin tamamı kapsam dışıdır.
+
+Sezon bu tarayıcıda otomatik kaydedilir. Bitmemiş maçı bırakmak veya sayfayı yenilemek puan yazmaz; bitmiş maç tekrar puan yazmaz. Normal maç/çevrimiçi mod ayrıdır. Kontroller: `tests/league.cjs`, `tests/league-promotion.cjs`.
+
 ### Kalecinin elindeki top
 
-Kaleci erişebildiği, tutmaya uygun topu yakalar; çok sert veya yetişilemeyen vuruşları otomatik garantiyle tutmaz. Top elindeyken sabit durur ve topa rakip müdahale edemez. Kendi takımında pas alıcısını korner ve taçtaki gibi **sahadaki oyuncuya dokunarak** seç: ardından **Pas**. Seçilen oyuncunun çevresinde sarı halka görünür. Kaleci topu eliyle yüksekten seçilen hedefe atar; şut atmaz veya topu sürmez. Aynı davranış yerel ve çevrimiçi maçta kullanılır.
+Kaleci erişebildiği, tutmaya uygun topu yakalar; çok sert veya yetişilemeyen vuruşları otomatik garantiyle tutmaz. Top elindeyken klavye/joystick ile kendi ceza sahası içinde hareket edebilir; sınırların dışına çıkamaz, top elinde kalır ve rakip müdahale edemez. Kendi takımında pas alıcısını korner ve taçtaki gibi **sahadaki oyuncuya dokunarak** seç: ardından **Pas**. Seçilen oyuncunun çevresinde sarı halka görünür. Kaleci topu eliyle yüksekten seçilen hedefe atar; şut atmaz veya topu sürmez. Aynı davranış yerel ve çevrimiçi maçta kullanılır.
 
 ### 3.000 replik ve duygulu spiker
 
@@ -55,13 +71,13 @@ Ses altyapısı: [Piper Python API](https://github.com/OHF-Voice/piper1-gpl/blob
 
 ## Kadrolar ve maç simülasyonu (28.09.2026)
 
-- Seçilebilir **162 takımın tamamı**, toplam **4.641 takım-oyuncu kaydı**: kulüpler için 2026–27, millî takımlar için 2026 kadroları. Bu sayı benzersiz futbolcu sayısı değildir; bir futbolcu kulübünde ve millî takımında bulunabilir.
+- Seçilebilir **284 takımın tamamı**, toplam **8.145 takım-oyuncu kaydı**: kulüpler için 2026–27, millî takımlar için 2026 kadroları. Bu sayı benzersiz futbolcu sayısı değildir; bir futbolcu kulübünde ve millî takımında bulunabilir.
 - Kaynak anlık görüntüleri ve takım kimlikleri `roster-source/` içinde. ESPN takım kadroları esas alındı; Gençlerbirliği 28 kişilik tescil listesi ve kulüp sayfasıyla ayrıca düzeltildi. Millî takım listeleri 2026 oyuncu havuzudur; her maçın birebir çağrı listesi olduğu iddia edilmez.
 - Eski rastgele isim havuzu, başka kulüpten isim aktaran eşleştirme ve tarayıcıdaki FC26 kadro önbelleği kaldırıldı. Kadrolar ağ bağlantısı gerekmeden yüklenir.
 - **5’e 5 için 6 diziliş:** 1–2–1, 2–2, 2–1–1, 1–1–2, 1–3, 3–1. **11’e 11 için 11 diziliş:** 4–3–3, 4–2–3–1, 4–4–2, 4–1–4–1, 4–1–2–1–2, 3–5–2, 3–4–3, 5–3–2, 5–4–1, 4–3–2–1, 4–2–2–2. Her maç türünün menü seçimi ayrı kaydedilir.
 - **Duraklat → Diziliş ve oyuncu değiştir → Dizilişi uygula** ile maç içinde de değiştirilir. Mevcut oyuncular en uygun yeni mevkilere atanır; oyuncuların anlık konumu, enerjisi, skor, süre ve değişiklik hakları korunur. Rakibin dizilişi değişmez; sonraki santrada yeni düzen korunur. Çok oyunculuda sunucu yalnızca maçı duraklatan oyuncunun kendi takımına izin verir; iki istemci aynı düzeni görür.
 - İlk 11 ve ilk 5, bütün kadro içinden mevkiler ve puanlar birlikte değerlendirilerek seçilir. Kadro ekranı gerçek sahadaki oyuncuları ve kalan bütün yedekleri gösterir; takım değişimi önceki oyuncuları taşımaz.
-- **3.453 kaydın puanları FC26 verisidir**, kalan **1.188 kayıt oyun içi tahminidir** ve ekranda belirtilir. Resmî FC27 reytingi iddiası yoktur. Güncel kulüp üyeliği eski FC26 CSV'sinden alınmaz. Kaynağın yalnızca genel D/M/F mevkisi verdiği oyuncuda ayrıntılı doğal mevki uydurulmaz; uygun mevki ailesi içinde dizilişe atanır.
+- **3.608 kaydın puanları FC26 verisidir**, kalan **4.537 kayıt oyun içi tahminidir** ve ekranda belirtilir. Resmî FC27 reytingi iddiası yoktur. Güncel kulüp üyeliği eski FC26 CSV'sinden alınmaz. Kaynağın yalnızca genel D/M/F mevkisi verdiği oyuncuda ayrıntılı doğal mevki uydurulmaz; uygun mevki ailesi içinde dizilişe atanır.
 - Duraklatma menüsünde **Maçı simüle et**: iki takımı aynı seviyede yapay zekâ yönetir; aktif oyuncuların bitiricilik, şut, pas, hız, top sürme, savunma puanları ve mevki uyumu davranışı belirler. Haaland’ın bitiriciliği gol fırsatlarında, Barış Alper’in hızı koşularda avantaj sağlar. Yedekler sahaya girince takım gücü yeniden hesaplanır; skor farkına göre gerideki takıma bonus verilmez. Güçlü takım daha fazla fırsat ve farklı galibiyet üretebilir; sonuç önceden atanmaz. **Kontrolü geri al** ile oyuna dönülür.
 - **Maç sonuna simüle et**: mevcut skor, geçen süre ve goller korunur; aynı fizik motoru sabit adımlarla kalan maçı tamamlar. Uzatma, kadro gücüne bağlı otomatik penaltılar, golcü/zaman kayıtları, istatistik ve maç geçmişi dahil.
 
@@ -164,3 +180,5 @@ Piper `tr_TR-dfki-medium` ile üretilmiş, kırpılmış ve MP3'e dönüştürü
 ### Maç sonu sürprizi
 
 Yerel takım (çevrimiçi maçta da kendi takımın) maç sonunda en az 10 gol farkla kazanırsa üç yerleşik fotoğraftan biri rastgele tam ekran gösterilir. Maç başına bir kez çalışır; 2,5 saniyede veya dokunma/Escape ile kapanır. Kısa ses, Efekt ayarına uyar. Görsel yüklenemezse sonuç ekranı kullanılmaya devam eder. `node tests/jumpscare.cjs` sınır skorlarını, tekrar tetiklemeyi, sıfırlamayı ve sunucu ayrımını doğrular.
+
+Alt lig verileri: `roster-source/lower.json`. Türkiye 1. Lig kadroları TFF’nin 7–8. hafta resmî maç kağıtlarının birleşimidir; tam tescil listesi olarak sunulmaz. Eşleştirilemeyen saha oyuncularında ayrıntılı mevki yerine geniş M sınıfı, bilinmeyen puanlarda etiketli oyun tahmini kullanılır. Diğer beş alt ligin kadroları ESPN anlık görüntüleridir. İncelenmiş alt lig asset’i ana kadro yeniden derlemesinde korunur.

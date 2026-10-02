@@ -24,6 +24,10 @@ node tests/substitutions.cjs
 node tests/commentary-allegiance.cjs
 node tests/simulation-ratings.cjs
 node tests/formations.cjs
+node tests/substitution-ui.cjs
+node tests/keeper-movement.cjs
+node tests/league.cjs
+node tests/league-promotion.cjs
 "${SUDO[@]}" apt-get update
 "${SUDO[@]}" python3 deploy/install-voice.py
 "${SUDO[@]}" python3 deploy/install-online.py "$DOMAIN"

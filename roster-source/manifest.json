@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-28",
+  "date": "2026-10-02",
   "rosterSeason": "2026–27 clubs / 2026 national teams",
   "ratingSource": "https://raw.githubusercontent.com/ismailoksuz/EAFC26-DataHub/main/data/players.csv",
   "ratingSourceSHA256": "cb46c2a57eff44f3c7e098a8a7e807113d0524fee3c1737c39262dcfd4e9824d",
@@ -1467,12 +1467,1212 @@
       "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/teams/132334/roster?season=2026",
       "players": 29,
       "fc26Matched": 16
+    },
+    "championship_birminghamcity": {
+      "teamId": "392",
+      "sourceName": "Birmingham City",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/392/roster?season=2026",
+      "players": 27,
+      "fc26Matched": 4
+    },
+    "championship_norwichcity": {
+      "teamId": "381",
+      "sourceName": "Norwich City",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/381/roster?season=2026",
+      "players": 34,
+      "fc26Matched": 2
+    },
+    "championship_lincolncity": {
+      "teamId": "314",
+      "sourceName": "Lincoln City",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/314/roster?season=2026",
+      "players": 28,
+      "fc26Matched": 0
+    },
+    "championship_bristolcity": {
+      "teamId": "333",
+      "sourceName": "Bristol City",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/333/roster?season=2026",
+      "players": 30,
+      "fc26Matched": 0
+    },
+    "championship_charltonathletic": {
+      "teamId": "372",
+      "sourceName": "Charlton Athletic",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/372/roster?season=2026",
+      "players": 33,
+      "fc26Matched": 2
+    },
+    "championship_middlesbrough": {
+      "teamId": "369",
+      "sourceName": "Middlesbrough",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/369/roster?season=2026",
+      "players": 30,
+      "fc26Matched": 3
+    },
+    "championship_boltonwanderers": {
+      "teamId": "358",
+      "sourceName": "Bolton Wanderers",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/358/roster?season=2026",
+      "players": 27,
+      "fc26Matched": 0
+    },
+    "championship_cardiffcity": {
+      "teamId": "347",
+      "sourceName": "Cardiff City",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/347/roster?season=2026",
+      "players": 27,
+      "fc26Matched": 0
+    },
+    "championship_derbycounty": {
+      "teamId": "374",
+      "sourceName": "Derby County",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/374/roster?season=2026",
+      "players": 31,
+      "fc26Matched": 2
+    },
+    "championship_burnley": {
+      "teamId": "379",
+      "sourceName": "Burnley",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/379/roster?season=2026",
+      "players": 35,
+      "fc26Matched": 3
+    },
+    "championship_millwall": {
+      "teamId": "391",
+      "sourceName": "Millwall",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/391/roster?season=2026",
+      "players": 38,
+      "fc26Matched": 0
+    },
+    "championship_blackburnrovers": {
+      "teamId": "365",
+      "sourceName": "Blackburn Rovers",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/365/roster?season=2026",
+      "players": 34,
+      "fc26Matched": 1
+    },
+    "championship_westbromwichalbion": {
+      "teamId": "383",
+      "sourceName": "West Bromwich Albion",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/383/roster?season=2026",
+      "players": 26,
+      "fc26Matched": 1
+    },
+    "championship_prestonnorthend": {
+      "teamId": "394",
+      "sourceName": "Preston North End",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/394/roster?season=2026",
+      "players": 27,
+      "fc26Matched": 0
+    },
+    "championship_westhamunited": {
+      "teamId": "371",
+      "sourceName": "West Ham United",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/371/roster?season=2026",
+      "players": 28,
+      "fc26Matched": 0
+    },
+    "championship_swanseacity": {
+      "teamId": "318",
+      "sourceName": "Swansea City",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/318/roster?season=2026",
+      "players": 30,
+      "fc26Matched": 2
+    },
+    "championship_southampton": {
+      "teamId": "376",
+      "sourceName": "Southampton",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/376/roster?season=2026",
+      "players": 28,
+      "fc26Matched": 2
+    },
+    "championship_sheffieldunited": {
+      "teamId": "398",
+      "sourceName": "Sheffield United",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/398/roster?season=2026",
+      "players": 27,
+      "fc26Matched": 2
+    },
+    "championship_portsmouth": {
+      "teamId": "385",
+      "sourceName": "Portsmouth",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/385/roster?season=2026",
+      "players": 36,
+      "fc26Matched": 0
+    },
+    "championship_queensparkrangers": {
+      "teamId": "334",
+      "sourceName": "Queens Park Rangers",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/334/roster?season=2026",
+      "players": 27,
+      "fc26Matched": 1
+    },
+    "championship_watford": {
+      "teamId": "395",
+      "sourceName": "Watford",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/395/roster?season=2026",
+      "players": 32,
+      "fc26Matched": 1
+    },
+    "championship_stokecity": {
+      "teamId": "336",
+      "sourceName": "Stoke City",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/336/roster?season=2026",
+      "players": 31,
+      "fc26Matched": 3
+    },
+    "championship_wrexham": {
+      "teamId": "352",
+      "sourceName": "Wrexham",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/352/roster?season=2026",
+      "players": 28,
+      "fc26Matched": 2
+    },
+    "championship_wolverhamptonwanderers": {
+      "teamId": "380",
+      "sourceName": "Wolverhampton Wanderers",
+      "season": "2026-27 EFL Championship",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/teams/380/roster?season=2026",
+      "players": 31,
+      "fc26Matched": 3
+    },
+    "laliga2_fcandorra": {
+      "teamId": "20179",
+      "sourceName": "FC Andorra",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/20179/roster?season=2026",
+      "players": 27,
+      "fc26Matched": 0
+    },
+    "laliga2_girona": {
+      "teamId": "9812",
+      "sourceName": "Girona",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/9812/roster?season=2026",
+      "players": 34,
+      "fc26Matched": 1
+    },
+    "laliga2_ceuta": {
+      "teamId": "5404",
+      "sourceName": "Ceuta",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/5404/roster?season=2026",
+      "players": 31,
+      "fc26Matched": 0
+    },
+    "laliga2_castellon": {
+      "teamId": "4438",
+      "sourceName": "Castellón",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/4438/roster?season=2026",
+      "players": 29,
+      "fc26Matched": 0
+    },
+    "laliga2_cordoba": {
+      "teamId": "8447",
+      "sourceName": "Córdoba",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/8447/roster?season=2026",
+      "players": 29,
+      "fc26Matched": 0
+    },
+    "laliga2_eldense": {
+      "teamId": "7320",
+      "sourceName": "Eldense",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/7320/roster?season=2026",
+      "players": 32,
+      "fc26Matched": 0
+    },
+    "laliga2_albacete": {
+      "teamId": "2737",
+      "sourceName": "Albacete",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/2737/roster?season=2026",
+      "players": 33,
+      "fc26Matched": 0
+    },
+    "laliga2_eibar": {
+      "teamId": "3752",
+      "sourceName": "Eibar",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/3752/roster?season=2026",
+      "players": 29,
+      "fc26Matched": 0
+    },
+    "laliga2_cdsabadell": {
+      "teamId": "11487",
+      "sourceName": "CD Sabadell",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/11487/roster?season=2026",
+      "players": 30,
+      "fc26Matched": 0
+    },
+    "laliga2_almeria": {
+      "teamId": "6832",
+      "sourceName": "Almería",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/6832/roster?season=2026",
+      "players": 29,
+      "fc26Matched": 0
+    },
+    "laliga2_burgos": {
+      "teamId": "12597",
+      "sourceName": "Burgos",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/12597/roster?season=2026",
+      "players": 30,
+      "fc26Matched": 0
+    },
+    "laliga2_cadiz": {
+      "teamId": "3842",
+      "sourceName": "Cádiz",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/3842/roster?season=2026",
+      "players": 31,
+      "fc26Matched": 0
+    },
+    "laliga2_mallorca": {
+      "teamId": "84",
+      "sourceName": "Mallorca",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/84/roster?season=2026",
+      "players": 31,
+      "fc26Matched": 0
+    },
+    "laliga2_laspalmas": {
+      "teamId": "98",
+      "sourceName": "Las Palmas",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/98/roster?season=2026",
+      "players": 35,
+      "fc26Matched": 0
+    },
+    "laliga2_realsociedadii": {
+      "teamId": "20983",
+      "sourceName": "Real Sociedad II",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/20983/roster?season=2026",
+      "players": 31,
+      "fc26Matched": 5
+    },
+    "serieb_ascoli": {
+      "teamId": "3346",
+      "sourceName": "Ascoli",
+      "season": "2026-27 Serie B",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/teams/3346/roster?season=2026",
+      "players": 30,
+      "fc26Matched": 0
+    },
+    "laliga2_leganes": {
+      "teamId": "17534",
+      "sourceName": "Leganés",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/17534/roster?season=2026",
+      "players": 29,
+      "fc26Matched": 1
+    },
+    "laliga2_granada": {
+      "teamId": "3747",
+      "sourceName": "Granada",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/3747/roster?season=2026",
+      "players": 25,
+      "fc26Matched": 0
+    },
+    "laliga2_rcceltafortuna": {
+      "teamId": "131858",
+      "sourceName": "RC Celta Fortuna",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/131858/roster?season=2026",
+      "players": 29,
+      "fc26Matched": 1
+    },
+    "serieb_arezzo": {
+      "teamId": "3345",
+      "sourceName": "Arezzo",
+      "season": "2026-27 Serie B",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/teams/3345/roster?season=2026",
+      "players": 35,
+      "fc26Matched": 0
+    },
+    "laliga2_realvalladolid": {
+      "teamId": "95",
+      "sourceName": "Real Valladolid",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/95/roster?season=2026",
+      "players": 34,
+      "fc26Matched": 1
+    },
+    "laliga2_realoviedo": {
+      "teamId": "92",
+      "sourceName": "Real Oviedo",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/92/roster?season=2026",
+      "players": 27,
+      "fc26Matched": 0
+    },
+    "laliga2_sportinggijon": {
+      "teamId": "3788",
+      "sourceName": "Sporting Gijón",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/3788/roster?season=2026",
+      "players": 28,
+      "fc26Matched": 0
+    },
+    "laliga2_tenerife": {
+      "teamId": "245",
+      "sourceName": "Tenerife",
+      "season": "2026-27 La Liga Hypermotion",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/teams/245/roster?season=2026",
+      "players": 28,
+      "fc26Matched": 0
+    },
+    "serieb_modena": {
+      "teamId": "2573",
+      "sourceName": "Modena",
+      "season": "2026-27 Serie B",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/teams/2573/roster?season=2026",
+      "players": 31,
+      "fc26Matched": 0
+    },
+    "serieb_hellasverona": {
+      "teamId": "119",
+      "sourceName": "Hellas Verona",
+      "season": "2026-27 Serie B",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/teams/119/roster?season=2026",
+      "players": 33,
+      "fc26Matched": 24
+    },
+    "serieb_benevento": {
+      "teamId": "4059",
+      "sourceName": "Benevento",
+      "season": "2026-27 Serie B",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/teams/4059/roster?season=2026",
+      "players": 35,
+      "fc26Matched": 0
+    },
+    "serieb_cesena": {
+      "teamId": "3337",
+      "sourceName": "Cesena",
+      "season": "2026-27 Serie B",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/teams/3337/roster?season=2026",
+      "players": 32,
+      "fc26Matched": 0
+    },
+    "serieb_mantova": {
+      "teamId": "3991",
+      "sourceName": "Mantova",
+      "season": "2026-27 Serie B",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/teams/3991/roster?season=2026",
+      "players": 32,
+      "fc26Matched": 0
+    },
+    "serieb_carrarese": {
+      "teamId": "3988",
+      "sourceName": "Carrarese",
+      "season": "2026-27 Serie B",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/teams/3988/roster?season=2026",
+      "players": 32,
+      "fc26Matched": 0
+    },
+    "serieb_palermo": {
+      "teamId": "2923",
+      "sourceName": "Palermo",
+      "season": "2026-27 Serie B",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/teams/2923/roster?season=2026",
+      "players": 28,
+      "fc26Matched": 0
+    },
+    "serieb_padova": {
+      "teamId": "3952",
+      "sourceName": "Padova",
+      "season": "2026-27 Serie B",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/teams/3952/roster?season=2026",
+      "players": 29,
+      "fc26Matched": 0
+    },
+    "serieb_juvestabia": {
+      "teamId": "3975",
+      "sourceName": "Juve Stabia",
+      "season": "2026-27 Serie B",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/teams/3975/roster?season=2026",
+      "players": 31,
+      "fc26Matched": 0
+    },
+    "serieb_empoli": {
+      "teamId": "2574",
+      "sourceName": "Empoli",
+      "season": "2026-27 Serie B",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/teams/2574/roster?season=2026",
+      "players": 31,
+      "fc26Matched": 0
+    },
+    "serieb_cremonese": {
+      "teamId": "4050",
+      "sourceName": "Cremonese",
+      "season": "2026-27 Serie B",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/teams/4050/roster?season=2026",
+      "players": 29,
+      "fc26Matched": 0
+    },
+    "serieb_catanzaro": {
+      "teamId": "3257",
+      "sourceName": "Catanzaro",
+      "season": "2026-27 Serie B",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/teams/3257/roster?season=2026",
+      "players": 32,
+      "fc26Matched": 0
+    },
+    "bundesliga2_1fcheidenheim1846": {
+      "teamId": "6418",
+      "sourceName": "1. FC Heidenheim 1846",
+      "season": "2026-27 2. Bundesliga",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/teams/6418/roster?season=2026",
+      "players": 26,
+      "fc26Matched": 0
+    },
+    "serieb_pisa": {
+      "teamId": "3956",
+      "sourceName": "Pisa",
+      "season": "2026-27 Serie B",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/teams/3956/roster?season=2026",
+      "players": 31,
+      "fc26Matched": 0
+    },
+    "bundesliga2_arminiabielefeld": {
+      "teamId": "2506",
+      "sourceName": "Arminia Bielefeld",
+      "season": "2026-27 2. Bundesliga",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/teams/2506/roster?season=2026",
+      "players": 26,
+      "fc26Matched": 0
+    },
+    "bundesliga2_1fcmagdeburg": {
+      "teamId": "10382",
+      "sourceName": "1. FC Magdeburg",
+      "season": "2026-27 2. Bundesliga",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/teams/10382/roster?season=2026",
+      "players": 29,
+      "fc26Matched": 0
+    },
+    "serieb_sudtirol": {
+      "teamId": "11139",
+      "sourceName": "Sudtirol",
+      "season": "2026-27 Serie B",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/teams/11139/roster?season=2026",
+      "players": 29,
+      "fc26Matched": 0
+    },
+    "bundesliga2_dynamodresden": {
+      "teamId": "7017",
+      "sourceName": "Dynamo Dresden",
+      "season": "2026-27 2. Bundesliga",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/teams/7017/roster?season=2026",
+      "players": 28,
+      "fc26Matched": 0
+    },
+    "serieb_virtusentella": {
+      "teamId": "11137",
+      "sourceName": "Virtus Entella",
+      "season": "2026-27 Serie B",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/teams/11137/roster?season=2026",
+      "players": 26,
+      "fc26Matched": 0
+    },
+    "serieb_vicenza": {
+      "teamId": "120",
+      "sourceName": "Vicenza",
+      "season": "2026-27 Serie B",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/teams/120/roster?season=2026",
+      "players": 27,
+      "fc26Matched": 0
+    },
+    "bundesliga2_energiecottbus": {
+      "teamId": "123",
+      "sourceName": "Energie Cottbus",
+      "season": "2026-27 2. Bundesliga",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/teams/123/roster?season=2026",
+      "players": 28,
+      "fc26Matched": 1
+    },
+    "serieb_sampdoria": {
+      "teamId": "2734",
+      "sourceName": "Sampdoria",
+      "season": "2026-27 Serie B",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/teams/2734/roster?season=2026",
+      "players": 33,
+      "fc26Matched": 0
+    },
+    "serieb_usavellino": {
+      "teamId": "4055",
+      "sourceName": "US Avellino",
+      "season": "2026-27 Serie B",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/teams/4055/roster?season=2026",
+      "players": 27,
+      "fc26Matched": 0
+    },
+    "bundesliga2_1fcnurnberg": {
+      "teamId": "269",
+      "sourceName": "1. FC Nürnberg",
+      "season": "2026-27 2. Bundesliga",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/teams/269/roster?season=2026",
+      "players": 30,
+      "fc26Matched": 0
+    },
+    "bundesliga2_hannover96": {
+      "teamId": "2428",
+      "sourceName": "Hannover 96",
+      "season": "2026-27 2. Bundesliga",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/teams/2428/roster?season=2026",
+      "players": 32,
+      "fc26Matched": 1
+    },
+    "bundesliga2_tsveintrachtbraunschweig": {
+      "teamId": "3067",
+      "sourceName": "TSV Eintracht Braunschweig",
+      "season": "2026-27 2. Bundesliga",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/teams/3067/roster?season=2026",
+      "players": 27,
+      "fc26Matched": 0
+    },
+    "bundesliga2_stpauli": {
+      "teamId": "270",
+      "sourceName": "St. Pauli",
+      "season": "2026-27 2. Bundesliga",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/teams/270/roster?season=2026",
+      "players": 30,
+      "fc26Matched": 1
+    },
+    "bundesliga2_svdarmstadt98": {
+      "teamId": "3812",
+      "sourceName": "SV Darmstadt 98",
+      "season": "2026-27 2. Bundesliga",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/teams/3812/roster?season=2026",
+      "players": 32,
+      "fc26Matched": 0
+    },
+    "bundesliga2_vflbochum": {
+      "teamId": "121",
+      "sourceName": "VfL Bochum",
+      "season": "2026-27 2. Bundesliga",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/teams/121/roster?season=2026",
+      "players": 29,
+      "fc26Matched": 0
+    },
+    "bundesliga2_vflosnabruck": {
+      "teamId": "7013",
+      "sourceName": "VfL Osnabruck",
+      "season": "2026-27 2. Bundesliga",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/teams/7013/roster?season=2026",
+      "players": 29,
+      "fc26Matched": 0
+    },
+    "bundesliga2_spvgggreutherfurth": {
+      "teamId": "3070",
+      "sourceName": "SpVgg Greuther Fürth",
+      "season": "2026-27 2. Bundesliga",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/teams/3070/roster?season=2026",
+      "players": 30,
+      "fc26Matched": 0
+    },
+    "bundesliga2_holsteinkiel": {
+      "teamId": "7884",
+      "sourceName": "Holstein Kiel",
+      "season": "2026-27 2. Bundesliga",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/teams/7884/roster?season=2026",
+      "players": 33,
+      "fc26Matched": 0
+    },
+    "bundesliga2_vflwolfsburg": {
+      "teamId": "138",
+      "sourceName": "VfL Wolfsburg",
+      "season": "2026-27 2. Bundesliga",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/teams/138/roster?season=2026",
+      "players": 29,
+      "fc26Matched": 4
+    },
+    "bundesliga2_karlsruhersc": {
+      "teamId": "4471",
+      "sourceName": "Karlsruher SC",
+      "season": "2026-27 2. Bundesliga",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/teams/4471/roster?season=2026",
+      "players": 26,
+      "fc26Matched": 0
+    },
+    "bundesliga2_kaiserslautern": {
+      "teamId": "130",
+      "sourceName": "Kaiserslautern",
+      "season": "2026-27 2. Bundesliga",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/teams/130/roster?season=2026",
+      "players": 30,
+      "fc26Matched": 0
+    },
+    "bundesliga2_herthaberlin": {
+      "teamId": "129",
+      "sourceName": "Hertha Berlin",
+      "season": "2026-27 2. Bundesliga",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/teams/129/roster?season=2026",
+      "players": 27,
+      "fc26Matched": 0
+    },
+    "ligue2_asnancylorraine": {
+      "teamId": "3267",
+      "sourceName": "AS Nancy Lorraine",
+      "season": "2026-27 Ligue 2",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/teams/3267/roster?season=2026",
+      "players": 31,
+      "fc26Matched": 0
+    },
+    "ligue2_dunkerque": {
+      "teamId": "7732",
+      "sourceName": "Dunkerque",
+      "season": "2026-27 Ligue 2",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/teams/7732/roster?season=2026",
+      "players": 28,
+      "fc26Matched": 0
+    },
+    "ligue2_guingamp": {
+      "teamId": "171",
+      "sourceName": "Guingamp",
+      "season": "2026-27 Ligue 2",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/teams/171/roster?season=2026",
+      "players": 29,
+      "fc26Matched": 0
+    },
+    "ligue2_boulogne": {
+      "teamId": "7869",
+      "sourceName": "Boulogne",
+      "season": "2026-27 Ligue 2",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/teams/7869/roster?season=2026",
+      "players": 29,
+      "fc26Matched": 2
+    },
+    "ligue2_dijonfco": {
+      "teamId": "3170",
+      "sourceName": "Dijon FCO",
+      "season": "2026-27 Ligue 2",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/teams/3170/roster?season=2026",
+      "players": 30,
+      "fc26Matched": 0
+    },
+    "ligue2_montpellier": {
+      "teamId": "274",
+      "sourceName": "Montpellier",
+      "season": "2026-27 Ligue 2",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/teams/274/roster?season=2026",
+      "players": 31,
+      "fc26Matched": 17
+    },
+    "ligue2_pau": {
+      "teamId": "10678",
+      "sourceName": "Pau",
+      "season": "2026-27 Ligue 2",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/teams/10678/roster?season=2026",
+      "players": 29,
+      "fc26Matched": 0
+    },
+    "ligue2_nantes": {
+      "teamId": "165",
+      "sourceName": "Nantes",
+      "season": "2026-27 Ligue 2",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/teams/165/roster?season=2026",
+      "players": 32,
+      "fc26Matched": 25
+    },
+    "ligue2_grenoble": {
+      "teamId": "6994",
+      "sourceName": "Grenoble",
+      "season": "2026-27 Ligue 2",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/teams/6994/roster?season=2026",
+      "players": 31,
+      "fc26Matched": 0
+    },
+    "ligue2_clermontfoot": {
+      "teamId": "3171",
+      "sourceName": "Clermont Foot",
+      "season": "2026-27 Ligue 2",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/teams/3171/roster?season=2026",
+      "players": 33,
+      "fc26Matched": 0
+    },
+    "ligue2_annecy": {
+      "teamId": "18066",
+      "sourceName": "Annecy",
+      "season": "2026-27 Ligue 2",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/teams/18066/roster?season=2026",
+      "players": 28,
+      "fc26Matched": 0
+    },
+    "ligue2_metz": {
+      "teamId": "177",
+      "sourceName": "Metz",
+      "season": "2026-27 Ligue 2",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/teams/177/roster?season=2026",
+      "players": 33,
+      "fc26Matched": 16
+    },
+    "ligue2_redstarfc93": {
+      "teamId": "11884",
+      "sourceName": "Red Star FC 93",
+      "season": "2026-27 Ligue 2",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/teams/11884/roster?season=2026",
+      "players": 27,
+      "fc26Matched": 0
+    },
+    "ligue2_stadelaval": {
+      "teamId": "3266",
+      "sourceName": "Stade Laval",
+      "season": "2026-27 Ligue 2",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/teams/3266/roster?season=2026",
+      "players": 29,
+      "fc26Matched": 0
+    },
+    "ligue2_rodezaveyron": {
+      "teamId": "7719",
+      "sourceName": "Rodez Aveyron",
+      "season": "2026-27 Ligue 2",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/teams/7719/roster?season=2026",
+      "players": 26,
+      "fc26Matched": 0
+    },
+    "ligue2_saintetienne": {
+      "teamId": "178",
+      "sourceName": "Saint-Étienne",
+      "season": "2026-27 Ligue 2",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/teams/178/roster?season=2026",
+      "players": 26,
+      "fc26Matched": 3
+    },
+    "ligue2_stadedereims": {
+      "teamId": "3243",
+      "sourceName": "Stade de Reims",
+      "season": "2026-27 Ligue 2",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/teams/3243/roster?season=2026",
+      "players": 34,
+      "fc26Matched": 17
+    },
+    "ligue2_sochaux": {
+      "teamId": "272",
+      "sourceName": "Sochaux",
+      "season": "2026-27 Ligue 2",
+      "retrievedAt": "2026-10-02",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/teams/272/roster?season=2026",
+      "players": 29,
+      "fc26Matched": 1
+    },
+    "tff1_74": {
+      "teamId": "74",
+      "sourceName": "Sivasspor",
+      "season": "2026-27 Trendyol 1. Lig",
+      "retrievedAt": "2026-10-02",
+      "url": "https://www.tff.org/Default.aspx?pageId=29&macId=318158",
+      "urls": [
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318158",
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318160"
+      ],
+      "scope": "Official TFF matchday squads, weeks 7 and 8; first starting player is goalkeeper; unmatched outfield positions remain broad M",
+      "players": 24,
+      "fc26Matched": 0
+    },
+    "tff1_3623": {
+      "teamId": "3623",
+      "sourceName": "Pendikspor",
+      "season": "2026-27 Trendyol 1. Lig",
+      "retrievedAt": "2026-10-02",
+      "url": "https://www.tff.org/Default.aspx?pageId=29&macId=318156",
+      "urls": [
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318156",
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318161"
+      ],
+      "scope": "Official TFF matchday squads, weeks 7 and 8; first starting player is goalkeeper; unmatched outfield positions remain broad M",
+      "players": 24,
+      "fc26Matched": 0
+    },
+    "tff1_4824": {
+      "teamId": "4824",
+      "sourceName": "Bodrum FK",
+      "season": "2026-27 Trendyol 1. Lig",
+      "retrievedAt": "2026-10-02",
+      "url": "https://www.tff.org/Default.aspx?pageId=29&macId=318159",
+      "urls": [
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318159",
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318161"
+      ],
+      "scope": "Official TFF matchday squads, weeks 7 and 8; first starting player is goalkeeper; unmatched outfield positions remain broad M",
+      "players": 24,
+      "fc26Matched": 0
+    },
+    "tff1_6": {
+      "teamId": "6",
+      "sourceName": "Ankara Keçiörengücü",
+      "season": "2026-27 Trendyol 1. Lig",
+      "retrievedAt": "2026-10-02",
+      "url": "https://www.tff.org/Default.aspx?pageId=29&macId=318157",
+      "urls": [
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318157",
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318160"
+      ],
+      "scope": "Official TFF matchday squads, weeks 7 and 8; first starting player is goalkeeper; unmatched outfield positions remain broad M",
+      "players": 22,
+      "fc26Matched": 0
+    },
+    "tff1_3661": {
+      "teamId": "3661",
+      "sourceName": "Ümraniyespor",
+      "season": "2026-27 Trendyol 1. Lig",
+      "retrievedAt": "2026-10-02",
+      "url": "https://www.tff.org/Default.aspx?pageId=29&macId=318155",
+      "urls": [
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318155",
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318163"
+      ],
+      "scope": "Official TFF matchday squads, weeks 7 and 8; first starting player is goalkeeper; unmatched outfield positions remain broad M",
+      "players": 25,
+      "fc26Matched": 0
+    },
+    "tff1_3602": {
+      "teamId": "3602",
+      "sourceName": "Sarıyer",
+      "season": "2026-27 Trendyol 1. Lig",
+      "retrievedAt": "2026-10-02",
+      "url": "https://www.tff.org/Default.aspx?pageId=29&macId=318154",
+      "urls": [
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318154",
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318164"
+      ],
+      "scope": "Official TFF matchday squads, weeks 7 and 8; first starting player is goalkeeper; unmatched outfield positions remain broad M",
+      "players": 22,
+      "fc26Matched": 0
+    },
+    "tff1_2020": {
+      "teamId": "2020",
+      "sourceName": "Van Spor",
+      "season": "2026-27 Trendyol 1. Lig",
+      "retrievedAt": "2026-10-02",
+      "url": "https://www.tff.org/Default.aspx?pageId=29&macId=318157",
+      "urls": [
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318157",
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318162"
+      ],
+      "scope": "Official TFF matchday squads, weeks 7 and 8; first starting player is goalkeeper; unmatched outfield positions remain broad M",
+      "players": 21,
+      "fc26Matched": 0
+    },
+    "tff1_130": {
+      "teamId": "130",
+      "sourceName": "Bandırmaspor",
+      "season": "2026-27 Trendyol 1. Lig",
+      "retrievedAt": "2026-10-02",
+      "url": "https://www.tff.org/Default.aspx?pageId=29&macId=318154",
+      "urls": [
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318154",
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318163"
+      ],
+      "scope": "Official TFF matchday squads, weeks 7 and 8; first starting player is goalkeeper; unmatched outfield positions remain broad M",
+      "players": 22,
+      "fc26Matched": 0
+    },
+    "tff1_3593": {
+      "teamId": "3593",
+      "sourceName": "Boluspor",
+      "season": "2026-27 Trendyol 1. Lig",
+      "retrievedAt": "2026-10-02",
+      "url": "https://www.tff.org/Default.aspx?pageId=29&macId=318156",
+      "urls": [
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318156",
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318164"
+      ],
+      "scope": "Official TFF matchday squads, weeks 7 and 8; first starting player is goalkeeper; unmatched outfield positions remain broad M",
+      "players": 23,
+      "fc26Matched": 0
+    },
+    "tff1_52": {
+      "teamId": "52",
+      "sourceName": "Antalyaspor",
+      "season": "2026-27 Trendyol 1. Lig",
+      "retrievedAt": "2026-10-02",
+      "url": "https://www.tff.org/Default.aspx?pageId=29&macId=318155",
+      "urls": [
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318155",
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318162"
+      ],
+      "scope": "Official TFF matchday squads, weeks 7 and 8; first starting player is goalkeeper; unmatched outfield positions remain broad M",
+      "players": 22,
+      "fc26Matched": 0
+    },
+    "tff1_9387": {
+      "teamId": "9387",
+      "sourceName": "Iğdır FK",
+      "season": "2026-27 Trendyol 1. Lig",
+      "retrievedAt": "2026-10-02",
+      "url": "https://www.tff.org/Default.aspx?pageId=29&macId=318150",
+      "urls": [
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318150",
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318169"
+      ],
+      "scope": "Official TFF matchday squads, weeks 7 and 8; first starting player is goalkeeper; unmatched outfield positions remain broad M",
+      "players": 24,
+      "fc26Matched": 0
+    },
+    "tff1_34": {
+      "teamId": "34",
+      "sourceName": "Batman Petrolspor",
+      "season": "2026-27 Trendyol 1. Lig",
+      "retrievedAt": "2026-10-02",
+      "url": "https://www.tff.org/Default.aspx?pageId=29&macId=318159",
+      "urls": [
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318159",
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318167"
+      ],
+      "scope": "Official TFF matchday squads, weeks 7 and 8; first starting player is goalkeeper; unmatched outfield positions remain broad M",
+      "players": 22,
+      "fc26Matched": 0
+    },
+    "tff1_72": {
+      "teamId": "72",
+      "sourceName": "Kayserispor",
+      "season": "2026-27 Trendyol 1. Lig",
+      "retrievedAt": "2026-10-02",
+      "url": "https://www.tff.org/Default.aspx?pageId=29&macId=318153",
+      "urls": [
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318153",
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318168"
+      ],
+      "scope": "Official TFF matchday squads, weeks 7 and 8; first starting player is goalkeeper; unmatched outfield positions remain broad M",
+      "players": 22,
+      "fc26Matched": 0
+    },
+    "tff1_2861": {
+      "teamId": "2861",
+      "sourceName": "Manisa FK",
+      "season": "2026-27 Trendyol 1. Lig",
+      "retrievedAt": "2026-10-02",
+      "url": "https://www.tff.org/Default.aspx?pageId=29&macId=318151",
+      "urls": [
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318151",
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318166"
+      ],
+      "scope": "Official TFF matchday squads, weeks 7 and 8; first starting player is goalkeeper; unmatched outfield positions remain broad M",
+      "players": 21,
+      "fc26Matched": 0
+    },
+    "tff1_3617": {
+      "teamId": "3617",
+      "sourceName": "İstanbulspor",
+      "season": "2026-27 Trendyol 1. Lig",
+      "retrievedAt": "2026-10-02",
+      "url": "https://www.tff.org/Default.aspx?pageId=29&macId=318153",
+      "urls": [
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318153",
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318166"
+      ],
+      "scope": "Official TFF matchday squads, weeks 7 and 8; first starting player is goalkeeper; unmatched outfield positions remain broad M",
+      "players": 22,
+      "fc26Matched": 0
+    },
+    "tff1_964": {
+      "teamId": "964",
+      "sourceName": "Esenler Erokspor",
+      "season": "2026-27 Trendyol 1. Lig",
+      "retrievedAt": "2026-10-02",
+      "url": "https://www.tff.org/Default.aspx?pageId=29&macId=318152",
+      "urls": [
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318152",
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318165"
+      ],
+      "scope": "Official TFF matchday squads, weeks 7 and 8; first starting player is goalkeeper; unmatched outfield positions remain broad M",
+      "players": 22,
+      "fc26Matched": 0
+    },
+    "tff1_3611": {
+      "teamId": "3611",
+      "sourceName": "Fatih Karagümrük",
+      "season": "2026-27 Trendyol 1. Lig",
+      "retrievedAt": "2026-10-02",
+      "url": "https://www.tff.org/Default.aspx?pageId=29&macId=318151",
+      "urls": [
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318151",
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318165"
+      ],
+      "scope": "Official TFF matchday squads, weeks 7 and 8; first starting player is goalkeeper; unmatched outfield positions remain broad M",
+      "players": 22,
+      "fc26Matched": 0
+    },
+    "tff1_82": {
+      "teamId": "82",
+      "sourceName": "Muğlaspor",
+      "season": "2026-27 Trendyol 1. Lig",
+      "retrievedAt": "2026-10-02",
+      "url": "https://www.tff.org/Default.aspx?pageId=29&macId=318158",
+      "urls": [
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318158",
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318169"
+      ],
+      "scope": "Official TFF matchday squads, weeks 7 and 8; first starting player is goalkeeper; unmatched outfield positions remain broad M",
+      "players": 22,
+      "fc26Matched": 0
+    },
+    "tff1_3601": {
+      "teamId": "3601",
+      "sourceName": "Bursaspor",
+      "season": "2026-27 Trendyol 1. Lig",
+      "retrievedAt": "2026-10-02",
+      "url": "https://www.tff.org/Default.aspx?pageId=29&macId=318152",
+      "urls": [
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318152",
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318167"
+      ],
+      "scope": "Official TFF matchday squads, weeks 7 and 8; first starting player is goalkeeper; unmatched outfield positions remain broad M",
+      "players": 22,
+      "fc26Matched": 0
+    },
+    "tff1_8758": {
+      "teamId": "8758",
+      "sourceName": "Mardin 1969",
+      "season": "2026-27 Trendyol 1. Lig",
+      "retrievedAt": "2026-10-02",
+      "url": "https://www.tff.org/Default.aspx?pageId=29&macId=318150",
+      "urls": [
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318150",
+        "https://www.tff.org/Default.aspx?pageId=29&macId=318168"
+      ],
+      "scope": "Official TFF matchday squads, weeks 7 and 8; first starting player is goalkeeper; unmatched outfield positions remain broad M",
+      "players": 21,
+      "fc26Matched": 0
     }
   },
   "counts": {
-    "teams": 162,
-    "players": 4641,
-    "FC26": 3453,
-    "estimate": 1188
-  }
+    "teams": 284,
+    "players": 8145,
+    "FC26": 3608,
+    "estimate": 4537
+  },
+  "lowerAsset": "rosters-lower-2adeb447c0.js",
+  "lowerScope": "ESPN registered rosters; Turkey official TFF matchday squads weeks 7–8, broad M for unknown outfield positions. Attributes reuse FC26 matches or labelled gameplay estimates."
 }
