@@ -60,7 +60,7 @@ Ses altyapısı: [Piper Python API](https://github.com/OHF-Voice/piper1-gpl/blob
 - Eski rastgele isim havuzu, başka kulüpten isim aktaran eşleştirme ve tarayıcıdaki FC26 kadro önbelleği kaldırıldı. Kadrolar ağ bağlantısı gerekmeden yüklenir.
 - İlk 11 ve ilk 5, bütün kadro içinden mevkiler ve puanlar birlikte değerlendirilerek seçilir. Kadro ekranı gerçek sahadaki oyuncuları ve kalan bütün yedekleri gösterir; takım değişimi önceki oyuncuları taşımaz.
 - **3.453 kaydın puanları FC26 verisidir**, kalan **1.188 kayıt oyun içi tahminidir** ve ekranda belirtilir. Resmî FC27 reytingi iddiası yoktur. Güncel kulüp üyeliği eski FC26 CSV'sinden alınmaz. Kaynağın yalnızca genel D/M/F mevkisi verdiği oyuncuda ayrıntılı doğal mevki uydurulmaz; uygun mevki ailesi içinde dizilişe atanır.
-- Duraklatma menüsünde **Maçı simüle et**: iki takımı aynı yapay zekâ yönetir; **Kontrolü geri al** ile oyuna dönülür.
+- Duraklatma menüsünde **Maçı simüle et**: iki takımı aynı seviyede yapay zekâ yönetir; aktif oyuncuların bitiricilik, şut, pas, hız, top sürme, savunma puanları ve mevki uyumu davranışı belirler. Haaland’ın bitiriciliği gol fırsatlarında, Barış Alper’in hızı koşularda avantaj sağlar. Yedekler sahaya girince takım gücü yeniden hesaplanır; skor farkına göre gerideki takıma bonus verilmez. Güçlü takım daha fazla fırsat ve farklı galibiyet üretebilir; sonuç önceden atanmaz. **Kontrolü geri al** ile oyuna dönülür.
 - **Maç sonuna simüle et**: mevcut skor, geçen süre ve goller korunur; aynı fizik motoru sabit adımlarla kalan maçı tamamlar. Uzatma, kadro gücüne bağlı otomatik penaltılar, golcü/zaman kayıtları, istatistik ve maç geçmişi dahil.
 
 Kontroller: `node tests/rosters-simulation.cjs`, `node tests/defense.cjs`, `node tests/pronunciation.cjs`.

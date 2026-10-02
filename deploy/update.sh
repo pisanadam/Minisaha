@@ -22,6 +22,7 @@ node tests/online-client.cjs
 node tests/keeper-hands.cjs
 node tests/substitutions.cjs
 node tests/commentary-allegiance.cjs
+node tests/simulation-ratings.cjs
 "${SUDO[@]}" apt-get update
 "${SUDO[@]}" python3 deploy/install-voice.py
 "${SUDO[@]}" python3 deploy/install-online.py "$DOMAIN"

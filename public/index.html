@@ -577,7 +577,30 @@ function squad(team){return team==='blue'?blue:red;}
 function otherTeam(team){return team==='blue'?'red':'blue';}
 function localX(team,x){return team==='blue'?x:W-x;}
 function worldX(team,x){return team==='blue'?x:W-x;}
-function profile(p){return POSITIONS[p.position]||POSITIONS.CM;}
+function ratingSimulation(){return simulationMode==='watch'&&!onlineServer;}
+function playerSimulationSkills(p){
+ const r=p.roster||{},overall=Number(r.overall)||75;
+ const stat=key=>clamp(Number.isFinite(Number(r[key]))?Number(r[key]):overall,40,99);
+ const fit=clamp(1-positionPenalty(r,p.position)/100,.68,1);
+ const scale=(value,exponent=1.6)=>clamp(Math.pow(value/75,exponent)*fit,.42,1.65);
+ return {pace:scale(stat('pace'),1.15),shot:scale(stat('finishing')*.7+stat('shot')*.3,2.5),pass:scale(stat('pass'),1.8),tackle:scale(stat('tackle'),1.7),dribble:scale(stat('dribble'),1.5)};
+}
+function profile(p){
+ const base=POSITIONS[p.position]||POSITIONS.CM;
+ if(!ratingSimulation()||p.role==='gk')return base;
+ const skill=playerSimulationSkills(p);
+ return {...base,pace:base.pace*skill.pace,shot:base.shot*skill.shot,pass:base.pass*skill.pass,tackle:base.tackle*skill.tackle};
+}
+function simulationTeamStrength(team){
+ // Use only players currently on the pitch, so substitutions change strength.
+ const members=squad(team).filter(p=>p.role!=='gk');
+ const mean=(key,weight)=>{
+  let total=0,weights=0;
+  for(const p of members){const w=weight(p),r=p.roster||{};total+=(Number(r[key])||Number(r.overall)||75)*w*clamp(1-positionPenalty(r,p.position)/100,.68,1);weights+=w;}
+  return weights?total/weights:75;
+ };
+ return {attack:mean('finishing',p=>p.role==='fw'?3:p.position==='AM'?2:.35),passing:mean('pass',p=>p.role==='mid'?2:1),defense:mean('tackle',p=>p.role==='def'?3:p.position==='DM'?2:.25),overall:mean('overall',()=>1)};
+}
 function shapeName(){return matchSize===5?'1–2–1':({'433':'4–3–3','4231':'4–2–3–1','442':'4–4–2'}[formation]);}
 function teamMentality(team){
  if(team==='blue')return tactic;
@@ -6174,7 +6197,7 @@ function moveToward(p, tx, ty, dt, speedMul=1, stopRadius=4){
   const d = Math.hypot(dx,dy);
   if(d > stopRadius){
     dx/=d; dy/=d;
-    const maxSpeed = p.speed * speedMul;
+    const maxSpeed = p.speed * speedMul * (ratingSimulation()&&p.role!=='gk'?playerSimulationSkills(p).pace:1);
     p.vx += dx * p.accel * 70 * dt;
     p.vy += dy * p.accel * 70 * dt;
     const sp = Math.hypot(p.vx,p.vy);
@@ -6201,7 +6224,7 @@ function controlPlayer(p, inp, dt){
     const n = norm(x,y); x=n.x; y=n.y;
     p.vx += x * p.accel * 78 * dt;
     p.vy += y * p.accel * 78 * dt;
-    const maxSpeed = p.speed * speedMul;
+    const maxSpeed = p.speed * speedMul * (ratingSimulation()&&p.role!=='gk'?playerSimulationSkills(p).pace:1);
     const sp = Math.hypot(p.vx,p.vy);
     if(sp > maxSpeed){ p.vx=p.vx/sp*maxSpeed; p.vy=p.vy/sp*maxSpeed; }
     p.faceX=x; p.faceY=y;
@@ -6227,6 +6250,13 @@ function updateBlueSupport(dt){
 }
 
 function aiParams(team="red"){
+ if(ratingSimulation()){
+  // Same coaching level for both sides; individual attributes and the active
+  // lineup decide quality. No score-based catch-up bonus in simulation.
+  const base=DIFF.pro,strength=simulationTeamStrength(team);
+  const quality=clamp((strength.overall-75)/100,-.25,.2);
+  return {...base,speed:base.speed,react:clamp(base.react+quality,0,1),pass:clamp(base.pass+(strength.passing-75)*.008,.35,.97),shoot:clamp(base.shoot+(strength.attack-75)*.01,.3,.98),tackle:clamp(base.tackle+(strength.defense-75)*.008,.3,.97),err:base.err,decision:base.decision*clamp(1-quality,.8,1.25)};
+ }
  const base=DIFF[el.diff.value]||DIFF.amateur;
  // Small score-based correction keeps matches competitive without scripting
  // a result: a trailing AI gets at most +8% quality, a leading AI at most
@@ -6263,10 +6293,11 @@ function redCoverSpot(p,carrier){
 function attackingOptions(owner,d){
  const marker=nearestPlayer(squad(otherTeam(owner.team)),owner.x,owner.y,true);
  const space=marker?dist(owner.x,owner.y,marker.x,marker.y):200;
+ const dribbleQuality=ratingSimulation()?playerSimulationSkills(owner).dribble:1;
  const pressured=space<82;
  const shot=planAIShot(owner),options=[];
  const forwardRoom=Math.max(0,localX(owner.team,owner.x)-FIELD.l-110);
- options.push({kind:'dribble',value:55+Math.min(space,140)*.22+Math.min(45,forwardRoom*.12)-Math.max(0,82-space)*.7-Math.max(0,owner.holdTime-2)*12});
+ options.push({kind:'dribble',value:55*dribbleQuality+Math.min(space,140)*.22+Math.min(45,forwardRoom*.12)-Math.max(0,82-space)*.7-Math.max(0,owner.holdTime-2)*12});
  if(shot&&shot.quality>.12){
   const clearChance=shot.distance<260&&shot.lane>.72&&shot.quality>.34;
   options.push({kind:'shoot',shot,value:clearChance?230:shot.quality*190+d.shoot*18});
@@ -6586,6 +6617,7 @@ function passBall(p, through=false, targetOverride=null, power=.22){
     tx = p.x + p.faceX*(through?180:115);
     ty = p.y + p.faceY*(through?130:70);
   }
+  if(ratingSimulation()&&!through){const spread=clamp(1-profile(p).pass,0,.7)*24;tx+=rnd(-spread,spread);ty+=rnd(-spread,spread);}
   if(!onlineServer&&(p.team==='red'||simulationMode!=='manual')&&through){const spread=(1-clamp(aiParams(p.team).pass*profile(p).pass,0,1))*55;tx+=rnd(-spread,spread);ty+=rnd(-spread,spread);}
   tx = clamp(tx, FIELD.l+25, FIELD.r-25);
   ty = clamp(ty, FIELD.t+25, FIELD.b-25);
