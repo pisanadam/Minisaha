@@ -385,6 +385,35 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
 #controls,#controls *{touch-action:pan-x}
 #controls{overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
 
+
+/* Formation board and substitution comparison share the same match flow. */
+#pauseCard{width:min(1040px,100%)}#substitutionPanel{padding:0;background:#11291f;border:1px solid #93b46844;border-radius:14px;overflow:hidden}
+.subGuiHeader{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;background:linear-gradient(120deg,#294830,#172e22);gap:12px}
+.subEyebrow{font-size:9px;letter-spacing:2px;color:#c5ed91}#substitutionPanel h3{font-size:21px;margin:7px 0;color:#eff7e6}#subMatchMode{font-size:11px;color:#b5c9aa}.subFormationBadge{border:1px solid #c0df8c55;padding:10px;border-radius:8px;color:#dbf5ae;font-size:18px;font-weight:bold}
+.subFormationToolbar{display:grid;grid-template-columns:auto minmax(100px,1fr) auto;gap:10px;align-items:center;padding:12px 18px;border-bottom:1px solid #88a65b33}
+.subFormationToolbar label{font-size:11px;color:#c2d5b6}#pauseCard .subFormationToolbar select{margin:0;padding:10px;background:#223d2b;color:#edf4e2;border:1px solid #76915c;border-radius:8px}
+#pauseCard .subFormationToolbar button{width:auto;margin:0;background:#304e34;font-size:12px;text-align:center}
+#substitutionPanel>#pauseFormationStatus,#substitutionPanel>#subSelectionInfo{padding:0 18px;margin:10px 0;font-size:11px}
+.subGuiMain{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(230px,1fr);gap:18px;padding:8px 18px 16px}
+.subSectionCaption{font-size:10px;letter-spacing:1.5px;color:#aac395;margin-bottom:10px}
+#subPitch{max-width:none;margin:0;border-radius:10px;background:repeating-linear-gradient(0deg,#37633d 0 55px,#305837 55px 110px);border-color:#d8edbc55}
+#pauseCard #subPitch .subPlayer{background:#10291feb;border-color:#a9c48899;padding:6px 2px;min-height:59px;border-radius:9px;box-shadow:0 4px 12px #0004}
+#pauseCard #subPitch .subPlayer.selected{background:#c9ed89;color:#18321d;border-color:#efffd3;box-shadow:0 0 0 3px #daff9f44}#subPitch .subPlayer.selected .subPosition{color:#335325}
+#subPitch .subPlayer strong{font-size:10px;white-space:normal;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:24px}
+.subCompareColumn{background:#192f23;border:1px solid #86a45c33;border-radius:10px;padding:14px;align-self:stretch}.subComparePair{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:relative}
+.subCompareCard{position:relative;background:#263f2c;border:1px solid #a2be7044;border-radius:9px;padding:12px 8px;min-width:0;text-align:center;min-height:135px}
+.subCompareCaption{display:block;font-size:8px;letter-spacing:.5px;color:#b4caa1;margin-bottom:10px}.subCompareRating{display:block;font-size:28px;color:#d7f3a9;margin-bottom:7px}.subCompareCard strong{display:block;font-size:12px;line-height:1.4;overflow-wrap:anywhere}.subCompareCard>span:not(.subCompareCaption),.subCompareCard small{display:block;color:#aac39e;font-size:10px;line-height:1.7;margin-top:5px}
+#subIncoming{border-color:#c5ef8899}.subSwapArrow{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);z-index:1;border-radius:99px;background:#c9ef8a;color:#223f22;font-size:11px;padding:5px;pointer-events:none}
+#subAttributeCompare{margin-top:14px}.subAttributeRow{display:grid;grid-template-columns:1fr 1.7fr 1fr;align-items:center;text-align:center;padding:8px 0;border-bottom:1px solid #a1b77922;font-size:12px}.subAttributeRow span{color:#b6cba5;font-size:11px}.subBetter{color:#c5f589}.subWorse{color:#f1a49d}.subEqual{color:#dde8cb}#pauseCard #subPositionFit{font-size:11px;line-height:1.6;margin:12px 0 0;color:#c6dbb3}
+.subBenchHeader{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 18px}#substitutionPanel .subBenchHeader h4{margin:0;font-size:14px;color:#e3efcf}.subBenchHeader span{font-size:10px;color:#9fbb90}
+#pauseCard #subRecommendation{font-size:11px;padding:0 18px;line-height:1.5;margin:10px 0;color:#c0dfa0}
+#subBench{display:flex;gap:9px;max-height:none;overflow-x:auto;overflow-y:hidden;padding:4px 18px 16px;scroll-snap-type:x proximity}
+#pauseCard #subBench .subReserve{flex:0 0 155px;width:155px;min-height:115px;padding:12px;margin:0;scroll-snap-align:start;background:#263f2c;border-color:#829f6555}
+#pauseCard #subBench .subReserve.selected{background:#c9ed89;color:#18321d;border-color:#efffd3}#subBench .subReserve.selected small{color:#3b572e}.subReserve small{font-size:10px}
+.subGuiFooter{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;background:#0f241a;border-top:1px solid #89a75d33}
+#pauseCard .subGuiFooter #subStatus{font-size:11px;margin:0;color:#b3caa3}#pauseCard .subGuiFooter #subConfirmBtn{width:auto;min-width:190px;margin:0;background:#c9ed89;color:#18321d;font-size:13px;text-align:center}
+@media(max-width:650px){#pauseCard{padding:14px}.subGuiHeader{padding:14px}.subGuiHeader h3{font-size:18px!important}.subGuiMain{grid-template-columns:1fr;padding:8px 12px 14px;gap:14px}.subCompareColumn{padding:12px}.subCompareCard{min-height:120px}.subFormationToolbar{padding:10px 12px;gap:7px;grid-template-columns:1fr 1fr}.subFormationToolbar label{grid-column:1/-1}.subFormationToolbar button{padding:10px 6px!important}.subGuiFooter{flex-direction:column;align-items:stretch;padding:12px}#pauseCard .subGuiFooter #subConfirmBtn{width:100%;min-width:0}.subBenchHeader{padding:0 12px}.subBenchHeader span{font-size:9px}#subBench{padding-left:12px;padding-right:12px}}
+
 </style>
 </head>
 <body>
@@ -463,7 +492,7 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
 
   <div id="pauseMenu" role="dialog" aria-modal="true" aria-labelledby="pauseTitle">
     <div id="pauseCard"><h2 id="pauseTitle">Maç duraklatıldı</h2><p id="pauseMatchInfo"></p>
-      <div id="substitutionPanel"><h3>Diziliş ve oyuncu değiştir</h3><label for="pauseFormationSelect">Diziliş</label><select id="pauseFormationSelect"></select><button id="pauseFormationApply">Dizilişi uygula</button><p id="pauseFormationStatus" role="status"></p><p id="subSelectionInfo">Sahadan çıkacak oyuncuya dokun, ardından aşağıdan yedeğini seç.</p><div id="subPitch" role="group" aria-label="Sahadaki oyuncular"></div><h4>Yedek kulübesi</h4><p id="subRecommendation" role="status"></p><div id="subBench" role="group" aria-label="Yedek oyuncular"></div><select id="subOutSelect" hidden aria-hidden="true" tabindex="-1"></select><select id="subInSelect" hidden aria-hidden="true" tabindex="-1"></select><button id="subConfirmBtn">Değişikliği yap</button><p id="subStatus" role="status"></p></div>
+      <div id="substitutionPanel"><header class="subGuiHeader"><div><span class="subEyebrow">TAKIM YÖNETİMİ</span><h3 id="subClubTitle"></h3><span id="subMatchMode"></span></div><span id="subFormationName" class="subFormationBadge"></span></header><div class="subFormationToolbar"><label for="pauseFormationSelect">Diziliş</label><select id="pauseFormationSelect"></select><button id="pauseFormationApply">Dizilişi uygula</button></div><p id="pauseFormationStatus" role="status"></p><p id="subSelectionInfo">Sahadan çıkacak oyuncuya dokun, ardından aşağıdan yedeğini seç.</p><div class="subGuiMain"><div class="subFieldColumn"><div class="subSectionCaption">İLK <span id="subStartingCount">11</span> · SAHA DÜZENİ</div><div id="subPitch" role="group" aria-label="Sahadaki oyuncular"></div></div><aside class="subCompareColumn" aria-label="Oyuncu karşılaştırması"><div class="subSectionCaption">OYUNCU DEĞİŞİKLİĞİ</div><div class="subComparePair"><article id="subOutgoing" class="subCompareCard"></article><div class="subSwapArrow" aria-hidden="true">↓ ↑</div><article id="subIncoming" class="subCompareCard"></article></div><div id="subAttributeCompare" aria-label="Oyuncu özellikleri"></div><p id="subPositionFit" role="status"></p></aside></div><div class="subBenchHeader"><h4>Yedek kulübesi</h4><span id="subBenchCount"></span></div><p id="subRecommendation" role="status"></p><div id="subBench" role="group" aria-label="Yedek oyuncular"></div><select id="subOutSelect" hidden aria-hidden="true" tabindex="-1"></select><select id="subInSelect" hidden aria-hidden="true" tabindex="-1"></select><footer class="subGuiFooter"><p id="subStatus" role="status"></p><button id="subConfirmBtn">Değişikliği onayla ↔</button></footer></div>
       <button id="pauseResume">Maça devam et</button>
       <button id="pauseWatch">Maçı simüle et<small>İki takımı yapay zekâ yönetsin. İstediğinde kontrolü geri al.</small></button>
       <button id="pauseFinish">Maç sonuna simüle et<small>Mevcut skor korunur; kalan süre, uzatma ve penaltılar tamamlanır.</small></button>
@@ -8345,6 +8374,27 @@ function benchCandidates(old){
   return {card,penalty,eligible:keeperOK&&!returned,reason:returned?'Oyuna yeniden giremez':!keeperOK?'Kaleci / saha oyuncusu değişimi uygun değil':'',fit:penalty===0?'Mevkiye uygun':penalty<=17?'Yakın mevki · uyum azalır':penalty<=32?'Mevki dışı':'Uygun değil'};
  }).sort((a,b)=>Number(b.eligible)-Number(a.eligible)||a.penalty-b.penalty||b.card.overall-a.card.overall||a.card.name.localeCompare(b.card.name,'tr'));
 }
+function renderSubComparison(old,choices){
+ const incoming=choices.find(c=>c.card.id===document.getElementById('subInSelect').value);
+ const card=(id,player,label,energy)=>{
+  const box=document.getElementById(id);box.replaceChildren();const caption=document.createElement('span');caption.className='subCompareCaption';caption.textContent=label;
+  box.append(caption);if(!player){const empty=document.createElement('strong');empty.textContent='Uygun yedek yok';box.append(empty);return;}
+  const rating=document.createElement('b');rating.className='subCompareRating';rating.textContent=String(player.overall);const name=document.createElement('strong');name.textContent=player.name;
+  const pos=document.createElement('span');pos.textContent=player.positions.map(p=>POSITIONS[p]?.short||p).join(' / ');const stamina=document.createElement('small');stamina.textContent='Enerji %'+Math.round(energy*100);box.append(rating,name,pos,stamina);
+ };
+ card('subOutgoing',old.roster,'ÇIKAN OYUNCU',old.stamina);card('subIncoming',incoming?.card,'GİREN OYUNCU',1);
+ const comparison=document.getElementById('subAttributeCompare');comparison.replaceChildren();
+ for(const [key,label] of [['pace','Hız'],['shot','Şut'],['pass','Pas'],['dribble','Top sürme'],['tackle','Savunma'],['physical','Fizik']]){
+  const row=document.createElement('div');row.className='subAttributeRow';const a=document.createElement('strong'),caption=document.createElement('span'),b=document.createElement('strong');
+  const av=Number(old.roster[key]??old.overall),bv=incoming?Number(incoming.card[key]??incoming.card.overall):null;
+  a.textContent=String(av);caption.textContent=label;b.textContent=bv===null?'—':String(bv);if(bv!==null)b.className=bv>av?'subBetter':bv<av?'subWorse':'subEqual';row.append(a,caption,b);comparison.append(row);
+ }
+ document.getElementById('subPositionFit').textContent=incoming?'Hedef mevki: '+(POSITIONS[old.position]?.name||old.position)+' · '+incoming.fit:'Bu oyuncu için uygun yedek seçilemiyor.';
+ document.getElementById('subClubTitle').textContent=getCountry(teamChoice.blue).name;
+ document.getElementById('subMatchMode').textContent=leagueMatchContext?'Lig maçı · '+LEAGUES[leagueSeason.league]:'Normal maç · '+matchSize+'’e '+matchSize;
+ if(net.active)document.getElementById('subMatchMode').textContent='Çok oyunculu · '+matchSize+'’e '+matchSize;
+ document.getElementById('subFormationName').textContent=FORMATION_LABELS[formationForTeam('blue')];document.getElementById('subStartingCount').textContent=String(matchSize);document.getElementById('subBenchCount').textContent=choices.length+' oyuncu · Kaydırarak göz at';
+}
 function renderSubPitch(){
  const pitch=document.getElementById('subPitch'),chosen=Number(document.getElementById('subOutSelect').value),shape=FORMATIONS[formationForTeam('blue')];pitch.replaceChildren();pitch.style.height=matchSize===5?'350px':'480px';
  const furthest=Math.max(...shape.map(s=>s[1]));
@@ -8372,7 +8422,7 @@ function renderBenchChoices(){
   const title=document.createElement('strong');title.textContent=card.name;const details=document.createElement('small');details.textContent=card.positions.join(' / ')+' · Puan '+card.overall;const suitability=document.createElement('small');suitability.textContent=reason||((card.id===recommended?.card.id?'★ Önerilen · ':'')+fit);button.append(title,details,suitability);
   button.addEventListener('click',()=>{select.value=card.id;renderBenchChoices();prewarmSubstitution();});bench.append(button);
  }
- renderSubPitch();document.getElementById('subConfirmBtn').disabled=!choices.some(c=>c.eligible)||substitutionLocked();document.getElementById('subStatus').textContent=matchSize===11?'En fazla 5 değişiklik · Kullanılan: '+substitutionLog.filter(s=>s.team==='blue').length:'5’e 5: dönüşümlü değişiklik yapılabilir.';
+ renderSubPitch();renderSubComparison(old,choices);document.getElementById('subConfirmBtn').disabled=!choices.some(c=>c.eligible)||substitutionLocked();document.getElementById('subStatus').textContent=matchSize===11?'En fazla 5 değişiklik · Kullanılan: '+substitutionLog.filter(s=>s.team==='blue').length:'5’e 5: dönüşümlü değişiklik yapılabilir.';
 }
 function prewarmSubstitution(){
  if(!commentary.voice?.bundled||!bundledAudioSupported())return;const out=blue[Number(document.getElementById('subOutSelect').value)],incoming=rosterFor(teamChoice.blue).find(c=>c.id===document.getElementById('subInSelect').value);for(const key of [out?.roster.name,incoming?.name])if(key)bundledBuffer(key).catch(()=>{});
