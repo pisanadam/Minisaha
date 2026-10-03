@@ -193,14 +193,18 @@ Oyuncu değişikliği GUI: lig ve normal maçın ortak duraklatma ekranında kul
 
 Lig kariyeri kayıtları: aynı tarayıcıda 30 bağımsız otomatik kayıt yuvası. Menüde kulüp, sezon, hafta ve son kayıt zamanı görünür; kayıt yüklenebilir veya onayla silinebilir. Yeni kariyer dolu bir yuva seçiliyken boş yuva varsa onu kullanır; tümü doluysa seçilen yuvanın üzerine yazmadan önce onay ister. Eski tek kariyer 1. yuvaya aktarılır. Fikstür eşleşmeleri yeniden üretilir, yalnızca oynanan skorlar saklanarak 30 kariyerin depolama yükü azaltılır. Depolama hatası önceki kayıtları değiştirmez. Kayıtlar cihaza/tarayıcıya özeldir. Test: `tests/league-slots.cjs`.
 
-### Teknik direktör kariyeri · ilk sürüm
+### Teknik direktör kariyeri
 
 Kariyer menüsünden **Teknik direktör kariyeri** seç, adını ve kulübünü gir. 30 kayıt yuvası, iki kademeli ligler ve yükselme/düşmeyle devam eder. Kulüp merkezinde **Transferler, Yönetim, Gelişim** sekmeleri açılır. Bu özgün, FC tarzından esinlenen oyun modudur; FC27'nin bütün sistemlerinin birebir kopyası değildir.
 
-Transfer bütçesi, haftalık maaş sınırı, oyuncu satın alma/satma, üç yıllık sözleşme yenileme ve imza ücretleri vardır. Ücretler/reel kontratlar resmî veri olarak sunulmaz; oyun için genel puandan hesaplanır. İlk üç hafta ve sezon ortasındaki üç haftalık pencere transfer dönemidir. İşlemler maç dışında yapılır. Satıcı ve alıcı kadroları kariyer içinde güncellenir; normal/çevrimiçi maçların kadroları etkilenmez. Kadro en az 11, en çok 60 oyuncu ve en az bir kaleci olarak korunur.
+Transfer bütçesi, haftalık maaş sınırı, oyuncu satın alma/satma, sözleşme yenileme ve imza ücretleri vardır. Ücretler/reel kontratlar resmî veri olarak sunulmaz; oyun için genel puandan hesaplanır. İlk üç hafta ve sezon ortasındaki üç haftalık pencere transfer dönemidir. İşlemler maç dışında yapılır. Satıcı ve alıcı kadroları kariyer içinde güncellenir; normal/çevrimiçi maçların kadroları etkilenmez. Kadro en az 11, en çok 60 oyuncu ve en az bir kaleci olarak korunur.
 
 Her lig haftası 550.000 € oyun geliri eklenir, haftalık maaşlar düşülür. Bütçe sıfırın altına inmez. Yönetimin hedefi kulübün başlangıç gücüne göre lig sırasıdır; maçlar ve sezon sonucu yönetim güvenini etkiler. Dört antrenman odağı oyunculara her tamamlanan haftada 10 gelişim puanı verir. 100 puanda genel puan (95'e kadar) ve çalışılan özellikler yükselir. Transfer/gelişim oyuncuları gerçek maç, santra, yeniden başlatma ve değişiklik ekranında kullanılır.
 
 Yeni yılda sözleşmeler bir yıl azalır, bitebilen kontratlar kadrodan ayrılır; minimum kadroyu bozacak bitişler bir yıl uzatılır. Kulübe 15 M € yeni sezon bütçesi gelir. Menajer, kadro, sözleşmeler, gelişim, finans, transfer geçmişi ve haberler aynı kayıt yuvasında korunur. Maçlarını kontrol edebilir, yapay zekâyı izleyebilir veya maç sonuna simüle edebilirsin.
 
-Bu sürüm Avrupa/ülke kupaları, transfer pazarlığı sinematikleri, yardımcı antrenörler, sakatlık/moral sistemi veya kulüp değiştirerek iş arama/kovulma sistemi içermez. Kontrol: `tests/manager-career.cjs`.
+Transfer görüşmesi iki aşamalıdır: önce kulüple bedel, ardından oyuncuyla haftalık ücret ve 1–5 yıllık sözleşme konuşulur. Düşük teklifler karşı teklif alır; üç reddedilen kulüp teklifi görüşmeyi bitirir. Para ve kadro ancak iki taraf kabul edince değişir. Özgün toplantı görseli ve diyalog ekranı kullanılır. Bir sezonluk kiralanan oyuncu sezon sonunda kaynak kulübüne geri döner; kiralık oyuncu satılamaz veya sözleşmesi uzatılamaz.
+
+Hücum, savunma ve pas antrenörleri ile izleme uzmanı üç seviyeye kadar geliştirilebilir. İşe alım bedeli bütçeden, haftalık personel ücreti maaş giderinden düşülür. Antrenörler ilgili çalışma gelişimini hızlandırır; izleme uzmanı kulübün pazarlık talebini düşürür. Oyuncu araması isim, mevki uyumu, genel puan ve bedel filtrelerini kullanır. En fazla 30 oyunculuk izleme listesi, personel ve kiralamalar kariyer kaydında saklanır.
+
+Bu sürüm Avrupa/ülke kupaları, sakatlık/moral sistemi veya kulüp değiştirerek iş arama/kovulma sistemi içermez. Kontrol: `tests/manager-career.cjs`, `tests/manager-negotiation.cjs`.
