@@ -414,6 +414,7 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
 #pauseCard .subGuiFooter #subStatus{font-size:11px;margin:0;color:#b3caa3}#pauseCard .subGuiFooter #subConfirmBtn{width:auto;min-width:190px;margin:0;background:#c9ed89;color:#18321d;font-size:13px;text-align:center}
 @media(max-width:650px){#pauseCard{padding:14px}.subGuiHeader{padding:14px}.subGuiHeader h3{font-size:18px!important}.subGuiMain{grid-template-columns:1fr;padding:8px 12px 14px;gap:14px}.subCompareColumn{padding:12px}.subCompareCard{min-height:120px}.subFormationToolbar{padding:10px 12px;gap:7px;grid-template-columns:1fr 1fr}.subFormationToolbar label{grid-column:1/-1}.subFormationToolbar button{padding:10px 6px!important}.subGuiFooter{flex-direction:column;align-items:stretch;padding:12px}#pauseCard .subGuiFooter #subConfirmBtn{width:100%;min-width:0}.subBenchHeader{padding:0 12px}.subBenchHeader span{font-size:9px}#subBench{padding-left:12px;padding-right:12px}}
 
+.leagueSaveManager{padding:16px;background:#142c21;border:1px solid #88a85d44;border-radius:12px;margin-bottom:24px}.leagueSaveManager h4{display:flex;justify-content:space-between;margin:0;color:#e4f0d3;font-size:14px}.leagueSaveManager h4 span{color:#c5ef88}#teamCard #leagueSlotInfo{font-size:11px;margin:10px 0;line-height:1.6}#teamCard #leagueSlotLoad{background:#c5ef88;color:#17301c}#teamCard #leagueSlotDelete{background:#49312d;color:#efc8bd}#teamCard .leagueSaveManager button{margin:0;flex:1}#teamCard .leagueSaveManager button:disabled{opacity:.45;cursor:default}
 </style>
 </head>
 <body>
@@ -471,7 +472,7 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
 </section>
       <section id="mainViewQuick" aria-labelledby="mainTabQuick"><div class="menuActions"><button id="menuStart">SAHAYA ÇIK <span>↗</span></button><button id="randomRival" aria-label="Rastgele rakip seç">Rastgele rakip</button></div>
 <details class="helpDetails"><summary id="squadSummary">Kadro ve görevler</summary><div id="squadList"></div><p>Kanatlar hızlı, stoperler top kapmada, orta sahalar pasta, santrforlar bitiricilikte güçlüdür. Saha üzerindeki kısaltmalar mevkileri gösterir.</p></details><div id="history" aria-label="Son maçlar"></div></section>
-      <section id="mainViewLeague" aria-labelledby="mainTabLeague" hidden><section id="leaguePanel" class="menuSection"><h3>Lig kariyeri <span>2026–27</span></h3><p>Ligini ve takımını seç; kendi maçlarını oyna veya simüle et. Diğer maçlar kadro gücüne göre tamamlanır. Fikstür oyun tarafından oluşturulur.</p><label for="leagueSelect">Lig</label><select id="leagueSelect"></select><label for="leagueTeamSelect">Takımın</label><select id="leagueTeamSelect"></select><button id="leagueCreateBtn">Yeni sezon kur</button><p id="leagueStatus" role="status"></p><button id="leagueOpenBtn" style="display:none">Kulüp merkezine devam et ↗</button></section></section>
+      <section id="mainViewLeague" aria-labelledby="mainTabLeague" hidden><section id="leaguePanel" class="menuSection"><h3>Lig kariyeri <span>2026–27</span></h3><p>Ligini ve takımını seç; kendi maçlarını oyna veya simüle et. Diğer maçlar kadro gücüne göre tamamlanır. Fikstür oyun tarafından oluşturulur.</p><div class="leagueSaveManager"><h4>Kayıtlı kariyerler <span id="leagueSlotCount"></span></h4><label for="leagueSlotSelect">Kayıt yuvası</label><select id="leagueSlotSelect" aria-label="30 lig kariyeri kayıt yuvası"></select><p id="leagueSlotInfo"></p><div class="menuActions"><button id="leagueSlotLoad">Kayda devam et ↗</button><button id="leagueSlotDelete">Kaydı sil</button></div></div><h4>Yeni kariyer</h4><label for="leagueSelect">Lig</label><select id="leagueSelect"></select><label for="leagueTeamSelect">Takımın</label><select id="leagueTeamSelect"></select><button id="leagueCreateBtn">Yeni sezon kur</button><p id="leagueStatus" role="status"></p><button id="leagueOpenBtn" style="display:none">Kulüp merkezine devam et ↗</button></section></section>
       <section id="mainViewOnline" aria-labelledby="mainTabOnline" hidden><div class="sectionHeading"><h3>Birlikte sahaya çık</h3><p>Oda aç, arkadaşına katıl veya rastgele rakip bul.</p></div>      <div class="menuActions"><button id="matchmakeBtn">Arkadaşlarla / çevrimiçi oyna</button><button id="cancelMatchmake" style="display:none">Ayrıl / iptal et</button></div>
       <div id="onlineLobbyPanel" style="display:none">
         <label for="onlineName">OYUNCU ADIN</label><input id="onlineName" maxlength="20" autocomplete="off" placeholder="Her yenilemede yeniden gir">
@@ -8498,6 +8499,8 @@ function showMainMenuTab(tab){
 function initMainMenu(){for(const tab of ['Quick','League','Online','Settings'])document.getElementById('mainTab'+tab).addEventListener('click',()=>showMainMenuTab(tab));showMainMenuTab('Quick');}
 
 const LEAGUE_STORAGE='miniSaha.league.v1';
+const LEAGUE_SLOTS_STORAGE='miniSaha.league.slots.v1',LEAGUE_SLOT_COUNT=30;
+let leagueSlots=Array(LEAGUE_SLOT_COUNT).fill(null),activeLeagueSlot=0;
 const LEAGUES={superlig:'Trendyol Süper Lig',premier:'Premier League',laliga:'La Liga',seriea:'Serie A',bundesliga:'Bundesliga',ligue1:'Ligue 1',tff1:'Trendyol 1. Lig',championship:'EFL Championship',laliga2:'La Liga Hypermotion',serieb:'Serie B',bundesliga2:'2. Bundesliga',ligue2:'Ligue 2'};
 const LEAGUE_PAIRS={superlig:'tff1',premier:'championship',laliga:'laliga2',seriea:'serieb',bundesliga:'bundesliga2',ligue1:'ligue2'};
 function leaguePair(key){const upper=LEAGUE_PAIRS[key]?key:Object.keys(LEAGUE_PAIRS).find(k=>LEAGUE_PAIRS[k]===key);return {upper,lower:LEAGUE_PAIRS[upper]};}
@@ -8536,7 +8539,58 @@ function validLeagueSeason(s){
  const same=(a,b)=>a.length===b.length&&new Set(a).size===a.length&&a.every(k=>b.includes(k));
  return same(t.nextUpper,u.teams.filter(k=>!t.relegated.includes(k)).concat(t.promoted))&&same(t.nextLower,l.teams.filter(k=>!t.promoted.includes(k)).concat(t.relegated))&&t.clubLeague===(t.nextUpper.includes(s.club)?pair.upper:pair.lower)&&t.playoffs.every(p=>p&&typeof p.label==='string'&&actual.includes(p.winner)&&Array.isArray(p.games)&&p.games.every(g=>g&&actual.includes(g.home)&&actual.includes(g.away)&&g.home!==g.away&&[g.homeGoals,g.awayGoals].every(n=>Number.isInteger(n)&&n>=0&&n<=999)));
 }
-function saveLeague(){try{localStorage.setItem(LEAGUE_STORAGE,JSON.stringify(leagueSeason));leagueSaveFailed=false;return true;}catch{leagueSaveFailed=true;document.getElementById('leagueStatus').textContent='Tarayıcı sezonu kaydedemedi. Bu oturumda oynamaya devam edebilirsin.';return false;}}
+function packLeagueSeason(s){
+ const division=d=>({league:d.league,teams:d.teams,round:d.round,results:d.fixtures.slice(0,d.round).map(week=>week.map(m=>[m.homeGoals,m.awayGoals]))});
+ return {...division(s),version:s.version,id:s.id,club:s.club,season:s.season,partner:division(s.partner),...(s.transition?{transition:s.transition}:{})};
+}
+function unpackLeagueSeason(p){
+ try{
+  const division=d=>{const s=leagueDivision(d.league,d.teams);if(!Number.isInteger(d.round)||d.round<0||d.round>s.fixtures.length||!Array.isArray(d.results)||d.results.length!==d.round)throw Error('Invalid rounds');s.round=d.round;
+   d.results.forEach((week,r)=>{if(!Array.isArray(week)||week.length!==s.fixtures[r].length)throw Error('Invalid week');week.forEach((goals,i)=>{if(!Array.isArray(goals)||goals.length!==2)throw Error('Invalid score');[s.fixtures[r][i].homeGoals,s.fixtures[r][i].awayGoals]=goals;});});return s;};
+  const s={...division(p),version:p.version,id:p.id,club:p.club,season:p.season,partner:division(p.partner),...(p.transition?{transition:p.transition}:{})};return validLeagueSeason(s)?s:null;
+ }catch{return null;}
+}
+function persistLeagueSlots(){
+ try{localStorage.setItem(LEAGUE_SLOTS_STORAGE,JSON.stringify({version:1,active:activeLeagueSlot,slots:leagueSlots}));leagueSaveFailed=false;return true;}
+ catch{leagueSaveFailed=true;return false;}
+}
+function saveLeague(){
+ if(!leagueSeason)return false;
+ const previous=leagueSlots[activeLeagueSlot];leagueSlots[activeLeagueSlot]={updatedAt:Date.now(),season:packLeagueSeason(leagueSeason)};
+ const saved=persistLeagueSlots();if(!saved)leagueSlots[activeLeagueSlot]=previous;
+ // Keep the old single-save format readable while upgrading existing installations.
+ if(saved)try{localStorage.setItem(LEAGUE_STORAGE,JSON.stringify(leagueSeason));}catch{}
+ if(!saved)document.getElementById('leagueStatus').textContent='Tarayıcı sezonu kaydedemedi. Bu oturumda oynamaya devam edebilirsin.';
+ renderLeagueSlots();return saved;
+}
+function readLeagueSlots(){
+ leagueSlots=Array(LEAGUE_SLOT_COUNT).fill(null);activeLeagueSlot=0;leagueSeason=null;leagueSaveFailed=false;
+ try{
+  const raw=localStorage.getItem(LEAGUE_SLOTS_STORAGE);
+  if(raw!==null){const data=JSON.parse(raw);if(data.version!==1||!Array.isArray(data.slots)||data.slots.length!==LEAGUE_SLOT_COUNT||!Number.isInteger(data.active)||data.active<0||data.active>=LEAGUE_SLOT_COUNT)throw Error('Invalid slots');
+   leagueSlots=data.slots.map(record=>record&&unpackLeagueSeason(record.season)?record:null);activeLeagueSlot=data.active;leagueSeason=unpackLeagueSeason(leagueSlots[activeLeagueSlot]?.season);return;
+  }
+  const legacy=JSON.parse(localStorage.getItem(LEAGUE_STORAGE)||'null');if(validLeagueSeason(legacy)){leagueSeason=legacy;leagueSlots[0]={updatedAt:Date.now(),season:packLeagueSeason(legacy)};persistLeagueSlots();}
+ }catch{leagueSaveFailed=true;}
+}
+function leagueSlotAvailable(){return !net.active&&['ready','ended'].includes(state);}
+function renderLeagueSlots(){
+ const select=document.getElementById('leagueSlotSelect'),previous=Number(select.value),chosen=select.value!==''&&Number.isInteger(previous)&&previous>=0&&previous<LEAGUE_SLOT_COUNT?previous:activeLeagueSlot;select.replaceChildren();
+ leagueSlots.forEach((record,i)=>{const option=document.createElement('option');option.value=String(i);const s=record?.season;option.textContent=String(i+1).padStart(2,'0')+' · '+(s?getCountry(s.club).name+' · '+s.season+' · '+s.round+'. hafta':'Boş yuva')+(i===activeLeagueSlot&&leagueSeason?' · Aktif':'');select.append(option);});select.value=String(chosen);
+ document.getElementById('leagueSlotCount').textContent=leagueSlots.filter(Boolean).length+' / '+LEAGUE_SLOT_COUNT;
+ const record=leagueSlots[chosen],s=record?.season;document.getElementById('leagueSlotInfo').textContent=s?LEAGUES[s.league]+' · '+s.round+' / '+makeLeagueFixtures(s.teams).length+' hafta · Son kayıt: '+new Date(record.updatedAt).toLocaleString('tr-TR'):'Bu yuva boş. Yeni kariyerini burada başlatabilirsin.';
+ for(const id of ['leagueSlotLoad','leagueSlotDelete'])document.getElementById(id).disabled=!s||!leagueSlotAvailable();select.disabled=!leagueSlotAvailable();
+}
+function loadLeagueSlot(){
+ if(!leagueSlotAvailable())return;const index=Number(document.getElementById('leagueSlotSelect').value),saved=unpackLeagueSeason(leagueSlots[index]?.season);if(!saved)return;
+ if(leagueSaveFailed&&leagueSeason&&!saveLeague())return;
+ activeLeagueSlot=index;leagueSeason=saved;leagueMatchContext=null;lastLeagueMatch=false;persistLeagueSlots();fullReset();document.getElementById('leagueSelect').value=saved.league;fillLeagueTeams();openLeagueHub();
+}
+function deleteLeagueSlot(){
+ if(!leagueSlotAvailable())return;const index=Number(document.getElementById('leagueSlotSelect').value),record=leagueSlots[index];if(!record||!window.confirm((index+1)+'. yuvadaki '+getCountry(record.season.club).name+' kariyeri silinsin mi?'))return;
+ leagueSlots[index]=null;if(!persistLeagueSlots()){leagueSlots[index]=record;renderLeague();return;}
+ if(index===activeLeagueSlot){leagueSeason=null;leagueMatchContext=null;lastLeagueMatch=false;try{localStorage.setItem(LEAGUE_STORAGE,'null');}catch{}fullReset();}renderLeague();
+}
 function leagueTable(season=leagueSeason){
  if(!season)return [];const table=new Map(season.teams.map(key=>[key,{key,played:0,wins:0,draws:0,losses:0,for:0,against:0,gd:0,points:0}]));
  for(const week of season.fixtures)for(const m of week){if(m.homeGoals===null||m.awayGoals===null)continue;const home=table.get(m.home),away=table.get(m.away);home.played++;away.played++;home.for+=m.homeGoals;home.against+=m.awayGoals;away.for+=m.awayGoals;away.against+=m.homeGoals;
@@ -8621,7 +8675,10 @@ function fillLeagueTeams(){
 function createLeagueSeason(){
  if(net.active||!['ready','ended'].includes(state))return;
  const league=document.getElementById('leagueSelect').value,club=document.getElementById('leagueTeamSelect').value,teams=leagueTeams(league);if(!LEAGUES[league]||!teams.includes(club))return;
- if(leagueSeason&&leagueSeason.round<leagueSeason.fixtures.length&&!window.confirm('Kaydedilmiş sezonun yerine yeni sezon kurulsun mu?'))return;
+ if(leagueSaveFailed&&leagueSeason&&!saveLeague())return;
+ let slot=Number(document.getElementById('leagueSlotSelect').value);if(!Number.isInteger(slot)||slot<0||slot>=LEAGUE_SLOT_COUNT)slot=activeLeagueSlot;
+ if(leagueSlots[slot]){const empty=leagueSlots.findIndex(s=>!s);if(empty>=0)slot=empty;else if(!window.confirm('30 kayıt yuvası dolu. '+(slot+1)+'. yuvadaki kariyerin üzerine yazılsın mı?'))return;}
+ activeLeagueSlot=slot;document.getElementById('leagueSlotSelect').value=String(slot);
  const pair=leaguePair(league);leagueSeason={version:2,id:Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,8),...leagueDivision(league),club,season:'2026–27',partner:leagueDivision(league===pair.upper?pair.lower:pair.upper)};saveLeague();renderLeague();openLeagueHub();
 }
 function playNextLeagueMatch(){
@@ -8632,9 +8689,10 @@ function playNextLeagueMatch(){
  fullReset();startGame();leagueMatchContext={id:leagueSeason.id,round:leagueSeason.round,home:match.home===leagueSeason.club};renderLeagueMatchBar();
 }
 function renderLeague(){
+ renderLeagueSlots();
  const view=document.getElementById('leagueSeasonView');view.hidden=!leagueSeason;document.getElementById('leagueOpenBtn').style.display=leagueSeason?'inline-block':'none';document.getElementById('leagueCreateBtn').disabled=net.active;document.getElementById('leagueNextBtn').disabled=net.active||!leagueSeason||leagueSeason.round>=leagueSeason.fixtures.length||!['ready','ended'].includes(state);
  if(!leagueSeason){document.getElementById('leagueStatus').textContent='2026–27 kadroları · Bir lig ve takım seç.';return;}
- const finished=leagueSeason.round===leagueSeason.fixtures.length;document.getElementById('leagueStatus').textContent=leagueSaveFailed?'Tarayıcı sezonu kaydedemedi; bu oturumda devam edebilirsin.':'Sezon bu tarayıcıya kaydedildi; sayfayı yenileyince kaldığın haftadan devam eder.';
+ const finished=leagueSeason.round===leagueSeason.fixtures.length;document.getElementById('leagueStatus').textContent=leagueSaveFailed?'Tarayıcı sezonu kaydedemedi; bu oturumda devam edebilirsin.':'Kayıt '+(activeLeagueSlot+1)+' / 30 · Bu tarayıcıda otomatik kaydedilir; yenileyince kaldığın haftadan devam eder.';
  document.getElementById('leagueSeasonTitle').textContent=LEAGUES[leagueSeason.league]+' · '+leagueSeason.season+' · '+getCountry(leagueSeason.club).name;
  renderLeagueHubSummary();renderLeagueMovement();
  const divisionSelect=document.getElementById('leagueTableDivision'),selected=divisionSelect.value;divisionSelect.replaceChildren();for(const d of [leagueSeason,leagueSeason.partner]){const option=document.createElement('option');option.value=d.league;option.textContent=LEAGUES[d.league];divisionSelect.append(option);}divisionSelect.value=[leagueSeason.league,leagueSeason.partner.league].includes(selected)?selected:leagueSeason.league;
@@ -8651,7 +8709,7 @@ function showLeagueTab(tab){
 function openLeagueHub(){if(!leagueSeason||net.active||!['ready','ended'].includes(state))return;renderLeague();showLeagueTab('Overview');document.getElementById('leagueHub').style.display='flex';}
 function renderLeagueHubSummary(){
  const table=leagueTable(),rank=table.findIndex(r=>r.key===leagueSeason.club)+1,row=table[rank-1];
- document.getElementById('leagueHubSubtitle').textContent=getCountry(leagueSeason.club).name+' · '+leagueSeason.season+' · '+leagueSeason.teams.length+' takım';
+ document.getElementById('leagueHubSubtitle').textContent=getCountry(leagueSeason.club).name+' · '+leagueSeason.season+' · '+leagueSeason.teams.length+' takım · Kayıt '+(activeLeagueSlot+1)+' / 30';
  document.getElementById('leagueRankMetric').textContent=rank+'.';document.getElementById('leaguePointsMetric').textContent=String(row.points);document.getElementById('leagueWeekMetric').textContent=leagueSeason.round+' / '+leagueSeason.fixtures.length;
  const cards=document.getElementById('leagueSquadCards');cards.replaceChildren();const shape=FORMATIONS[formation],lineup=lineupFor(leagueSeason.club,shape),starting=new Set(lineup.map(p=>p.id));
  document.getElementById('leagueSquadTitle').textContent=getCountry(leagueSeason.club).name+' · '+FORMATION_LABELS[formation];
@@ -8659,11 +8717,11 @@ function renderLeagueHubSummary(){
 }
 function initLeague(){
  const select=document.getElementById('leagueSelect');select.replaceChildren();for(const [key,name] of Object.entries(LEAGUES)){const option=document.createElement('option');option.value=key;option.textContent=name+' · 2026–27';select.append(option);}select.value='superlig';
- try{const saved=JSON.parse(localStorage.getItem(LEAGUE_STORAGE)||'null');if(validLeagueSeason(saved)){leagueSeason=saved;select.value=saved.league;}}catch{}
+ readLeagueSlots();if(leagueSeason)select.value=leagueSeason.league;document.getElementById('leagueSlotSelect').value=String(activeLeagueSlot);
  fillLeagueTeams();if(leagueSeason)document.getElementById('leagueTeamSelect').value=leagueSeason.club;
  document.getElementById('leagueOpenBtn').addEventListener('click',openLeagueHub);document.getElementById('leagueHubClose').addEventListener('click',()=>document.getElementById('leagueHub').style.display='none');
  for(const tab of ['Overview','Table','Fixtures','Squad'])document.getElementById('leagueTab'+tab).addEventListener('click',()=>showLeagueTab(tab));
- select.addEventListener('change',fillLeagueTeams);document.getElementById('leagueCreateBtn').addEventListener('click',createLeagueSeason);document.getElementById('leagueNextBtn').addEventListener('click',playNextLeagueMatch);document.getElementById('leagueAdvanceBtn').addEventListener('click',advanceLeagueSeason);document.getElementById('leagueTableDivision').addEventListener('change',renderLeague);renderLeague();
+ document.getElementById('leagueSlotSelect').addEventListener('change',renderLeagueSlots);document.getElementById('leagueSlotLoad').addEventListener('click',loadLeagueSlot);document.getElementById('leagueSlotDelete').addEventListener('click',deleteLeagueSlot);select.addEventListener('change',fillLeagueTeams);document.getElementById('leagueCreateBtn').addEventListener('click',createLeagueSeason);document.getElementById('leagueNextBtn').addEventListener('click',playNextLeagueMatch);document.getElementById('leagueAdvanceBtn').addEventListener('click',advanceLeagueSeason);document.getElementById('leagueTableDivision').addEventListener('change',renderLeague);renderLeague();
 }
 const net={active:false,phase:'idle',token:null,stream:null,side:'blue',match:null,lastSnapshot:0,lastSend:0,sending:false,queue:[],seq:0,joinId:0,previous:'',goals:0,socket:null,offer:null,buttonAt:{},lastPing:0,rtt:0};
 function onlineStatus(text){document.getElementById('onlineStatus').textContent=text;}
