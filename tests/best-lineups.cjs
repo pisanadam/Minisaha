@@ -1,4 +1,6 @@
 const assert=require('node:assert/strict'),{run,ids,errors}=require('./game-harness.cjs');
+for(const name of ['Ersin Destanoğlu','Ahmetcan Kaplan','Yusuf Akçiçek','Mustafa Eskihellaç','Semih Kılıçsoy'])assert(run(`rosterFor('turkiye').some(p=>p.name===${JSON.stringify(name)})`));
+for(const name of ['Ersin Destanoğlu','Ahmetcan Kaplan','Yusuf Akçiçek'])assert(run(`rosterFor('turkiye').find(p=>p.name===${JSON.stringify(name)}).ratingSource==='estimate'`));
 for(const [country,name] of [['turkiye','Hakan Çalhanoğlu'],['france','Kylian Mbappé'],['germany','Jamal Musiala'],['brazil','Alisson Becker']])assert(run(`rosterFor('${country}').some(p=>p.name===${JSON.stringify(name)})`));
 for(const k of run('COUNTRY_TEAMS.map(t=>t.key)')){
  const best=run(`strongestLineup('${k}',11)`);assert.equal(best.cards.length,11);assert.equal(new Set(best.cards.map(p=>p.id)).size,11);assert(best.cards[0].positions.includes('GK'));assert(best.cards.slice(1).every(p=>!p.positions.includes('GK')));assert(run(`(()=>{const b=strongestLineup('${k}',11);return formationKeys(11).every(key=>lineupFor('${k}',FORMATIONS[key]).reduce((n,p,i)=>n+p.overall-positionPenalty(p,FORMATIONS[key][i][0]),0)<=b.total)})()`));
