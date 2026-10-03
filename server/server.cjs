@@ -45,7 +45,7 @@ function createMatchServer({maxRooms=8,disconnectMs=8000,offerMs=30000}={}){
   for(const p of data.inputs)if(!p||!Number.isFinite(p.x)||!Number.isFinite(p.y))return {status:400,error:'axis'};
   s.seq=data.seq;s.lastInput=now;s.seen=now;
   for(const p of data.inputs){
-   const mag=Math.max(1,Math.hypot(p.x,p.y)),sign=s.side==='blue'?1:-1,clean={x:p.x/mag*sign,y:p.y/mag*sign,target:Number.isSafeInteger(p.target)?p.target:-1,power:{}};
+   const mag=Math.max(1,Math.hypot(p.x,p.y)),sign=s.side==='blue'?1:-1,clean={x:p.x/mag*sign,y:p.y/mag*sign,target:Number.isSafeInteger(p.target)?p.target:-1,cancel:p.cancel===true,power:{}};
    for(const k of ['pass','shoot','cross','through','sprint','switch'])clean[k]=p[k]===true;
    for(const k of ['pass','shoot','cross','through'])if(Number.isFinite(p.power?.[k]))clean.power[k]=Math.min(1,Math.max(0,p.power[k]));
    s.room.engine.input(s.side,clean);
@@ -64,7 +64,8 @@ function createMatchServer({maxRooms=8,disconnectMs=8000,offerMs=30000}={}){
   }
   return {status:200};
  }
- function attach(s){s.seen=Date.now();if(s.room){send(s,s.room.phase==='offered'?offerPacket(s):matchPacket(s));if(s.room.phase==='playing')send(s,{type:'state',match:s.room.id,state:s.room.engine.snapshot()});}
+ function roomSnapshot(room){const state=room.engine.snapshot();if(room.pause)state.pause={by:room.pause.by,remaining:Math.max(0,Math.ceil((room.pause.until-Date.now())/1000))};return state;}
+ function attach(s){s.seen=Date.now();if(s.room){send(s,s.room.phase==='offered'?offerPacket(s):matchPacket(s));if(s.room.phase==='playing')send(s,{type:'state',match:s.room.id,state:roomSnapshot(s.room)});}
   else{if(!s.lobby&&!queues[s.size].includes(s)){s.queuedAt=Date.now();queues[s.size].push(s);}send(s,waiting(s));if(s.lobby)startLobby(s.lobby);else match();}}
  function json(res,status,data){res.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(data));}
  async function body(req){let text='';for await(const chunk of req){text+=chunk;if(text.length>8192)throw new Error('size');}return JSON.parse(text||'{}');}
@@ -122,7 +123,7 @@ function createMatchServer({maxRooms=8,disconnectMs=8000,offerMs=30000}={}){
    if(room.pause&&now>=room.pause.until){room.engine.pause(false);room.pause=null;room.last=clock;room.accumulator=0;}
    for(const s of room.members)if(now-s.lastInput>700&&now-s.lastNeutral>700){room.engine.input(s.side,{...empty});s.lastNeutral=now;}
    room.accumulator+=Math.min(.1,(clock-room.last)/1000);room.last=clock;while(room.accumulator>=1/60){room.engine.step(1/60);room.ticks++;room.accumulator-=1/60;}
-   if(clock-room.lastBroadcast>=1000/30){room.lastBroadcast=clock;const state=room.engine.snapshot();if(room.pause)state.pause={by:room.pause.by,remaining:Math.max(0,Math.ceil((room.pause.until-now)/1000))};for(const s of room.members)send(s,{type:'state',match:room.id,state,ack:s.seq});
+   if(clock-room.lastBroadcast>=1000/30){room.lastBroadcast=clock;const state=roomSnapshot(room);for(const s of room.members)send(s,{type:'state',match:room.id,state,ack:s.seq});
     if(state.state==='ended'){rooms.delete(room);for(const s of room.members){s.room=null;endSession(s);}}
    }
   }catch(error){console.error('Match engine failed:',error.message);for(const s of room.members)send(s,{type:'left'});remove(room.members[0]);}}

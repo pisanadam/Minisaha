@@ -490,7 +490,7 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
     </div>
   </div>
 
-  <div id="leagueHub" style="display:none" role="dialog" aria-modal="true" aria-labelledby="leagueSeasonTitle"><section class="leagueHubCard"><header class="leagueHubHeader"><div><span class="leagueEyebrow">KULÜP MERKEZİ · LİG KARİYERİ</span><h2 id="leagueSeasonTitle"></h2><p id="leagueHubSubtitle"></p></div><button id="leagueHubClose" aria-label="Lig menüsünü kapat">Ana menü ✕</button></header><nav class="leagueHubNav" aria-label="Lig menüsü"><button id="leagueTabOverview" aria-pressed="true">Genel Bakış</button><button id="leagueTabTable" aria-pressed="false">Puan Tablosu</button><button id="leagueTabFixtures" aria-pressed="false">Fikstür</button><button id="leagueTabSquad" aria-pressed="false">Kadro</button><button id="leagueTabTransfers" aria-pressed="false" hidden>Transferler</button><button id="leagueTabOffice" aria-pressed="false" hidden>Yönetim</button><button id="leagueTabTraining" aria-pressed="false" hidden>Gelişim</button></nav><div id="leagueSeasonView" class="leagueHubBody" hidden><div id="leagueViewOverview"><div class="leagueMetrics"><div><span>Ligdeki sıran</span><strong id="leagueRankMetric"></strong></div><div><span>Puan</span><strong id="leaguePointsMetric"></strong></div><div><span>Oynanan hafta</span><strong id="leagueWeekMetric"></strong></div></div><article class="leagueNextCard"><span class="leagueEyebrow">SIRADAKİ KARŞILAŞMA</span><h3 id="leagueNextInfo"></h3><p>Takımını sahada yönet veya maçı duraklatıp simüle et.</p><button id="leagueNextBtn">Maça çık ↗</button><button id="leagueAdvanceBtn" style="display:none">Sonraki sezona geç ↗</button><p id="leagueMovementInfo"></p></article><p class="leagueDataNote">Kadro verisi: 2026–27. Fikstür ve sonraki sezonlar oyun kariyerinde oluşturulur. İki ligli kariyerde üçüncü kademe bulunmaz.</p></div><div id="leagueViewTable" hidden><label for="leagueTableDivision">Lig tablosu</label><select id="leagueTableDivision"></select><div class="leagueTableScroll"><table id="leagueStandings" aria-label="Lig puan tablosu"></table></div><p>Puan → averaj → atılan gol. Galibiyet 3, beraberlik 1 puan.</p></div><div id="leagueViewFixtures" hidden><h3>Takımımın fikstürü</h3><ol id="leagueFixtureList"></ol><h3>Son haftanın sonuçları</h3><div id="leagueRoundResults"></div></div><div id="leagueViewSquad" hidden><h3 id="leagueSquadTitle"></h3><div id="leagueSquadCards"></div><p>Maç sırasında duraklatma ekranından saha düzeninde oyuncu ve diziliş değiştirebilirsin.</p></div><div id="leagueViewTransfers" hidden><h3>Transfer merkezi</h3><p id="managerWindowInfo"></p><div class="managerForm"><label for="managerMarketClub">Kulüp</label><select id="managerMarketClub"></select><label for="managerMarketPlayer">Oyuncu</label><select id="managerMarketPlayer"></select></div><div id="managerTransferPreview" class="managerPreview"></div><div class="menuActions"><button id="managerBuyBtn">Transfer görüşmesi</button><button id="managerLoanBtn">Kiralama görüşmesi</button></div><button id="managerShortlistBtn">İzleme listesine ekle ★</button><h3>Oyuncu ara</h3><div class="managerSearchForm"><input id="managerPlayerSearch" type="search" placeholder="İsimle oyuncu ara"><select id="managerPositionFilter"><option value="all">Tüm mevkiler</option><option value="GK">Kaleci</option><option value="CB">Stoper</option><option value="LB">Sol bek</option><option value="RB">Sağ bek</option><option value="CM">Orta saha</option><option value="LW">Sol kanat</option><option value="RW">Sağ kanat</option><option value="ST">Santrfor</option></select><label>En az genel puan<input id="managerMinRating" type="number" min="40" max="99" value="40"></label><label>En fazla bedel (€)<input id="managerMaxFee" type="number" min="0" step="100000" placeholder="Sınırsız"></label><button id="managerSearchBtn">Oyuncuları bul</button></div><div id="managerSearchResults"></div><h3>İzleme listesi</h3><div id="managerShortlist"></div><hr><h3>Oyuncu sat</h3><label for="managerSellPlayer">Kadrodan oyuncu</label><select id="managerSellPlayer"></select><p id="managerSellAdvice"></p><p>Alıcı kulüp: yukarıdaki seçili kulüp. En az 11 oyuncu ve bir kaleci korunur.</p><button id="managerSellBtn">Oyuncuyu sat</button><p id="managerActionStatus" role="status"></p><p>Transfer ve maaş değerleri oyun için hesaplanan tahminlerdir.</p></div><div id="leagueViewOffice" hidden><h3>Teknik direktör ofisi</h3><div id="managerOffice" class="managerPreview"></div><p id="managerOfficeActionStatus" role="status"></p><h3>Sözleşme yönetimi</h3><select id="managerContractPlayer"></select><div id="managerContractInfo"></div><button id="managerRenewBtn">Sözleşme görüşmesi</button><h3>Antrenör ekibi</h3><p>Antrenör seviyesi gelişimi, izleme uzmanı transfer pazarlığını etkiler. Ücretler maaş giderine eklenir.</p><div id="managerStaff"></div><h3>Kulüp haberleri</h3><div id="managerNews"></div></div><div id="leagueViewTraining" hidden><h3>Antrenman ve oyuncu gelişimi</h3><label for="managerTrainingFocus">Takımın çalışma odağı</label><select id="managerTrainingFocus"><option value="balanced">Dengeli</option><option value="attack">Hücum · Şut ve top sürme</option><option value="defense">Savunma · Top kapma ve fizik</option><option value="passing">Pas · Pas ve hız</option></select><p>Her tamamlanan lig haftası gelişim kazandırır. 100 gelişim puanında genel puan ve çalışılan özellikler artar. Değişiklikler kariyer kadrosuna uygulanır.</p><div id="managerDevelopment"></div></div></div></section></div><div id="onlineOffer" style="display:none" role="dialog" aria-modal="true" aria-labelledby="onlineOfferTitle"><div class="offerCard"><h2 id="onlineOfferTitle">Oyun bulundu!</h2><p id="onlineOfferInfo"></p><div class="offerTeams"><div><h3 id="offerYourTeam"></h3><ol id="offerYourLineup"></ol></div><div><h3 id="offerRivalTeam"></h3><ol id="offerRivalLineup"></ol></div></div><p id="onlineOfferStatus" role="status"></p><div class="menuActions"><button id="onlineAcceptBtn">Kabul et</button><button id="onlineDeclineBtn">İptal et</button></div></div></div>
+  <div id="leagueHub" style="display:none" role="dialog" aria-modal="true" aria-labelledby="leagueSeasonTitle"><section class="leagueHubCard"><header class="leagueHubHeader"><div><span class="leagueEyebrow">KULÜP MERKEZİ · LİG KARİYERİ</span><h2 id="leagueSeasonTitle"></h2><p id="leagueHubSubtitle"></p></div><button id="leagueHubClose" aria-label="Lig menüsünü kapat">Ana menü ✕</button></header><nav class="leagueHubNav" aria-label="Lig menüsü"><button id="leagueTabOverview" aria-pressed="true">Genel Bakış</button><button id="leagueTabTable" aria-pressed="false">Puan Tablosu</button><button id="leagueTabFixtures" aria-pressed="false">Fikstür</button><button id="leagueTabSquad" aria-pressed="false">Kadro</button><button id="leagueTabTransfers" aria-pressed="false" hidden>Transferler</button><button id="leagueTabOffice" aria-pressed="false" hidden>Yönetim</button><button id="leagueTabTraining" aria-pressed="false" hidden>Gelişim</button></nav><div id="leagueSeasonView" class="leagueHubBody" hidden><div id="leagueViewOverview"><div class="leagueMetrics"><div><span>Ligdeki sıran</span><strong id="leagueRankMetric"></strong></div><div><span>Puan</span><strong id="leaguePointsMetric"></strong></div><div><span>Oynanan hafta</span><strong id="leagueWeekMetric"></strong></div></div><article class="leagueNextCard"><span class="leagueEyebrow">SIRADAKİ KARŞILAŞMA</span><h3 id="leagueNextInfo"></h3><p>Takımını sahada yönet veya maçı duraklatıp simüle et.</p><button id="leagueNextBtn">Maça çık ↗</button><button id="leagueAdvanceBtn" style="display:none">Sonraki sezona geç ↗</button><p id="leagueMovementInfo"></p></article><p class="leagueDataNote">Kadro verisi: 2026–27. Fikstür ve sonraki sezonlar oyun kariyerinde oluşturulur. İki ligli kariyerde üçüncü kademe bulunmaz.</p></div><div id="leagueViewTable" hidden><label for="leagueTableDivision">Lig tablosu</label><select id="leagueTableDivision"></select><div class="leagueTableScroll"><table id="leagueStandings" aria-label="Lig puan tablosu"></table></div><p>Puan → averaj → atılan gol. Galibiyet 3, beraberlik 1 puan.</p></div><div id="leagueViewFixtures" hidden><h3>Takımımın fikstürü</h3><ol id="leagueFixtureList"></ol><h3>Son haftanın sonuçları</h3><div id="leagueRoundResults"></div></div><div id="leagueViewSquad" hidden><h3 id="leagueSquadTitle"></h3><div class="managerSearchForm"><label>Diziliş<select id="leagueFormationSelect"></select></label><label>Takım yaklaşımı<select id="leagueTacticSelect"><option value="balanced">Dengeli</option><option value="attack">Hücum</option><option value="defend">Savunma</option></select></label></div><p>Seçim bu kariyer kaydına aittir; sonraki maçlara ve sezonlara taşınır.</p><div id="leagueSquadCards"></div><p>Maç sırasında duraklatma ekranından saha düzeninde oyuncu ve diziliş değiştirebilirsin.</p></div><div id="leagueViewTransfers" hidden><h3>Transfer merkezi</h3><p id="managerWindowInfo"></p><div class="managerForm"><label for="managerMarketClub">Kulüp</label><select id="managerMarketClub"></select><label for="managerMarketPlayer">Oyuncu</label><select id="managerMarketPlayer"></select></div><div id="managerTransferPreview" class="managerPreview"></div><div class="menuActions"><button id="managerBuyBtn">Transfer görüşmesi</button><button id="managerLoanBtn">Kiralama görüşmesi</button></div><button id="managerShortlistBtn">İzleme listesine ekle ★</button><h3>Oyuncu ara</h3><div class="managerSearchForm"><input id="managerPlayerSearch" type="search" placeholder="İsimle oyuncu ara"><select id="managerPositionFilter"><option value="all">Tüm mevkiler</option><option value="GK">Kaleci</option><option value="CB">Stoper</option><option value="LB">Sol bek</option><option value="RB">Sağ bek</option><option value="CM">Orta saha</option><option value="LW">Sol kanat</option><option value="RW">Sağ kanat</option><option value="ST">Santrfor</option></select><label>En az genel puan<input id="managerMinRating" type="number" min="40" max="99" value="40"></label><label>En fazla bedel (€)<input id="managerMaxFee" type="number" min="0" step="100000" placeholder="Sınırsız"></label><button id="managerSearchBtn">Oyuncuları bul</button></div><div id="managerSearchResults"></div><h3>İzleme listesi</h3><div id="managerShortlist"></div><hr><h3>Oyuncu sat</h3><label for="managerSellPlayer">Kadrodan oyuncu</label><select id="managerSellPlayer"></select><p id="managerSellAdvice"></p><p>Alıcı kulüp: yukarıdaki seçili kulüp. En az 11 oyuncu ve bir kaleci korunur.</p><button id="managerSellBtn">Oyuncuyu sat</button><p id="managerActionStatus" role="status"></p><p>Transfer ve maaş değerleri oyun için hesaplanan tahminlerdir.</p></div><div id="leagueViewOffice" hidden><h3>Teknik direktör ofisi</h3><div id="managerOffice" class="managerPreview"></div><p id="managerOfficeActionStatus" role="status"></p><h3>Sözleşme yönetimi</h3><select id="managerContractPlayer"></select><div id="managerContractInfo"></div><button id="managerRenewBtn">Sözleşme görüşmesi</button><h3>Antrenör ekibi</h3><p>Antrenör seviyesi gelişimi, izleme uzmanı transfer pazarlığını etkiler. Ücretler maaş giderine eklenir.</p><div id="managerStaff"></div><h3>Kulüp haberleri</h3><div id="managerNews"></div></div><div id="leagueViewTraining" hidden><h3>Antrenman ve oyuncu gelişimi</h3><label for="managerTrainingFocus">Takımın çalışma odağı</label><select id="managerTrainingFocus"><option value="balanced">Dengeli</option><option value="attack">Hücum · Şut ve top sürme</option><option value="defense">Savunma · Top kapma ve fizik</option><option value="passing">Pas · Pas ve hız</option></select><p>Her tamamlanan lig haftası gelişim kazandırır. 100 gelişim puanında genel puan ve çalışılan özellikler artar. Değişiklikler kariyer kadrosuna uygulanır.</p><div id="managerDevelopment"></div></div></div></section></div><div id="onlineOffer" style="display:none" role="dialog" aria-modal="true" aria-labelledby="onlineOfferTitle"><div class="offerCard"><h2 id="onlineOfferTitle">Oyun bulundu!</h2><p id="onlineOfferInfo"></p><div class="offerTeams"><div><h3 id="offerYourTeam"></h3><ol id="offerYourLineup"></ol></div><div><h3 id="offerRivalTeam"></h3><ol id="offerRivalLineup"></ol></div></div><p id="onlineOfferStatus" role="status"></p><div class="menuActions"><button id="onlineAcceptBtn">Kabul et</button><button id="onlineDeclineBtn">İptal et</button></div></div></div>
 <div id="managerNegotiation" style="display:none" role="dialog" aria-modal="true" aria-labelledby="managerNegotiationTitle"><section class="managerDealCard"><header><span class="leagueEyebrow">KARİYER · GÖRÜŞME ODASI</span><h2 id="managerNegotiationTitle"></h2></header><div class="managerMeetingArt" aria-hidden="true"><span class="managerPerson"></span><span class="managerDesk"></span><span class="managerPerson managerVisitor"></span></div><p id="managerNegotiationParties"></p><p id="managerNegotiationDialogue" aria-live="polite"></p><div id="managerClubOffer"><label for="managerOfferFee">Teklif edilen bedel (€)</label><input id="managerOfferFee" type="number" min="0" step="100000"></div><div id="managerPlayerOffer" hidden><label for="managerOfferWage">Haftalık maaş (€)</label><input id="managerOfferWage" type="number" min="0" step="1000"><label for="managerOfferYears">Sözleşme süresi</label><select id="managerOfferYears"><option value="1">1 yıl</option><option value="2">2 yıl</option><option value="3" selected>3 yıl</option><option value="4">4 yıl</option><option value="5">5 yıl</option></select></div><aside class="managerAdvisor"><span class="leagueEyebrow">TRANSFER DANIŞMANI</span><p id="managerPriceAdvice"></p><p id="managerOfferFeedback" aria-live="polite"></p><button id="managerApplyAdvice">Önerilen teklifi kullan</button></aside><p id="managerNegotiationCost"></p><div class="menuActions"><button id="managerOfferSubmit">Teklif sun</button><button id="managerOfferCancel">Görüşmeden ayrıl</button></div><p>Görüşme tamamlanana kadar para ve kadro değişmez.</p></section></div>
   <div id="keeperPassBar" style="display:none"><span id="keeperPassHint">Sahadaki oyuncuya dokun, sonra Pas’a bas: kaleci eliyle yüksekten atsın.</span></div>
   <div id="leagueMatchBar" style="display:none" role="status"></div><div id="onlineMatchBar" role="status"></div><div id="message"></div>
@@ -694,7 +694,7 @@ function positionPenalty(card,slot){
 function lineupFor(teamKey,shape){
  const cacheKey=teamKey+':'+shape.map(s=>s[0]).join(',')+(managerRosterScope&&leagueSeason?.manager?':manager:'+leagueSeason.id+':'+leagueSeason.manager.revision:'');
  if(lineupCache.has(cacheKey))return lineupCache.get(cacheKey);
- const result=assignLineup(rosterFor(teamKey),shape);lineupCache.set(cacheKey,result);return result;
+ const result=assignLineup(rosterFor(teamKey),shape);lineupCache.set(cacheKey,result);if(lineupCache.size>256)lineupCache.delete(lineupCache.keys().next().value);return result;
 }
 function assignLineup(roster,shape){
  const n=shape.length,m=roster.length;
@@ -5760,7 +5760,7 @@ let soundEnabled = false, audioContext = null;
 let history = [];
 let pausedFrom = 'playing';
 let simulationMode = 'manual', fastSimulation = false, simulationJob = 0;
-let setPiece=null;
+let setPiece=null;let restartSerial=0;
 
 const KEY_ACTIONS={up:'İleri / yukarı',down:'Geri / aşağı',left:'Sola git',right:'Sağa git',pass:'Pas / pres',through:'Ara pas / ikinci pres',cross:'Orta / kayarak müdahale',shoot:'Şut / ayakta müdahale',sprint:'Koş',switch:'Oyuncu değiştir',pause:'Duraklat / devam et'};
 const DEFAULT_KEY_BINDINGS={up:['KeyW','ArrowUp'],down:['KeyS','ArrowDown'],left:['KeyA','ArrowLeft'],right:['KeyD','ArrowRight'],pass:['KeyX'],through:['KeyZ'],cross:['KeyV'],shoot:['Space'],sprint:['ShiftLeft','ShiftRight'],switch:['KeyQ'],pause:['KeyP']};
@@ -6116,7 +6116,7 @@ el.menuStart.addEventListener('click', startGame);
 el.blueTeamSelect.addEventListener('change', () => { applyTeamNames(); if(state==='ready')setupTeams(); setMessage(teamLong('blue'), .6); });
 el.redTeamSelect.addEventListener('change', () => { applyTeamNames(); if(state==='ready')setupTeams(); setMessage(teamLong('red'), .6); });
 el.pause.addEventListener('click', togglePause);
-el.restart.addEventListener('click', () => { if(net.active){openMenu();return;}const context=leagueMatchContext;fullReset();if(context)activateManagerRoster();startGame();leagueMatchContext=context;renderLeagueMatchBar(); });
+el.restart.addEventListener('click', () => { if(net.active){openMenu();return;}const context=leagueMatchContext;fullReset();if(context){formation=leagueTactics(leagueSeason).formation;setTactic(leagueTactics(leagueSeason).tactic);activateManagerRoster();}startGame();leagueMatchContext=context;renderLeagueMatchBar(); });
 if(el.fullscreen) el.fullscreen.addEventListener('click', toggleFullscreen);
 document.addEventListener('fullscreenchange', updateFullscreenButton);
 document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
@@ -7266,7 +7266,7 @@ function setPieceFormation(kind,team,x,y){
 function beginSetPiece(kind,team,x,y){
  if(setPiece||state!=='playing')return false;
  setPiece=setPieceFormation(kind,team,x,y);if(!setPiece)return false;
- clearKickInput();
+ setPiece.id=++restartSerial;clearKickInput();
  const event={kickoff:'kickoff',throw:'throw',corner:'corner','goal-kick':'goalkick'}[kind];
  if(event)sayCommentary(event,{team,player:setPiece.taker},2);
  passAssist=null;kickCharge=null;shotCharge=0;offsideLine=null;selected=team==='blue'?setPiece.taker:selected;
@@ -8157,7 +8157,7 @@ function setTactic(value){
   tactic=['balanced','attack','defend'].includes(value)?value:'balanced';
   document.getElementById('tactic').value=tactic;
   document.querySelectorAll('[data-tactic]').forEach(b=>{b.classList.toggle('active',b.dataset.tactic===tactic);b.setAttribute('aria-pressed',String(b.dataset.tactic===tactic));});
-  brains={blue:null,red:null};saveSettings();updateHud();
+  brains={blue:null,red:null};if(leagueMatchContext&&leagueSeason&&!net.active&&!onlineServer){leagueSeason.tactics={formation:formationForTeam('blue'),tactic};saveLeague();}saveSettings();updateHud();
 }
 function filterTeams(side){
   const query=document.getElementById(side+'Search').value.toLocaleLowerCase('tr');
@@ -8249,9 +8249,9 @@ function initEnhancements(){
   document.getElementById('mSwitch').addEventListener('pointerdown',e=>{e.preventDefault();if(state==='playing')cycleSelected();});
   document.getElementById('menuBtn').addEventListener('click',openMenu);
   document.getElementById('endMenu').addEventListener('click',()=>fullReset());
-  function suspend(){stopCommentary();clearInput();if(!fastSimulation&&(state==='playing'||state==='penalties'))togglePause();}
-  window.addEventListener('blur',suspend);
-  document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+  function suspend(){stopCommentary();clearInput();if(net.active){net.focused=false;cancelOnlineControls();return;}if(!fastSimulation&&(state==='playing'||state==='penalties'))togglePause();}
+  window.addEventListener('blur',suspend);window.addEventListener('focus',()=>{net.focused=true;clearInput();});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();else{net.focused=true;clearInput();}});
   const scale=Math.min(window.devicePixelRatio||1,2);canvas.width=W*scale;canvas.height=H*scale;ctx.scale(scale,scale);
 }
 
@@ -8263,7 +8263,8 @@ const onlineHumans={blue:{},red:{}};
 function onlineResetHuman(side){onlineHumans[side]={selected:null,input:{x:0,y:0},previous:{},pending:[],charge:null,blocked:{},switchTime:0,pressTime:0,pressCooldown:0,sprintTime:0};}
 function onlineInput(side,data){
  const h=onlineHumans[side];
- if(h.pending.length<24)h.pending.push(data);
+ if(data.cancel){h.pending=[];h.charge=null;h.input={x:0,y:0};h.previous={};h.blocked={};h.sprintTime=0;h.pressTime=0;return;}
+ if(h.pending.length<24)h.pending.push(data);else h.pending[h.pending.length-1]=data;
 }
 function onlineSelect(side,h,dt){
  const members=squad(side),dir=side==='blue'?1:-1;
@@ -8300,7 +8301,8 @@ function onlineControl(side,dt,stationary=false){
      if(canUseBall(c.player)&&(!setPiece||setPiece.team===side)){
       const aim=Math.hypot(input.x,input.y)>.18?input:c.aim;
       const heldKeeper=c.player.role==='gk'&&ball.held;
-      const target=heldKeeper?squad(side)[input.target]:setPiece?chooseRestartTarget(c.player,aim):Math.hypot(aim.x,aim.y)>.18?directionalReceiver(c.player,aim,kind==='through'):choosePassTarget(c.player,side,kind==='through');
+      const explicit=squad(side)[input.target],restartTarget=setPiece&&explicit&&explicit!==c.player?explicit:null;
+      const target=heldKeeper?explicit:setPiece?restartTarget||chooseRestartTarget(c.player,aim):Math.hypot(aim.x,aim.y)>.18?directionalReceiver(c.player,aim,kind==='through'):choosePassTarget(c.player,side,kind==='through');
       let done=false;
       if(heldKeeper&&(kind!=='pass'||!target||target.role==='gk'))continue;
       if(heldKeeper)done=throwKeeperBall(c.player,target,c.power);
@@ -8360,7 +8362,7 @@ function renderPauseFormation(){
 function confirmFormation(){
  const key=document.getElementById('pauseFormationSelect').value;
  if(net.active){requestOnlineAction('formation',{key});return;}
- const result=changeFormation('blue',key);if(result.ok){saveSettings();renderSubstitutions();}
+ const result=changeFormation('blue',key);if(result.ok){if(leagueMatchContext&&leagueSeason){leagueSeason.tactics={formation:key,tactic};saveLeague();}saveSettings();renderSubstitutions();}
  document.getElementById('pauseFormationStatus').textContent=result.ok?'Diziliş değişti: '+FORMATION_LABELS[key]:result.error;
 }
 function substitutePlayer(side,index,inId){
@@ -8457,7 +8459,7 @@ function onlineStep(dt){
  if(setPiece){
   setPiece.age+=dt;for(const p of players){p.vx=0;p.vy=0;p.cooldown=Math.max(0,p.cooldown-dt);}
   ball.owner=setPiece.taker;
-  onlineControl('blue',dt,true);onlineControl('red',dt,true);
+  onlineControl('blue',dt,true);onlineControl('red',dt,true);const h=onlineHumans[setPiece.team],candidate=squad(setPiece.team)[h.input.target];setPiece.previewTarget=candidate&&candidate!==setPiece.taker?candidate:chooseRestartTarget(setPiece.taker,h.input);
   if(setPiece.age>10&&!setPiece.released){const t=setPiece.taker,target=chooseRestartTarget(t,{x:0,y:0});setPiece.released=setPiece.kind==='corner'?crossBall(t,.35,target):passBall(t,false,target,.35);}
   if(setPiece.released)finishSetPiece();return;
  }
@@ -8475,7 +8477,7 @@ function onlineSnapshot(){
  return {formations:{blue:formationForTeam('blue'),red:formationForTeam('red')},lineupIds:players.map(p=>p.roster.id),substitutions:substitutionLog,state,elapsed,score:{...score},stats:JSON.parse(JSON.stringify(stats)),extraTimeStarted,stoppageSeconds,goalPause,penaltyResult,penalty:state==='penalties'?{blue:penalty.blue,red:penalty.red}:null,
  players:players.map(p=>ONLINE_FIELDS.map(k=>p[k]||0)),selected:['blue','red'].map(s=>players.indexOf(onlineHumans[s].selected)),charge:['blue','red'].map(s=>onlineHumans[s].charge?.power||0),
  ball:{held:!!(ball.held&&ball.owner?.role==='gk'),x:ball.x,y:ball.y,vx:ball.vx,vy:ball.vy,z:ball.z,r:ball.r,owner:players.indexOf(ball.owner),lastTouch:ball.lastTouch},
- restart:setPiece?{kind:setPiece.kind,team:setPiece.team,taker:players.indexOf(setPiece.taker),target:players.indexOf(setPiece.previewTarget||setPiece.target||setPiece.defaultTarget)}:null};
+ restart:setPiece?{id:setPiece.id,kind:setPiece.kind,team:setPiece.team,taker:players.indexOf(setPiece.taker),target:players.indexOf(setPiece.previewTarget||setPiece.target||setPiece.defaultTarget)}:null};
 }
 window.MINISAHA_ENGINE={
  teams:()=>COUNTRY_TEAMS.map(t=>t.key),
@@ -8535,6 +8537,7 @@ function validLeagueDivision(s){
 }
 function validLeagueSeason(s){
  if(s?.manager&&!validManager(s.manager))return false;
+ if(s?.tactics&&(!formationKeys(11).includes(s.tactics.formation)||!['balanced','attack','defend'].includes(s.tactics.tactic)))return false;
  if(!s||s.version!==2||typeof s.id!=='string'||!/^20\d{2}–\d{2}$/.test(s.season)||!validLeagueDivision(s)||!validLeagueDivision(s.partner)||!s.teams.includes(s.club))return false;
  const pair=leaguePair(s.league);if(s.partner.league!==(s.league===pair.upper?pair.lower:pair.upper))return false;
  const expected=[...leagueTeams(pair.upper),...leagueTeams(pair.lower)],actual=[...s.teams,...s.partner.teams];
@@ -8562,7 +8565,7 @@ function createManager(name){
  return {version:1,name:(name||'Teknik Direktör').trim().slice(0,30)||'Teknik Direktör',balance:Math.round(Math.pow(Math.max(10,avg-50),2)*80000),wageLimit:Math.round(wages*1.3),trust:70,targetRank:managerTargetRank(players),players,contracts:Object.fromEntries(players.map(p=>[p.id,{years:2,wage:managerWage(p)}])),development:{},focus:'balanced',revision:0,moves:[],news:['Kulübün teknik direktörlüğüne atandın.'],history:[]};
 }
 function managerTargetRank(players){
- const average=r=>r.reduce((n,p)=>n+p.overall,0)/r.length,own=average(players),rank=leagueSeason.teams.map(key=>({key,rating:key===leagueSeason.club?own:average(managerBaseRoster(key))})).sort((a,b)=>b.rating-a.rating).findIndex(t=>t.key===leagueSeason.club)+1;return Math.min(leagueSeason.teams.length-3,Math.max(1,rank+2));
+ const average=r=>r.reduce((n,p)=>n+p.overall,0)/r.length,own=average(players),rank=leagueSeason.teams.map(key=>({key,rating:key===leagueSeason.club?own:average(leagueSeason.manager?managerRoster(key):managerBaseRoster(key))})).sort((a,b)=>b.rating-a.rating).findIndex(t=>t.key===leagueSeason.club)+1;return Math.min(leagueSeason.teams.length-3,Math.max(1,rank+2));
 }
 function validManager(m){
  if(!m||m.version!==1||typeof m.name!=='string'||m.name.length>30||!Number.isFinite(m.balance)||m.balance<0||!Number.isFinite(m.wageLimit)||m.wageLimit<0||!Number.isInteger(m.revision)||m.revision<0||!Number.isFinite(m.trust)||m.trust<0||m.trust>100||!Number.isInteger(m.targetRank)||m.targetRank<1||!['balanced','attack','defense','passing'].includes(m.focus)||!Array.isArray(m.players)||m.players.length<11||m.players.length>60||!Array.isArray(m.moves)||!Array.isArray(m.news)||!Array.isArray(m.history)||!m.contracts||!m.development)return false;
@@ -8578,7 +8581,7 @@ function managerAction(message){document.getElementById('managerActionStatus').t
 function managerBuy(deal=null){
  if(!managerCanManage()||!managerWindow())return;const m=leagueSeason.manager,club=document.getElementById('managerMarketClub').value,id=document.getElementById('managerMarketPlayer').value,cards=managerRoster(club),p=cards.find(p=>p.id===id);if(!p||club===leagueSeason.club||m.players.some(c=>c.id===id)||!managerCanRemove(cards,p))return managerAction('Bu transfer için uygun oyuncu yok.');
  if(deal&&(deal!==managerNegotiation||deal.stage!=='player'||!validManagerDeal()))return false;ensureManagerExtras(m);const fee=deal?deal.fee:managerValue(p),wage=deal?deal.wage:managerWage(p),bonus=deal&&deal.mode!=='loan'?wage*4:0;if(m.balance<fee+bonus)return managerAction('Transfer bütçesi yetersiz.');if(managerCurrentWages()+wage>m.wageLimit)return managerAction('Maaş bütçesi yetersiz.');if(m.players.length>=60)return managerAction('Kadro sınırı: 60 oyuncu.');
- const card={...p,positions:[...p.positions]};m.balance-=fee+bonus;m.players.push(card);m.contracts[id]={years:deal?deal.years:3,wage};if(deal?.mode==='loan')m.loans.push({id,from:club});m.moves.push({from:club,to:leagueSeason.club,card});m.revision++;managerLog(card.name+' transfer edildi · '+managerMoney(fee));saveLeague();renderLeague();managerAction(card.name+(deal?.mode==='loan'?' bir sezon için kiralandı.':' kadroya katıldı.'));return true;
+ const card={...p,positions:[...p.positions]};m.balance-=fee+bonus;m.shortlist=m.shortlist.filter(x=>x.id!==id||x.club!==club);m.players.push(card);m.contracts[id]={years:deal?deal.years:3,wage};if(deal?.mode==='loan')m.loans.push({id,from:club});m.moves.push({from:club,to:leagueSeason.club,card});m.revision++;managerLog(card.name+' transfer edildi · '+managerMoney(fee));saveLeague();renderLeague();managerAction(card.name+(deal?.mode==='loan'?' bir sezon için kiralandı.':' kadroya katıldı.'));return true;
 }
 function managerSell(){
  if(!managerCanManage()||!managerWindow())return;const m=leagueSeason.manager,id=document.getElementById('managerSellPlayer').value,p=m.players.find(c=>c.id===id),club=document.getElementById('managerMarketClub').value;
@@ -8592,11 +8595,11 @@ function managerRenew(deal=null){
 }
 function managerAfterWeek(){
  const m=leagueSeason.manager;if(!m)return;const income=550000,expense=managerCurrentWages();m.balance=Math.max(0,m.balance+income-expense);m.trust=clamp(m.trust+(score.blue>score.red?2:score.blue<score.red?-2:0),0,100);
- for(const p of m.players){const coaching=m.staff?.[m.focus]??Math.floor(Object.values(m.staff||{}).reduce((a,b)=>a+b,0)/4);const xp=(m.development[p.id]||0)+10+coaching*2;if(xp>=100){m.development[p.id]=xp-100;p.ratingSource='career';if(p.overall<95)p.overall++;const keys=m.focus==='attack'?['shot','finishing','dribble']:m.focus==='defense'?['tackle','physical','strength']:m.focus==='passing'?['pass','pace']:['pass','tackle','dribble'];for(const k of keys)p[k]=Math.min(99,Number(p[k]??p.overall)+1);}else m.development[p.id]=xp;}m.revision++;
+ for(const p of m.players){const coaching=m.staff?.[m.focus]??Math.floor(['attack','defense','passing'].reduce((n,k)=>n+(m.staff?.[k]||0),0)/3);const xp=(m.development[p.id]||0)+10+coaching*2;if(xp>=100){m.development[p.id]=xp-100;p.ratingSource='career';if(p.overall<95)p.overall++;const keys=m.focus==='attack'?['shot','finishing','dribble']:m.focus==='defense'?['tackle','physical','strength']:m.focus==='passing'?['pass','pace']:['pass','tackle','dribble'];for(const k of keys)p[k]=Math.min(99,Number(p[k]??p.overall)+1);}else m.development[p.id]=xp;}m.revision++;
  if(leagueSeason.round===leagueSeason.fixtures.length){const rank=leagueTable().findIndex(r=>r.key===leagueSeason.club)+1,met=rank<=m.targetRank;m.trust=clamp(m.trust+(met?12:-15),0,100);m.history.push({season:leagueSeason.season,league:leagueSeason.league,rank,met});m.history=m.history.slice(-20);managerLog('Sezon '+rank+'. sırada tamamlandı. Yönetim hedefi '+(met?'başarıldı.':'karşılanamadı.'));}
 }
 function managerNewYear(){
- const m=leagueSeason.manager;ensureManagerExtras(m);for(const loan of m.loans){const p=m.players.find(p=>p.id===loan.id);if(!p)continue;m.players=m.players.filter(p=>p.id!==loan.id);delete m.contracts[loan.id];delete m.development[loan.id];m.moves.push({from:leagueSeason.club,to:loan.from,card:{...p,positions:[...p.positions]}});managerLog(p.name+' kiralaması bitti, '+getCountry(loan.from).name+' kulübüne döndü.');}m.loans=[];for(const p of [...m.players]){const c=m.contracts[p.id];c.years--;if(c.years<=0){if(managerCanRemove(m.players,p)){m.players=m.players.filter(x=>x.id!==p.id);delete m.contracts[p.id];managerLog(p.name+' sözleşmesi bitti, kadrodan ayrıldı.');}else{c.years=1;managerLog(p.name+' asgari kadroyu korumak için 1 yıl uzatıldı.');}}}
+ const m=leagueSeason.manager;ensureManagerExtras(m);for(const loan of m.loans){const p=m.players.find(p=>p.id===loan.id);if(!p)continue;m.players=m.players.filter(p=>p.id!==loan.id);delete m.contracts[loan.id];delete m.development[loan.id];m.moves.push({from:leagueSeason.club,to:loan.from,card:{...p,positions:[...p.positions]}});managerLog(p.name+' kiralaması bitti, '+getCountry(loan.from).name+' kulübüne döndü.');}m.loans=[];for(const p of [...m.players]){const c=m.contracts[p.id];c.years--;if(c.years<=0){if(managerCanRemove(m.players,p)){m.players=m.players.filter(x=>x.id!==p.id);delete m.contracts[p.id];delete m.development[p.id];managerLog(p.name+' sözleşmesi bitti, kadrodan ayrıldı.');}else{c.years=1;managerLog(p.name+' asgari kadroyu korumak için 1 yıl uzatıldı.');}}}
  m.balance+=15000000;m.wageLimit=Math.max(m.wageLimit,Math.round(managerCurrentWages()*1.3));m.targetRank=managerTargetRank(m.players);m.revision++;managerLog('Yeni sezon bütçesi: +'+managerMoney(15000000));
 }
 let managerNegotiation=null;
@@ -8650,7 +8653,7 @@ function addManagerShortlist(){
  if(!managerCanManage())return;const m=leagueSeason.manager;ensureManagerExtras(m);const club=document.getElementById('managerMarketClub').value,id=document.getElementById('managerMarketPlayer').value;if(!managerRoster(club).some(p=>p.id===id)||m.shortlist.some(x=>x.id===id&&x.club===club))return;if(m.shortlist.length>=30)return managerAction('İzleme listesi en fazla 30 oyuncu.');m.shortlist.push({club,id});saveLeague();renderManagerExtras();
 }
 function managerResultCard(club,p,remove=false){
- const row=document.createElement('div');row.className='managerSearchCard';const title=document.createElement('strong');title.textContent=p.name+' · '+p.overall+' GEN';const info=document.createElement('span');info.textContent=getCountry(club).name+' · '+p.positions.join('/')+' · '+managerMoney(managerValue(p));const button=document.createElement('button');button.textContent='Görüşmeye git';button.disabled=!managerCanManage();button.addEventListener('click',()=>{document.getElementById('managerMarketClub').value=club;renderManagerMarket();document.getElementById('managerMarketPlayer').value=p.id;renderManagerMarket();showLeagueTab('Transfers');});row.append(title,info,button);
+ const row=document.createElement('div');row.className='managerSearchCard';const title=document.createElement('strong');title.textContent=p.name+' · '+p.overall+' GEN';const info=document.createElement('span');info.textContent=getCountry(club).name+' · '+p.positions.join('/')+' · '+managerMoney(managerValue(p));const button=document.createElement('button');button.textContent='Görüşmeye git';button.disabled=!managerCanManage();button.addEventListener('click',()=>{if(leagueSeason.manager.players.some(c=>c.id===p.id)||!managerRoster(club).some(c=>c.id===p.id)){managerAction('Bu oyuncu artık bu kulüpten transfer edilemiyor. Aramayı yenile.');return;}document.getElementById('managerMarketClub').value=club;renderManagerMarket();document.getElementById('managerMarketPlayer').value=p.id;renderManagerMarket();showLeagueTab('Transfers');});row.append(title,info,button);
  if(remove){const del=document.createElement('button');del.textContent='Listeden çıkar';del.disabled=!managerCanManage();del.addEventListener('click',()=>{leagueSeason.manager.shortlist=leagueSeason.manager.shortlist.filter(x=>x.club!==club||x.id!==p.id);saveLeague();renderManagerExtras();});row.append(del);}return row;
 }
 function searchManagerPlayers(){
@@ -8689,13 +8692,13 @@ function initManager(){
 }
 function packLeagueSeason(s){
  const division=d=>({league:d.league,teams:d.teams,round:d.round,results:d.fixtures.slice(0,d.round).map(week=>week.map(m=>[m.homeGoals,m.awayGoals]))});
- return {...division(s),version:s.version,id:s.id,club:s.club,season:s.season,partner:division(s.partner),...(s.transition?{transition:s.transition}:{}),...(s.manager?{manager:JSON.parse(JSON.stringify(s.manager))}:{})};
+ return {...division(s),version:s.version,id:s.id,club:s.club,season:s.season,partner:division(s.partner),...(s.transition?{transition:s.transition}:{}),...(s.manager?{manager:JSON.parse(JSON.stringify(s.manager))}:{}),...(s.tactics?{tactics:{...s.tactics}}:{})};
 }
 function unpackLeagueSeason(p){
  try{
   const division=d=>{const s=leagueDivision(d.league,d.teams);if(!Number.isInteger(d.round)||d.round<0||d.round>s.fixtures.length||!Array.isArray(d.results)||d.results.length!==d.round)throw Error('Invalid rounds');s.round=d.round;
    d.results.forEach((week,r)=>{if(!Array.isArray(week)||week.length!==s.fixtures[r].length)throw Error('Invalid week');week.forEach((goals,i)=>{if(!Array.isArray(goals)||goals.length!==2)throw Error('Invalid score');[s.fixtures[r][i].homeGoals,s.fixtures[r][i].awayGoals]=goals;});});return s;};
-  const s={...division(p),version:p.version,id:p.id,club:p.club,season:p.season,partner:division(p.partner),...(p.transition?{transition:p.transition}:{}),...(p.manager?{manager:JSON.parse(JSON.stringify(p.manager))}:{})};return validLeagueSeason(s)?s:null;
+  const s={...division(p),version:p.version,id:p.id,club:p.club,season:p.season,partner:division(p.partner),...(p.transition?{transition:p.transition}:{}),...(p.manager?{manager:JSON.parse(JSON.stringify(p.manager))}:{}),...(p.tactics?{tactics:{...p.tactics}}:{})};return validLeagueSeason(s)?s:null;
  }catch{return null;}
 }
 function persistLeagueSlots(){
@@ -8748,8 +8751,8 @@ function leagueTable(season=leagueSeason){
  return [...table.values()].sort((a,b)=>b.points-a.points||b.gd-a.gd||b.for-a.for||getCountry(a.key).name.localeCompare(getCountry(b.key).name,'tr'));
 }
 function leagueRosterStrength(key){
- const lineup=lineupFor(key,FORMATIONS['433']);
- const weighted=(attribute,role)=>{let total=0,weight=0;for(let i=1;i<lineup.length;i++){const p=lineup[i],position=FORMATIONS['433'][i][0],w=role(position);total+=(Number(p[attribute])||p.overall)*w*clamp(1-positionPenalty(p,position)/100,.68,1);weight+=w;}return total/weight;};
+ const previousScope=managerRosterScope,shape=FORMATIONS[key===leagueSeason?.club?leagueTactics(leagueSeason).formation:'433'];let lineup;try{managerRosterScope=!!leagueSeason?.manager;lineup=lineupFor(key,shape);}finally{managerRosterScope=previousScope;}
+ const weighted=(attribute,role)=>{let total=0,weight=0;for(let i=1;i<lineup.length;i++){const p=lineup[i],position=shape[i][0],w=role(position);total+=(Number(p[attribute])||p.overall)*w*clamp(1-positionPenalty(p,position)/100,.68,1);weight+=w;}return total/weight;};
  return {attack:weighted('finishing',p=>POSITIONS[p].role==='fw'?3:.4),pass:weighted('pass',p=>POSITIONS[p].role==='mid'?2:1),defense:weighted('tackle',p=>POSITIONS[p].role==='def'?3:p==='DM'?2:.2),keeper:lineup[0].overall};
 }
 function leagueGoalRates(home,away){
@@ -8803,7 +8806,7 @@ function finishLeagueSeason(){
 function advanceLeagueSeason(){
  if(net.active||!leagueSeason||leagueSeason.round!==leagueSeason.fixtures.length||!['ready','ended'].includes(state))return;
  finishLeagueSeason();const previous=leagueSeason,t=previous.transition,year=Number(previous.season.slice(0,4))+1,own=t.clubLeague;
- leagueSeason={version:2,id:Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,8),...leagueDivision(own,own===t.upper?t.nextUpper:t.nextLower),club:previous.club,season:year+'–'+String((year+1)%100).padStart(2,'0'),partner:leagueDivision(own===t.upper?t.lower:t.upper,own===t.upper?t.nextLower:t.nextUpper)};
+ leagueSeason={version:2,id:Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,8),...leagueDivision(own,own===t.upper?t.nextUpper:t.nextLower),club:previous.club,tactics:{...leagueTactics(previous)},season:year+'–'+String((year+1)%100).padStart(2,'0'),partner:leagueDivision(own===t.upper?t.lower:t.upper,own===t.upper?t.nextLower:t.nextUpper)};
  if(previous.manager){leagueSeason.manager=previous.manager;managerNewYear();}leagueMatchContext=null;lastLeagueMatch=false;saveLeague();fullReset();openLeagueHub();
 }
 function renderLeagueMovement(){
@@ -8827,14 +8830,14 @@ function createLeagueSeason(){
  let slot=Number(document.getElementById('leagueSlotSelect').value);if(!Number.isInteger(slot)||slot<0||slot>=LEAGUE_SLOT_COUNT)slot=activeLeagueSlot;
  if(leagueSlots[slot]){const empty=leagueSlots.findIndex(s=>!s);if(empty>=0)slot=empty;else if(!window.confirm('30 kayıt yuvası dolu. '+(slot+1)+'. yuvadaki kariyerin üzerine yazılsın mı?'))return;}
  activeLeagueSlot=slot;document.getElementById('leagueSlotSelect').value=String(slot);
- const pair=leaguePair(league);leagueSeason={version:2,id:Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,8),...leagueDivision(league),club,season:'2026–27',partner:leagueDivision(league===pair.upper?pair.lower:pair.upper)};if(document.getElementById('leagueCareerMode').value==='manager')leagueSeason.manager=createManager(document.getElementById('managerName').value);saveLeague();renderLeague();openLeagueHub();
+ const pair=leaguePair(league);leagueSeason={version:2,id:Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,8),...leagueDivision(league),club,tactics:{formation,tactic},season:'2026–27',partner:leagueDivision(league===pair.upper?pair.lower:pair.upper)};if(document.getElementById('leagueCareerMode').value==='manager')leagueSeason.manager=createManager(document.getElementById('managerName').value);saveLeague();renderLeague();openLeagueHub();
 }
 function playNextLeagueMatch(){
  if(net.active||!leagueSeason||leagueSeason.round>=leagueSeason.fixtures.length||!['ready','ended'].includes(state))return;
  const match=leagueSeason.fixtures[leagueSeason.round].find(m=>m.home===leagueSeason.club||m.away===leagueSeason.club);if(!match)return;
  teamChoice.blue=leagueSeason.club;teamChoice.red=match.home===leagueSeason.club?match.away:match.home;populateTeamSelects();matchSize=11;formation5='5';
  document.querySelectorAll('[data-mode]').forEach(b=>{b.classList.toggle('active',Number(b.dataset.mode)===11);b.setAttribute('aria-pressed',String(Number(b.dataset.mode)===11));});
- fullReset();activateManagerRoster();startGame();leagueMatchContext={id:leagueSeason.id,round:leagueSeason.round,home:match.home===leagueSeason.club};renderLeagueMatchBar();
+ fullReset();const savedTactics=leagueTactics(leagueSeason);formation=savedTactics.formation;setTactic(savedTactics.tactic);activateManagerRoster();startGame();leagueMatchContext={id:leagueSeason.id,round:leagueSeason.round,home:match.home===leagueSeason.club};renderLeagueMatchBar();
 }
 function renderLeague(){
  renderLeagueSlots();
@@ -8860,12 +8863,16 @@ function renderLeagueHubSummary(){
  const table=leagueTable(),rank=table.findIndex(r=>r.key===leagueSeason.club)+1,row=table[rank-1];
  document.getElementById('leagueHubSubtitle').textContent=getCountry(leagueSeason.club).name+' · '+leagueSeason.season+' · '+leagueSeason.teams.length+' takım · Kayıt '+(activeLeagueSlot+1)+' / 30';
  document.getElementById('leagueRankMetric').textContent=rank+'.';document.getElementById('leaguePointsMetric').textContent=String(row.points);document.getElementById('leagueWeekMetric').textContent=leagueSeason.round+' / '+leagueSeason.fixtures.length;
- const cards=document.getElementById('leagueSquadCards');cards.replaceChildren();const shape=FORMATIONS[formation],lineup=lineupFor(leagueSeason.club,shape),starting=new Set(lineup.map(p=>p.id));
- document.getElementById('leagueSquadTitle').textContent=getCountry(leagueSeason.club).name+' · '+FORMATION_LABELS[formation];
+ const cards=document.getElementById('leagueSquadCards');cards.replaceChildren();const formationKey=leagueTactics(leagueSeason).formation,shape=FORMATIONS[formationKey],lineup=lineupFor(leagueSeason.club,shape),starting=new Set(lineup.map(p=>p.id));
+ document.getElementById('leagueSquadTitle').textContent=getCountry(leagueSeason.club).name+' · '+FORMATION_LABELS[formationKey];
+ const formationMenu=document.getElementById('leagueFormationSelect');formationMenu.replaceChildren();for(const key of formationKeys(11)){const option=document.createElement('option');option.value=key;option.textContent=FORMATION_LABELS[key];formationMenu.append(option);}formationMenu.value=formationKey;document.getElementById('leagueTacticSelect').value=leagueTactics(leagueSeason).tactic;for(const id of ['leagueFormationSelect','leagueTacticSelect'])document.getElementById(id).disabled=!leagueSlotAvailable();
  for(const p of [...lineup,...rosterFor(leagueSeason.club).filter(p=>!starting.has(p.id))]){const card=document.createElement('div');card.className='leagueRosterCard';const name=document.createElement('strong');name.textContent=p.name;const info=document.createElement('span');info.textContent=p.positions.join(' / ')+' · '+p.overall+' · '+(starting.has(p.id)?'İlk 11':'Yedek');card.append(name,info);cards.append(card);}
  managerRosterScope=previousScope;renderManager();
 }
+function leagueTactics(s){return s.tactics||{formation:'433',tactic:'balanced'};}
+function saveLeagueTactics(){if(!leagueSeason||!leagueSlotAvailable())return;const f=document.getElementById('leagueFormationSelect').value,t=document.getElementById('leagueTacticSelect').value;if(!formationKeys(11).includes(f)||!['balanced','attack','defend'].includes(t))return;leagueSeason.tactics={formation:f,tactic:t};saveLeague();renderLeague();}
 function initLeague(){
+ for(const id of ['leagueFormationSelect','leagueTacticSelect'])document.getElementById(id).addEventListener('change',saveLeagueTactics);
  const select=document.getElementById('leagueSelect');select.replaceChildren();for(const [key,name] of Object.entries(LEAGUES)){const option=document.createElement('option');option.value=key;option.textContent=name+' · 2026–27';select.append(option);}select.value='superlig';
  readLeagueSlots();if(leagueSeason)select.value=leagueSeason.league;document.getElementById('leagueSlotSelect').value=String(activeLeagueSlot);
  fillLeagueTeams();if(leagueSeason)document.getElementById('leagueTeamSelect').value=leagueSeason.club;
@@ -9001,7 +9008,8 @@ function applyOnlineState(s){
  net.blend=net.blendReady&&!s.restart&&!s.goalPause?{at:performance.now(),from,to:players.map(p=>[p.x,p.y]),ballFrom,ballTo:[ball.x,ball.y]}:null;net.blendReady=true;
  elapsed=s.elapsed;extraTimeStarted=s.extraTimeStarted;stoppageSeconds=s.stoppageSeconds;goalPause=s.goalPause;
  selected=players[localIndex(s.selected[reverse?1:0])]||blue[1];shotCharge=s.charge[reverse?1:0];
- setPiece=s.restart?{kind:s.restart.kind,team:swap(s.restart.team),taker:players[localIndex(s.restart.taker)],previewTarget:players[localIndex(s.restart.target)]}:null;
+ const previousRestart=setPiece;setPiece=s.restart?{id:s.restart.id,kind:s.restart.kind,team:swap(s.restart.team),taker:players[localIndex(s.restart.taker)],previewTarget:players[localIndex(s.restart.target)]}:null;
+ if(setPiece&&setPiece.id===previousRestart?.id&&setPiece.kind===previousRestart.kind&&setPiece.team===previousRestart.team&&setPiece.taker===previousRestart.taker)setPiece.target=previousRestart.target;
  substitutionLog=(s.substitutions||[]).map(e=>({...e,team:swap(e.team)}));for(const e of substitutionLog.slice(net.subSeen||0))announceSubstitution(e);net.subSeen=substitutionLog.length;usedSubs={blue:new Set(substitutionLog.filter(e=>e.team==='blue').map(e=>e.outId)),red:new Set(substitutionLog.filter(e=>e.team==='red').map(e=>e.outId))};
  if(stats.goals.length>net.goals){sayCommentary('goal',{team:stats.goals.at(-1).team},7);net.goals=stats.goals.length;}
  if(s.state==='penalties'){state='playing';document.getElementById('onlineMatchBar').textContent=`ÇEVRİMİÇİ · Otomatik penaltılar ${s.penalty.blue}–${s.penalty.red}`;}
@@ -9015,13 +9023,19 @@ function applyOnlineState(s){
   endMatch();leaveOnline(false);onlineStatus('Çevrimiçi maç tamamlandı.');
  }
 }
+function cancelOnlineControls(){
+ net.queue=[];net.buttonAt={};net.previous='';if(net.phase!=='playing')return;
+ const data={type:'input',seq:++net.seq,inputs:[{x:0,y:0,cancel:true}]};
+ if(net.socket?.readyState===1&&net.socket.bufferedAmount<=32768)net.socket.send(JSON.stringify(data));
+ else if(net.token)fetch('/online/input',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+net.token},body:JSON.stringify(data),keepalive:true}).catch(()=>{});
+}
 function onlineClientFrame(now){
  if(!net.active)return;
  if(net.phase!=='joining'&&now-net.lastSnapshot>12000){leaveOnline();fullReset();onlineStatus('Bağlantı kesildi. Tekrar eşleştirmeye girebilirsin.');return;}
  if(net.phase!=='playing')return;
  if(net.blend){const b=net.blend,t=clamp((now-b.at)/33,0,1);players.forEach((p,i)=>{p.x=lerp(b.from[i][0],b.to[i][0],t);p.y=lerp(b.from[i][1],b.to[i][1],t);});ball.x=lerp(b.ballFrom[0],b.ballTo[0],t);ball.y=lerp(b.ballFrom[1],b.ballTo[1],t);}
  if(net.socket?.readyState===1&&now-net.lastPing>2000){net.lastPing=now;net.socket.send(JSON.stringify({type:'ping',at:performance.now()}));}
- const inp=state==='paused'?{x:0,y:0}:inputState(1/60),input={x:inp.x,y:inp.y,sprint:inp.sprint,switch:inp.qPressed,power:{},target:keeperPassTarget?blue.indexOf(keeperPassTarget):-1};
+ const inp=state==='paused'||net.focused===false||document.hidden?{x:0,y:0}:inputState(1/60),input={x:inp.x,y:inp.y,sprint:inp.sprint,switch:inp.qPressed,power:{},target:keeperPassTarget?blue.indexOf(keeperPassTarget):setPiece?.team==='blue'&&setPiece.target?blue.indexOf(setPiece.target):-1};
  let edge=false;
  for(const k of ['pass','through','cross','shoot']){
   input[k]=!!inp[k+'Down'];if(inp[k+'Pressed'])net.buttonAt[k]=now;
@@ -9033,12 +9047,12 @@ function onlineClientFrame(now){
  }
  const serialized=JSON.stringify(input);
  if(edge||serialized!==net.previous){net.queue.push(input);net.previous=serialized;edge=true;}
+ if(net.queue.length>24){leaveOnline();fullReset();onlineStatus('Bağlantı çok yavaş. Yeniden bağlanmayı dene.');return;}
  if(net.socket?.readyState===1){
   if(net.socket.bufferedAmount>32768)return;
   if(!edge&&now-net.lastSend<50)return;
   const batch=net.queue.splice(0,24);if(!batch.length)batch.push(input);net.lastSend=now;net.socket.send(JSON.stringify({type:'input',seq:++net.seq,inputs:batch}));return;
  }
- if(net.queue.length>24){leaveOnline();fullReset();onlineStatus('Bağlantı çok yavaş. Yeniden bağlanmayı dene.');return;}
  if(net.sending||now-net.lastSend<33)return;
  net.sending=true;net.lastSend=now;const token=net.token,batch=net.queue.splice(0);if(!batch.length)batch.push(input);
  onlineFetch('/online/input',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+token},body:JSON.stringify({seq:++net.seq,inputs:batch})},2500)

@@ -212,3 +212,13 @@ Bu sürüm Avrupa/ülke kupaları, sakatlık/moral sistemi veya kulüp değişti
 ### Transfer fiyat danışmanı
 
 Görüşme odasında tahmini piyasa değeri, önerilen ilk teklif, makul bedel aralığı, haftalık maaş, imza ücreti ve toplam başlangıç gideri gösterilir. Öneri mevcut bütçe ve maaş sınırına göre kontrol edilir; kaynak yetmiyorsa uygulama düğmesi kapanır. Öneriyi kullanmak sadece alanı doldurur; işlem teklif sunulmadan gerçekleşmez. Yazılan bedel/maaş için düşük teklif, fazla ödeme ve bütçe geri bildirimi anlık güncellenir. Kiralama ve yenileme hesapları ayrı uygulanır. Satış ekranı mevcut alıcı teklifini, piyasa tahminini ve maaş tasarrufunu gösterir. Bunlar resmî FC27 fiyatları değildir; oyunun ekonomik modelinden hesaplanır. Kontrol: `tests/manager-price-advice.cjs`.
+
+### Genel hata incelemesi ve taktik kayıtları
+
+Kadro sekmesinde 11 diziliş ve dengeli/hücum/savunma yaklaşımı seçilir. Her kariyerin seçimi kendi kayıt yuvasında tutulur; maç, yeniden başlatma, maç içi değişiklik ve sonraki sezon boyunca korunur. Eski kayıtlarda 4-3-3/dengeli varsayılanı kullanılır. Lig ve play-off simülasyonları menüdeyken de transfer/gelişim kadrolarını ve seçili kulübün kariyer dizilişini hesaba katar; normal maç kadroları değişmez.
+
+Çevrimiçi korner/taç hedefi artık sahadan seçilip sunucuya gönderilir; gelen kareler seçimi yeni duran top başlayana kadar korur. Pencere odağı kaybolduğunda ortak maç duraklatılmaz, yüklenen aksiyon güvenli iptal edilir. Tek oyunculuda otomatik duraklatma devam eder. Sunucunun gelen komut tamponu dolduğunda son bırakma komutu kaybolmaz. WebSocket kontrol kuyruğu HTTP yedeği gibi sınırlandırılır; uzun süre biriken eski aksiyonlar oynatılmaz. Duraklatılmış maça yeniden bağlanma ilk karede duraklatan oyuncuyu ve kalan süreyi gösterir.
+
+Kadro atama önbelleği 256 girdiye sınırlandırıldı. Transfer sonrası eski arama sonucu farklı oyuncu seçemez; satın alınan oyuncu izleme listesinden çıkarılır. Dengeli antrenmanda izleme uzmanı oyuncu gelişimini artırmaz; yalnızca antrenör seviyeleri sayılır. Sözleşmesi biten oyuncunun eski gelişim kaydı temizlenir.
+
+Tüm testler: `python3 tools/check_game.py`. Tek komutlu güncelleme bütün testleri kurulumdan önce çalıştırır. GitHub push/PR kontrolü Node 18 ve 22 üzerinde aynı paketi çalıştırır; Pages yayını ayrıca testleri geçmek zorundadır. `tests/audit-regressions.cjs`, `tests/league-tactics.cjs` ve `tests/engine-stress.cjs` yeni regresyonları kapsar. Stres kontrolü altı senaryoda 14.400 sunucu adımı, iki maç boyutu, eşzamanlı aksiyonlar, sonlu fizik, kadro sahipliği ve enerji sınırlarını denetler. Bunlar otomatik kontrollerdir; gerçek cihaz ve internet gecikmesi altında kullanıcı deneyimi ayrıca denenmelidir.

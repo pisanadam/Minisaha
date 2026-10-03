@@ -15,24 +15,7 @@ fi
 node -e 'if(Number(process.versions.node.split(".")[0])<18){console.error("Node.js 18+ gerekli");process.exit(1)}'
 "${SUDO[@]}" python3 deploy/install.py "$DOMAIN" --check
 "${SUDO[@]}" python3 deploy/install-online.py "$DOMAIN" --check
-node tests/online.cjs
-node tests/lobbies.cjs
-node tests/online-socket.cjs
-node tests/online-client.cjs
-node tests/keeper-hands.cjs
-node tests/substitutions.cjs
-node tests/commentary-allegiance.cjs
-node tests/simulation-ratings.cjs
-node tests/formations.cjs
-node tests/substitution-ui.cjs
-node tests/keeper-movement.cjs
-node tests/keeper-angles.cjs
-node tests/league.cjs
-node tests/league-promotion.cjs
-node tests/league-slots.cjs
-node tests/manager-career.cjs
-node tests/manager-negotiation.cjs
-node tests/manager-price-advice.cjs
+python3 tools/check_game.py
 "${SUDO[@]}" apt-get update
 "${SUDO[@]}" python3 deploy/install-voice.py
 "${SUDO[@]}" python3 deploy/install-online.py "$DOMAIN"
