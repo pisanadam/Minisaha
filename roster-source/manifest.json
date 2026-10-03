@@ -2680,5 +2680,16 @@
     "countries": 48,
     "addedPlayers": 420,
     "source": "Reviewed club citizenship, existing national registration and FC26/estimated club attributes; game selection, not official call-ups."
+  },
+  "allTimeGamePool": {
+    "asset": "rosters-zzlegends-ae2ab6ba55.js",
+    "historicalPlayers": 387,
+    "retiredPlayers": 349,
+    "teams": 114,
+    "ratings": "Original estimated peak gameplay ratings; not official EA/FC27 ratings. Existing current-season teams remain separate.",
+    "unavailableHistoricalClubs": [
+      "laliga_zaragoza",
+      "ligue1_bordeaux"
+    ]
   }
 }

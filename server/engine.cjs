@@ -4,6 +4,7 @@ const html=fs.readFileSync(path.join(root,'public/index.html'),'utf8');
 const program=new vm.Script(html.match(/<script>([\s\S]*?)<\/script>/)[1]);
 const loader={window:{MINISAHA_ROSTERS:{}}};vm.createContext(loader);
 for(const name of fs.readdirSync(path.join(root,'public/assets')).filter(n=>n.startsWith('rosters-')).sort((a,b)=>Number(a.startsWith('rosters-strength-'))-Number(b.startsWith('rosters-strength-'))||a.localeCompare(b)))vm.runInContext(fs.readFileSync(path.join(root,'public/assets',name),'utf8'),loader);
+loader.window.MINISAHA_INIT_ALLTIME?.();
 module.exports=function createEngine(){
 const all=[], ids={};
 class El{
@@ -26,5 +27,5 @@ const energy=new El('i');const store={};const errors=[];
 const sandbox={console:{log:console.log,error:(...x)=>errors.push(x.join(' '))},performance:{now:()=>0},Math,Date,JSON,Number,String,Object,Array,Map,Set,Infinity,localStorage:{getItem:k=>store[k]||null,setItem:(k,v)=>store[k]=v},navigator:{getGamepads:()=>[]},screen:{},setTimeout:f=>timers.push(f),requestAnimationFrame:()=>{},document:{getElementById:id=>ids[id]||null,createElement:t=>new El(t),querySelector:s=>s==='#energy i'?energy:null,querySelectorAll:s=>s==='[data-tactic]'?all.filter(e=>e.dataset.tactic):all.filter(e=>e.dataset.mode),addEventListener(){},hidden:false},devicePixelRatio:1,addEventListener(){},confirm:()=>true};
 sandbox.window=sandbox;sandbox.MINISAHA_BUNDLED_VOICE={};
 
-sandbox.MINISAHA_ROSTERS=loader.window.MINISAHA_ROSTERS;vm.createContext(sandbox);program.runInContext(sandbox,{timeout:3000});return sandbox.MINISAHA_ENGINE;
+sandbox.MINISAHA_ROSTERS=loader.window.MINISAHA_ROSTERS;sandbox.MINISAHA_LOWER_TEAMS=loader.window.MINISAHA_LOWER_TEAMS;sandbox.MINISAHA_ALLTIME_TEAMS=loader.window.MINISAHA_ALLTIME_TEAMS;vm.createContext(sandbox);program.runInContext(sandbox,{timeout:3000});return sandbox.MINISAHA_ENGINE;
 };

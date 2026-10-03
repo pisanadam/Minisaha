@@ -473,8 +473,8 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
         <label>DİZİLİŞ<select id="formationSelect"><option value="433">4–3–3</option><option value="4231">4–2–3–1</option><option value="442">4–4–2</option></select></label><label>TAKTİK<select id="tactic"><option value="balanced">Dengeli</option><option value="attack">Hücum</option><option value="defend">Savunma</option></select></label>
       </div><p id="difficultyInfo" class="localMatchSetting"></p><p id="bestLineupStatus" role="status"></p>
 </section>
-      <section id="mainViewQuick" aria-labelledby="mainTabQuick"><div class="menuActions"><button id="menuStart">SAHAYA ÇIK <span>↗</span></button><button id="bestLineupBtn">En güçlü ilk 11</button><button id="randomRival" aria-label="Rastgele rakip seç">Rastgele rakip</button></div>
-<details class="helpDetails"><summary id="squadSummary">Kadro ve görevler</summary><div id="squadList"></div><p>Kanatlar hızlı, stoperler top kapmada, orta sahalar pasta, santrforlar bitiricilikte güçlüdür. Saha üzerindeki kısaltmalar mevkileri gösterir.</p></details><div id="history" aria-label="Son maçlar"></div></section>
+      <section id="mainViewQuick" aria-labelledby="mainTabQuick"><div class="menuActions"><button id="menuStart">SAHAYA ÇIK <span>↗</span></button><button id="bestLineupBtn">En güçlü ilk 11</button><button id="legendsLineupBtn">Efsanelerle en güçlü ilk 11</button><button id="randomRival" aria-label="Rastgele rakip seç">Rastgele rakip</button></div>
+<details class="helpDetails"><summary id="squadSummary">Kadro ve görevler</summary><div id="squadList"></div><p>Kanatlar hızlı, stoperler top kapmada, orta sahalar pasta, santrforlar bitiricilikte güçlüdür. Saha üzerindeki kısaltmalar mevkileri gösterir.</p></details><p>Tüm zamanlar kadroları güncel oyuncuları ve emekli efsaneleri birleştirir. Zirve kartlarının puanları oyun için tahminidir.</p><div id="history" aria-label="Son maçlar"></div></section>
       <section id="mainViewLeague" aria-labelledby="mainTabLeague" hidden><section id="leaguePanel" class="menuSection"><h3>Lig ve menajer kariyeri <span>2026–27</span></h3><p>Ligini ve takımını seç; kendi maçlarını oyna veya simüle et. Diğer maçlar kadro gücüne göre tamamlanır. Fikstür oyun tarafından oluşturulur.</p><div class="leagueSaveManager"><h4>Kayıtlı kariyerler <span id="leagueSlotCount"></span></h4><label for="leagueSlotSelect">Kayıt yuvası</label><select id="leagueSlotSelect" aria-label="30 lig kariyeri kayıt yuvası"></select><p id="leagueSlotInfo"></p><div class="menuActions"><button id="leagueSlotLoad">Kayda devam et ↗</button><button id="leagueSlotDelete">Kaydı sil</button></div></div><h4>Yeni kariyer</h4><label for="leagueCareerMode">Kariyer türü</label><select id="leagueCareerMode"><option value="manager">Teknik direktör kariyeri</option><option value="league">Sadece lig sezonu</option></select><label id="managerNameLabel" for="managerName">Teknik direktörün adı</label><input id="managerName" maxlength="30" placeholder="Teknik direktör adı" autocomplete="off"><label for="leagueSelect">Lig</label><select id="leagueSelect"></select><label for="leagueTeamSelect">Takımın</label><select id="leagueTeamSelect"></select><button id="leagueCreateBtn">Yeni sezon kur</button><p id="leagueStatus" role="status"></p><button id="leagueOpenBtn" style="display:none">Kulüp merkezine devam et ↗</button></section></section>
       <section id="mainViewOnline" aria-labelledby="mainTabOnline" hidden><div class="sectionHeading"><h3>Birlikte sahaya çık</h3><p>Oda aç, arkadaşına katıl veya rastgele rakip bul.</p></div>      <div class="menuActions"><button id="matchmakeBtn">Arkadaşlarla / çevrimiçi oyna</button><button id="cancelMatchmake" style="display:none">Ayrıl / iptal et</button></div>
       <div id="onlineLobbyPanel" style="display:none">
@@ -595,6 +595,7 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
 <script src="assets/rosters-superlig-5258a743b3.js"></script>
 <script src="assets/rosters-lower-2adeb447c0.js"></script>
 <script src="assets/rosters-strength-eb3a5c2ee3.js"></script>
+<script src="assets/rosters-zzlegends-ae2ab6ba55.js"></script>
 <script>
 (() => {
 'use strict';
@@ -718,6 +719,16 @@ function assignLineup(roster,shape){
 function strongestLineup(teamKey,size=11){
  let best=null;for(const key of formationKeys(size)){const shape=FORMATIONS[key],cards=lineupFor(teamKey,shape),total=cards.reduce((sum,p,i)=>sum+p.overall-positionPenalty(p,shape[i][0]),0);if(!best||total>best.total)best={key,cards,total,average:cards.reduce((sum,p)=>sum+p.overall,0)/size};}return best;
 }
+function applyLegendLineups(){
+ if(net.active||onlineServer||state!=='ready')return;
+ applyTeamNames();const missing=[];
+ for(const side of ['blue','red']){
+  const selected=teamChoice[side],key=selected.startsWith('alltime_')?selected:'alltime_'+selected;
+  if(VERIFIED_ROSTERS[key]){el[side+'TeamSelect'].value=key;teamChoice[side]=key;}else missing.push(teamLong(side));
+ }
+ fullReset();applyStrongestLineups();
+ document.getElementById('bestLineupStatus').textContent+=' · Tüm zamanlar: güncel oyuncular + efsaneler; zirve puanları tahmini.'+(missing.length?' '+missing.join(', ')+': tarihî kadro henüz bulunmuyor, mevcut kadro kullanıldı.':'');
+}
 function applyStrongestLineups(){
  if(net.active||onlineServer||state!=='ready')return;applyTeamNames();const own=strongestLineup(teamChoice.blue,matchSize),rival=strongestLineup(teamChoice.red,matchSize);
  if(matchSize===5)formation5=own.key;else formation=own.key;teamFormationKeys={blue:own.key,red:rival.key};activeRosters={};activeRosterKeys={};setupTeams();resetKickoff('blue');
@@ -759,7 +770,7 @@ function syncFormationSelect(){
  if(select.formationSize!==matchSize){
   select.replaceChildren();for(const key of keys){const option=document.createElement('option');option.value=key;option.textContent=FORMATION_LABELS[key];select.append(option);}select.formationSize=matchSize;
  }
- select.value=activeFormationKey();select.disabled=net.active||onlineServer;document.getElementById('bestLineupBtn').disabled=net.active||onlineServer||state!=='ready';document.getElementById('bestLineupBtn').textContent='En güçlü ilk '+matchSize;
+ select.value=activeFormationKey();select.disabled=net.active||onlineServer;document.getElementById('bestLineupBtn').disabled=net.active||onlineServer||state!=='ready';document.getElementById('bestLineupBtn').textContent='En güçlü ilk '+matchSize;document.getElementById('legendsLineupBtn').disabled=net.active||onlineServer||state!=='ready';document.getElementById('legendsLineupBtn').textContent='Efsanelerle en güçlü ilk '+matchSize;
 }
 let brains={blue:null,red:null};
 function squad(team){return team==='blue'?blue:red;}
@@ -938,7 +949,7 @@ function aiDribbleTarget(p){
 function renderSquad(){
  const box=document.getElementById('squadList');box.replaceChildren();
  syncFormationSelect();
- document.getElementById('squadSummary').textContent='Kadrolar · '+teamLong('blue')+' / '+teamLong('red')+' · '+shapeName()+' · Kulüp verisi: 28.09.2026 · Milli takımlar: güçlü oyun havuzu · Puanlar: FC26 / tahmini';
+ document.getElementById('squadSummary').textContent='Kadrolar · '+teamLong('blue')+' / '+teamLong('red')+' · '+shapeName()+' · Kulüp verisi: 28.09.2026 · Milli takımlar: güçlü oyun havuzu · Tüm zamanlar: efsaneler + güncel oyuncular · Puanlar: FC26 / tahmini';
  const renderTeam=(team,players)=>{
   const roster=rosterFor(teamChoice[team]);
   const heading=document.createElement('div');heading.className='squadRow';heading.innerHTML='<strong>'+teamTitle(team)+' İlk '+players.length+'</strong><span>'+players.map(p=>p.roster).map(r=>r.name+' · '+r.overall).join(' | ')+'</span>';box.append(heading);
@@ -946,7 +957,7 @@ function renderSquad(){
    const item=document.createElement('div');item.className='squadRow';
    const title=document.createElement('strong'),desc=document.createElement('span');
    const r=p.roster;
-   title.textContent='#'+(r.jersey||p.num)+' · '+r.name+' · '+r.overall+(r.ratingSource==='estimate'?' (tahmini)':r.ratingSource==='career'?' (kariyer gelişimi)':'');
+   title.textContent='#'+(r.jersey||p.num)+' · '+r.name+' · '+r.overall+(r.legend?' (zirve · tahmini'+(r.retired?' · emekli efsane':'')+')':r.ratingSource==='estimate'?' (tahmini)':r.ratingSource==='career'?' (kariyer gelişimi)':'');
    desc.textContent=profile(p).short+' · Hız '+r.pace+' · Şut '+r.shot+' · Pas '+r.pass+' · Savunma '+r.tackle;
    item.append(title,desc);box.append(item);
   });
@@ -2377,6 +2388,8 @@ const COUNTRY_TEAMS = [
   }
 ];
 COUNTRY_TEAMS.push(...(window.MINISAHA_LOWER_TEAMS||[]));
+window.MINISAHA_INIT_ALLTIME?.();
+COUNTRY_TEAMS.push(...(window.MINISAHA_ALLTIME_TEAMS||[]));
 let teamChoice = { blue:'turkiye', red:'premier_liverpool' };
 
 let players = [];
@@ -5993,7 +6006,7 @@ function fullReset(){
   resetStats();
   resetKickoff('blue');
   setPiece=null;
-  state = 'ready';document.getElementById('bestLineupBtn').disabled=net.active||onlineServer;
+  state = 'ready';document.getElementById('bestLineupBtn').disabled=net.active||onlineServer;document.getElementById('legendsLineupBtn').disabled=net.active||onlineServer;
   applyTeamNames();
   el.end.style.display='none';
   el.teamMenu.style.display='flex';
@@ -8190,6 +8203,7 @@ function openMenu(){
 }
 function initEnhancements(){
  document.getElementById('bestLineupBtn').addEventListener('click',applyStrongestLineups);
+ document.getElementById('legendsLineupBtn').addEventListener('click',applyLegendLineups);
  document.getElementById('matchmakeBtn').addEventListener('click',()=>{document.getElementById('onlineLobbyPanel').style.display='block';});
  document.getElementById('hostOnlineBtn').addEventListener('click',()=>{document.getElementById('hostOnlineForm').style.display='block';document.getElementById('onlineRooms').replaceChildren();});
  document.getElementById('browseOnlineBtn').addEventListener('click',browseOnline);
@@ -8492,7 +8506,7 @@ function onlineSnapshot(){
 window.MINISAHA_ENGINE={
  teams:()=>COUNTRY_TEAMS.map(t=>t.key),
  lineups:()=>Object.fromEntries(['blue','red'].map(side=>[side,squad(side).map(p=>({name:p.roster.name,position:p.position,overall:p.overall,num:p.num}))])),
- boot(config){onlineServer=true;commentaryOnlineNeutral=true;matchSize=config.size;formation='433';formation5='5';el.blueTeamSelect.value=config.blue;el.redTeamSelect.value=config.red;document.getElementById('duration').value='180';el.diff.value='pro';fullReset();startGame();teamChoice.blue=config.blue;teamChoice.red=config.red;setupTeams();resetKickoff();state='playing';beginSetPiece('kickoff','blue',FIELD.cx,FIELD.cy);for(const s of ['blue','red'])onlineResetHuman(s);},
+ boot(config){onlineServer=true;commentaryOnlineNeutral=true;matchSize=config.size;formation='433';formation5='5';el.blueTeamSelect.value=config.blue;el.redTeamSelect.value=config.red;document.getElementById('duration').value='180';el.diff.value='pro';fullReset();for(const side of ['blue','red'])if(config[side].startsWith('alltime_'))teamFormationKeys[side]=strongestLineup(config[side],matchSize).key;activeRosters={};activeRosterKeys={};startGame();teamChoice.blue=config.blue;teamChoice.red=config.red;setupTeams();resetKickoff();state='playing';beginSetPiece('kickoff','blue',FIELD.cx,FIELD.cy);for(const s of ['blue','red'])onlineResetHuman(s);},
  pause(on){if(on&&state==='playing'){state='paused';clearInput();for(const side of ['blue','red']){const h=onlineHumans[side];h.pending=[];h.input={x:0,y:0};h.previous={};h.charge=null;}return true;}if(!on&&state==='paused'){state='playing';return true;}return false;},
  substitute:substitutePlayer,
  formation:changeFormation,
@@ -8897,7 +8911,7 @@ function onlineButtons(){
  if(net.active)showMainMenuTab('Online');
  renderLeague();
  commentaryOnlineNeutral=net.active||onlineServer;syncCommentaryAllegianceUI();
- for(const id of ['menuStart','blueTeamSelect','redTeamSelect','duration','formationSelect'])document.getElementById(id).disabled=net.active;
+ for(const id of ['menuStart','bestLineupBtn','legendsLineupBtn','blueTeamSelect','redTeamSelect','duration','formationSelect'])document.getElementById(id).disabled=net.active;
  document.querySelectorAll('[data-mode]').forEach(b=>b.disabled=net.active);
  for(const id of ['onlineName','onlineTitle','onlineDescription','hostOnlineBtn','browseOnlineBtn','randomOnlineBtn','createOnlineBtn'])document.getElementById(id).disabled=net.active;
  document.getElementById('matchmakeBtn').disabled=net.active;document.getElementById('cancelMatchmake').style.display=net.active?'inline-block':'none';}

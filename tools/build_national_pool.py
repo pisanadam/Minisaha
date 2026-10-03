@@ -8,7 +8,7 @@ root=Path(__file__).resolve().parents[1]
 national=json.loads((root/'roster-source/national.json').read_text())
 cards={}
 for asset in sorted((root/'public/assets').glob('rosters-*.js')):
-    if asset.name.startswith('rosters-strength-'):continue
+    if asset.name.startswith(('rosters-strength-','rosters-zzlegends-')):continue
     text=asset.read_text();start=text.index('{},')+3
     data,_=json.JSONDecoder().raw_decode(text[start:]);cards.update(data)
 country={}
