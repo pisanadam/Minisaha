@@ -208,3 +208,7 @@ Transfer görüşmesi iki aşamalıdır: önce kulüple bedel, ardından oyuncuy
 Hücum, savunma ve pas antrenörleri ile izleme uzmanı üç seviyeye kadar geliştirilebilir. İşe alım bedeli bütçeden, haftalık personel ücreti maaş giderinden düşülür. Antrenörler ilgili çalışma gelişimini hızlandırır; izleme uzmanı kulübün pazarlık talebini düşürür. Oyuncu araması isim, mevki uyumu, genel puan ve bedel filtrelerini kullanır. En fazla 30 oyunculuk izleme listesi, personel ve kiralamalar kariyer kaydında saklanır.
 
 Bu sürüm Avrupa/ülke kupaları, sakatlık/moral sistemi veya kulüp değiştirerek iş arama/kovulma sistemi içermez. Kontrol: `tests/manager-career.cjs`, `tests/manager-negotiation.cjs`.
+
+### Transfer fiyat danışmanı
+
+Görüşme odasında tahmini piyasa değeri, önerilen ilk teklif, makul bedel aralığı, haftalık maaş, imza ücreti ve toplam başlangıç gideri gösterilir. Öneri mevcut bütçe ve maaş sınırına göre kontrol edilir; kaynak yetmiyorsa uygulama düğmesi kapanır. Öneriyi kullanmak sadece alanı doldurur; işlem teklif sunulmadan gerçekleşmez. Yazılan bedel/maaş için düşük teklif, fazla ödeme ve bütçe geri bildirimi anlık güncellenir. Kiralama ve yenileme hesapları ayrı uygulanır. Satış ekranı mevcut alıcı teklifini, piyasa tahminini ve maaş tasarrufunu gösterir. Bunlar resmî FC27 fiyatları değildir; oyunun ekonomik modelinden hesaplanır. Kontrol: `tests/manager-price-advice.cjs`.

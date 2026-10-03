@@ -32,6 +32,7 @@ node tests/league-promotion.cjs
 node tests/league-slots.cjs
 node tests/manager-career.cjs
 node tests/manager-negotiation.cjs
+node tests/manager-price-advice.cjs
 "${SUDO[@]}" apt-get update
 "${SUDO[@]}" python3 deploy/install-voice.py
 "${SUDO[@]}" python3 deploy/install-online.py "$DOMAIN"
