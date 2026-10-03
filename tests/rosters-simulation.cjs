@@ -5,7 +5,7 @@ let seed=1234567;const random=Object.create(Math);random.random=()=>{seed^=seed<
 function drain(){let n=0;while(timers.length&&n++<20000)timers.shift()();assert(n<20000,'simulation did not finish');}
 test('284 squads complete, unique, GK available, no generated fallback',()=>{
  assert.equal(run('COUNTRY_TEAMS.length'),284);
- assert.equal(run('COUNTRY_TEAMS.reduce((n,t)=>n+rosterFor(t.key).length,0)'),8145);
+ assert.equal(run('COUNTRY_TEAMS.reduce((n,t)=>n+rosterFor(t.key).length,0)'),8560);
  assert(run('COUNTRY_TEAMS.every(t=>{const r=rosterFor(t.key);return r.length>=11&&new Set(r.map(p=>p.id)).size===r.length&&r.some(p=>p.position===\'GK\')&&r.every(p=>p.name.length>2&&p.overall>=40&&p.overall<=99)})'));
  assert.equal(run('typeof loadFC26Rosters'),'undefined');
 });

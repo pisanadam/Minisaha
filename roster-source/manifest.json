@@ -2674,5 +2674,11 @@
     "estimate": 4537
   },
   "lowerAsset": "rosters-lower-2adeb447c0.js",
-  "lowerScope": "ESPN registered rosters; Turkey official TFF matchday squads weeks 7–8, broad M for unknown outfield positions. Attributes reuse FC26 matches or labelled gameplay estimates."
+  "lowerScope": "ESPN registered rosters; Turkey official TFF matchday squads weeks 7–8, broad M for unknown outfield positions. Attributes reuse FC26 matches or labelled gameplay estimates.",
+  "nationalGamePool": {
+    "asset": "rosters-strength-7275a6eaca.js",
+    "countries": 48,
+    "addedPlayers": 415,
+    "source": "Reviewed club citizenship, existing national registration and FC26/estimated club attributes; game selection, not official call-ups."
+  }
 }

@@ -23,7 +23,7 @@ sandbox.window=sandbox;sandbox.MINISAHA_BUNDLED_VOICE={};
 let script=fs.readFileSync(require('path').join(__dirname,'../public/index.html'),'utf8').match(/<script>([\s\S]*?)<\/script>/)[1];
 script=script.replace(/\}\)\(\);\s*$/, 'window.inspect = code => eval(code);})();');
 vm.createContext(sandbox);
-for(const name of fs.readdirSync(require('path').join(__dirname,'../public/assets')).filter(n=>n.startsWith('rosters-')))vm.runInContext(fs.readFileSync(require('path').join(__dirname,'../public/assets',name),'utf8'),sandbox);
+for(const name of fs.readdirSync(require('path').join(__dirname,'../public/assets')).filter(n=>n.startsWith('rosters-')).sort((a,b)=>Number(a.startsWith('rosters-strength-'))-Number(b.startsWith('rosters-strength-'))||a.localeCompare(b)))vm.runInContext(fs.readFileSync(require('path').join(__dirname,'../public/assets',name),'utf8'),sandbox);
 vm.runInContext(script,sandbox);
 const run=sandbox.inspect;
 

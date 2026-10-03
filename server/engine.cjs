@@ -3,7 +3,7 @@ const root=process.env.MINISAHA_ROOT||path.join(__dirname,'..');
 const html=fs.readFileSync(path.join(root,'public/index.html'),'utf8');
 const program=new vm.Script(html.match(/<script>([\s\S]*?)<\/script>/)[1]);
 const loader={window:{MINISAHA_ROSTERS:{}}};vm.createContext(loader);
-for(const name of fs.readdirSync(path.join(root,'public/assets')).filter(n=>n.startsWith('rosters-')))vm.runInContext(fs.readFileSync(path.join(root,'public/assets',name),'utf8'),loader);
+for(const name of fs.readdirSync(path.join(root,'public/assets')).filter(n=>n.startsWith('rosters-')).sort((a,b)=>Number(a.startsWith('rosters-strength-'))-Number(b.startsWith('rosters-strength-'))||a.localeCompare(b)))vm.runInContext(fs.readFileSync(path.join(root,'public/assets',name),'utf8'),loader);
 module.exports=function createEngine(){
 const all=[], ids={};
 class El{
