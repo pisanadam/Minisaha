@@ -1,0 +1,350 @@
+# name|nation|positions|peak_estimate|historical_club_keys (within game's club catalog)
+Pelé|brazil|ST,AM|98|
+Diego Maradona|argentina|AM,ST|98|seriea_napoli,laliga_barcelona
+Johan Cruyff|netherlands|ST,AM,LW|97|laliga_barcelona
+Ronaldo Nazário|brazil|ST|97|laliga_realmadrid,laliga_barcelona,seriea_inter,seriea_milan
+Zinedine Zidane|france|AM,CM|96|laliga_realmadrid,seriea_juventus
+Ronaldinho|brazil|LW,AM|95|laliga_barcelona,seriea_milan,ligue1_psg
+Franz Beckenbauer|germany|CB,DM|96|bundesliga_bayern
+Paolo Maldini|italy|CB,LB|96|seriea_milan
+Gianluigi Buffon|italy|GK|94|seriea_juventus,seriea_parma,ligue1_psg
+Lev Yashin|russia|GK|95|
+Ferenc Puskás|hungary|ST,AM|96|laliga_realmadrid
+Alfredo Di Stéfano|argentina|ST,AM,CM|96|laliga_realmadrid
+Garrincha|brazil|RW|96|
+Eusébio|portugal|ST|95|
+George Best|northernireland|RW,LW,AM|94|premier_manchesterunited
+Bobby Charlton|england|AM,CM,ST|94|premier_manchesterunited
+Bobby Moore|england|CB|93|premier_fulham
+Gerd Müller|germany|ST|95|bundesliga_bayern
+Romário|brazil|ST|94|laliga_barcelona
+Marco van Basten|netherlands|ST|95|seriea_milan
+Ruud Gullit|netherlands|AM,CM,ST|94|seriea_milan,premier_chelsea
+Frank Rijkaard|netherlands|DM,CB|93|seriea_milan
+Dennis Bergkamp|netherlands|AM,ST|93|premier_arsenal,seriea_inter
+Thierry Henry|france|ST,LW|94|premier_arsenal,laliga_barcelona,seriea_juventus
+Eric Cantona|france|ST,AM|92|premier_manchesterunited,premier_leeds
+Patrick Vieira|france|DM,CM|92|premier_arsenal,seriea_inter,seriea_juventus,premier_manchestercity
+Claude Makélélé|france|DM|91|laliga_realmadrid,premier_chelsea,ligue1_psg
+Lilian Thuram|france|RB,CB|93|seriea_parma,seriea_juventus,laliga_barcelona
+Marcel Desailly|france|CB,DM|92|seriea_milan,premier_chelsea
+Laurent Blanc|france|CB|91|seriea_napoli,laliga_barcelona,seriea_inter,premier_manchesterunited
+David Trezeguet|france|ST|91|seriea_juventus
+Jean-Pierre Papin|france|ST|92|ligue1_marseille,seriea_milan,bundesliga_bayern
+Michel Platini|france|AM,CM|95|seriea_juventus
+Raymond Kopa|france|AM,RW|93|laliga_realmadrid
+Just Fontaine|france|ST|92|
+Robert Pirès|france|LM,LW,AM|90|premier_arsenal,laliga_villarreal
+Franck Ribéry|france|LW,LM|93|bundesliga_bayern,seriea_fiorentina,superlig_galatasaray
+Arjen Robben|netherlands|RW,RM|93|bundesliga_bayern,laliga_realmadrid,premier_chelsea
+Ruud van Nistelrooy|netherlands|ST|92|premier_manchesterunited,laliga_realmadrid,bundesliga_hamburg
+Robin van Persie|netherlands|ST,RW|91|premier_arsenal,premier_manchesterunited,superlig_fenerbahce
+Patrick Kluivert|netherlands|ST|91|laliga_barcelona,seriea_milan,premier_newcastle
+Clarence Seedorf|netherlands|CM,AM|92|seriea_milan,seriea_inter,laliga_realmadrid
+Edwin van der Sar|netherlands|GK|93|premier_manchesterunited,premier_fulham,seriea_juventus
+Ronald Koeman|netherlands|CB,DM|91|laliga_barcelona
+Frank de Boer|netherlands|CB,LB|90|laliga_barcelona,superlig_galatasaray
+Wesley Sneijder|netherlands|AM,CM|91|seriea_inter,laliga_realmadrid,superlig_galatasaray
+Dirk Kuyt|netherlands|ST,RW,RM|88|premier_liverpool,superlig_fenerbahce
+Mark van Bommel|netherlands|DM,CM|88|bundesliga_bayern,laliga_barcelona,seriea_milan
+Jaap Stam|netherlands|CB|92|premier_manchesterunited,seriea_lazio,seriea_milan
+Rivaldo|brazil|AM,LW,ST|94|laliga_barcelona,seriea_milan
+Kaká|brazil|AM,CM|93|seriea_milan,laliga_realmadrid
+Zico|brazil|AM,CM|95|seriea_udinese
+Sócrates|brazil|AM,CM|92|seriea_fiorentina
+Didi|brazil|CM,AM|93|laliga_realmadrid
+Carlos Alberto|brazil|RB,CB|93|
+Cafu|brazil|RB,RM|93|seriea_roma,seriea_milan
+Roberto Carlos|brazil|LB,LM|93|laliga_realmadrid,seriea_inter,superlig_fenerbahce
+Djalma Santos|brazil|RB|92|
+Nílton Santos|brazil|LB|92|
+Jairzinho|brazil|RW,ST|93|ligue1_marseille
+Tostão|brazil|ST,AM|92|
+Bebeto|brazil|ST|91|laliga_deportivo
+Adriano|brazil|ST|91|seriea_inter,seriea_parma,seriea_fiorentina,seriea_roma
+Juninho Pernambucano|brazil|AM,CM|90|ligue1_lyon
+Alex de Souza|brazil|AM,CM|91|superlig_fenerbahce,seriea_parma
+Dunga|brazil|DM|90|seriea_fiorentina,bundesliga_stuttgart
+Gilberto Silva|brazil|DM|89|premier_arsenal
+Lúcio|brazil|CB|91|seriea_inter,bundesliga_bayern,bundesliga_leverkusen,seriea_juventus
+Júlio César|brazil|GK|91|seriea_inter
+Dida|brazil|GK|91|seriea_milan
+Cláudio Taffarel|brazil|GK|90|seriea_parma,superlig_galatasaray
+Marcelo|brazil|LB,LM|91|laliga_realmadrid
+Maicon|brazil|RB,RM|91|seriea_inter,seriea_roma,premier_manchestercity
+Dani Alves|brazil|RB,RM|91|laliga_barcelona,laliga_sevilla,seriea_juventus,ligue1_psg
+Juninho Paulista|brazil|AM|88|laliga_atletico
+Mario Kempes|argentina|ST,LW|93|laliga_valencia
+Gabriel Batistuta|argentina|ST|93|seriea_fiorentina,seriea_roma,seriea_inter
+Hernán Crespo|argentina|ST|91|seriea_parma,seriea_lazio,seriea_inter,seriea_milan,premier_chelsea
+Javier Zanetti|argentina|RB,LB,DM|92|seriea_inter
+Juan Román Riquelme|argentina|AM|92|laliga_villarreal,laliga_barcelona
+Juan Sebastián Verón|argentina|CM,DM|90|seriea_lazio,seriea_parma,premier_manchesterunited,premier_chelsea,seriea_inter
+Fernando Redondo|argentina|DM,CM|92|laliga_realmadrid,seriea_milan
+Daniel Passarella|argentina|CB|92|seriea_fiorentina,seriea_inter
+Javier Mascherano|argentina|DM,CB|90|premier_liverpool,laliga_barcelona
+Carlos Tévez|argentina|ST|90|premier_manchesterunited,premier_manchestercity,seriea_juventus
+Sergio Agüero|argentina|ST|92|premier_manchestercity,laliga_atletico,laliga_barcelona
+Gonzalo Higuaín|argentina|ST|90|laliga_realmadrid,seriea_napoli,seriea_juventus,seriea_milan,premier_chelsea
+Pablo Aimar|argentina|AM|90|laliga_valencia,laliga_zaragoza
+Diego Milito|argentina|ST|90|seriea_inter,seriea_genoa,laliga_zaragoza
+Esteban Cambiasso|argentina|DM,CM|89|seriea_inter,laliga_realmadrid
+Roberto Ayala|argentina|CB|91|laliga_valencia,seriea_napoli,seriea_milan,laliga_zaragoza
+Walter Samuel|argentina|CB|91|seriea_inter,seriea_roma,laliga_realmadrid
+Ubaldo Fillol|argentina|GK|91|laliga_atletico
+Ricardo Bochini|argentina|AM|92|
+Omar Sívori|argentina|ST,AM|93|seriea_juventus,seriea_napoli
+Luis Figo|portugal|RW,RM,AM|93|laliga_barcelona,laliga_realmadrid,seriea_inter
+Rui Costa|portugal|AM,CM|91|seriea_fiorentina,seriea_milan
+Deco|portugal|AM,CM|91|laliga_barcelona,premier_chelsea
+Paulo Futre|portugal|LW,AM|91|laliga_atletico,seriea_milan
+Ricardo Carvalho|portugal|CB|91|premier_chelsea,laliga_realmadrid
+Vítor Baía|portugal|GK|90|laliga_barcelona
+Nuno Gomes|portugal|ST|87|seriea_fiorentina
+Pauleta|portugal|ST|89|ligue1_psg,ligue1_bordeaux
+Xavi|spain|CM,DM|94|laliga_barcelona
+Andrés Iniesta|spain|CM,AM,LW|94|laliga_barcelona
+Iker Casillas|spain|GK|93|laliga_realmadrid
+Raúl|spain|ST,AM|93|laliga_realmadrid,bundesliga_schalke
+Fernando Torres|spain|ST|91|premier_liverpool,premier_chelsea,laliga_atletico,seriea_milan
+David Villa|spain|ST,LW|92|laliga_valencia,laliga_barcelona,laliga_atletico
+Xabi Alonso|spain|DM,CM|92|premier_liverpool,laliga_realmadrid,bundesliga_bayern
+Fernando Hierro|spain|CB,DM|92|laliga_realmadrid
+Carles Puyol|spain|CB,RB|92|laliga_barcelona
+Sergio Busquets|spain|DM|91|laliga_barcelona
+David Silva|spain|AM,CM,LW|92|premier_manchestercity,laliga_valencia,laliga_realsociedad
+Cesc Fàbregas|spain|CM,AM|91|premier_arsenal,laliga_barcelona,premier_chelsea
+Fernando Morientes|spain|ST|89|laliga_realmadrid,laliga_valencia,premier_liverpool
+Fernando Gento|spain|LW|93|laliga_realmadrid
+Emilio Butragueño|spain|ST,AM|92|laliga_realmadrid
+Gaizka Mendieta|spain|CM,RM|89|laliga_valencia,seriea_lazio,laliga_barcelona
+Joan Capdevila|spain|LB|88|laliga_villarreal,laliga_deportivo
+Míchel Salgado|spain|RB|88|laliga_realmadrid
+José Antonio Camacho|spain|LB|90|laliga_realmadrid
+Luis Suárez Miramontes|spain|CM,AM|94|laliga_barcelona,seriea_inter
+Ricardo Zamora|spain|GK|93|laliga_barcelona,laliga_realmadrid,laliga_espanyol
+Oliver Kahn|germany|GK|94|bundesliga_bayern
+Sepp Maier|germany|GK|92|bundesliga_bayern
+Lothar Matthäus|germany|CM,DM,CB|94|bundesliga_bayern,seriea_inter,bundesliga_gladbach
+Michael Ballack|germany|CM,AM|92|bundesliga_bayern,bundesliga_leverkusen,premier_chelsea
+Bastian Schweinsteiger|germany|CM,DM|91|bundesliga_bayern,premier_manchesterunited
+Toni Kroos|germany|CM,DM|93|laliga_realmadrid,bundesliga_bayern,bundesliga_leverkusen
+Philipp Lahm|germany|RB,LB,DM|93|bundesliga_bayern,bundesliga_stuttgart
+Andreas Brehme|germany|LB,LM|91|seriea_inter,bundesliga_bayern
+Jürgen Kohler|germany|CB|92|bundesliga_dortmund,seriea_juventus,bundesliga_bayern
+Matthias Sammer|germany|CB,DM|92|bundesliga_dortmund,seriea_inter,bundesliga_stuttgart
+Miroslav Klose|germany|ST|91|bundesliga_bayern,seriea_lazio,bundesliga_werder
+Rudi Völler|germany|ST|92|seriea_roma,ligue1_marseille,bundesliga_leverkusen
+Jürgen Klinsmann|germany|ST|91|seriea_inter,bundesliga_bayern,premier_tottenham,bundesliga_stuttgart
+Karl-Heinz Rummenigge|germany|ST,RW|94|bundesliga_bayern,seriea_inter
+Uwe Seeler|germany|ST|92|bundesliga_hamburg
+Mats Hummels|germany|CB|90|bundesliga_dortmund,bundesliga_bayern,seriea_roma
+Mesut Özil|germany|AM,RM|91|laliga_realmadrid,premier_arsenal,superlig_fenerbahce
+Per Mertesacker|germany|CB|88|premier_arsenal,bundesliga_werder
+Bernd Schuster|germany|CM,AM|91|laliga_barcelona,laliga_realmadrid,laliga_atletico
+Mario Gómez|germany|ST|89|bundesliga_bayern,bundesliga_stuttgart,seriea_fiorentina,superlig_besiktas
+Franco Baresi|italy|CB|95|seriea_milan
+Alessandro Nesta|italy|CB|94|seriea_milan,seriea_lazio
+Fabio Cannavaro|italy|CB|94|seriea_parma,seriea_inter,seriea_juventus,laliga_realmadrid
+Gaetano Scirea|italy|CB,DM|94|seriea_juventus,seriea_atalanta
+Giuseppe Bergomi|italy|CB,RB|92|seriea_inter
+Giacinto Facchetti|italy|LB|93|seriea_inter
+Dino Zoff|italy|GK|93|seriea_juventus,seriea_napoli
+Walter Zenga|italy|GK|91|seriea_inter
+Gianluca Pagliuca|italy|GK|90|seriea_inter,seriea_bologna
+Andrea Pirlo|italy|CM,DM|93|seriea_milan,seriea_juventus,seriea_inter
+Roberto Baggio|italy|AM,ST|94|seriea_fiorentina,seriea_juventus,seriea_milan,seriea_inter
+Francesco Totti|italy|AM,ST|93|seriea_roma
+Alessandro Del Piero|italy|ST,AM|93|seriea_juventus
+Filippo Inzaghi|italy|ST|91|seriea_milan,seriea_juventus,seriea_atalanta
+Christian Vieri|italy|ST|91|seriea_inter,seriea_juventus,laliga_atletico,seriea_lazio,seriea_milan
+Gianfranco Zola|italy|AM,ST|91|premier_chelsea,seriea_parma,seriea_napoli
+Gennaro Gattuso|italy|DM,CM|89|seriea_milan
+Daniele De Rossi|italy|DM,CM|90|seriea_roma
+Gianluca Zambrotta|italy|RB,LB,RM|91|seriea_juventus,laliga_barcelona,seriea_milan
+Giorgio Chiellini|italy|CB,LB|92|seriea_juventus,seriea_fiorentina
+Leonardo Bonucci|italy|CB|90|seriea_juventus,seriea_milan,superlig_fenerbahce
+Antonio Di Natale|italy|ST,LW|90|seriea_udinese
+Luca Toni|italy|ST|90|seriea_fiorentina,bundesliga_bayern,seriea_verona,seriea_roma,seriea_juventus
+Gianluca Vialli|italy|ST|91|seriea_juventus,premier_chelsea
+Giuseppe Meazza|italy|ST,AM|95|seriea_inter,seriea_milan,seriea_juventus
+Giacomo Bulgarelli|italy|CM|90|seriea_bologna
+Paolo Rossi|italy|ST|92|seriea_juventus,seriea_milan,seriea_verona
+Paul Scholes|england|CM,AM|92|premier_manchesterunited
+David Beckham|england|RM,CM|92|premier_manchesterunited,laliga_realmadrid,seriea_milan,ligue1_psg
+Steven Gerrard|england|CM,DM,AM|93|premier_liverpool
+Frank Lampard|england|CM,AM|92|premier_chelsea,premier_manchestercity
+Wayne Rooney|england|ST,AM|92|premier_manchesterunited,premier_everton
+Alan Shearer|england|ST|93|premier_newcastle
+Gary Lineker|england|ST|92|premier_tottenham,premier_everton,laliga_barcelona
+Ian Wright|england|ST|90|premier_arsenal,premier_crystalpalace
+Michael Owen|england|ST|91|premier_liverpool,laliga_realmadrid,premier_newcastle,premier_manchesterunited
+Rio Ferdinand|england|CB|92|premier_manchesterunited,premier_leeds
+John Terry|england|CB|92|premier_chelsea,premier_astonvilla
+Ashley Cole|england|LB|91|premier_arsenal,premier_chelsea,seriea_roma
+Gary Neville|england|RB|89|premier_manchesterunited
+Sol Campbell|england|CB|91|premier_arsenal,premier_tottenham,premier_newcastle
+Gordon Banks|england|GK|92|
+Peter Shilton|england|GK|91|premier_nottinghamforest
+David Seaman|england|GK|90|premier_arsenal,premier_manchestercity
+Kevin Keegan|england|ST,AM|92|premier_liverpool,bundesliga_hamburg,premier_newcastle
+Bryan Robson|england|CM,DM|91|premier_manchesterunited
+Paul Gascoigne|england|AM,CM|91|premier_tottenham,seriea_lazio,premier_everton
+Glenn Hoddle|england|CM,AM|91|premier_tottenham,premier_chelsea
+Stanley Matthews|england|RW|94|
+Jimmy Greaves|england|ST|93|premier_tottenham,premier_chelsea,seriea_milan
+Ian Rush|wales|ST|92|premier_liverpool,seriea_juventus,premier_leeds,premier_newcastle
+Gareth Bale|wales|RW,LW,ST|93|laliga_realmadrid,premier_tottenham
+Ryan Giggs|wales|LM,LW,CM|92|premier_manchesterunited
+Mark Hughes|wales|ST|89|premier_manchesterunited,premier_chelsea,laliga_barcelona,bundesliga_bayern
+Kenny Dalglish|scotland|ST,AM|93|premier_liverpool
+Denis Law|scotland|ST|92|premier_manchesterunited,premier_manchestercity,seriea_torino
+Graeme Souness|scotland|DM,CM|90|premier_liverpool
+Gordon Strachan|scotland|RM,CM|89|premier_manchesterunited,premier_leeds
+Roy Keane|ireland|DM,CM|91|premier_manchesterunited,premier_nottinghamforest
+Robbie Keane|ireland|ST|89|premier_tottenham,premier_liverpool,seriea_inter,premier_leeds
+Paul McGrath|ireland|CB|90|premier_astonvilla,premier_manchesterunited
+Damien Duff|ireland|LW,LM|88|premier_chelsea,premier_newcastle,premier_fulham
+Peter Schmeichel|denmark|GK|94|premier_manchesterunited,premier_manchestercity,premier_astonvilla
+Michael Laudrup|denmark|AM,CM|94|laliga_barcelona,laliga_realmadrid,seriea_juventus,seriea_lazio
+Brian Laudrup|denmark|RW,ST|91|bundesliga_bayern,seriea_fiorentina,seriea_milan,premier_chelsea
+Preben Elkjær|denmark|ST|91|seriea_verona
+Allan Simonsen|denmark|RW,ST|92|bundesliga_gladbach,laliga_barcelona
+Petr Čech|czech|GK|93|premier_chelsea,premier_arsenal
+Pavel Nedvěd|czech|LM,CM,AM|93|seriea_juventus,seriea_lazio
+Tomáš Rosický|czech|AM,CM|90|premier_arsenal,bundesliga_dortmund
+Jan Koller|czech|ST|88|bundesliga_dortmund
+Karel Poborský|czech|RM,RW|89|premier_manchesterunited,seriea_lazio
+Milan Baroš|czech|ST|88|premier_liverpool,premier_astonvilla,superlig_galatasaray,ligue1_lyon
+Andriy Shevchenko|ukraine|ST|94|seriea_milan,premier_chelsea
+Hristo Stoichkov|bulgaria|LW,ST|93|laliga_barcelona,seriea_parma
+Gheorghe Hagi|romania|AM,CM|93|superlig_galatasaray,laliga_realmadrid,laliga_barcelona
+Gheorghe Popescu|romania|CB,DM|90|superlig_galatasaray,laliga_barcelona,premier_tottenham,seriea_lecce
+Davor Šuker|croatia|ST|92|laliga_realmadrid,laliga_sevilla,premier_arsenal
+Zvonimir Boban|croatia|AM,CM|91|seriea_milan
+Robert Prosinečki|croatia|AM,CM|90|laliga_realmadrid,laliga_barcelona
+Darijo Srna|croatia|RB,RM|89|seriea_cagliari
+Slaven Bilić|croatia|CB|87|premier_everton
+Dejan Stanković|serbia|CM,AM|90|seriea_inter,seriea_lazio
+Nemanja Vidić|serbia|CB|92|premier_manchesterunited,seriea_inter
+Siniša Mihajlović|serbia|CB,LB|89|seriea_lazio,seriea_inter,seriea_roma
+Jay-Jay Okocha|nigeria|AM,RM|91|superlig_fenerbahce,ligue1_psg,premier_hull
+Nwankwo Kanu|nigeria|ST,AM|90|premier_arsenal,seriea_inter
+John Obi Mikel|nigeria|DM|88|premier_chelsea,superlig_trabzonspor
+Samuel Eto'o|cameroon|ST|93|laliga_barcelona,seriea_inter,premier_chelsea,superlig_konyaspor
+Roger Milla|cameroon|ST|91|ligue1_monaco
+Didier Drogba|ivorycoast|ST|92|premier_chelsea,superlig_galatasaray,ligue1_marseille
+Yaya Touré|ivorycoast|CM,DM|92|premier_manchestercity,laliga_barcelona
+Michael Essien|ghana|CM,DM,RB|90|premier_chelsea,laliga_realmadrid,seriea_milan,ligue1_lyon
+Abedi Pelé|ghana|AM|91|ligue1_marseille,seriea_torino
+Hossam Hassan|egypt|ST|89|
+Mustapha Hadji|morocco|AM,RM|88|premier_astonvilla,laliga_espanyol
+Ahmed Hassan|egypt|AM,RM|88|superlig_besiktas,superlig_genclerbirligi
+Sami Al-Jaber|saudi|ST|88|
+Cha Bum-kun|southkorea|ST,RW|91|bundesliga_frankfurt,bundesliga_leverkusen
+Park Ji-sung|southkorea|CM,LM,RM|89|premier_manchesterunited
+Hidetoshi Nakata|japan|AM,CM|90|seriea_roma,seriea_parma,seriea_fiorentina
+Shunsuke Nakamura|japan|AM,CM|89|laliga_espanyol
+Keisuke Honda|japan|AM,RW|88|seriea_milan
+Ali Daei|iran|ST|89|bundesliga_bayern,bundesliga2_herthaberlin
+Harry Kewell|australia|LW,AM|89|premier_leeds,premier_liverpool,superlig_galatasaray
+Tim Cahill|australia|AM,ST|89|premier_everton
+Mark Viduka|australia|ST|89|premier_leeds,premier_newcastle
+Mark Schwarzer|australia|GK|88|premier_fulham,premier_chelsea
+Landon Donovan|usa|ST,AM,RW|89|premier_everton,bundesliga_leverkusen,bundesliga_bayern
+Clint Dempsey|usa|ST,AM|88|premier_fulham,premier_tottenham
+Tim Howard|usa|GK|88|premier_everton,premier_manchesterunited
+Hugo Sánchez|mexico|ST|93|laliga_realmadrid,laliga_atletico
+Rafael Márquez|mexico|CB,DM|91|laliga_barcelona,seriea_verona
+Jorge Campos|mexico|GK|89|
+Cuauhtémoc Blanco|mexico|AM,ST|90|
+Carlos Valderrama|colombia|AM,CM|91|
+René Higuita|colombia|GK|89|
+Iván Córdoba|colombia|CB|91|seriea_inter
+Diego Forlán|uruguay|ST,AM|91|laliga_atletico,laliga_villarreal,premier_manchesterunited,seriea_inter
+Enzo Francescoli|uruguay|AM,ST|92|ligue1_marseille,seriea_cagliari,seriea_torino
+Álvaro Recoba|uruguay|AM,LW,ST|90|seriea_inter,seriea_torino,seriea_venezia
+José Luis Chilavert|paraguay|GK|91|
+Iván Zamorano|chile|ST|91|laliga_realmadrid,seriea_inter,laliga_sevilla
+Marcelo Salas|chile|ST|90|seriea_lazio,seriea_juventus
+Henrik Larsson|sweden|ST|92|laliga_barcelona,premier_manchesterunited
+Zlatan Ibrahimović|sweden|ST|94|seriea_milan,seriea_inter,seriea_juventus,laliga_barcelona,ligue1_psg,premier_manchesterunited
+Freddie Ljungberg|sweden|RM,LM|89|premier_arsenal
+Thomas Brolin|sweden|AM,ST|90|seriea_parma,premier_leeds,premier_crystalpalace
+Ole Gunnar Solskjær|norway|ST|89|premier_manchesterunited
+John Arne Riise|norway|LB,LM|88|premier_liverpool,seriea_roma,premier_fulham
+Jari Litmanen|finland|AM,ST|91|laliga_barcelona,premier_liverpool
+Sami Hyypiä|finland|CB|90|premier_liverpool,bundesliga_leverkusen
+Shay Given|ireland|GK|89|premier_newcastle,premier_manchestercity,premier_astonvilla
+Lefter Küçükandonyadis|turkiye|ST,AM,LW|93|superlig_fenerbahce,seriea_fiorentina
+Metin Oktay|turkiye|ST|93|superlig_galatasaray
+Can Bartu|turkiye|AM,CM,LW|90|superlig_fenerbahce,seriea_fiorentina,seriea_lazio
+Tanju Çolak|turkiye|ST|91|superlig_galatasaray,superlig_fenerbahce,superlig_samsunspor
+Cemil Turan|turkiye|ST|89|superlig_fenerbahce
+Rıdvan Dilmen|turkiye|AM,RW|90|superlig_fenerbahce
+Sergen Yalçın|turkiye|AM,CM|90|superlig_besiktas,superlig_fenerbahce,superlig_galatasaray,superlig_trabzonspor
+Hakan Şükür|turkiye|ST|91|superlig_galatasaray,seriea_inter,seriea_parma,seriea_torino
+Nihat Kahveci|turkiye|ST,RW|91|laliga_realsociedad,laliga_villarreal,superlig_besiktas
+Arda Turan|turkiye|LW,AM,LM|90|superlig_galatasaray,laliga_atletico,laliga_barcelona,superlig_basaksehir
+Tugay Kerimoğlu|turkiye|CM,DM|90|superlig_galatasaray
+Emre Belözoğlu|turkiye|CM,DM|88|superlig_galatasaray,seriea_inter,premier_newcastle,superlig_fenerbahce,laliga_atletico,superlig_basaksehir
+Hamit Altıntop|turkiye|CM,RM,RB|88|bundesliga_bayern,bundesliga_schalke,laliga_realmadrid,superlig_galatasaray
+Okan Buruk|turkiye|CM,RM|87|superlig_galatasaray,superlig_besiktas,seriea_inter
+Oğuz Çetin|turkiye|CM,AM|88|superlig_fenerbahce
+Aykut Kocaman|turkiye|ST|88|superlig_fenerbahce
+Rüştü Reçber|turkiye|GK|90|superlig_fenerbahce,superlig_besiktas,laliga_barcelona
+Şenol Güneş|turkiye|GK|88|superlig_trabzonspor
+Volkan Demirel|turkiye|GK|87|superlig_fenerbahce
+Bülent Korkmaz|turkiye|CB|89|superlig_galatasaray
+Alpay Özalan|turkiye|CB|87|superlig_besiktas,superlig_fenerbahce,premier_astonvilla
+Gökhan Gönül|turkiye|RB|88|superlig_fenerbahce,superlig_besiktas
+Hakan Ünsal|turkiye|LB,LM|87|superlig_galatasaray
+Ümit Özat|turkiye|LB,CB|87|superlig_fenerbahce,superlig_genclerbirligi,bundesliga_koln
+Ergün Penbe|turkiye|LB,LM|87|superlig_galatasaray
+Fatih Akyel|turkiye|RB,CB|85|superlig_galatasaray,superlig_fenerbahce,superlig_trabzonspor
+Tümer Metin|turkiye|AM,LM|87|superlig_besiktas,superlig_fenerbahce
+Mehmet Aurelio|turkiye|DM,CM|87|superlig_fenerbahce,superlig_besiktas,laliga_betis,superlig_trabzonspor
+Selçuk İnan|turkiye|CM,DM|86|superlig_galatasaray,superlig_trabzonspor
+Yıldıray Baştürk|turkiye|AM|88|bundesliga_leverkusen,bundesliga2_herthaberlin,bundesliga_stuttgart
+Gökdeniz Karadeniz|turkiye|RW,RM|87|superlig_trabzonspor
+Fatih Tekke|turkiye|ST|88|superlig_trabzonspor
+Tuncay Şanlı|turkiye|ST,LW,AM|88|superlig_fenerbahce,bundesliga2_vflwolfsburg
+Uğur Boral|turkiye|LM,LB|84|superlig_fenerbahce,superlig_besiktas
+Murat Yakın|switzerland|CB,DM|88|superlig_fenerbahce,bundesliga_stuttgart
+Hakan Yakın|switzerland|AM|88|
+Georgi Kinkladze|georgia|AM|89|premier_manchestercity
+Shota Arveladze|georgia|ST|88|superlig_trabzonspor
+Ariel Ortega|argentina|AM,RW|90|superlig_fenerbahce,seriea_parma,laliga_valencia
+Pierre van Hooijdonk|netherlands|ST|89|superlig_fenerbahce,premier_nottinghamforest
+Bafétimbi Gomis|france|ST|87|superlig_galatasaray,ligue1_lyon,ligue1_marseille
+Moussa Sow|senegal|ST,LW|87|superlig_fenerbahce,ligue1_lille
+Demba Ba|senegal|ST|87|superlig_besiktas,superlig_goztepe,superlig_basaksehir,premier_chelsea,premier_newcastle
+Gerard Piqué|spain|CB|91|laliga_barcelona,premier_manchesterunited
+Jordi Alba|spain|LB,LM|90|laliga_barcelona,laliga_valencia
+Pepe|portugal|CB|91|laliga_realmadrid,superlig_besiktas
+Ivan Rakitić|croatia|CM,DM|90|laliga_barcelona,laliga_sevilla,bundesliga_schalke
+Thiago Alcântara|spain|CM,DM|90|laliga_barcelona,bundesliga_bayern,premier_liverpool
+Vincent Kompany|belgium|CB|91|premier_manchestercity,bundesliga_hamburg
+Pablo Zabaleta|argentina|RB|88|premier_manchestercity,laliga_espanyol
+Blaise Matuidi|france|CM,DM|88|ligue1_psg,seriea_juventus
+Raphaël Varane|france|CB|91|laliga_realmadrid,premier_manchesterunited
+Eden Hazard|belgium|LW,AM|93|premier_chelsea,laliga_realmadrid,ligue1_lille
+Dries Mertens|belgium|ST,AM|89|seriea_napoli,superlig_galatasaray
+Marek Hamšík|slovakia|CM,AM|89|seriea_napoli,superlig_trabzonspor
+Mário Jardel|brazil|ST|90|superlig_galatasaray
+Atiba Hutchinson|canada|DM,CM|86|superlig_besiktas
+Pascal Nouma|france|ST|85|superlig_besiktas
+Daniel Amokachi|nigeria|ST|87|superlig_besiktas,premier_everton
+İlhan Mansız|turkiye|ST|87|superlig_besiktas,superlig_samsunspor
+Suat Kaya|turkiye|DM,CM|86|superlig_galatasaray
+Ümit Karan|turkiye|ST|86|superlig_galatasaray,superlig_genclerbirligi
+Necati Ateş|turkiye|ST|85|superlig_galatasaray,laliga_realsociedad
+Cüneyt Tanman|turkiye|CB,DM|88|superlig_galatasaray
+Samet Aybaba|turkiye|CB,DM|86|superlig_besiktas
+Süleyman Seba|turkiye|RW|86|superlig_besiktas
+Hakkı Yeten|turkiye|ST,AM|92|superlig_besiktas
+Feyyaz Uçar|turkiye|ST|89|superlig_besiktas,superlig_fenerbahce
+Metin Tekin|turkiye|RW,ST|89|superlig_besiktas
+Ali Gültiken|turkiye|ST|87|superlig_besiktas
+Ogün Temizkanoğlu|turkiye|CB,RB|86|superlig_trabzonspor,superlig_fenerbahce
+Abdullah Ercan|turkiye|LB,LM|86|superlig_trabzonspor,superlig_fenerbahce,superlig_galatasaray

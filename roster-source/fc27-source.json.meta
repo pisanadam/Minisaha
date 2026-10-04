@@ -1,0 +1,3981 @@
+{
+  "edition": "FC27",
+  "retrievedAt": "2026-10-04",
+  "source": "https://www.ea.com/games/ea-sports-fc/ratings",
+  "endpoint": "https://www.ea.com/_next/data/DO3P1GxCuQJYTuXacQAJB/en/games/ea-sports-fc/ratings.json",
+  "buildId": "DO3P1GxCuQJYTuXacQAJB",
+  "publicTotal": 19789,
+  "menPlayers": 17849,
+  "fields": [
+    "eaId",
+    "name",
+    "dateOfBirth",
+    "nationId",
+    "teamId",
+    "positions",
+    "overall",
+    "stats"
+  ],
+  "stats": [
+    "pac",
+    "sho",
+    "pas",
+    "def",
+    "dri",
+    "phy",
+    "strength",
+    "jumping",
+    "finishing",
+    "gkDiving",
+    "gkHandling",
+    "gkKicking",
+    "gkPositioning",
+    "gkReflexes",
+    "acceleration",
+    "sprintSpeed",
+    "dribbling",
+    "standingTackle",
+    "shortPassing",
+    "shotPower",
+    "longShots"
+  ],
+  "teams": {
+    "243": {
+      "name": "Real Madrid",
+      "league": "LALIGA EA SPORTS",
+      "gender": 0
+    },
+    "132176": {
+      "name": "London City",
+      "league": "Barclays WSL",
+      "gender": 1
+    },
+    "10": {
+      "name": "Manchester City",
+      "league": "Premier League",
+      "gender": 0
+    },
+    "241": {
+      "name": "FC Barcelona",
+      "league": "LALIGA EA SPORTS",
+      "gender": 0
+    },
+    "21": {
+      "name": "FC Bayern München",
+      "league": "Bundesliga",
+      "gender": 0
+    },
+    "116325": {
+      "name": "FC Barcelona",
+      "league": "Liga F Moeve",
+      "gender": 1
+    },
+    "73": {
+      "name": "Paris SG",
+      "league": "Ligue 1 McDonald's",
+      "gender": 0
+    },
+    "116017": {
+      "name": "Manchester City",
+      "league": "Barclays WSL",
+      "gender": 1
+    },
+    "112893": {
+      "name": "Inter Miami CF",
+      "league": "MLS",
+      "gender": 0
+    },
+    "11": {
+      "name": "Man Utd",
+      "league": "Premier League",
+      "gender": 0
+    },
+    "1": {
+      "name": "Arsenal",
+      "league": "Premier League",
+      "gender": 0
+    },
+    "116309": {
+      "name": "KC Current",
+      "league": "NWSL",
+      "gender": 1
+    },
+    "116009": {
+      "name": "Arsenal",
+      "league": "Barclays WSL",
+      "gender": 1
+    },
+    "115995": {
+      "name": "FC Bayern München",
+      "league": "GPFBL",
+      "gender": 1
+    },
+    "116033": {
+      "name": "OL Lyonnes",
+      "league": "Arkema PL",
+      "gender": 1
+    },
+    "116307": {
+      "name": "Orlando Pride",
+      "league": "NWSL",
+      "gender": 1
+    },
+    "9": {
+      "name": "Liverpool",
+      "league": "Premier League",
+      "gender": 0
+    },
+    "116302": {
+      "name": "Portland Thorns",
+      "league": "NWSL",
+      "gender": 1
+    },
+    "240": {
+      "name": "Atlético de Madrid",
+      "league": "LALIGA EA SPORTS",
+      "gender": 0
+    },
+    "131682": {
+      "name": "Lombardia FC",
+      "league": "Serie A Enilive",
+      "gender": 0
+    },
+    "131681": {
+      "name": "Milano FC",
+      "league": "Serie A Enilive",
+      "gender": 0
+    },
+    "116310": {
+      "name": "Gotham FC",
+      "league": "NWSL",
+      "gender": 1
+    },
+    "22": {
+      "name": "Borussia Dortmund",
+      "league": "Bundesliga",
+      "gender": 0
+    },
+    "436": {
+      "name": "Trabzonspor",
+      "league": "Trendyol Süper Lig",
+      "gender": 0
+    },
+    "116010": {
+      "name": "Chelsea",
+      "league": "Barclays WSL",
+      "gender": 1
+    },
+    "116304": {
+      "name": "Washington Spirit",
+      "league": "NWSL",
+      "gender": 1
+    },
+    "116034": {
+      "name": "Paris SG",
+      "league": "Arkema PL",
+      "gender": 1
+    },
+    "48": {
+      "name": "SSC Napoli",
+      "league": "Serie A Enilive",
+      "gender": 0
+    },
+    "5": {
+      "name": "Chelsea",
+      "league": "Premier League",
+      "gender": 0
+    },
+    "132698": {
+      "name": "Denver Summit FC",
+      "league": "NWSL",
+      "gender": 1
+    },
+    "45": {
+      "name": "Juventus",
+      "league": "Serie A Enilive",
+      "gender": 0
+    },
+    "236": {
+      "name": "FC Porto",
+      "league": "Liga Portugal",
+      "gender": 0
+    },
+    "115845": {
+      "name": "Bergamo Calcio",
+      "league": "Serie A Enilive",
+      "gender": 0
+    },
+    "52": {
+      "name": "AS Roma",
+      "league": "Serie A Enilive",
+      "gender": 0
+    },
+    "116013": {
+      "name": "Brighton",
+      "league": "Barclays WSL",
+      "gender": 1
+    },
+    "116312": {
+      "name": "San Diego Wave",
+      "league": "NWSL",
+      "gender": 1
+    },
+    "18": {
+      "name": "Spurs",
+      "league": "Premier League",
+      "gender": 0
+    },
+    "7": {
+      "name": "Everton",
+      "league": "Premier League",
+      "gender": 0
+    },
+    "116282": {
+      "name": "Roma",
+      "league": "Calcio A Femminile",
+      "gender": 1
+    },
+    "116035": {
+      "name": "Paris FC",
+      "league": "Arkema PL",
+      "gender": 1
+    },
+    "132891": {
+      "name": "FC Twente",
+      "league": "Nederland Vrouwen Liga",
+      "gender": 1
+    },
+    "2": {
+      "name": "Aston Villa",
+      "league": "Premier League",
+      "gender": 0
+    },
+    "605": {
+      "name": "Al Hilal",
+      "league": "ROSHN Saudi League",
+      "gender": 0
+    },
+    "448": {
+      "name": "Athletic Club",
+      "league": "LALIGA EA SPORTS",
+      "gender": 0
+    },
+    "116012": {
+      "name": "Manchester Utd",
+      "league": "Barclays WSL",
+      "gender": 1
+    },
+    "325": {
+      "name": "Galatasaray",
+      "league": "Trendyol Süper Lig",
+      "gender": 0
+    },
+    "115998": {
+      "name": "VfL Wolfsburg",
+      "league": "GPFBL",
+      "gender": 1
+    },
+    "116326": {
+      "name": "Real Madrid",
+      "league": "Liga F Moeve",
+      "gender": 1
+    },
+    "106": {
+      "name": "Sunderland",
+      "league": "Premier League",
+      "gender": 0
+    },
+    "116305": {
+      "name": "Chicago Stars FC",
+      "league": "NWSL",
+      "gender": 1
+    },
+    "36": {
+      "name": "VfB Stuttgart",
+      "league": "Bundesliga",
+      "gender": 0
+    },
+    "116308": {
+      "name": "Rac. Louisville",
+      "league": "NWSL",
+      "gender": 1
+    },
+    "32": {
+      "name": "Leverkusen",
+      "league": "Bundesliga",
+      "gender": 0
+    },
+    "231": {
+      "name": "Club Brugge",
+      "league": "1A Pro League",
+      "gender": 0
+    },
+    "112391": {
+      "name": "Al Qadsiah",
+      "league": "ROSHN Saudi League",
+      "gender": 0
+    },
+    "116327": {
+      "name": "Atlético de Madrid",
+      "league": "Liga F Moeve",
+      "gender": 1
+    },
+    "112606": {
+      "name": "Orlando City",
+      "league": "MLS",
+      "gender": 0
+    },
+    "10029": {
+      "name": "TSG Hoffenheim",
+      "league": "Bundesliga",
+      "gender": 0
+    },
+    "1745": {
+      "name": "Como",
+      "league": "Serie A Enilive",
+      "gender": 0
+    },
+    "115997": {
+      "name": "Frankfurt",
+      "league": "GPFBL",
+      "gender": 1
+    },
+    "457": {
+      "name": "Real Sociedad",
+      "league": "LALIGA EA SPORTS",
+      "gender": 0
+    },
+    "693": {
+      "name": "Chicago Fire FC",
+      "league": "MLS",
+      "gender": 0
+    },
+    "347": {
+      "name": "Lecce",
+      "league": "Serie A Enilive",
+      "gender": 0
+    },
+    "116303": {
+      "name": "NC Courage",
+      "league": "NWSL",
+      "gender": 1
+    },
+    "112139": {
+      "name": "Al Nassr",
+      "league": "ROSHN Saudi League",
+      "gender": 0
+    },
+    "131125": {
+      "name": "Badalona Women",
+      "league": "Liga F Moeve",
+      "gender": 1
+    },
+    "112172": {
+      "name": "RB Leipzig",
+      "league": "Bundesliga",
+      "gender": 0
+    },
+    "14": {
+      "name": "Nott'm Forest",
+      "league": "Premier League",
+      "gender": 0
+    },
+    "115996": {
+      "name": "Leverkusen",
+      "league": "GPFBL",
+      "gender": 1
+    },
+    "116014": {
+      "name": "West Ham",
+      "league": "Barclays WSL",
+      "gender": 1
+    },
+    "326": {
+      "name": "Fenerbahçe",
+      "league": "Trendyol Süper Lig",
+      "gender": 0
+    },
+    "13": {
+      "name": "Newcastle Utd",
+      "league": "Premier League",
+      "gender": 0
+    },
+    "110374": {
+      "name": "Fiorentina",
+      "league": "Serie A Enilive",
+      "gender": 0
+    },
+    "116311": {
+      "name": "Angel City FC",
+      "league": "NWSL",
+      "gender": 1
+    },
+    "112387": {
+      "name": "Al Ahli",
+      "league": "ROSHN Saudi League",
+      "gender": 0
+    },
+    "280": {
+      "name": "Olympiacos FC",
+      "league": "Hellas Liga",
+      "gender": 0
+    },
+    "131477": {
+      "name": "Bay FC",
+      "league": "NWSL",
+      "gender": 1
+    },
+    "19": {
+      "name": "West Ham",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "449": {
+      "name": "Real Betis",
+      "league": "LALIGA EA SPORTS",
+      "gender": 0
+    },
+    "25": {
+      "name": "SC Freiburg",
+      "league": "Bundesliga",
+      "gender": 0
+    },
+    "116280": {
+      "name": "Juventus",
+      "league": "Calcio A Femminile",
+      "gender": 1
+    },
+    "116343": {
+      "name": "Liverpool",
+      "league": "Barclays WSL",
+      "gender": 1
+    },
+    "116306": {
+      "name": "Houston Dash",
+      "league": "NWSL",
+      "gender": 1
+    },
+    "116337": {
+      "name": "Sevilla FC",
+      "league": "Liga F Moeve",
+      "gender": 1
+    },
+    "237": {
+      "name": "Sporting CP",
+      "league": "Liga Portugal",
+      "gender": 0
+    },
+    "116336": {
+      "name": "Real Sociedad",
+      "league": "Liga F Moeve",
+      "gender": 1
+    },
+    "327": {
+      "name": "Beşiktaş",
+      "league": "Trendyol Süper Lig",
+      "gender": 0
+    },
+    "66": {
+      "name": "OL",
+      "league": "Ligue 1 McDonald's",
+      "gender": 0
+    },
+    "111674": {
+      "name": "Al Shabab",
+      "league": "ROSHN Saudi League",
+      "gender": 0
+    },
+    "1799": {
+      "name": "Crystal Palace",
+      "league": "Premier League",
+      "gender": 0
+    },
+    "131359": {
+      "name": "Ajax",
+      "league": "Nederland Vrouwen Liga",
+      "gender": 1
+    },
+    "245": {
+      "name": "Ajax",
+      "league": "Eredivisie",
+      "gender": 0
+    },
+    "132370": {
+      "name": "Marseille",
+      "league": "Arkema PL",
+      "gender": 1
+    },
+    "189": {
+      "name": "Bologna",
+      "league": "Serie A Enilive",
+      "gender": 0
+    },
+    "115841": {
+      "name": "SS Lazio",
+      "league": "Serie A Enilive",
+      "gender": 0
+    },
+    "483": {
+      "name": "Villarreal CF",
+      "league": "LALIGA EA SPORTS",
+      "gender": 0
+    },
+    "234": {
+      "name": "SL Benfica",
+      "league": "Liga Portugal",
+      "gender": 0
+    },
+    "131724": {
+      "name": "Strasbourg",
+      "league": "Arkema PL",
+      "gender": 1
+    },
+    "1896": {
+      "name": "SC Braga",
+      "league": "Liga Portugal",
+      "gender": 0
+    },
+    "1824": {
+      "name": "Frankfurt",
+      "league": "Bundesliga",
+      "gender": 0
+    },
+    "64": {
+      "name": "RC Lens",
+      "league": "Ligue 1 McDonald's",
+      "gender": 0
+    },
+    "111974": {
+      "name": "Sassuolo",
+      "league": "Serie A Enilive",
+      "gender": 0
+    },
+    "1925": {
+      "name": "Brentford",
+      "league": "Premier League",
+      "gender": 0
+    },
+    "607": {
+      "name": "Al Ittihad",
+      "league": "ROSHN Saudi League",
+      "gender": 0
+    },
+    "110580": {
+      "name": "Rosario Central",
+      "league": "LPF",
+      "gender": 0
+    },
+    "1884": {
+      "name": "Panathinaikos",
+      "league": "Hellas Liga",
+      "gender": 0
+    },
+    "479": {
+      "name": "CA Osasuna",
+      "league": "LALIGA EA SPORTS",
+      "gender": 0
+    },
+    "69": {
+      "name": "AS Monaco",
+      "league": "Ligue 1 McDonald's",
+      "gender": 0
+    },
+    "116300": {
+      "name": "Seattle Reign",
+      "league": "NWSL",
+      "gender": 1
+    },
+    "247": {
+      "name": "PSV",
+      "league": "Eredivisie",
+      "gender": 0
+    },
+    "1877": {
+      "name": "Boca Juniors",
+      "league": "LPF",
+      "gender": 0
+    },
+    "74": {
+      "name": "Stade Rennais FC",
+      "league": "Ligue 1 McDonald's",
+      "gender": 0
+    },
+    "1808": {
+      "name": "Brighton",
+      "league": "Premier League",
+      "gender": 0
+    },
+    "1943": {
+      "name": "AFC Bournemouth",
+      "league": "Premier League",
+      "gender": 0
+    },
+    "131725": {
+      "name": "Crystal Palace",
+      "league": "Barclays WSL",
+      "gender": 1
+    },
+    "169": {
+      "name": "1. FSV Mainz 05",
+      "league": "Bundesliga",
+      "gender": 0
+    },
+    "175": {
+      "name": "VfL Wolfsburg",
+      "league": "Bundesliga 2",
+      "gender": 0
+    },
+    "132697": {
+      "name": "Boston Legacy FC",
+      "league": "NWSL",
+      "gender": 1
+    },
+    "480": {
+      "name": "Rayo Vallecano",
+      "league": "LALIGA EA SPORTS",
+      "gender": 0
+    },
+    "112996": {
+      "name": "LAFC",
+      "league": "MLS",
+      "gender": 0
+    },
+    "131720": {
+      "name": "RC Deportivo",
+      "league": "Liga F Moeve",
+      "gender": 1
+    },
+    "8": {
+      "name": "Leeds United",
+      "league": "Premier League",
+      "gender": 0
+    },
+    "450": {
+      "name": "Celta",
+      "league": "LALIGA EA SPORTS",
+      "gender": 0
+    },
+    "116019": {
+      "name": "Birmingham City",
+      "league": "Barclays WSL",
+      "gender": 1
+    },
+    "116334": {
+      "name": "Madrid CFF",
+      "league": "Liga F Moeve",
+      "gender": 1
+    },
+    "1876": {
+      "name": "River Plate",
+      "league": "LPF",
+      "gender": 0
+    },
+    "116015": {
+      "name": "Aston Villa",
+      "league": "Barclays WSL",
+      "gender": 1
+    },
+    "1881": {
+      "name": "Pumas",
+      "league": "Liga BBVA MX",
+      "gender": 0
+    },
+    "144": {
+      "name": "Fulham",
+      "league": "Premier League",
+      "gender": 0
+    },
+    "1842": {
+      "name": "Cagliari",
+      "league": "Serie A Enilive",
+      "gender": 0
+    },
+    "54": {
+      "name": "Torino",
+      "league": "Serie A Enilive",
+      "gender": 0
+    },
+    "65": {
+      "name": "LOSC Lille",
+      "league": "Ligue 1 McDonald's",
+      "gender": 0
+    },
+    "1860": {
+      "name": "Getafe CF",
+      "league": "LALIGA EA SPORTS",
+      "gender": 0
+    },
+    "111701": {
+      "name": "Al Ain FC",
+      "league": "United Emirates League",
+      "gender": 0
+    },
+    "116332": {
+      "name": "C. Adeje Tenerife",
+      "league": "Liga F Moeve",
+      "gender": 1
+    },
+    "219": {
+      "name": "OM",
+      "league": "Ligue 1 McDonald's",
+      "gender": 0
+    },
+    "116328": {
+      "name": "Athletic Club",
+      "league": "Liga F Moeve",
+      "gender": 1
+    },
+    "115999": {
+      "name": "TSG Hoffenheim",
+      "league": "GPFBL",
+      "gender": 1
+    },
+    "132629": {
+      "name": "Logroño United",
+      "league": "Liga F Moeve",
+      "gender": 1
+    },
+    "111022": {
+      "name": "Belgrano",
+      "league": "LPF",
+      "gender": 0
+    },
+    "132589": {
+      "name": "Union Berlin",
+      "league": "GPFBL",
+      "gender": 1
+    },
+    "101112": {
+      "name": "Whitecaps FC",
+      "league": "MLS",
+      "gender": 0
+    },
+    "23": {
+      "name": "M'gladbach",
+      "league": "Bundesliga",
+      "gender": 0
+    },
+    "116011": {
+      "name": "Spurs",
+      "league": "Barclays WSL",
+      "gender": 1
+    },
+    "266": {
+      "name": "Slavia Praha",
+      "league": "Česká Liga",
+      "gender": 0
+    },
+    "918": {
+      "name": "FK Bodø/Glimt",
+      "league": "Eliteserien",
+      "gender": 0
+    },
+    "110062": {
+      "name": "Girona FC",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "2014": {
+      "name": "R. Union St.-G.",
+      "league": "1A Pro League",
+      "gender": 0
+    },
+    "113149": {
+      "name": "FC Cincinnati",
+      "league": "MLS",
+      "gender": 0
+    },
+    "116002": {
+      "name": "SC Freiburg",
+      "league": "GPFBL",
+      "gender": 1
+    },
+    "1952": {
+      "name": "Hull City",
+      "league": "Premier League",
+      "gender": 0
+    },
+    "38": {
+      "name": "SV Werder Bremen",
+      "league": "Bundesliga",
+      "gender": 0
+    },
+    "86": {
+      "name": "Rangers",
+      "league": "Scottish Premiership",
+      "gender": 0
+    },
+    "1853": {
+      "name": "Levante UD",
+      "league": "LALIGA EA SPORTS",
+      "gender": 0
+    },
+    "28": {
+      "name": "Hamburger SV",
+      "league": "Bundesliga",
+      "gender": 0
+    },
+    "1516": {
+      "name": "FC Midtjylland",
+      "league": "Metropolitan Division",
+      "gender": 0
+    },
+    "673": {
+      "name": "KRC Genk",
+      "league": "1A Pro League",
+      "gender": 0
+    },
+    "481": {
+      "name": "Sevilla FC",
+      "league": "LALIGA EA SPORTS",
+      "gender": 0
+    },
+    "452": {
+      "name": "RCD Espanyol",
+      "league": "LALIGA EA SPORTS",
+      "gender": 0
+    },
+    "112393": {
+      "name": "Al Taawoun",
+      "league": "ROSHN Saudi League",
+      "gender": 0
+    },
+    "116016": {
+      "name": "Everton",
+      "league": "Barclays WSL",
+      "gender": 1
+    },
+    "131358": {
+      "name": "SL Benfica",
+      "league": "Liga Portugal Feminino",
+      "gender": 1
+    },
+    "113058": {
+      "name": "Abha Club",
+      "league": "ROSHN Saudi League",
+      "gender": 0
+    },
+    "131439": {
+      "name": "San Diego FC",
+      "league": "MLS",
+      "gender": 0
+    },
+    "1882": {
+      "name": "Toluca FC",
+      "league": "Liga BBVA MX",
+      "gender": 0
+    },
+    "116003": {
+      "name": "1. FC Köln",
+      "league": "GPFBL",
+      "gender": 1
+    },
+    "132816": {
+      "name": "BK Hcken",
+      "league": "Sverige Liga",
+      "gender": 1
+    },
+    "1910": {
+      "name": "N.E.C. Nijmegen",
+      "league": "Eredivisie",
+      "gender": 0
+    },
+    "112390": {
+      "name": "Al Fateh",
+      "league": "ROSHN Saudi League",
+      "gender": 0
+    },
+    "242": {
+      "name": "RC Deportivo",
+      "league": "LALIGA EA SPORTS",
+      "gender": 0
+    },
+    "113224": {
+      "name": "Al Diriyah",
+      "league": "ROSHN Saudi League",
+      "gender": 0
+    },
+    "131478": {
+      "name": "Utah Royals FC",
+      "league": "NWSL",
+      "gender": 1
+    },
+    "691": {
+      "name": "New England",
+      "league": "MLS",
+      "gender": 0
+    },
+    "131798": {
+      "name": "Neom",
+      "league": "ROSHN Saudi League",
+      "gender": 0
+    },
+    "76": {
+      "name": "Strasbourg",
+      "league": "Ligue 1 McDonald's",
+      "gender": 0
+    },
+    "674": {
+      "name": "KAA Gent",
+      "league": "1A Pro League",
+      "gender": 0
+    },
+    "94": {
+      "name": "Ipswich",
+      "league": "Premier League",
+      "gender": 0
+    },
+    "1032": {
+      "name": "Monterrey",
+      "league": "Liga BBVA MX",
+      "gender": 0
+    },
+    "300": {
+      "name": "Viking FK",
+      "league": "Eliteserien",
+      "gender": 0
+    },
+    "101047": {
+      "name": "Dynamo Kyiv",
+      "league": "Ukrayina Liha",
+      "gender": 0
+    },
+    "456": {
+      "name": "R. Racing Club",
+      "league": "LALIGA EA SPORTS",
+      "gender": 0
+    },
+    "687": {
+      "name": "Columbus Crew",
+      "league": "MLS",
+      "gender": 0
+    },
+    "453": {
+      "name": "RCD Mallorca",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "78": {
+      "name": "Celtic",
+      "league": "Scottish Premiership",
+      "gender": 0
+    },
+    "517": {
+      "name": "Botafogo",
+      "league": "CONMEBOL Sudamericana",
+      "gender": 0
+    },
+    "34": {
+      "name": "FC Schalke 04",
+      "league": "Bundesliga",
+      "gender": 0
+    },
+    "1880": {
+      "name": "Club Guadalajara",
+      "league": "Liga BBVA MX",
+      "gender": 0
+    },
+    "110395": {
+      "name": "Lanús",
+      "league": "LPF",
+      "gender": 0
+    },
+    "110": {
+      "name": "Wolves",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "110827": {
+      "name": "R. Oviedo",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "31": {
+      "name": "1. FC Köln",
+      "league": "Bundesliga",
+      "gender": 0
+    },
+    "1809": {
+      "name": "Toulouse FC",
+      "league": "Ligue 1 McDonald's",
+      "gender": 0
+    },
+    "111817": {
+      "name": "Paris FC",
+      "league": "Ligue 1 McDonald's",
+      "gender": 0
+    },
+    "1831": {
+      "name": "Union Berlin",
+      "league": "Bundesliga",
+      "gender": 0
+    },
+    "1879": {
+      "name": "Club América",
+      "league": "Liga BBVA MX",
+      "gender": 0
+    },
+    "101083": {
+      "name": "Estudiantes",
+      "league": "LPF",
+      "gender": 0
+    },
+    "116037": {
+      "name": "Montpellier",
+      "league": "Arkema PL",
+      "gender": 1
+    },
+    "111657": {
+      "name": "Frosinone",
+      "league": "Serie A Enilive",
+      "gender": 0
+    },
+    "114162": {
+      "name": "Nashville SC",
+      "league": "MLS",
+      "gender": 0
+    },
+    "113050": {
+      "name": "Club Atlético Gimnasia y Esgrima",
+      "league": "LPF",
+      "gender": 0
+    },
+    "112883": {
+      "name": "Al Khaleej",
+      "league": "ROSHN Saudi League",
+      "gender": 0
+    },
+    "1970": {
+      "name": "Club Tigres",
+      "league": "Liga BBVA MX",
+      "gender": 0
+    },
+    "55": {
+      "name": "Udinese",
+      "league": "Serie A Enilive",
+      "gender": 0
+    },
+    "101110": {
+      "name": "Peñarol",
+      "league": "CONMEBOL Libertadores",
+      "gender": 0
+    },
+    "114640": {
+      "name": "Charlotte FC",
+      "league": "MLS",
+      "gender": 0
+    },
+    "697": {
+      "name": "LA Galaxy",
+      "league": "MLS",
+      "gender": 0
+    },
+    "112389": {
+      "name": "Al Faisaly",
+      "league": "ROSHN Saudi League",
+      "gender": 0
+    },
+    "463": {
+      "name": "D. Alavés",
+      "league": "LALIGA EA SPORTS",
+      "gender": 0
+    },
+    "461": {
+      "name": "Valencia CF",
+      "league": "LALIGA EA SPORTS",
+      "gender": 0
+    },
+    "246": {
+      "name": "Feyenoord",
+      "league": "Eredivisie",
+      "gender": 0
+    },
+    "112885": {
+      "name": "Atlanta United",
+      "league": "MLS",
+      "gender": 0
+    },
+    "116036": {
+      "name": "FC Fleury 91",
+      "league": "Arkema PL",
+      "gender": 1
+    },
+    "211": {
+      "name": "Dinamo Zagreb",
+      "league": "Liga Hrvatska",
+      "gender": 0
+    },
+    "116417": {
+      "name": "FC Nantes",
+      "league": "Arkema PL",
+      "gender": 1
+    },
+    "111325": {
+      "name": "Nacional",
+      "league": "CONMEBOL Libertadores",
+      "gender": 0
+    },
+    "72": {
+      "name": "OGC Nice",
+      "league": "Ligue 1 McDonald's",
+      "gender": 0
+    },
+    "132831": {
+      "name": "Toulouse FC",
+      "league": "Arkema PL",
+      "gender": 1
+    },
+    "111144": {
+      "name": "Sounders FC",
+      "league": "MLS",
+      "gender": 0
+    },
+    "1598": {
+      "name": "Bahia",
+      "league": "Liga do Brasil",
+      "gender": 0
+    },
+    "17": {
+      "name": "Southampton",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "112828": {
+      "name": "New York City FC",
+      "league": "MLS",
+      "gender": 0
+    },
+    "100409": {
+      "name": "FC Augsburg",
+      "league": "Bundesliga",
+      "gender": 0
+    },
+    "111019": {
+      "name": "Argentinos Jrs.",
+      "league": "LPF",
+      "gender": 0
+    },
+    "217": {
+      "name": "FC Lorient",
+      "league": "Ligue 1 McDonald's",
+      "gender": 0
+    },
+    "114554": {
+      "name": "FC Andorra",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "110468": {
+      "name": "Viktoria Plzeň",
+      "league": "Česká Liga",
+      "gender": 0
+    },
+    "131360": {
+      "name": "Slavia Praha",
+      "league": "Ceska Liga Žen",
+      "gender": 1
+    },
+    "393": {
+      "name": "PAOK FC",
+      "league": "Hellas Liga",
+      "gender": 0
+    },
+    "101059": {
+      "name": "Shakhtar Donetsk",
+      "league": "Ukrayina Liha",
+      "gender": 0
+    },
+    "1878": {
+      "name": "CF Cruz Azul",
+      "league": "Liga BBVA MX",
+      "gender": 0
+    },
+    "113037": {
+      "name": "Al Riyadh",
+      "league": "ROSHN Saudi League",
+      "gender": 0
+    },
+    "116021": {
+      "name": "RB Leipzig",
+      "league": "GPFBL",
+      "gender": 1
+    },
+    "111138": {
+      "name": "Minnesota United",
+      "league": "MLS",
+      "gender": 0
+    },
+    "278": {
+      "name": "AEK Athens",
+      "league": "Hellas Liga",
+      "gender": 0
+    },
+    "1861": {
+      "name": "UD Almería",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "112096": {
+      "name": "Al Ettifaq",
+      "league": "ROSHN Saudi League",
+      "gender": 0
+    },
+    "112670": {
+      "name": "Talleres",
+      "league": "LPF",
+      "gender": 0
+    },
+    "116329": {
+      "name": "Deportivo Alavés",
+      "league": "Liga F Moeve",
+      "gender": 1
+    },
+    "263": {
+      "name": "Hajduk Split",
+      "league": "Liga Hrvatska",
+      "gender": 0
+    },
+    "695": {
+      "name": "FC Dallas",
+      "league": "MLS",
+      "gender": 0
+    },
+    "1796": {
+      "name": "Burnley",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "113057": {
+      "name": "Al Fayha",
+      "league": "ROSHN Saudi League",
+      "gender": 0
+    },
+    "1874": {
+      "name": "Ferencvárosi TC",
+      "league": "Magyar Liga",
+      "gender": 0
+    },
+    "378": {
+      "name": "Stade Brestois 29",
+      "league": "Ligue 1 McDonald's",
+      "gender": 0
+    },
+    "205": {
+      "name": "Venezia",
+      "league": "Serie A Enilive",
+      "gender": 0
+    },
+    "1906": {
+      "name": "AZ",
+      "league": "Eredivisie",
+      "gender": 0
+    },
+    "1908": {
+      "name": "FC Twente",
+      "league": "Eredivisie",
+      "gender": 0
+    },
+    "101085": {
+      "name": "Racing Club",
+      "league": "LPF",
+      "gender": 0
+    },
+    "110556": {
+      "name": "Genoa",
+      "league": "Serie A Enilive",
+      "gender": 0
+    },
+    "271": {
+      "name": "AGF",
+      "league": "Metropolitan Division",
+      "gender": 0
+    },
+    "132865": {
+      "name": "VfB Stuttgart",
+      "league": "GPFBL",
+      "gender": 1
+    },
+    "1800": {
+      "name": "Coventry City",
+      "league": "Premier League",
+      "gender": 0
+    },
+    "111811": {
+      "name": "Monza",
+      "league": "Serie A Enilive",
+      "gender": 0
+    },
+    "468": {
+      "name": "Elche CF",
+      "league": "LALIGA EA SPORTS",
+      "gender": 0
+    },
+    "12": {
+      "name": "Middlesbrough",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "573": {
+      "name": "Málaga CF",
+      "league": "LALIGA EA SPORTS",
+      "gender": 0
+    },
+    "131733": {
+      "name": "RCD Espanyol",
+      "league": "Liga F Moeve",
+      "gender": 1
+    },
+    "50": {
+      "name": "Parma",
+      "league": "Serie A Enilive",
+      "gender": 0
+    },
+    "116331": {
+      "name": "SD Eibar",
+      "league": "Liga F Moeve",
+      "gender": 1
+    },
+    "229": {
+      "name": "RSC Anderlecht",
+      "league": "1A Pro League",
+      "gender": 0
+    },
+    "379": {
+      "name": "Stade de Reims",
+      "league": "Ligue 2 BKT",
+      "gender": 0
+    },
+    "111710": {
+      "name": "Defensa",
+      "league": "LPF",
+      "gender": 0
+    },
+    "57": {
+      "name": "AJ Auxerre",
+      "league": "Ligue 1 McDonald's",
+      "gender": 0
+    },
+    "101114": {
+      "name": "Atlas FC",
+      "league": "Liga BBVA MX",
+      "gender": 0
+    },
+    "132867": {
+      "name": "Charlton Athletic",
+      "league": "Barclays WSL",
+      "gender": 1
+    },
+    "485": {
+      "name": "Hannover 96",
+      "league": "Bundesliga 2",
+      "gender": 0
+    },
+    "111140": {
+      "name": "Portland Timbers",
+      "league": "MLS",
+      "gender": 0
+    },
+    "1843": {
+      "name": "Palermo",
+      "league": "Serie BKT",
+      "gender": 0
+    },
+    "896": {
+      "name": "FC Basel 1893",
+      "league": "Brack Super League",
+      "gender": 0
+    },
+    "80": {
+      "name": "Hearts",
+      "league": "Scottish Premiership",
+      "gender": 0
+    },
+    "110093": {
+      "name": "Independiente",
+      "league": "LPF",
+      "gender": 0
+    },
+    "101014": {
+      "name": "Başakşehir",
+      "league": "Trendyol Süper Lig",
+      "gender": 0
+    },
+    "110147": {
+      "name": "Club Pachuca",
+      "league": "Liga BBVA MX",
+      "gender": 0
+    },
+    "1739": {
+      "name": "Le Mans FC",
+      "league": "Ligue 1 McDonald's",
+      "gender": 0
+    },
+    "111928": {
+      "name": "SJ Earthquakes",
+      "league": "MLS",
+      "gender": 0
+    },
+    "88": {
+      "name": "Birmingham City",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "101100": {
+      "name": "Atl. Nacional",
+      "league": "Liga Colombia",
+      "gender": 0
+    },
+    "670": {
+      "name": "Sp. Charleroi",
+      "league": "1A Pro League",
+      "gender": 0
+    },
+    "681": {
+      "name": "KVC Westerlo",
+      "league": "1A Pro League",
+      "gender": 0
+    },
+    "131391": {
+      "name": "Granada CF",
+      "league": "Liga F Moeve",
+      "gender": 1
+    },
+    "101088": {
+      "name": "Vélez Sarsfield",
+      "league": "LPF",
+      "gender": 0
+    },
+    "112809": {
+      "name": "FC Famalicão",
+      "league": "Liga Portugal",
+      "gender": 0
+    },
+    "116004": {
+      "name": "SV Werder Bremen",
+      "league": "GPFBL",
+      "gender": 1
+    },
+    "132889": {
+      "name": "SK Brann",
+      "league": "Norge Kvinner Liga",
+      "gender": 1
+    },
+    "689": {
+      "name": "Red Bulls",
+      "league": "MLS",
+      "gender": 0
+    },
+    "1530": {
+      "name": "Angers SCO",
+      "league": "Ligue 1 McDonald's",
+      "gender": 0
+    },
+    "191": {
+      "name": "RB Salzburg",
+      "league": "Ö. Bundesliga",
+      "gender": 0
+    },
+    "111020": {
+      "name": "Ind. Rivadavia",
+      "league": "LPF",
+      "gender": 0
+    },
+    "1960": {
+      "name": "Swansea City",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "111235": {
+      "name": "Heidenheim",
+      "league": "Bundesliga 2",
+      "gender": 0
+    },
+    "101033": {
+      "name": "Konyaspor",
+      "league": "Trendyol Süper Lig",
+      "gender": 0
+    },
+    "694": {
+      "name": "Colorado Rapids",
+      "league": "MLS",
+      "gender": 0
+    },
+    "116416": {
+      "name": "Havre AC",
+      "league": "Arkema PL",
+      "gender": 1
+    },
+    "1473": {
+      "name": "Ulsan HD FC",
+      "league": "K League 1",
+      "gender": 0
+    },
+    "132305": {
+      "name": "Dalian Yingbo",
+      "league": "CSL",
+      "gender": 0
+    },
+    "111716": {
+      "name": "Unión",
+      "league": "LPF",
+      "gender": 0
+    },
+    "1832": {
+      "name": "Karlsruher SC",
+      "league": "Bundesliga 2",
+      "gender": 0
+    },
+    "206": {
+      "name": "Hellas Verona",
+      "league": "Serie BKT",
+      "gender": 0
+    },
+    "10020": {
+      "name": "Estoril Praia",
+      "league": "Liga Portugal",
+      "gender": 0
+    },
+    "1806": {
+      "name": "Stoke City",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "111065": {
+      "name": "Real Salt Lake",
+      "league": "MLS",
+      "gender": 0
+    },
+    "209": {
+      "name": "SK Sturm Graz",
+      "league": "Ö. Bundesliga",
+      "gender": 0
+    },
+    "819": {
+      "name": "F.C. København",
+      "league": "Metropolitan Division",
+      "gender": 0
+    },
+    "873": {
+      "name": "Lech Poznań",
+      "league": "Ekstraklasa",
+      "gender": 0
+    },
+    "111724": {
+      "name": "Shandong Taishan",
+      "league": "CSL",
+      "gender": 0
+    },
+    "111008": {
+      "name": "Libertad",
+      "league": "CONMEBOL Libertadores",
+      "gender": 0
+    },
+    "110953": {
+      "name": "Instituto",
+      "league": "LPF",
+      "gender": 0
+    },
+    "112134": {
+      "name": "Philadelphia",
+      "league": "MLS",
+      "gender": 0
+    },
+    "1903": {
+      "name": "FC Utrecht",
+      "league": "Eredivisie",
+      "gender": 0
+    },
+    "101032": {
+      "name": "Kocaelispor",
+      "league": "Trendyol Süper Lig",
+      "gender": 0
+    },
+    "111139": {
+      "name": "CF Montréal",
+      "league": "MLS",
+      "gender": 0
+    },
+    "97": {
+      "name": "Millwall",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "131363": {
+      "name": "Glasgow City FC",
+      "league": "Scottish Women's League",
+      "gender": 1
+    },
+    "113018": {
+      "name": "St. Louis CITY SC",
+      "league": "MLS",
+      "gender": 0
+    },
+    "324": {
+      "name": "Servette FC",
+      "league": "Brack Super League",
+      "gender": 0
+    },
+    "110206": {
+      "name": "GKS Katowice",
+      "league": "Ekstraklasa",
+      "gender": 0
+    },
+    "111434": {
+      "name": "Cremonese",
+      "league": "Serie BKT",
+      "gender": 0
+    },
+    "232": {
+      "name": "Standard Liège",
+      "league": "1A Pro League",
+      "gender": 0
+    },
+    "113222": {
+      "name": "Al Hazem",
+      "league": "ROSHN Saudi League",
+      "gender": 0
+    },
+    "100135": {
+      "name": "APOEL FC",
+      "league": "Liga Cyprus",
+      "gender": 0
+    },
+    "132868": {
+      "name": "Çorum Futbol Kulübü",
+      "league": "Trendyol Süper Lig",
+      "gender": 0
+    },
+    "267": {
+      "name": "Sparta Praha",
+      "league": "Česká Liga",
+      "gender": 0
+    },
+    "131386": {
+      "name": "1. FC Nürnberg",
+      "league": "GPFBL",
+      "gender": 1
+    },
+    "110745": {
+      "name": "Jagiellonia",
+      "league": "Ekstraklasa",
+      "gender": 0
+    },
+    "698": {
+      "name": "Houston Dynamo",
+      "league": "MLS",
+      "gender": 0
+    },
+    "101101": {
+      "name": "Junior",
+      "league": "CONMEBOL Libertadores",
+      "gender": 0
+    },
+    "1819": {
+      "name": "AS Saint-Étienne",
+      "league": "Ligue 2 BKT",
+      "gender": 0
+    },
+    "112678": {
+      "name": "Atltico de SL",
+      "league": "Liga BBVA MX",
+      "gender": 0
+    },
+    "110912": {
+      "name": "Padova",
+      "league": "Serie BKT",
+      "gender": 0
+    },
+    "110781": {
+      "name": "Club Len",
+      "league": "Liga BBVA MX",
+      "gender": 0
+    },
+    "111651": {
+      "name": "Toronto FC",
+      "league": "MLS",
+      "gender": 0
+    },
+    "101108": {
+      "name": "Olimpia",
+      "league": "CONMEBOL Sudamericana",
+      "gender": 0
+    },
+    "101121": {
+      "name": "Club Necaxa",
+      "league": "Liga BBVA MX",
+      "gender": 0
+    },
+    "4": {
+      "name": "Bolton",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "112372": {
+      "name": "PFC Ludogorets",
+      "league": "Liga Bulgaria",
+      "gender": 0
+    },
+    "1788": {
+      "name": "FC Nordsjælland",
+      "league": "Metropolitan Division",
+      "gender": 0
+    },
+    "680": {
+      "name": "STVV",
+      "league": "1A Pro League",
+      "gender": 0
+    },
+    "900": {
+      "name": "BSC Young Boys",
+      "league": "Brack Super League",
+      "gender": 0
+    },
+    "110144": {
+      "name": "Santos Laguna",
+      "league": "Liga BBVA MX",
+      "gender": 0
+    },
+    "116360": {
+      "name": "Chengdu FC",
+      "league": "CSL",
+      "gender": 0
+    },
+    "10032": {
+      "name": "FC Lugano",
+      "league": "Brack Super League",
+      "gender": 0
+    },
+    "1888": {
+      "name": "Gil Vicente",
+      "league": "Liga Portugal",
+      "gender": 0
+    },
+    "100632": {
+      "name": "Go Ahead Eagles",
+      "league": "Eredivisie",
+      "gender": 0
+    },
+    "1837": {
+      "name": "Sampdoria",
+      "league": "Serie BKT",
+      "gender": 0
+    },
+    "459": {
+      "name": "R. Sporting",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "472": {
+      "name": "UD Las Palmas",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "1738": {
+      "name": "Havre AC",
+      "league": "Ligue 1 McDonald's",
+      "gender": 0
+    },
+    "110738": {
+      "name": "Pisa",
+      "league": "Serie BKT",
+      "gender": 0
+    },
+    "110955": {
+      "name": "Shanghai Shenhua",
+      "league": "CSL",
+      "gender": 0
+    },
+    "111678": {
+      "name": "Club Tijuana",
+      "league": "Liga BBVA MX",
+      "gender": 0
+    },
+    "111083": {
+      "name": "Korona Kielce",
+      "league": "Ekstraklasa",
+      "gender": 0
+    },
+    "111014": {
+      "name": "Universitario",
+      "league": "CONMEBOL Libertadores",
+      "gender": 0
+    },
+    "110724": {
+      "name": "KV Mechelen",
+      "league": "1A Pro League",
+      "gender": 0
+    },
+    "1887": {
+      "name": "Vitória SC",
+      "league": "Liga Portugal",
+      "gender": 0
+    },
+    "111774": {
+      "name": "Tianjin JMT FC",
+      "league": "CSL",
+      "gender": 0
+    },
+    "132533": {
+      "name": "Hamburger SV",
+      "league": "GPFBL",
+      "gender": 1
+    },
+    "132392": {
+      "name": "Amed Sportif Faaliyetler",
+      "league": "Trendyol Süper Lig",
+      "gender": 0
+    },
+    "131362": {
+      "name": "FC Rosengård",
+      "league": "Sverige Liga",
+      "gender": 1
+    },
+    "71": {
+      "name": "FC Nantes",
+      "league": "Ligue 2 BKT",
+      "gender": 0
+    },
+    "718": {
+      "name": "Estrela Amadora",
+      "league": "Liga Portugal",
+      "gender": 0
+    },
+    "112908": {
+      "name": "IDV",
+      "league": "CONMEBOL Libertadores",
+      "gender": 0
+    },
+    "110329": {
+      "name": "FC St. Pauli",
+      "league": "Bundesliga 2",
+      "gender": 0
+    },
+    "1795": {
+      "name": "Watford",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "980": {
+      "name": "Daejeon Hana",
+      "league": "K League 1",
+      "gender": 0
+    },
+    "113888": {
+      "name": "Qarabağ FK",
+      "league": "Liga Azerbaijan",
+      "gender": 0
+    },
+    "132861": {
+      "name": "US Saint-Malo",
+      "league": "Arkema PL",
+      "gender": 1
+    },
+    "132866": {
+      "name": "1. FSV Mainz 05",
+      "league": "GPFBL",
+      "gender": 1
+    },
+    "744": {
+      "name": "Rio Ave FC",
+      "league": "Liga Portugal",
+      "gender": 0
+    },
+    "114161": {
+      "name": "Austin FC",
+      "league": "MLS",
+      "gender": 0
+    },
+    "1871": {
+      "name": "Legia Warszawa",
+      "league": "Ekstraklasa",
+      "gender": 0
+    },
+    "131361": {
+      "name": "FC Zürich",
+      "league": "Schweizer Damen Liga",
+      "gender": 1
+    },
+    "112513": {
+      "name": "Arouca",
+      "league": "Liga Portugal",
+      "gender": 0
+    },
+    "111711": {
+      "name": "Huracán",
+      "league": "LPF",
+      "gender": 0
+    },
+    "634": {
+      "name": "Fortuna Sittard",
+      "league": "Eredivisie",
+      "gender": 0
+    },
+    "101084": {
+      "name": "Gimnasia",
+      "league": "LPF",
+      "gender": 0
+    },
+    "112716": {
+      "name": "Cerro Porteño",
+      "league": "CONMEBOL Libertadores",
+      "gender": 0
+    },
+    "111707": {
+      "name": "Aldosivi",
+      "league": "LPF",
+      "gender": 0
+    },
+    "112163": {
+      "name": "Zhejiang Pro",
+      "league": "CSL",
+      "gender": 0
+    },
+    "113134": {
+      "name": "FC Jurez",
+      "league": "Liga BBVA MX",
+      "gender": 0
+    },
+    "115472": {
+      "name": "Dep. Riestra",
+      "league": "LPF",
+      "gender": 0
+    },
+    "1854": {
+      "name": "Albacete BP",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "131531": {
+      "name": "Yunnan Yukun",
+      "league": "CSL",
+      "gender": 0
+    },
+    "749": {
+      "name": "Erzurumspor Futbol Kulübü",
+      "league": "Trendyol Süper Lig",
+      "gender": 0
+    },
+    "131464": {
+      "name": "KS Wieczysta Kraków",
+      "league": "Ekstraklasa",
+      "gender": 0
+    },
+    "1477": {
+      "name": "Jeonbuk Hyundai",
+      "league": "K League 1",
+      "gender": 0
+    },
+    "101104": {
+      "name": "Indep. Santa Fe",
+      "league": "CONMEBOL Libertadores",
+      "gender": 0
+    },
+    "91": {
+      "name": "Derby County",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "112689": {
+      "name": "Platense",
+      "league": "LPF",
+      "gender": 0
+    },
+    "110776": {
+      "name": "Gaziantep",
+      "league": "Trendyol Süper Lig",
+      "gender": 0
+    },
+    "110765": {
+      "name": "Incheon United",
+      "league": "K League 1",
+      "gender": 0
+    },
+    "116361": {
+      "name": "Wuhan Three Towns",
+      "league": "CSL",
+      "gender": 0
+    },
+    "111708": {
+      "name": "Atlético Tucumán",
+      "league": "LPF",
+      "gender": 0
+    },
+    "294": {
+      "name": "ESTAC Troyes",
+      "league": "Ligue 1 McDonald's",
+      "gender": 0
+    },
+    "110975": {
+      "name": "Uni. Católica",
+      "league": "CONMEBOL Libertadores",
+      "gender": 0
+    },
+    "1013": {
+      "name": "San Lorenzo",
+      "league": "LPF",
+      "gender": 0
+    },
+    "982": {
+      "name": "FC Seoul",
+      "league": "K League 1",
+      "gender": 0
+    },
+    "95": {
+      "name": "Leicester City",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "2038": {
+      "name": "Avellino",
+      "league": "Serie BKT",
+      "gender": 0
+    },
+    "109": {
+      "name": "West Brom",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "112115": {
+      "name": "Gangwon FC",
+      "league": "K League 1",
+      "gender": 0
+    },
+    "230": {
+      "name": "Royal Antwerp FC",
+      "league": "1A Pro League",
+      "gender": 0
+    },
+    "100888": {
+      "name": "CD Leganés",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "116339": {
+      "name": "Valencia CF",
+      "league": "Liga F Moeve",
+      "gender": 1
+    },
+    "100087": {
+      "name": "OH Leuven",
+      "league": "1A Pro League",
+      "gender": 0
+    },
+    "252": {
+      "name": "LASK",
+      "league": "Ö. Bundesliga",
+      "gender": 0
+    },
+    "308": {
+      "name": "Univ. Craiova",
+      "league": "SUPERLIGA",
+      "gender": 0
+    },
+    "114510": {
+      "name": "Casa Pia AC",
+      "league": "Liga Portugal",
+      "gender": 0
+    },
+    "110321": {
+      "name": "Pau FC",
+      "league": "Ligue 2 BKT",
+      "gender": 0
+    },
+    "1794": {
+      "name": "Sheffield Utd",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "111339": {
+      "name": "Kasımpaşa",
+      "league": "Trendyol Süper Lig",
+      "gender": 0
+    },
+    "110152": {
+      "name": "Club Puebla",
+      "league": "Liga BBVA MX",
+      "gender": 0
+    },
+    "131488": {
+      "name": "Qingdao W. Coast",
+      "league": "CSL",
+      "gender": 0
+    },
+    "83": {
+      "name": "Motherwell",
+      "league": "Scottish Premiership",
+      "gender": 0
+    },
+    "68": {
+      "name": "FC Metz",
+      "league": "Ligue 2 BKT",
+      "gender": 0
+    },
+    "580": {
+      "name": "SV Elversberg",
+      "league": "Bundesliga",
+      "gender": 0
+    },
+    "1744": {
+      "name": "Modena",
+      "league": "Serie BKT",
+      "gender": 0
+    },
+    "15": {
+      "name": "QPR",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "114385": {
+      "name": "CFR 1907 Cluj",
+      "league": "SUPERLIGA",
+      "gender": 0
+    },
+    "1750": {
+      "name": "Cercle Brugge",
+      "league": "1A Pro League",
+      "gender": 0
+    },
+    "1792": {
+      "name": "Norwich",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "1913": {
+      "name": "sc Heerenveen",
+      "league": "Eredivisie",
+      "gender": 0
+    },
+    "110404": {
+      "name": "Banfield",
+      "league": "LPF",
+      "gender": 0
+    },
+    "264": {
+      "name": "Omonia FC",
+      "league": "Liga Cyprus",
+      "gender": 0
+    },
+    "111594": {
+      "name": "GAIS",
+      "league": "Allsvenskan",
+      "gender": 0
+    },
+    "112555": {
+      "name": "FC Anyang",
+      "league": "K League 1",
+      "gender": 0
+    },
+    "110396": {
+      "name": "Newell's",
+      "league": "LPF",
+      "gender": 0
+    },
+    "301": {
+      "name": "Widzew Łódź",
+      "league": "Ekstraklasa",
+      "gender": 0
+    },
+    "15021": {
+      "name": "CE Sabadell FC",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "111779": {
+      "name": "Henan FC",
+      "league": "CSL",
+      "gender": 0
+    },
+    "1790": {
+      "name": "Portsmouth",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "1947": {
+      "name": "Wrexham",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "1801": {
+      "name": "Preston",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "160": {
+      "name": "VfL Bochum 1848",
+      "league": "Bundesliga 2",
+      "gender": 0
+    },
+    "110832": {
+      "name": "Granada CF",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "171": {
+      "name": "1. FC Nürnberg",
+      "league": "Bundesliga 2",
+      "gender": 0
+    },
+    "110746": {
+      "name": "Pogoń Szczecin",
+      "league": "Ekstraklasa",
+      "gender": 0
+    },
+    "898": {
+      "name": "FC St. Gallen",
+      "league": "Brack Super League",
+      "gender": 0
+    },
+    "110588": {
+      "name": "1. FC Magdeburg",
+      "league": "Bundesliga 2",
+      "gender": 0
+    },
+    "110981": {
+      "name": "Barcelona SC",
+      "league": "CONMEBOL Libertadores",
+      "gender": 0
+    },
+    "29": {
+      "name": "Kaiserslautern",
+      "league": "Bundesliga 2",
+      "gender": 0
+    },
+    "101025": {
+      "name": "Gençlerbirliği",
+      "league": "Trendyol Süper Lig",
+      "gender": 0
+    },
+    "112638": {
+      "name": "Buriram United",
+      "league": "Thailand League",
+      "gender": 0
+    },
+    "1900": {
+      "name": "Moreirense FC",
+      "league": "Liga Portugal",
+      "gender": 0
+    },
+    "1915": {
+      "name": "FC Groningen",
+      "league": "Eredivisie",
+      "gender": 0
+    },
+    "110986": {
+      "name": "LDU Quito",
+      "league": "CONMEBOL Libertadores",
+      "gender": 0
+    },
+    "111768": {
+      "name": "Beijing FC",
+      "league": "CSL",
+      "gender": 0
+    },
+    "166": {
+      "name": "Hertha BSC",
+      "league": "Bundesliga 2",
+      "gender": 0
+    },
+    "3": {
+      "name": "Blackburn Rovers",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "708": {
+      "name": "Hammarby IF",
+      "league": "Allsvenskan",
+      "gender": 0
+    },
+    "111011": {
+      "name": "Cienciano",
+      "league": "CONMEBOL Sudamericana",
+      "gender": 0
+    },
+    "77": {
+      "name": "Aberdeen",
+      "league": "Scottish Premiership",
+      "gender": 0
+    },
+    "897": {
+      "name": "FC Luzern",
+      "league": "Brack Super League",
+      "gender": 0
+    },
+    "717": {
+      "name": "FC Alverca",
+      "league": "Liga Portugal",
+      "gender": 0
+    },
+    "131735": {
+      "name": "Al Kholood",
+      "league": "ROSHN Saudi League",
+      "gender": 0
+    },
+    "1438": {
+      "name": "Santa Clara",
+      "league": "Liga Portugal",
+      "gender": 0
+    },
+    "111715": {
+      "name": "Tigre",
+      "league": "LPF",
+      "gender": 0
+    },
+    "688": {
+      "name": "D.C. United",
+      "league": "MLS",
+      "gender": 0
+    },
+    "112072": {
+      "name": "Mjällby AIF",
+      "league": "Allsvenskan",
+      "gender": 0
+    },
+    "1919": {
+      "name": "Bristol City",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "111097": {
+      "name": "Motor Lublin",
+      "league": "Ekstraklasa",
+      "gender": 0
+    },
+    "89": {
+      "name": "Charlton Ath",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "70": {
+      "name": "Montpellier",
+      "league": "Ligue 2 BKT",
+      "gender": 0
+    },
+    "10030": {
+      "name": "SC Paderborn 07",
+      "league": "Bundesliga",
+      "gender": 0
+    },
+    "100852": {
+      "name": "CD Castellón",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "110915": {
+      "name": "Cesena",
+      "league": "Serie BKT",
+      "gender": 0
+    },
+    "417": {
+      "name": "Molde FK",
+      "league": "Eliteserien",
+      "gender": 0
+    },
+    "112494": {
+      "name": "Südtirol",
+      "league": "Serie BKT",
+      "gender": 0
+    },
+    "101099": {
+      "name": "América de Cali",
+      "league": "CONMEBOL Sudamericana",
+      "gender": 0
+    },
+    "696": {
+      "name": "Sporting KC",
+      "league": "MLS",
+      "gender": 0
+    },
+    "112493": {
+      "name": "Carrarese Calcio",
+      "league": "Serie BKT",
+      "gender": 0
+    },
+    "1786": {
+      "name": "Randers FC",
+      "league": "Metropolitan Division",
+      "gender": 0
+    },
+    "260": {
+      "name": "CD Tenerife",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "132588": {
+      "name": "RC Lens",
+      "league": "Arkema PL",
+      "gender": 1
+    },
+    "111013": {
+      "name": "Sporting Cristal",
+      "league": "CONMEBOL Libertadores",
+      "gender": 0
+    },
+    "111659": {
+      "name": "Rodez AF",
+      "league": "Ligue 2 BKT",
+      "gender": 0
+    },
+    "81": {
+      "name": "Hibernian",
+      "league": "Scottish Premiership",
+      "gender": 0
+    },
+    "110150": {
+      "name": "Quertaro FC",
+      "league": "Liga BBVA MX",
+      "gender": 0
+    },
+    "111273": {
+      "name": "Red Star FC",
+      "league": "Ligue 2 BKT",
+      "gender": 0
+    },
+    "420": {
+      "name": "Górnik Zabrze",
+      "league": "Ekstraklasa",
+      "gender": 0
+    },
+    "748": {
+      "name": "Samsunspor",
+      "league": "Trendyol Süper Lig",
+      "gender": 0
+    },
+    "100757": {
+      "name": "FC Dinamo 1948",
+      "league": "SUPERLIGA",
+      "gender": 0
+    },
+    "110908": {
+      "name": "Catanzaro",
+      "league": "Serie BKT",
+      "gender": 0
+    },
+    "269": {
+      "name": "Brøndby IF",
+      "league": "Metropolitan Division",
+      "gender": 0
+    },
+    "110502": {
+      "name": "SV Darmstadt 98",
+      "league": "Bundesliga 2",
+      "gender": 0
+    },
+    "113044": {
+      "name": "Barracas Central",
+      "league": "LPF",
+      "gender": 0
+    },
+    "298": {
+      "name": "Rosenborg BK",
+      "league": "Eliteserien",
+      "gender": 0
+    },
+    "320": {
+      "name": "Malmö FF",
+      "league": "Allsvenskan",
+      "gender": 0
+    },
+    "111433": {
+      "name": "Mantova",
+      "league": "Serie BKT",
+      "gender": 0
+    },
+    "100761": {
+      "name": "FCSB",
+      "league": "SUPERLIGA",
+      "gender": 0
+    },
+    "110770": {
+      "name": "FC Sion",
+      "league": "Brack Super League",
+      "gender": 0
+    },
+    "111398": {
+      "name": "Newcastle Jets",
+      "league": "Isuzu UTE A League",
+      "gender": 0
+    },
+    "433": {
+      "name": "AIK",
+      "league": "Allsvenskan",
+      "gender": 0
+    },
+    "101037": {
+      "name": "Çaykur Rizespor",
+      "league": "Trendyol Süper Lig",
+      "gender": 0
+    },
+    "162": {
+      "name": "Energie Cottbus",
+      "league": "Bundesliga 2",
+      "gender": 0
+    },
+    "919": {
+      "name": "SK Brann",
+      "league": "Eliteserien",
+      "gender": 0
+    },
+    "319": {
+      "name": "IFK Göteborg",
+      "league": "Allsvenskan",
+      "gender": 0
+    },
+    "101116": {
+      "name": "Atlante FC",
+      "league": "Liga BBVA MX",
+      "gender": 0
+    },
+    "112659": {
+      "name": "Cusco FC",
+      "league": "CONMEBOL Libertadores",
+      "gender": 0
+    },
+    "100638": {
+      "name": "SC Telstar",
+      "league": "Eredivisie",
+      "gender": 0
+    },
+    "467": {
+      "name": "SD Eibar",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "114577": {
+      "name": "Always Ready",
+      "league": "CONMEBOL Libertadores",
+      "gender": 0
+    },
+    "112540": {
+      "name": "Shanghai Port FC",
+      "league": "CSL",
+      "gender": 0
+    },
+    "101105": {
+      "name": "Millonarios",
+      "league": "CONMEBOL Sudamericana",
+      "gender": 0
+    },
+    "113458": {
+      "name": "IK Sirius",
+      "league": "Allsvenskan",
+      "gender": 0
+    },
+    "101026": {
+      "name": "Göztepe",
+      "league": "Trendyol Süper Lig",
+      "gender": 0
+    },
+    "132890": {
+      "name": "Breidablik",
+      "league": "Iceland League",
+      "gender": 1
+    },
+    "100081": {
+      "name": "KV Kortrijk",
+      "league": "1A Pro League",
+      "gender": 0
+    },
+    "1867": {
+      "name": "Córdoba CF",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "110750": {
+      "name": "UTA Arad",
+      "league": "SUPERLIGA",
+      "gender": 0
+    },
+    "113142": {
+      "name": "Alanyaspor",
+      "league": "Trendyol Süper Lig",
+      "gender": 0
+    },
+    "110500": {
+      "name": "Braunschweig",
+      "league": "Bundesliga 2",
+      "gender": 0
+    },
+    "1807": {
+      "name": "Sheffield Wed",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "132139": {
+      "name": "Liaoning FC",
+      "league": "CSL",
+      "gender": 0
+    },
+    "112026": {
+      "name": "Benevento",
+      "league": "Serie BKT",
+      "gender": 0
+    },
+    "110752": {
+      "name": "FC Botoșani",
+      "league": "SUPERLIGA",
+      "gender": 0
+    },
+    "256": {
+      "name": "FK Austria Wien",
+      "league": "Ö. Bundesliga",
+      "gender": 0
+    },
+    "110751": {
+      "name": "FC Univ. Cluj",
+      "league": "SUPERLIGA",
+      "gender": 0
+    },
+    "112587": {
+      "name": "Académico de Viseu FC",
+      "league": "Liga Portugal",
+      "gender": 0
+    },
+    "131487": {
+      "name": "SZ Peng City",
+      "league": "CSL",
+      "gender": 0
+    },
+    "254": {
+      "name": "SK Rapid",
+      "league": "Ö. Bundesliga",
+      "gender": 0
+    },
+    "1891": {
+      "name": "Nacional",
+      "league": "Liga Portugal",
+      "gender": 0
+    },
+    "113146": {
+      "name": "Mohun Bagan SG",
+      "league": "ISL",
+      "gender": 0
+    },
+    "101103": {
+      "name": "Indep. Medellín",
+      "league": "CONMEBOL Libertadores",
+      "gender": 0
+    },
+    "1951": {
+      "name": "Oxford United",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "112554": {
+      "name": "Bucheon FC 1995",
+      "league": "K League 1",
+      "gender": 0
+    },
+    "112965": {
+      "name": "Central Córdoba",
+      "league": "LPF",
+      "gender": 0
+    },
+    "310": {
+      "name": "FC Rapid 1923",
+      "league": "SUPERLIGA",
+      "gender": 0
+    },
+    "110636": {
+      "name": "Düsseldorf",
+      "league": "3. Liga",
+      "gender": 0
+    },
+    "165": {
+      "name": "Fürth",
+      "league": "Bundesliga 2",
+      "gender": 0
+    },
+    "111722": {
+      "name": "Deportes Tolima",
+      "league": "CONMEBOL Libertadores",
+      "gender": 0
+    },
+    "110747": {
+      "name": "Cracovia",
+      "league": "Ekstraklasa",
+      "gender": 0
+    },
+    "1968": {
+      "name": "Cádiz CF",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "110968": {
+      "name": "Bolívar",
+      "league": "CONMEBOL Libertadores",
+      "gender": 0
+    },
+    "132231": {
+      "name": "RAAL La Louvière",
+      "league": "1A Pro League",
+      "gender": 0
+    },
+    "112713": {
+      "name": "Sarmiento",
+      "league": "LPF",
+      "gender": 0
+    },
+    "1814": {
+      "name": "Laval MFC",
+      "league": "Ligue 2 BKT",
+      "gender": 0
+    },
+    "576": {
+      "name": "Holstein Kiel",
+      "league": "Bundesliga 2",
+      "gender": 0
+    },
+    "1971": {
+      "name": "Excelsior",
+      "league": "Eredivisie",
+      "gender": 0
+    },
+    "115693": {
+      "name": "UCV FC",
+      "league": "CONMEBOL Libertadores",
+      "gender": 0
+    },
+    "1715": {
+      "name": "FC Thun",
+      "league": "Brack Super League",
+      "gender": 0
+    },
+    "115470": {
+      "name": "Asociación Atlética Estudiantes",
+      "league": "LPF",
+      "gender": 0
+    },
+    "110913": {
+      "name": "Waasland-Beveren",
+      "league": "1A Pro League",
+      "gender": 0
+    },
+    "462": {
+      "name": "R. Valladolid CF",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "710": {
+      "name": "Djurgårdens IF",
+      "league": "Allsvenskan",
+      "gender": 0
+    },
+    "10846": {
+      "name": "Burgos CF",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "920": {
+      "name": "Vålerenga Fotball",
+      "league": "Eliteserien",
+      "gender": 0
+    },
+    "1914": {
+      "name": "PEC Zwolle",
+      "league": "Eredivisie",
+      "gender": 0
+    },
+    "700": {
+      "name": "IF Elfsborg",
+      "league": "Allsvenskan",
+      "gender": 0
+    },
+    "1569": {
+      "name": "Wisła Płock",
+      "league": "Ekstraklasa",
+      "gender": 0
+    },
+    "131447": {
+      "name": "FC Annecy",
+      "league": "Ligue 2 BKT",
+      "gender": 0
+    },
+    "272": {
+      "name": "Odense BK",
+      "league": "Metropolitan Division",
+      "gender": 0
+    },
+    "15005": {
+      "name": "Zulte Waregem",
+      "league": "1A Pro League",
+      "gender": 0
+    },
+    "114326": {
+      "name": "Raków",
+      "league": "Ekstraklasa",
+      "gender": 0
+    },
+    "711": {
+      "name": "BK Häcken",
+      "league": "Allsvenskan",
+      "gender": 0
+    },
+    "1847": {
+      "name": "Ascoli",
+      "league": "Serie BKT",
+      "gender": 0
+    },
+    "131826": {
+      "name": "Recoleta",
+      "league": "CONMEBOL Sudamericana",
+      "gender": 0
+    },
+    "132784": {
+      "name": "Chongqing FC",
+      "league": "CSL",
+      "gender": 0
+    },
+    "113040": {
+      "name": "NorthEast United",
+      "league": "ISL",
+      "gender": 0
+    },
+    "894": {
+      "name": "FC Zürich",
+      "league": "Brack Super League",
+      "gender": 0
+    },
+    "62": {
+      "name": "En Avant Guingamp",
+      "league": "Ligue 2 BKT",
+      "gender": 0
+    },
+    "306": {
+      "name": "Shamrock Rovers",
+      "league": "SSE Airtricity Men's Premier Division",
+      "gender": 0
+    },
+    "1933": {
+      "name": "Wycombe",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "111397": {
+      "name": "Melb. Victory",
+      "league": "Isuzu UTE A League",
+      "gender": 0
+    },
+    "270": {
+      "name": "Silkeborg IF",
+      "league": "Metropolitan Division",
+      "gender": 0
+    },
+    "1862": {
+      "name": "Lausanne-Sport",
+      "league": "Brack Super League",
+      "gender": 0
+    },
+    "111393": {
+      "name": "Adelaide United",
+      "league": "Isuzu UTE A League",
+      "gender": 0
+    },
+    "111088": {
+      "name": "Radomiak Radom",
+      "league": "Ekstraklasa",
+      "gender": 0
+    },
+    "112112": {
+      "name": "Juventud",
+      "league": "CONMEBOL Sudamericana",
+      "gender": 0
+    },
+    "181": {
+      "name": "Dundee United",
+      "league": "Scottish Premiership",
+      "gender": 0
+    },
+    "149": {
+      "name": "Lincoln City",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "445": {
+      "name": "Derry City",
+      "league": "SSE Airtricity Men's Premier Division",
+      "gender": 0
+    },
+    "113147": {
+      "name": "Entella",
+      "league": "Serie BKT",
+      "gender": 0
+    },
+    "112705": {
+      "name": "Coquimbo Unido",
+      "league": "CONMEBOL Libertadores",
+      "gender": 0
+    },
+    "111012": {
+      "name": "Alianza Atltico",
+      "league": "CONMEBOL Sudamericana",
+      "gender": 0
+    },
+    "111399": {
+      "name": "Perth Glory",
+      "league": "Isuzu UTE A League",
+      "gender": 0
+    },
+    "1961": {
+      "name": "Cardiff City",
+      "league": "EFL Championship",
+      "gender": 0
+    },
+    "131739": {
+      "name": "Auckland FC",
+      "league": "Isuzu UTE A League",
+      "gender": 0
+    },
+    "110991": {
+      "name": "Carabobo FC",
+      "league": "CONMEBOL Sudamericana",
+      "gender": 0
+    },
+    "159": {
+      "name": "Arminia Bielefeld",
+      "league": "Bundesliga 2",
+      "gender": 0
+    },
+    "111705": {
+      "name": "Brommapojkarna",
+      "league": "Allsvenskan",
+      "gender": 0
+    },
+    "1474": {
+      "name": "Pohang Steelers",
+      "league": "K League 1",
+      "gender": 0
+    },
+    "1798": {
+      "name": "MK Dons",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "113143": {
+      "name": "City Torque",
+      "league": "CONMEBOL Sudamericana",
+      "gender": 0
+    },
+    "131174": {
+      "name": "Eyüpspor",
+      "league": "Trendyol Süper Lig",
+      "gender": 0
+    },
+    "100759": {
+      "name": "FC Argeș",
+      "league": "SUPERLIGA",
+      "gender": 0
+    },
+    "503": {
+      "name": "Dynamo Dresden",
+      "league": "Bundesliga 2",
+      "gender": 0
+    },
+    "418": {
+      "name": "Tromsø IL",
+      "league": "Eliteserien",
+      "gender": 0
+    },
+    "1746": {
+      "name": "Empoli",
+      "league": "Serie BKT",
+      "gender": 0
+    },
+    "100646": {
+      "name": "Sparta Rotterdam",
+      "league": "Eredivisie",
+      "gender": 0
+    },
+    "15009": {
+      "name": "SCR Altach",
+      "league": "Ö. Bundesliga",
+      "gender": 0
+    },
+    "114578": {
+      "name": "Macar",
+      "league": "CONMEBOL Sudamericana",
+      "gender": 0
+    },
+    "322": {
+      "name": "GC Zürich",
+      "league": "Brack Super League",
+      "gender": 0
+    },
+    "114611": {
+      "name": "Puerto Cabello",
+      "league": "CONMEBOL Sudamericana",
+      "gender": 0
+    },
+    "111328": {
+      "name": "Palestino",
+      "league": "CONMEBOL Sudamericana",
+      "gender": 0
+    },
+    "1443": {
+      "name": "Viborg FF",
+      "league": "Metropolitan Division",
+      "gender": 0
+    },
+    "131491": {
+      "name": "KFUM-Kameratene",
+      "league": "Eliteserien",
+      "gender": 0
+    },
+    "1907": {
+      "name": "Willem II",
+      "league": "Eredivisie",
+      "gender": 0
+    },
+    "110907": {
+      "name": "Arezzo",
+      "league": "Serie BKT",
+      "gender": 0
+    },
+    "112124": {
+      "name": "SS Juve Stabia",
+      "league": "Serie BKT",
+      "gender": 0
+    },
+    "1478": {
+      "name": "Jeju United",
+      "league": "K League 1",
+      "gender": 0
+    },
+    "100325": {
+      "name": "HJK Helsinki",
+      "league": "Finnliiga",
+      "gender": 0
+    },
+    "112224": {
+      "name": "Melbourne City",
+      "league": "Isuzu UTE A League",
+      "gender": 0
+    },
+    "487": {
+      "name": "VfL Osnabrück",
+      "league": "Bundesliga 2",
+      "gender": 0
+    },
+    "1894": {
+      "name": "AD Ceuta FC",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "1805": {
+      "name": "Grenoble Foot 38",
+      "league": "Ligue 2 BKT",
+      "gender": 0
+    },
+    "111400": {
+      "name": "Sydney FC",
+      "league": "Isuzu UTE A League",
+      "gender": 0
+    },
+    "647": {
+      "name": "SC Cambuur",
+      "league": "Eredivisie",
+      "gender": 0
+    },
+    "1923": {
+      "name": "Luton Town",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "131173": {
+      "name": "Qingdao Hainiu",
+      "league": "CSL",
+      "gender": 0
+    },
+    "1793": {
+      "name": "Reading",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "2055": {
+      "name": "Gimcheon Sangmu",
+      "league": "K League 1",
+      "gender": 0
+    },
+    "112116": {
+      "name": "O'Higgins",
+      "league": "CONMEBOL Sudamericana",
+      "gender": 0
+    },
+    "1826": {
+      "name": "Aleman. Aachen",
+      "league": "3. Liga",
+      "gender": 0
+    },
+    "113302": {
+      "name": "Bengaluru FC",
+      "league": "ISL",
+      "gender": 0
+    },
+    "1823": {
+      "name": "AS Nancy Lorraine",
+      "league": "Ligue 2 BKT",
+      "gender": 0
+    },
+    "112853": {
+      "name": "Dep. La Guaira",
+      "league": "CONMEBOL Libertadores",
+      "gender": 0
+    },
+    "1929": {
+      "name": "Plymouth Argyle",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "111276": {
+      "name": "USL Dunkerque",
+      "league": "Ligue 2 BKT",
+      "gender": 0
+    },
+    "112954": {
+      "name": "L. R. Vicenza",
+      "league": "Serie BKT",
+      "gender": 0
+    },
+    "37": {
+      "name": "Lommel SK",
+      "league": "1A Pro League",
+      "gender": 0
+    },
+    "1815": {
+      "name": "Clermont Foot 63",
+      "league": "Ligue 2 BKT",
+      "gender": 0
+    },
+    "780": {
+      "name": "SV Oberbank Ried",
+      "league": "Ö. Bundesliga",
+      "gender": 0
+    },
+    "110072": {
+      "name": "SC Oțelul Galați",
+      "league": "SUPERLIGA",
+      "gender": 0
+    },
+    "101097": {
+      "name": "Audax Italiano",
+      "league": "CONMEBOL Sudamericana",
+      "gender": 0
+    },
+    "112199": {
+      "name": "Sarpsborg 08",
+      "league": "Eliteserien",
+      "gender": 0
+    },
+    "1756": {
+      "name": "HamKam Fotball",
+      "league": "Eliteserien",
+      "gender": 0
+    },
+    "115517": {
+      "name": "Ind. Petrolero",
+      "league": "CONMEBOL Sudamericana",
+      "gender": 0
+    },
+    "110982": {
+      "name": "Dep. Cuenca",
+      "league": "CONMEBOL Sudamericana",
+      "gender": 0
+    },
+    "112868": {
+      "name": "Boston River",
+      "league": "CONMEBOL Sudamericana",
+      "gender": 0
+    },
+    "111086": {
+      "name": "Piast Gliwice",
+      "league": "Ekstraklasa",
+      "gender": 0
+    },
+    "1958": {
+      "name": "Leyton Orient",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "492": {
+      "name": "Wehen Wiesbaden",
+      "league": "3. Liga",
+      "gender": 0
+    },
+    "110749": {
+      "name": "Zagłębie Lubin",
+      "league": "Ekstraklasa",
+      "gender": 0
+    },
+    "110711": {
+      "name": "Real Sociedad B",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "2041": {
+      "name": "Fredrikstad FK",
+      "league": "Eliteserien",
+      "gender": 0
+    },
+    "15001": {
+      "name": "Lyngby BK",
+      "league": "Metropolitan Division",
+      "gender": 0
+    },
+    "1873": {
+      "name": "Wisła Kraków",
+      "league": "Ekstraklasa",
+      "gender": 0
+    },
+    "1931": {
+      "name": "Stockport",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "1893": {
+      "name": "Marítimo da Madeira",
+      "league": "Liga Portugal",
+      "gender": 0
+    },
+    "526": {
+      "name": "Rot-Weiss Essen",
+      "league": "3. Liga",
+      "gender": 0
+    },
+    "111822": {
+      "name": "Wolfsberger AC",
+      "league": "Ö. Bundesliga",
+      "gender": 0
+    },
+    "112427": {
+      "name": "WS Wanderers",
+      "league": "Isuzu UTE A League",
+      "gender": 0
+    },
+    "110075": {
+      "name": "Farul Constanța",
+      "league": "SUPERLIGA",
+      "gender": 0
+    },
+    "110967": {
+      "name": "Blooming",
+      "league": "CONMEBOL Sudamericana",
+      "gender": 0
+    },
+    "180": {
+      "name": "Dundee FC",
+      "league": "Scottish Premiership",
+      "gender": 0
+    },
+    "142": {
+      "name": "Doncaster",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "299": {
+      "name": "Lillestrøm SK",
+      "league": "Eliteserien",
+      "gender": 0
+    },
+    "111092": {
+      "name": "Śląsk Wrocław",
+      "league": "Ekstraklasa",
+      "gender": 0
+    },
+    "110989": {
+      "name": "Caracas FC",
+      "league": "CONMEBOL Sudamericana",
+      "gender": 0
+    },
+    "111395": {
+      "name": "Brisbane Roar",
+      "league": "Isuzu UTE A League",
+      "gender": 0
+    },
+    "1917": {
+      "name": "Wigan Athletic",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "1939": {
+      "name": "Huddersfield",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "1447": {
+      "name": "Sønderjyske",
+      "league": "Metropolitan Division",
+      "gender": 0
+    },
+    "79": {
+      "name": "Falkirk",
+      "league": "Scottish Premiership",
+      "gender": 0
+    },
+    "1926": {
+      "name": "Blackpool",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "1825": {
+      "name": "MSV Duisburg",
+      "league": "3. Liga",
+      "gender": 0
+    },
+    "100805": {
+      "name": "St. Mirren",
+      "league": "Scottish Premiership",
+      "gender": 0
+    },
+    "1936": {
+      "name": "Cheltenham Town",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "15048": {
+      "name": "Tranmere Rovers",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "82": {
+      "name": "Kilmarnock",
+      "league": "Scottish Premiership",
+      "gender": 0
+    },
+    "423": {
+      "name": "St. Pats",
+      "league": "SSE Airtricity Men's Premier Division",
+      "gender": 0
+    },
+    "305": {
+      "name": "Bohemians",
+      "league": "SSE Airtricity Men's Premier Division",
+      "gender": 0
+    },
+    "113459": {
+      "name": "Kristiansund BK",
+      "league": "Eliteserien",
+      "gender": 0
+    },
+    "1804": {
+      "name": "Bradford City",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "1937": {
+      "name": "Notts County",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "113926": {
+      "name": "Salford City",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "650": {
+      "name": "ADO Den Haag",
+      "league": "Eredivisie",
+      "gender": 0
+    },
+    "563": {
+      "name": "Sligo Rovers",
+      "league": "SSE Airtricity Men's Premier Division",
+      "gender": 0
+    },
+    "110078": {
+      "name": "FC Petrolul",
+      "league": "SUPERLIGA",
+      "gender": 0
+    },
+    "131110": {
+      "name": "CD Eldense",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "1524": {
+      "name": "IK Start",
+      "league": "Eliteserien",
+      "gender": 0
+    },
+    "531": {
+      "name": "Preußen Münster",
+      "league": "3. Liga",
+      "gender": 0
+    },
+    "523": {
+      "name": "Saarbrücken",
+      "league": "3. Liga",
+      "gender": 0
+    },
+    "2017": {
+      "name": "TSV Hartberg",
+      "league": "Ö. Bundesliga",
+      "gender": 0
+    },
+    "1940": {
+      "name": "Mansfield Town",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "113892": {
+      "name": "Degerfors IF",
+      "league": "Allsvenskan",
+      "gender": 0
+    },
+    "361": {
+      "name": "Stevenage",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "112180": {
+      "name": "Västerås SK",
+      "league": "Allsvenskan",
+      "gender": 0
+    },
+    "114604": {
+      "name": "Macarthur FC",
+      "league": "Isuzu UTE A League",
+      "gender": 0
+    },
+    "113616": {
+      "name": "Grazer AK",
+      "league": "Ö. Bundesliga",
+      "gender": 0
+    },
+    "111766": {
+      "name": "Well. Phoenix",
+      "league": "Isuzu UTE A League",
+      "gender": 0
+    },
+    "226": {
+      "name": "FC Sochaux-Montbéliard",
+      "league": "Ligue 2 BKT",
+      "gender": 0
+    },
+    "111239": {
+      "name": "FC Ingolstadt 04",
+      "league": "3. Liga",
+      "gender": 0
+    },
+    "1938": {
+      "name": "Peterborough",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "781": {
+      "name": "SC Austria",
+      "league": "Ö. Bundesliga",
+      "gender": 0
+    },
+    "113300": {
+      "name": "Mumbai City FC",
+      "league": "ISL",
+      "gender": 0
+    },
+    "1932": {
+      "name": "Barnsley",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "113378": {
+      "name": "Sepsi OSK",
+      "league": "SUPERLIGA",
+      "gender": 0
+    },
+    "112258": {
+      "name": "Gwangju FC",
+      "league": "K League 1",
+      "gender": 0
+    },
+    "113449": {
+      "name": "FC Corvinul 1921 Hunedoara",
+      "league": "SUPERLIGA",
+      "gender": 0
+    },
+    "27": {
+      "name": "FC Hansa Rostock",
+      "league": "3. Liga",
+      "gender": 0
+    },
+    "132680": {
+      "name": "US Boulogne",
+      "league": "Ligue 2 BKT",
+      "gender": 0
+    },
+    "1755": {
+      "name": "Aalesunds FK",
+      "league": "Eliteserien",
+      "gender": 0
+    },
+    "111379": {
+      "name": "SG Sonnenhof Großaspach",
+      "league": "3. Liga",
+      "gender": 0
+    },
+    "113297": {
+      "name": "Chennaiyin FC",
+      "league": "ISL",
+      "gender": 0
+    },
+    "321": {
+      "name": "Halmstads BK",
+      "league": "Allsvenskan",
+      "gender": 0
+    },
+    "143": {
+      "name": "Exeter City",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "1924": {
+      "name": "Chesterfield",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "110645": {
+      "name": "Viktoria Köln",
+      "league": "3. Liga",
+      "gender": 0
+    },
+    "110716": {
+      "name": "Celta Fortuna",
+      "league": "LALIGA HYPERMOTION",
+      "gender": 0
+    },
+    "1446": {
+      "name": "AC Horsens",
+      "league": "Metropolitan Division",
+      "gender": 0
+    },
+    "1757": {
+      "name": "Sandefjord",
+      "league": "Eliteserien",
+      "gender": 0
+    },
+    "286": {
+      "name": "FC Vaduz",
+      "league": "Brack Super League",
+      "gender": 0
+    },
+    "110685": {
+      "name": "TSG Hoffenheim II",
+      "league": "3. Liga",
+      "gender": 0
+    },
+    "110569": {
+      "name": "Dijon Football Côte d’Or",
+      "league": "Ligue 2 BKT",
+      "gender": 0
+    },
+    "753": {
+      "name": "Waterford",
+      "league": "SSE Airtricity Men's Premier Division",
+      "gender": 0
+    },
+    "112259": {
+      "name": "AFC Wimbledon",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "1930": {
+      "name": "Northampton",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "112764": {
+      "name": "Bromley FC",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "110532": {
+      "name": "SV Waldhof",
+      "league": "3. Liga",
+      "gender": 0
+    },
+    "113182": {
+      "name": "FC Voluntari",
+      "league": "SUPERLIGA",
+      "gender": 0
+    },
+    "114546": {
+      "name": "FK Csíkszereda",
+      "league": "SUPERLIGA",
+      "gender": 0
+    },
+    "543": {
+      "name": "Jahn Regensburg",
+      "league": "3. Liga",
+      "gender": 0
+    },
+    "1928": {
+      "name": "Port Vale",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "110501": {
+      "name": "SC Verl",
+      "league": "3. Liga",
+      "gender": 0
+    },
+    "1934": {
+      "name": "Swindon Town",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "113257": {
+      "name": "Odisha FC",
+      "league": "ISL",
+      "gender": 0
+    },
+    "110697": {
+      "name": "VfB Stuttgart II",
+      "league": "3. Liga",
+      "gender": 0
+    },
+    "1439": {
+      "name": "Kalmar FF",
+      "league": "Allsvenskan",
+      "gender": 0
+    },
+    "1944": {
+      "name": "Cambridge Utd",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "706": {
+      "name": "Örgryte IS",
+      "league": "Allsvenskan",
+      "gender": 0
+    },
+    "15040": {
+      "name": "WSG Tirol",
+      "league": "Ö. Bundesliga",
+      "gender": 0
+    },
+    "110169": {
+      "name": "SC Fortuna Köln",
+      "league": "3. Liga",
+      "gender": 0
+    },
+    "110678": {
+      "name": "TSV Havelse",
+      "league": "3. Liga",
+      "gender": 0
+    },
+    "111396": {
+      "name": "Central Coast",
+      "league": "Isuzu UTE A League",
+      "gender": 0
+    },
+    "100804": {
+      "name": "St. Johnstone",
+      "league": "Scottish Premiership",
+      "gender": 0
+    },
+    "131461": {
+      "name": "Inter Kashi",
+      "league": "ISL",
+      "gender": 0
+    },
+    "15015": {
+      "name": "Burton Albion",
+      "league": "EFL League One",
+      "gender": 0
+    },
+    "110197": {
+      "name": "FC Würzburger Kickers",
+      "league": "3. Liga",
+      "gender": 0
+    },
+    "92": {
+      "name": "Grimsby Town",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "1797": {
+      "name": "Rotherham Utd",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "1920": {
+      "name": "Oldham Athletic",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "112260": {
+      "name": "Fleetwood Town",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "110890": {
+      "name": "Crawley Town",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "1935": {
+      "name": "Colchester",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "135": {
+      "name": "Barnet",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "121": {
+      "name": "Crewe Alexandra",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "834": {
+      "name": "Shelbourne",
+      "league": "SSE Airtricity Men's Premier Division",
+      "gender": 0
+    },
+    "113298": {
+      "name": "FC Goa",
+      "league": "ISL",
+      "gender": 0
+    },
+    "110597": {
+      "name": "SV Meppen",
+      "league": "3. Liga",
+      "gender": 0
+    },
+    "1802": {
+      "name": "Gillingham",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "1803": {
+      "name": "Walsall",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "1948": {
+      "name": "York City",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "1962": {
+      "name": "Bristol Rovers",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "110313": {
+      "name": "Accrington",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "127": {
+      "name": "Shrewsbury",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "1572": {
+      "name": "Drogheda United",
+      "league": "SSE Airtricity Men's Premier Division",
+      "gender": 0
+    },
+    "113299": {
+      "name": "Kerala Blasters",
+      "league": "ISL",
+      "gender": 0
+    },
+    "1955": {
+      "name": "Rochdale",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "113301": {
+      "name": "Hyderabad FC",
+      "league": "ISL",
+      "gender": 0
+    },
+    "837": {
+      "name": "Dundalk",
+      "league": "SSE Airtricity Men's Premier Division",
+      "gender": 0
+    },
+    "1571": {
+      "name": "Galway United",
+      "league": "SSE Airtricity Men's Premier Division",
+      "gender": 0
+    },
+    "112254": {
+      "name": "Newport County",
+      "league": "EFL League Two",
+      "gender": 0
+    },
+    "115202": {
+      "name": "Punjab FC",
+      "league": "ISL",
+      "gender": 0
+    }
+  },
+  "nations": {
+    "18": "France",
+    "45": "Spain",
+    "36": "Norway",
+    "14": "England",
+    "7": "Belgium",
+    "82": "Jamaica",
+    "38": "Portugal",
+    "20": "Georgia",
+    "54": "Brazil",
+    "52": "Argentina",
+    "37": "Poland",
+    "125": "Malawi",
+    "57": "Ecuador",
+    "27": "Italy",
+    "21": "Germany",
+    "80": "Haiti",
+    "129": "Morocco",
+    "147": "Zambia",
+    "56": "Colombia",
+    "163": "Japan",
+    "34": "Holland",
+    "95": "United States",
+    "44": "Slovenia",
+    "60": "Uruguay",
+    "13": "Denmark",
+    "111": "Egypt",
+    "47": "Switzerland",
+    "42": "Scotland",
+    "25": "Republic of Ireland",
+    "23": "Hungary",
+    "46": "Sweden",
+    "133": "Nigeria",
+    "10": "Croatia",
+    "4": "Austria",
+    "51": "Serbia",
+    "48": "Turkey",
+    "55": "Chile",
+    "117": "Ghana",
+    "195": "Australia",
+    "118": "Guinea",
+    "103": "Cameroon",
+    "108": "Côte d'Ivoire",
+    "83": "Mexico",
+    "24": "Iceland",
+    "70": "Canada",
+    "43": "Slovakia",
+    "40": "Russia",
+    "22": "Greece",
+    "12": "Czech Republic",
+    "219": "Kosovo",
+    "167": "Korea Republic",
+    "136": "Senegal",
+    "101": "Burkina Faso",
+    "191": "Uzbekistan",
+    "126": "Mali",
+    "3": "Armenia",
+    "97": "Algeria",
+    "50": "Wales",
+    "58": "Paraguay",
+    "198": "New Zealand",
+    "39": "Romania",
+    "110": "Congo DR",
+    "183": "Saudi Arabia",
+    "72": "Costa Rica",
+    "49": "Ukraine",
+    "116": "Gambia",
+    "130": "Mozambique",
+    "8": "Bosnia and Herzegovina",
+    "160": "Indonesia",
+    "35": "Northern Ireland",
+    "115": "Gabon",
+    "17": "Finland",
+    "1": "Albania",
+    "61": "Venezuela",
+    "26": "Israel",
+    "15": "Montenegro",
+    "207": "Dominican Republic",
+    "31": "Luxembourg",
+    "214": "Comoros",
+    "98": "Angola",
+    "164": "Jordan",
+    "122": "Liberia",
+    "181": "Philippines",
+    "93": "Trinidad and Tobago",
+    "78": "Guatemala",
+    "19": "North Macedonia",
+    "161": "Iran",
+    "144": "Togo",
+    "119": "Guinea-Bissau",
+    "140": "South Africa",
+    "127": "Mauritania",
+    "148": "Zimbabwe",
+    "145": "Tunisia",
+    "105": "Central African Republic",
+    "112": "Equatorial Guinea",
+    "190": "United Arab Emirates",
+    "92": "Suriname",
+    "104": "Cape Verde Islands",
+    "215": "New Caledonia",
+    "81": "Honduras",
+    "9": "Bulgaria",
+    "102": "Burundi",
+    "87": "Panama",
+    "59": "Peru",
+    "123": "Libya",
+    "85": "Curaçao",
+    "208": "Estonia",
+    "5": "Azerbaijan",
+    "179": "Pakistan",
+    "30": "Lithuania",
+    "138": "Sierra Leone",
+    "28": "Latvia",
+    "107": "Congo",
+    "99": "Benin",
+    "11": "Cyprus",
+    "32": "Malta",
+    "124": "Madagascar",
+    "186": "Syria",
+    "113": "Eritrea",
+    "76": "El Salvador",
+    "53": "Bolivia",
+    "89": "St. Kitts and Nevis",
+    "132": "Niger",
+    "120": "Kenya",
+    "106": "Chad",
+    "143": "Tanzania",
+    "155": "China PR",
+    "213": "Chinese Taipei",
+    "162": "Iraq",
+    "188": "Thailand",
+    "158": "Hong Kong",
+    "90": "St. Lucia",
+    "159": "India",
+    "151": "Bangladesh",
+    "2": "Andorra",
+    "180": "Palestine",
+    "33": "Moldova",
+    "146": "Uganda",
+    "79": "Guyana",
+    "165": "Kazakhstan",
+    "77": "Grenada",
+    "204": "Vanuatu",
+    "6": "Belarus",
+    "171": "Lebanon",
+    "16": "Faroe Islands",
+    "29": "Liechtenstein",
+    "63": "Antigua and Barbuda",
+    "73": "Cuba",
+    "182": "Qatar",
+    "68": "Bermuda",
+    "131": "Namibia",
+    "134": "Rwanda",
+    "185": "Sri Lanka",
+    "66": "Barbados",
+    "84": "Montserrat",
+    "139": "Somalia",
+    "128": "Mauritius",
+    "135": "São Tomé e Príncipe",
+    "166": "Korea DPR",
+    "149": "Afghanistan",
+    "88": "Puerto Rico",
+    "178": "Oman",
+    "205": "Gibraltar",
+    "193": "Yemen"
+  },
+  "scope": "Official EA FC27 launch base player ratings, not career live-form updates or Icons."
+}

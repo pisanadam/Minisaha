@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "verifiedAt": "2026-10-03",
+  "source": "https://www.tff.org/Default.aspx?ftxtId=50587&pageId=200",
+  "note": "Player identity from TFF 2026 extended roster; missing database ratings are original game estimates, not official FC ratings. Existing cards keep their database attributes.",
+  "teams": {
+    "turkiye": {
+      "players": [
+        {
+          "id": "tr-tff-ersin-destanoglu",
+          "name": "Ersin Destanoğlu",
+          "position": "GK",
+          "positions": [
+            "GK"
+          ],
+          "jersey": "",
+          "overall": 73,
+          "ratingSource": "estimate",
+          "pace": 73,
+          "shot": 35,
+          "pass": 55,
+          "tackle": 35,
+          "dribble": 45,
+          "physical": 72,
+          "strength": 72,
+          "jumping": 75,
+          "finishing": 5
+        },
+        {
+          "id": "tr-tff-ahmetcan-kaplan",
+          "name": "Ahmetcan Kaplan",
+          "position": "CB",
+          "positions": [
+            "CB"
+          ],
+          "jersey": "",
+          "overall": 75,
+          "ratingSource": "estimate",
+          "pace": 69,
+          "shot": 34,
+          "pass": 63,
+          "tackle": 76,
+          "dribble": 56,
+          "physical": 76,
+          "strength": 78,
+          "jumping": 75,
+          "finishing": 29
+        },
+        {
+          "id": "tr-tff-yusuf-akcicek",
+          "name": "Yusuf Akçiçek",
+          "position": "CB",
+          "positions": [
+            "CB"
+          ],
+          "jersey": "",
+          "overall": 73,
+          "ratingSource": "estimate",
+          "pace": 65,
+          "shot": 31,
+          "pass": 60,
+          "tackle": 74,
+          "dribble": 53,
+          "physical": 75,
+          "strength": 77,
+          "jumping": 74,
+          "finishing": 27
+        }
+      ],
+      "includeExistingIds": [
+        "270325",
+        "345212"
+      ]
+    }
+  }
+}

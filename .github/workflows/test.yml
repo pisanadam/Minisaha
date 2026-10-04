@@ -1,0 +1,28 @@
+name: Test Mini Saha
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  game:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ['18', '22']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Verify release files
+        run: sha256sum --check SHA256SUMS
+      - name: Check installers
+        run: |
+          bash -n deploy/update.sh
+          python3 -m py_compile deploy/install.py deploy/install-online.py deploy/install-voice.py
+      - name: Run game and online regression tests
+        run: python3 tools/check_game.py
