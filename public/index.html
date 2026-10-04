@@ -462,7 +462,7 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
           <label for="blueTeamSelect">SENİN TAKIMIN →</label>
           <input id="blueSearch" type="search" placeholder="Takım ara…" aria-label="Kendi takımını ara"><select id="blueTeamSelect"></select>
         </div>
-        <div class="teamPick">
+        <div id="rivalTeamPick" class="teamPick">
           <label for="redTeamSelect">RAKİP TAKIM</label>
           <input id="redSearch" type="search" placeholder="Takım ara…" aria-label="Rakip takım ara"><select id="redTeamSelect"></select>
         </div>
@@ -476,7 +476,7 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
       <section id="mainViewQuick" aria-labelledby="mainTabQuick"><div class="menuActions"><button id="menuStart">SAHAYA ÇIK <span>↗</span></button><button id="bestLineupBtn">En güçlü ilk 11</button><button id="legendsLineupBtn">Efsanelerle en güçlü ilk 11</button><button id="randomRival" aria-label="Rastgele rakip seç">Rastgele rakip</button></div>
 <details class="helpDetails"><summary id="squadSummary">Kadro ve görevler</summary><div id="squadList"></div><p>Kanatlar hızlı, stoperler top kapmada, orta sahalar pasta, santrforlar bitiricilikte güçlüdür. Saha üzerindeki kısaltmalar mevkileri gösterir.</p></details><p>Tüm zamanlar kadroları güncel oyuncuları ve emekli efsaneleri birleştirir. Zirve kartlarının puanları oyun için tahminidir.</p><div id="history" aria-label="Son maçlar"></div></section>
       <section id="mainViewLeague" aria-labelledby="mainTabLeague" hidden><section id="leaguePanel" class="menuSection"><h3>Lig ve menajer kariyeri <span>2026–27</span></h3><p>Ligini ve takımını seç; kendi maçlarını oyna veya simüle et. Diğer maçlar kadro gücüne göre tamamlanır. Fikstür oyun tarafından oluşturulur.</p><div class="leagueSaveManager"><h4>Kayıtlı kariyerler <span id="leagueSlotCount"></span></h4><label for="leagueSlotSelect">Kayıt yuvası</label><select id="leagueSlotSelect" aria-label="30 lig kariyeri kayıt yuvası"></select><p id="leagueSlotInfo"></p><div class="menuActions"><button id="leagueSlotLoad">Kayda devam et ↗</button><button id="leagueSlotDelete">Kaydı sil</button></div></div><h4>Yeni kariyer</h4><label for="leagueCareerMode">Kariyer türü</label><select id="leagueCareerMode"><option value="manager">Teknik direktör kariyeri</option><option value="league">Sadece lig sezonu</option></select><label id="managerNameLabel" for="managerName">Teknik direktörün adı</label><input id="managerName" maxlength="30" placeholder="Teknik direktör adı" autocomplete="off"><label for="leagueSelect">Lig</label><select id="leagueSelect"></select><label for="leagueTeamSelect">Takımın</label><select id="leagueTeamSelect"></select><button id="leagueCreateBtn">Yeni sezon kur</button><p id="leagueStatus" role="status"></p><button id="leagueOpenBtn" style="display:none">Kulüp merkezine devam et ↗</button></section></section>
-      <section id="mainViewOnline" aria-labelledby="mainTabOnline" hidden><div class="sectionHeading"><h3>Birlikte sahaya çık</h3><p>Oda aç, arkadaşına katıl veya rastgele rakip bul.</p></div>      <div class="menuActions"><button id="matchmakeBtn">Arkadaşlarla / çevrimiçi oyna</button><button id="cancelMatchmake" style="display:none">Ayrıl / iptal et</button></div>
+      <section id="mainViewOnline" aria-labelledby="mainTabOnline" hidden><div class="sectionHeading"><h3>Birlikte sahaya çık</h3><p>Kendi takımını seç; rakibin kendi takımını seçer. Oda aç, arkadaşına katıl veya rastgele rakip bul.</p></div>      <div class="menuActions"><button id="matchmakeBtn">Arkadaşlarla / çevrimiçi oyna</button><button id="cancelMatchmake" style="display:none">Ayrıl / iptal et</button></div>
       <div id="onlineLobbyPanel" style="display:none">
         <label for="onlineName">OYUNCU ADIN</label><input id="onlineName" maxlength="20" autocomplete="off" placeholder="Her yenilemede yeniden gir">
         <div class="menuActions"><button id="hostOnlineBtn">Host ol</button><button id="browseOnlineBtn">Hosta katıl</button><button id="randomOnlineBtn">Rastgele eşleşme</button></div>
@@ -586,16 +586,8 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
 <script src="assets/voice-40-cbb1be2c4e.js"></script>
 <script src="assets/pronunciation-01-147d49e2ce.js"></script>
 <script src="assets/pronunciation-02-56c13a1f44.js"></script>
-<script src="assets/rosters-national-a0c199bec5.js"></script>
-<script src="assets/rosters-premier-d40a2b855a.js"></script>
-<script src="assets/rosters-laliga-31a1817e37.js"></script>
-<script src="assets/rosters-seriea-6815c185f6.js"></script>
-<script src="assets/rosters-bundesliga-25110012cb.js"></script>
-<script src="assets/rosters-ligue1-b5408b80c0.js"></script>
-<script src="assets/rosters-superlig-5258a743b3.js"></script>
-<script src="assets/rosters-lower-2adeb447c0.js"></script>
-<script src="assets/rosters-strength-eb3a5c2ee3.js"></script>
-<script src="assets/rosters-zzlegends-ae2ab6ba55.js"></script>
+<script src="assets/rosters-fc27-3a8bec968d.js"></script>
+<script src="assets/rosters-zzlegends-74b2f268ca.js"></script>
 <script>
 (() => {
 'use strict';
@@ -675,6 +667,7 @@ const POSITIONS={
 // Offline team-specific 2026–27 squads. See roster-source/manifest.json.
 let managerRosterScope=false;
 const rosterCache={};
+window.MINISAHA_INIT_FC27?.();
 const VERIFIED_ROSTERS=window.MINISAHA_ROSTERS||{};
 function rosterFor(teamKey){
  if(managerRosterScope&&leagueSeason?.manager)return managerRoster(teamKey);
@@ -949,7 +942,7 @@ function aiDribbleTarget(p){
 function renderSquad(){
  const box=document.getElementById('squadList');box.replaceChildren();
  syncFormationSelect();
- document.getElementById('squadSummary').textContent='Kadrolar · '+teamLong('blue')+' / '+teamLong('red')+' · '+shapeName()+' · Kulüp verisi: 28.09.2026 · Milli takımlar: güçlü oyun havuzu · Tüm zamanlar: efsaneler + güncel oyuncular · Puanlar: FC26 / tahmini';
+ document.getElementById('squadSummary').textContent='Kadrolar · '+teamLong('blue')+' / '+teamLong('red')+' · '+shapeName()+' · FC27 verisi: 04.10.2026 · Milli takımlar: güçlü oyun havuzu · Tüm zamanlar: efsaneler + güncel oyuncular · Eksik kaynaklar: FC26 / tahmini';
  const renderTeam=(team,players)=>{
   const roster=rosterFor(teamChoice[team]);
   const heading=document.createElement('div');heading.className='squadRow';heading.innerHTML='<strong>'+teamTitle(team)+' İlk '+players.length+'</strong><span>'+players.map(p=>p.roster).map(r=>r.name+' · '+r.overall).join(' | ')+'</span>';box.append(heading);
@@ -957,8 +950,8 @@ function renderSquad(){
    const item=document.createElement('div');item.className='squadRow';
    const title=document.createElement('strong'),desc=document.createElement('span');
    const r=p.roster;
-   title.textContent='#'+(r.jersey||p.num)+' · '+r.name+' · '+r.overall+(r.legend?' (zirve · tahmini'+(r.retired?' · emekli efsane':'')+')':r.ratingSource==='estimate'?' (tahmini)':r.ratingSource==='career'?' (kariyer gelişimi)':'');
-   desc.textContent=profile(p).short+' · Hız '+r.pace+' · Şut '+r.shot+' · Pas '+r.pass+' · Savunma '+r.tackle;
+   title.textContent='#'+(r.jersey||p.num)+' · '+r.name+' · '+r.overall+(r.ratingSource==='FC27'?' (FC27)':r.legend?' (zirve · tahmini'+(r.retired?' · emekli efsane':'')+')':r.ratingSource==='estimate'?' (tahmini)':r.ratingSource==='career'?' (kariyer gelişimi)':r.ratingSource==='FC26'?' (FC26 · eski kaynak)': '');
+   desc.textContent=r.position==='GK'&&r.gkDiving?profile(p).short+' · Uzanma '+r.gkDiving+' · Tutuş '+r.gkHandling+' · Refleks '+r.gkReflexes+' · Ayak '+r.gkKicking+' · Yer tutma '+r.gkPositioning:profile(p).short+' · Hız '+r.pace+' · Şut '+r.shot+' · Pas '+r.pass+' · Savunma '+r.tackle;
    item.append(title,desc);box.append(item);
   });
   const active=new Set(players.map(p=>p.roster.id));const bench=roster.filter(r=>!active.has(r.id));if(bench.length){const sub=document.createElement('div');sub.className='squadRow';sub.innerHTML='<strong>'+teamTitle(team)+' Yedekler</strong><span>'+bench.map(r=>`${r.name} (${r.overall})`).join(' · ')+'</span>';box.append(sub);}
@@ -8499,7 +8492,7 @@ function onlineStep(dt){
 const ONLINE_FIELDS=['x','y','vx','vy','faceX','faceY','stamina','diveTime','diveY','slideTime','tackleX','tackleY','sprinting'];
 function onlineSnapshot(){
  return {formations:{blue:formationForTeam('blue'),red:formationForTeam('red')},lineupIds:players.map(p=>p.roster.id),substitutions:substitutionLog,state,elapsed,score:{...score},stats:JSON.parse(JSON.stringify(stats)),extraTimeStarted,stoppageSeconds,goalPause,penaltyResult,penalty:state==='penalties'?{blue:penalty.blue,red:penalty.red}:null,
- players:players.map(p=>ONLINE_FIELDS.map(k=>p[k]||0)),selected:['blue','red'].map(s=>players.indexOf(onlineHumans[s].selected)),charge:['blue','red'].map(s=>onlineHumans[s].charge?.power||0),
+ players:players.map(p=>ONLINE_FIELDS.map(k=>typeof p[k]==='number'?Math.round(p[k]*1000)/1000:p[k]||0)),selected:['blue','red'].map(s=>players.indexOf(onlineHumans[s].selected)),charge:['blue','red'].map(s=>onlineHumans[s].charge?.power||0),
  ball:{held:!!(ball.held&&ball.owner?.role==='gk'),x:ball.x,y:ball.y,vx:ball.vx,vy:ball.vy,z:ball.z,r:ball.r,owner:players.indexOf(ball.owner),lastTouch:ball.lastTouch},
  restart:setPiece?{id:setPiece.id,kind:setPiece.kind,team:setPiece.team,taker:players.indexOf(setPiece.taker),target:players.indexOf(setPiece.previewTarget||setPiece.target||setPiece.defaultTarget)}:null};
 }
@@ -8523,6 +8516,7 @@ function showMainMenuTab(tab){
   document.getElementById('mainTab'+name).setAttribute('aria-pressed',String(name===tab));
  }
  document.getElementById('mainMatchSetup').hidden=!['Quick','Online'].includes(tab);
+ document.getElementById('rivalTeamPick').hidden=tab==='Online';
  // Online games have their own fixed difficulty and duration.
  for(const id of ['menuDurationLabel','menuDifficultyLabel'])document.getElementById(id).hidden=tab==='Online';
  document.getElementById('difficultyInfo').hidden=tab==='Online';
@@ -8997,7 +8991,7 @@ function leaveOnline(notify=true){
 }
 function startOnlineMatch(m){
  if(net.match===m.match)return;
- net.match=m.match;net.side=m.side;net.phase='playing';net.seq=0;net.queue=[];net.previous='';net.goals=0;net.subSeen=0;net.blend=null;net.blendReady=false;net.buttonAt={};document.getElementById('onlineOffer').style.display='none';
+ net.match=m.match;net.side=m.side;net.phase='playing';net.seq=0;net.queue=[];net.previous='';net.goals=0;net.subSeen=0;net.blend=null;net.blendReady=false;net.stateAt=0;net.snapshotInterval=33;net.buttonAt={};document.getElementById('onlineOffer').style.display='none';
  matchSize=m.size;formation='433';formation5='5';document.getElementById('duration').value='180';
  teamChoice.blue=m[net.side];teamChoice.red=m[net.side==='blue'?'red':'blue'];populateTeamSelects();fullReset();
  state='playing';el.teamMenu.style.display='none';el.end.style.display='none';document.getElementById('onlineMatchBar').style.display='block';
@@ -9018,6 +9012,8 @@ function applyOnlineState(s){
  if(s.lineupIds)for(let i=0;i<s.lineupIds.length;i++){const j=reverse?(i<matchSize?i+matchSize:i-matchSize):i,p=players[j],team=j<matchSize?'blue':'red';if(p&&p.roster.id!==s.lineupIds[i]){const card=rosterFor(teamChoice[team]).find(c=>c.id===s.lineupIds[i]);if(card){const replacement=makePlayer(team,p.role,p.num,p.x,p.y,p.position,card);replacement.homeX=p.homeX;replacement.homeY=p.homeY;Object.assign(p,replacement);changed=true;}}}
  if(changed){activeRosters={blue:blue.map(p=>p.roster),red:red.map(p=>p.roster)};renderSquad();if(s.state==='paused')renderSubstitutions();}
  const previousHolder=ball.owner;
+ const receivedAt=performance.now(),interval=net.stateAt?receivedAt-net.stateAt:33;net.stateAt=receivedAt;
+ net.snapshotInterval=clamp((net.snapshotInterval||33)*.8+clamp(interval,16,100)*.2,16,100);
  const from=players.map(p=>[p.x,p.y]),ballFrom=[ball.x,ball.y];
  const swap=t=>reverse?(t==='blue'?'red':t==='red'?'blue':t):t;
  const localIndex=i=>i<0?-1:reverse?(i<matchSize?i+matchSize:i-matchSize):i;
@@ -9030,7 +9026,7 @@ function applyOnlineState(s){
  ball.owner=players[localIndex(s.ball.owner)]||null;if(ball.owner!==previousHolder)keeperPassTarget=null;ball.lastTouch=swap(s.ball.lastTouch);
  score.blue=s.score[net.side];score.red=s.score[reverse?'blue':'red'];
  stats.blue=s.stats[net.side];stats.red=s.stats[reverse?'blue':'red'];stats.goals=s.stats.goals.map(g=>({...g,team:swap(g.team)}));
- net.blend=net.blendReady&&!s.restart&&!s.goalPause?{at:performance.now(),from,to:players.map(p=>[p.x,p.y]),ballFrom,ballTo:[ball.x,ball.y]}:null;net.blendReady=true;
+ net.blend=net.blendReady&&s.state==='playing'&&!s.restart&&!s.goalPause?{at:receivedAt,duration:net.snapshotInterval,from,to:players.map(p=>[p.x,p.y,p.vx,p.vy]),ballFrom,ballTo:[ball.x,ball.y,ball.vx,ball.vy]}:null;net.blendReady=true;
  elapsed=s.elapsed;extraTimeStarted=s.extraTimeStarted;stoppageSeconds=s.stoppageSeconds;goalPause=s.goalPause;
  selected=players[localIndex(s.selected[reverse?1:0])]||blue[1];shotCharge=s.charge[reverse?1:0];
  const previousRestart=setPiece;setPiece=s.restart?{id:s.restart.id,kind:s.restart.kind,team:swap(s.restart.team),taker:players[localIndex(s.restart.taker)],previewTarget:players[localIndex(s.restart.target)]}:null;
@@ -9058,7 +9054,11 @@ function onlineClientFrame(now){
  if(!net.active)return;
  if(net.phase!=='joining'&&now-net.lastSnapshot>12000){leaveOnline();fullReset();onlineStatus('Bağlantı kesildi. Tekrar eşleştirmeye girebilirsin.');return;}
  if(net.phase!=='playing')return;
- if(net.blend){const b=net.blend,t=clamp((now-b.at)/33,0,1);players.forEach((p,i)=>{p.x=lerp(b.from[i][0],b.to[i][0],t);p.y=lerp(b.from[i][1],b.to[i][1],t);});ball.x=lerp(b.ballFrom[0],b.ballTo[0],t);ball.y=lerp(b.ballFrom[1],b.ballTo[1],t);}
+ if(net.blend){
+  const b=net.blend,age=Math.max(0,now-b.at),duration=b.duration||33,t=clamp(age/duration,0,1),extra=clamp((age-duration)/1000,0,.08);
+  players.forEach((p,i)=>{const to=b.to[i];p.x=lerp(b.from[i][0],to[0],t)+(to[2]||0)*extra;p.y=lerp(b.from[i][1],to[1],t)+(to[3]||0)*extra;constrainPlayer(p);});
+  ball.x=lerp(b.ballFrom[0],b.ballTo[0],t)+(b.ballTo[2]||0)*extra;ball.y=lerp(b.ballFrom[1],b.ballTo[1],t)+(b.ballTo[3]||0)*extra;
+ }
  if(net.socket?.readyState===1&&now-net.lastPing>2000){net.lastPing=now;net.socket.send(JSON.stringify({type:'ping',at:performance.now()}));}
  const inp=state==='paused'||net.focused===false||document.hidden?{x:0,y:0}:inputState(1/60),input={x:inp.x,y:inp.y,sprint:inp.sprint,switch:inp.qPressed,power:{},target:keeperPassTarget?blue.indexOf(keeperPassTarget):setPiece?.team==='blue'&&setPiece.target?blue.indexOf(setPiece.target):-1};
  let edge=false;
@@ -9071,10 +9071,16 @@ function onlineClientFrame(now){
   }
  }
  const serialized=JSON.stringify(input);
- if(edge||serialized!==net.previous){net.queue.push(input);net.previous=serialized;edge=true;}
+ if(edge||serialized!==net.previous){
+  // Coalesce continuous joystick updates, retaining every button transition.
+  const previous=net.queue.at(-1),sameButtons=previous&&['pass','through','cross','shoot','switch','sprint'].every(k=>!!previous[k]===!!input[k])&&!Object.keys(previous.power||{}).length;
+  if(!edge&&sameButtons&&net.queue.length<24)net.queue[net.queue.length-1]=input;else net.queue.push(input);
+  net.previous=serialized;edge=true;
+ }
  if(net.queue.length>24){leaveOnline();fullReset();onlineStatus('Bağlantı çok yavaş. Yeniden bağlanmayı dene.');return;}
  if(net.socket?.readyState===1){
   if(net.socket.bufferedAmount>32768)return;
+  if(now-net.lastSend<16&&!Object.keys(input.power).length&&!input.switch)return;
   if(!edge&&now-net.lastSend<50)return;
   const batch=net.queue.splice(0,24);if(!batch.length)batch.push(input);net.lastSend=now;net.socket.send(JSON.stringify({type:'input',seq:++net.seq,inputs:batch}));return;
  }
