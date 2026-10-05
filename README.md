@@ -263,3 +263,7 @@ python3 tools/check_game.py
 ```
 
 Üretim dosyaları değiştiğinde `SHA256SUMS` da güncellenir. `tools/fetch_fc27.py` FC27 sürümü, sayfa sayısı ve benzersiz kimlikleri doğrulamadan çıktıları değiştirmez. Genel EA API adresi eski sürüm döndürebildiğinden körü körüne kullanılmaz. Kulüp kısaltmaları/lisanslı alternatif adlar `roster-source/fc27-club-map.tsv` ile açık eşleştirilir. `tests/fc27-rosters.cjs` kaynak SHA’sını, resmî kimlik/üyelik/mevki/puanları, tüm kaynak etiketlerini, kaleci/oyuncu ayrımını, yedekleri ve ortak çevrimiçi motoru denetler.
+
+### Çevrim dışı HTML indirme
+
+Ana menünün altında **Çevrim dışı oynamak için HTML indir** bulunur. Temiz oyun HTML’i, FC27/tüm zamanlar kadroları, gömülü sesler ve maç sonu görselleri internet bağlantısıyla tek dosyaya paketlenir. İndirilen `Mini-Saha-Cevrimdisi.html` tarayıcıda açılır; hızlı maç ve kariyer kullanılabilir. Çok oyunculu kapalıdır; sunucuda üretilen yeni spiker replikleri çevrim dışı üretilemez. Mevcut sitedeki kayıtlar dosyaya otomatik taşınmaz. Eksik dosyada kısmi indirme yapılmaz, tekrar denenebilir. Kontrol: `tests/offline-download.cjs`.

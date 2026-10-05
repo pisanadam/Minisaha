@@ -23,6 +23,8 @@ let script=fs.readFileSync(require('path').join(__dirname,'../public/index.html'
 script=script.replace(/\}\)\(\);\s*$/, 'window.inspect = code => eval(code);})();');
 vm.createContext(sandbox);
 const html=fs.readFileSync(require('path').join(__dirname,'../public/index.html'),'utf8');
+sandbox.document.documentElement={hasAttribute:()=>false};
+for(const m of html.matchAll(/id="([^"]+)"/g))if(!ids[m[1]])ids[m[1]]=new El();
 for(const m of html.matchAll(/<script src="([^"]+)"><\/script>/g))vm.runInContext(fs.readFileSync(require('path').join(__dirname,'../public',m[1].split('?')[0]),'utf8'),sandbox);
 vm.runInContext(script,sandbox);
 const run=sandbox.inspect;
