@@ -14,6 +14,8 @@ run('playNextLeagueMatch();fullReset()');assert.equal(run('leagueSeason.round'),
 // Finish every week and verify both home/away score mapping, standings and champion.
 while(run('leagueSeason.round<leagueSeason.fixtures.length')){
  if(run('state')!=='playing')run('playNextLeagueMatch()');
+ // Domestic cup ties are played between league weeks and never change the league round.
+ if(run('!!leagueMatchContext?.cup')){const before=run('leagueSeason.round');run('score.blue=1;score.red=0;endMatch()');assert.equal(run('leagueSeason.round'),before);continue;}
  const week=run('leagueSeason.round'),home=run('leagueMatchContext.home');run('score.blue=2;score.red=0;endMatch()');
  assert.equal(run('leagueSeason.round'),week+1);assert(run(`leagueSeason.fixtures[${week}].every(m=>m.homeGoals!==null&&m.awayGoals!==null)`));
  const own=run(`leagueSeason.fixtures[${week}].find(m=>m.home===leagueSeason.club||m.away===leagueSeason.club)`);assert.equal(home?own.homeGoals:own.awayGoals,2);assert.equal(home?own.awayGoals:own.homeGoals,0);

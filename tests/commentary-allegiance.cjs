@@ -18,6 +18,6 @@ for(const side of ['blue','red']){
  run('net.active=false;onlineButtons()');assert.equal(ids.commentaryAllegianceSelect.value,side);assert.equal(ids.commentaryAllegianceSelect.disabled,false);
 }
 assert(run('Object.values(SUPPORTER_COMMENTARY).flat().every(line=>bundledCommentaryParts(line,{team:"blue"},"attack").every(key=>MINISAHA_ENGINE.speechCatalog().has(key)))'));
-assert.equal(run('new Set(Object.values(COMMENTARY_LINES).flat()).size'),3000);
+assert.equal(run('new Set(Object.values(COMMENTARY_LINES).flat()).size'),3060);
 run("MINISAHA_ENGINE.boot({blue:'turkiye',red:'turkiye',size:5});commentaryAllegiance='red'");assert.equal(run('effectiveCommentaryAllegiance()'),'neutral');
 assert.deepEqual(errors,[]);console.log('PASS saved allegiance, supporter wording/emotion, forced neutral multiplayer/server, restored local choice and speech catalog');
