@@ -280,7 +280,8 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
 #simReturn{display:none;position:absolute;z-index:12;left:50%;top:76px;transform:translateX(-50%);background:#c5fa75;color:#172c1b;font-size:12px;padding:9px 14px}
 #simProgress{display:none;position:absolute;inset:0;z-index:45;background:#0c1e16f5;align-items:center;justify-content:center;color:#c5fa75;font-size:clamp(17px,4vw,28px);text-align:center;padding:24px}
 
-#onlineOffer{position:absolute;inset:0;z-index:40;background:#06130ded;display:flex;align-items:center;justify-content:center;padding:12px}#onlineOffer .offerCard{width:min(620px,95%);max-height:95%;overflow:auto;background:#193528;border:1px solid #82aa68;border-radius:16px;padding:18px;color:#eff8e9}#onlineOffer h2{margin:0 0 12px}#onlineOffer .offerTeams{display:grid;grid-template-columns:1fr 1fr;gap:18px}#onlineOffer ol{padding-left:25px;font-size:12px;line-height:1.8}#onlineAcceptBtn{background:#cef389;color:#152414}#keeperPassBar{position:absolute;z-index:12;left:50%;top:112px;transform:translateX(-50%);width:min(360px,90%);background:#102d23ee;padding:8px;border-radius:8px;color:white;font-size:11px}#keeperPassBar{pointer-events:none}#matchmakeBtn{background:#6cadde;color:#102519;flex:1}#onlineLobbyPanel input{display:block;width:100%;box-sizing:border-box;background:#102219;color:#eff8e9;border:1px solid #698466;border-radius:8px;padding:11px;margin:8px 0}#onlineLobbyPanel .menuActions{flex-wrap:wrap}#onlineLobbyPanel .menuActions button{flex:1;min-width:95px}#onlineRooms p{display:block!important;overflow-wrap:anywhere;margin:12px 0 4px}#onlineStatus{display:block!important;font-size:12px!important;line-height:1.5}#onlineMatchBar{display:none;position:absolute;z-index:9;top:78px;left:50%;transform:translateX(-50%);font-size:11px;background:#0c211bdc;padding:6px 12px;border-radius:8px;max-width:90%;text-align:center;pointer-events:none}
+#onlineOffer{position:absolute;inset:0;z-index:40;background:#06130ded;display:flex;align-items:center;justify-content:center;padding:12px}#onlineOffer .offerCard{width:min(620px,95%);max-height:95%;overflow:auto;background:#193528;border:1px solid #82aa68;border-radius:16px;padding:18px;color:#eff8e9}#onlineOffer h2{margin:0 0 12px}#onlineOffer .offerTeams{display:grid;grid-template-columns:1fr 1fr;gap:18px}#onlineOffer ol{padding-left:25px;font-size:12px;line-height:1.8}#onlineAcceptBtn{background:#cef389;color:#152414}#keeperPassBar{position:absolute;z-index:12;left:50%;top:112px;transform:translateX(-50%);width:min(360px,90%);background:#102d23ee;padding:8px;border-radius:8px;color:white;font-size:11px}#keeperPassBar{pointer-events:none}#matchmakeBtn{background:#6cadde;color:#102519;flex:1}#onlineLobbyPanel input{display:block;width:100%;box-sizing:border-box;background:#102219;color:#eff8e9;border:1px solid #698466;border-radius:8px;padding:11px;margin:8px 0}#onlineLobbyPanel .menuActions{flex-wrap:wrap}#onlineLobbyPanel .menuActions button{flex:1;min-width:95px}#onlineRooms p{display:block!important;overflow-wrap:anywhere;margin:12px 0 4px}#onlineStatus{display:block!important;font-size:12px!important;line-height:1.5}#quickChat{position:absolute;z-index:45;top:112px;right:10px;display:flex;flex-direction:column;align-items:flex-end;gap:6px}#quickChat[hidden]{display:none}#chatToggle{width:40px;height:40px;border-radius:50%;padding:0;font-size:19px}#chatMenu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;background:#0c211bf0;padding:7px;border-radius:10px;max-width:min(300px,80vw)}#chatMenu[hidden]{display:none}#chatMenu button{font-size:12px;padding:7px 8px;white-space:normal}#chatToast{position:absolute;z-index:46;top:112px;left:50%;transform:translateX(-50%);background:#0c211bf0;color:#ebffd7;font-size:13px;font-weight:700;padding:7px 12px;border-radius:9px;pointer-events:none;opacity:0;transition:opacity .2s;max-width:70%;text-align:center}#chatToast.show{opacity:1}#onlineResultInfo{font-weight:700;color:#d8fb9b}#leaderboardList{margin:6px 0 0;padding-left:22px;font-size:13px;line-height:1.6}
+#onlineMatchBar{display:none;position:absolute;z-index:9;top:78px;left:50%;transform:translateX(-50%);font-size:11px;background:#0c211bdc;padding:6px 12px;border-radius:8px;max-width:90%;text-align:center;pointer-events:none}
 #victoryScare{position:fixed;inset:0;z-index:9999;display:none;place-items:center;background:#000;overflow:hidden;touch-action:manipulation;cursor:pointer}
 #victoryScare img{width:100%;height:100%;object-fit:contain;animation:scareZoom .16s ease-out both;pointer-events:none}
 #victoryScare button{position:absolute;right:16px;top:16px;z-index:1;background:#000b;color:white;border:1px solid #fff8;padding:10px 16px}
@@ -485,6 +486,7 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
         <div id="hostOnlineForm" style="display:none"><label for="onlineTitle">ODA BAŞLIĞI · EN FAZLA 20 KARAKTER</label><input id="onlineTitle" maxlength="20" placeholder="Oda başlığı"><label for="onlineDescription">AÇIKLAMA · EN FAZLA 50 KARAKTER</label><input id="onlineDescription" maxlength="50" placeholder="Açıklama (isteğe bağlı)"><button id="createOnlineBtn">Odayı aç</button></div>
         <div id="onlineRooms" aria-live="polite"></div>
       </div><p id="onlineStatus" role="status" aria-live="polite">Host ol, arkadaşının odasına katıl veya rastgele rakip bul. Maçlar 3 dakika.</p>
+      <section class="menuSection" id="onlineRankSection"><h3>Profil ve sıralama <span>Rastgele eşleşmeler derecelidir</span></h3><p id="onlineProfileInfo">Profilin bu tarayıcıda anonim olarak tutulur; ilk çevrimiçi maçında oluşur.</p><div class="menuActions"><button id="leaderboardBtn" type="button">Sıralamayı göster</button></div><ol id="leaderboardList" aria-live="polite"></ol></section>
 </section>
       <section id="mainViewSettings" aria-labelledby="mainTabSettings" hidden><section class="menuSection"><h3>Spiker <span>Ses ve anlatım</span></h3>      <div class="menuActions"><button id="menuCommentaryBtn" aria-pressed="true">Spiker: açık</button><button id="commentaryTestBtn">Sesi dene 🔊</button></div><div class="audioSettingsGrid"><label for="commentaryProfileSelect">ANLATIM TARZI</label><select id="commentaryProfileSelect" aria-label="Spiker anlatım tarzı"><option value="balanced">Dengeli · Maç spikeri</option><option value="passionate">Coşkulu · Tribün heyecanı</option><option value="radio">Tok ses · Radyo anlatımı</option><option value="analyst">Sakin · Analist</option></select><label for="commentaryAllegianceSelect">Spikerin tuttuğu taraf</label><select id="commentaryAllegianceSelect"><option value="neutral">Tarafsız</option><option value="blue">Bizim takım</option><option value="red">Rakip takım</option></select><small id="commentaryAllegianceHint">Tek oyunculuda spikerin desteklediği tarafı seç.</small><label for="commentaryVoiceSelect">SPİKER SESİ</label><select id="commentaryVoiceSelect" aria-label="Spiker sesi"></select><p id="commentaryStatus" role="status">Türkçe sesli anlatım · 3.000 replik varyasyonu</p></div></section><section class="menuSection"><h3>Kontroller ve yardım</h3><details id="keyboardSettings" class="helpDetails"><summary>Klavye ve tuş atamaları</summary><p>Bilgisayarda klavyeyle oyna. Bir tuş alanına tıkla, ardından istediğin tuşa bas. Her hareket için iki tuş seçebilirsin. Esc: atamayı iptal et · Delete: seçili atamayı temizle.</p><div class="keyBindingHeading"><span>Hareket</span><span>Birinci tuş</span><span>İkinci tuş</span></div><div id="keyBindingRows"></div><p id="keyBindingStatus" role="status" aria-live="polite"></p><button id="resetKeyBindings" type="button">Varsayılana dön</button></details><details class="helpDetails"><summary>Nasıl oynanır?</summary><p id="keyboardHelp"></p><p>Telefonda sol çubuğu ve sağdaki tuşları kullan. Şut yönünü hareket çubuğuyla belirle. Joystick’i dış kenarda 0,5 saniyeden uzun tutunca otomatik koşarsın. Yavaşlamak için çubuğu merkeze yaklaştır. Pas, ara pas ve orta: basılı tutarak güç biriktir, bırakınca vur. Kısa dokunuşlarda da mesafeye uygun hız kullanılır. Top rakipteyken: PAS → PRES (basılı tut), ŞUT → AYAKTA MÜDAHALE, ORTA → KAYARAK MÜDAHALE, ARA PAS → İKİNCİ PRES (basılı tut). Pres sırasında çubukla yön verebilirsin. İkinci pres en fazla 2,5 saniye sürer. Müdahaleler yalnızca erişilebilen topa işler; kaymayı kaçırınca toparlanmak zaman alır. Kaleciler iki takımda da otomatik çalışır. Oyuncu seçimi pas alıcısına ve topun gidişine göre yapılır. Gamepad: sol analog, A/✕ pas, B/○ şut, Y/△ ara pas, X/□ orta, analog dış kenarda 0,5 saniye: koşu; RT/R2 sprint, LB/L1 oyuncu değiştir.</p><p>Beraberlikte 30 saniye uzatma, ardından zamanlama barıyla penaltılar. Takımlar oyun içi seçim listesidir.</p></details>
       <details class="helpDetails"><summary>Ses kaynağı ve lisans</summary><p>Gömülü erkek ses: Piper tr_TR-dfki-medium modeliyle üretilen sentetik Türkçe konuşma. Kaynak veri: © 2009 DFKI GmbH, <a href="https://github.com/marytts/dfki-ot-data/" target="_blank" rel="noopener">DFKI OT</a>. Ses verileri ve bu oyundaki dönüştürülmüş kayıtlar: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> (atıf, ticari olmayan kullanım, aynı lisansla paylaşım). Kayıtlar sentezlendi, sessizlikleri kısaltıldı ve MP3 biçimine çevrildi.</p></details></section></section>
@@ -496,7 +498,7 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
   <div id="leagueHub" style="display:none" role="dialog" aria-modal="true" aria-labelledby="leagueSeasonTitle"><section class="leagueHubCard"><header class="leagueHubHeader"><div><span class="leagueEyebrow">KULÜP MERKEZİ · LİG KARİYERİ</span><h2 id="leagueSeasonTitle"></h2><p id="leagueHubSubtitle"></p></div><button id="leagueHubClose" aria-label="Lig menüsünü kapat">Ana menü ✕</button></header><nav class="leagueHubNav" aria-label="Lig menüsü"><button id="leagueTabOverview" aria-pressed="true">Genel Bakış</button><button id="leagueTabTable" aria-pressed="false">Puan Tablosu</button><button id="leagueTabFixtures" aria-pressed="false">Fikstür</button><button id="leagueTabSquad" aria-pressed="false">Kadro</button><button id="leagueTabTransfers" aria-pressed="false" hidden>Transferler</button><button id="leagueTabOffice" aria-pressed="false" hidden>Yönetim</button><button id="leagueTabTraining" aria-pressed="false" hidden>Gelişim</button></nav><div id="leagueSeasonView" class="leagueHubBody" hidden><div id="leagueViewOverview"><div class="leagueMetrics"><div><span>Ligdeki sıran</span><strong id="leagueRankMetric"></strong></div><div><span>Puan</span><strong id="leaguePointsMetric"></strong></div><div><span>Oynanan hafta</span><strong id="leagueWeekMetric"></strong></div></div><article class="leagueNextCard"><span class="leagueEyebrow">SIRADAKİ KARŞILAŞMA</span><h3 id="leagueNextInfo"></h3><p>Takımını sahada yönet veya maçı duraklatıp simüle et.</p><button id="leagueNextBtn">Maça çık ↗</button><button id="leagueAdvanceBtn" style="display:none">Sonraki sezona geç ↗</button><p id="leagueMovementInfo"></p></article><article class="leagueNextCard" id="leagueCupCard" hidden><span class="leagueEyebrow" id="leagueCupName">KUPA</span><h3 id="leagueCupInfo"></h3><div id="leagueCupResults"></div></article><p class="leagueDataNote">Kadro verisi: 2026–27. Fikstür ve sonraki sezonlar oyun kariyerinde oluşturulur. İki ligli kariyerde üçüncü kademe bulunmaz.</p></div><div id="leagueViewTable" hidden><label for="leagueTableDivision">Lig tablosu</label><select id="leagueTableDivision"></select><div class="leagueTableScroll"><table id="leagueStandings" aria-label="Lig puan tablosu"></table></div><p>Puan → averaj → atılan gol. Galibiyet 3, beraberlik 1 puan.</p></div><div id="leagueViewFixtures" hidden><h3>Takımımın fikstürü</h3><ol id="leagueFixtureList"></ol><h3>Son haftanın sonuçları</h3><div id="leagueRoundResults"></div></div><div id="leagueViewSquad" hidden><h3 id="leagueSquadTitle"></h3><div class="managerSearchForm"><label>Diziliş<select id="leagueFormationSelect"></select></label><label>Takım yaklaşımı<select id="leagueTacticSelect"><option value="balanced">Dengeli</option><option value="attack">Hücum</option><option value="defend">Savunma</option></select></label></div><p>Seçim bu kariyer kaydına aittir; sonraki maçlara ve sezonlara taşınır.</p><button id="leagueBestLineupBtn">En güçlü ilk 11’i öner</button><p id="leagueBestLineupStatus" role="status"></p><div id="leagueSquadCards"></div><p>Maç sırasında duraklatma ekranından saha düzeninde oyuncu ve diziliş değiştirebilirsin.</p></div><div id="leagueViewTransfers" hidden><h3>Transfer merkezi</h3><p id="managerWindowInfo"></p><div class="managerForm"><label for="managerMarketClub">Kulüp</label><select id="managerMarketClub"></select><label for="managerMarketPlayer">Oyuncu</label><select id="managerMarketPlayer"></select></div><div id="managerTransferPreview" class="managerPreview"></div><div class="menuActions"><button id="managerBuyBtn">Transfer görüşmesi</button><button id="managerLoanBtn">Kiralama görüşmesi</button></div><button id="managerShortlistBtn">İzleme listesine ekle ★</button><h3>Oyuncu ara</h3><div class="managerSearchForm"><input id="managerPlayerSearch" type="search" placeholder="İsimle oyuncu ara"><select id="managerPositionFilter"><option value="all">Tüm mevkiler</option><option value="GK">Kaleci</option><option value="CB">Stoper</option><option value="LB">Sol bek</option><option value="RB">Sağ bek</option><option value="CM">Orta saha</option><option value="LW">Sol kanat</option><option value="RW">Sağ kanat</option><option value="ST">Santrfor</option></select><label>En az genel puan<input id="managerMinRating" type="number" min="40" max="99" value="40"></label><label>En fazla bedel (€)<input id="managerMaxFee" type="number" min="0" step="100000" placeholder="Sınırsız"></label><button id="managerSearchBtn">Oyuncuları bul</button></div><div id="managerSearchResults"></div><h3>İzleme listesi</h3><div id="managerShortlist"></div><hr><h3>Oyuncu sat</h3><label for="managerSellPlayer">Kadrodan oyuncu</label><select id="managerSellPlayer"></select><p id="managerSellAdvice"></p><p>Alıcı kulüp: yukarıdaki seçili kulüp. En az 11 oyuncu ve bir kaleci korunur.</p><button id="managerSellBtn">Oyuncuyu sat</button><p id="managerActionStatus" role="status"></p><p>Transfer ve maaş değerleri oyun için hesaplanan tahminlerdir.</p></div><div id="leagueViewOffice" hidden><h3>Teknik direktör ofisi</h3><div id="managerOffice" class="managerPreview"></div><div id="managerJobPanel" hidden><h3 id="managerJobTitle">İş teklifleri</h3><p id="managerJobInfo"></p><div id="managerJobOffers"></div></div><p id="managerOfficeActionStatus" role="status"></p><h3>Sözleşme yönetimi</h3><select id="managerContractPlayer"></select><div id="managerContractInfo"></div><button id="managerRenewBtn">Sözleşme görüşmesi</button><h3>Antrenör ekibi</h3><p>Antrenör seviyesi gelişimi, izleme uzmanı transfer pazarlığını etkiler. Ücretler maaş giderine eklenir.</p><div id="managerStaff"></div><h3>Kulüp haberleri</h3><div id="managerNews"></div></div><div id="leagueViewTraining" hidden><h3>Antrenman ve oyuncu gelişimi</h3><label for="managerTrainingFocus">Takımın çalışma odağı</label><select id="managerTrainingFocus"><option value="balanced">Dengeli</option><option value="attack">Hücum · Şut ve top sürme</option><option value="defense">Savunma · Top kapma ve fizik</option><option value="passing">Pas · Pas ve hız</option></select><p>Her tamamlanan lig haftası gelişim kazandırır. 100 gelişim puanında genel puan ve çalışılan özellikler artar. Değişiklikler kariyer kadrosuna uygulanır.</p><div id="managerDevelopment"></div><h3>Sakatlık, ceza ve moral</h3><p>Maçta oynayan oyuncular sakatlanabilir; kırmızı kart sonraki maçlarda ceza getirir. Galibiyet ve süre alan oyuncuların morali yükselir; moral puanları maç gücünü etkiler.</p><div id="managerFitness"></div></div></div></section></div><div id="onlineOffer" style="display:none" role="dialog" aria-modal="true" aria-labelledby="onlineOfferTitle"><div class="offerCard"><h2 id="onlineOfferTitle">Oyun bulundu!</h2><p id="onlineOfferInfo"></p><div class="offerTeams"><div><h3 id="offerYourTeam"></h3><ol id="offerYourLineup"></ol></div><div><h3 id="offerRivalTeam"></h3><ol id="offerRivalLineup"></ol></div></div><p id="onlineOfferStatus" role="status"></p><div class="menuActions"><button id="onlineAcceptBtn">Kabul et</button><button id="onlineDeclineBtn">İptal et</button></div></div></div>
 <div id="managerNegotiation" style="display:none" role="dialog" aria-modal="true" aria-labelledby="managerNegotiationTitle"><section class="managerDealCard"><header><span class="leagueEyebrow">KARİYER · GÖRÜŞME ODASI</span><h2 id="managerNegotiationTitle"></h2></header><div class="managerMeetingArt" aria-hidden="true"><span class="managerPerson"></span><span class="managerDesk"></span><span class="managerPerson managerVisitor"></span></div><p id="managerNegotiationParties"></p><p id="managerNegotiationDialogue" aria-live="polite"></p><div id="managerClubOffer"><label for="managerOfferFee">Teklif edilen bedel (€)</label><input id="managerOfferFee" type="number" min="0" step="100000"></div><div id="managerPlayerOffer" hidden><label for="managerOfferWage">Haftalık maaş (€)</label><input id="managerOfferWage" type="number" min="0" step="1000"><label for="managerOfferYears">Sözleşme süresi</label><select id="managerOfferYears"><option value="1">1 yıl</option><option value="2">2 yıl</option><option value="3" selected>3 yıl</option><option value="4">4 yıl</option><option value="5">5 yıl</option></select></div><aside class="managerAdvisor"><span class="leagueEyebrow">TRANSFER DANIŞMANI</span><p id="managerPriceAdvice"></p><p id="managerOfferFeedback" aria-live="polite"></p><button id="managerApplyAdvice">Önerilen teklifi kullan</button></aside><p id="managerNegotiationCost"></p><div class="menuActions"><button id="managerOfferSubmit">Teklif sun</button><button id="managerOfferCancel">Görüşmeden ayrıl</button></div><p>Görüşme tamamlanana kadar para ve kadro değişmez.</p></section></div>
   <div id="keeperPassBar" style="display:none"><span id="keeperPassHint">Sahadaki oyuncuya dokun, sonra Pas’a bas: kaleci eliyle yüksekten atsın.</span></div>
-  <div id="leagueMatchBar" style="display:none" role="status"></div><div id="onlineMatchBar" role="status"></div><div id="message"></div>
+  <div id="leagueMatchBar" style="display:none" role="status"></div><div id="onlineMatchBar" role="status"></div><div id="quickChat" hidden><button id="chatToggle" type="button" aria-expanded="false" aria-controls="chatMenu" aria-label="Hızlı sohbet">💬</button><div id="chatMenu" hidden></div></div><div id="chatToast" role="status" aria-live="polite"></div><div id="message"></div>
 
   <div id="pauseMenu" role="dialog" aria-modal="true" aria-labelledby="pauseTitle">
     <div id="pauseCard"><h2 id="pauseTitle">Maç duraklatıldı</h2><p id="pauseMatchInfo"></p>
@@ -519,7 +521,7 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
           <tbody id="statsRows"></tbody>
         </table>
       </div>
-      <p id="leagueEndInfo" style="display:none"></p><div id="goalTimeline"></div><div class="resultActions"><button id="playAgain">Rövanş ↗</button><button id="endMenu">Ana Menü</button></div>
+      <p id="leagueEndInfo" style="display:none"></p><p id="onlineResultInfo" style="display:none" role="status"></p><div id="goalTimeline"></div><div class="resultActions"><button id="playAgain">Rövanş ↗</button><button id="endMenu">Ana Menü</button></div>
     </div>
   </div>
 
@@ -6071,7 +6073,7 @@ function resetKickoff(teamToStart='blue'){
 
 function fullReset(){
  closeManagerNegotiation();managerRosterScope=false;document.getElementById('bestLineupStatus').textContent='';
- document.getElementById("leagueHub").style.display="none";leagueMatchContext=null;lastLeagueMatch=false;document.getElementById("leagueMatchBar").style.display="none";document.getElementById("leagueEndInfo").style.display="none";el.playAgain.textContent="Rövanş ↗";
+ document.getElementById("leagueHub").style.display="none";leagueMatchContext=null;lastLeagueMatch=false;document.getElementById("leagueMatchBar").style.display="none";document.getElementById("leagueEndInfo").style.display="none";el.playAgain.textContent="Rövanş ↗";el.playAgain.disabled=false;if(!net.active)setOnlineResult('');
  activeRosters={};activeRosterKeys={};teamFormationKeys={};substitutionLog=[];usedSubs={blue:new Set(),red:new Set()};keeperPassTarget=null;
   closeVictoryScare();victoryScareUsed=false;
   simulationJob++;fastSimulation=false;simulationMode="manual";syncSimulationUI();
@@ -6223,7 +6225,7 @@ el.restart.addEventListener('click', () => { if(net.active){openMenu();return;}c
 if(el.fullscreen) el.fullscreen.addEventListener('click', toggleFullscreen);
 document.addEventListener('fullscreenchange', updateFullscreenButton);
 document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
-el.playAgain.addEventListener('click', () => { if(lastLeagueMatch){if(leagueHasNextMatch())playNextLeagueMatch();else{fullReset();openLeagueHub();}return;}fullReset();startGame(); });
+el.playAgain.addEventListener('click', () => { if(net.active&&net.phase==='post'){requestRematch();return;}if(!net.active&&el.playAgain.textContent==='Yeni maç ↗'){fullReset();showMainMenuTab('Online');return;} if(lastLeagueMatch){if(leagueHasNextMatch())playNextLeagueMatch();else{fullReset();openLeagueHub();}return;}fullReset();startGame(); });
 el.diff.addEventListener('change', () => setMessage(DIFF[el.diff.value].name, .8));
 el.penaltyButtons.addEventListener('click', e => {
   const actionBtn = e.target.closest('#penaltyActionBtn');
@@ -8506,7 +8508,7 @@ function initEnhancements(){
   });
   document.getElementById('mSwitch').addEventListener('pointerdown',e=>{e.preventDefault();if(state==='playing')cycleSelected();});
   document.getElementById('menuBtn').addEventListener('click',openMenu);
-  document.getElementById('endMenu').addEventListener('click',()=>fullReset());
+  document.getElementById('endMenu').addEventListener('click',()=>{if(net.active)leaveOnline();fullReset();});
   function suspend(){stopCommentary();clearInput();if(net.active){net.focused=false;cancelOnlineControls();return;}if(!fastSimulation&&(state==='playing'||state==='penalties'))togglePause();}
   window.addEventListener('blur',suspend);window.addEventListener('focus',()=>{net.focused=true;clearInput();});
   document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();else{net.focused=true;clearInput();}});
@@ -9292,6 +9294,42 @@ function initLeague(){
 }
 const net={active:false,phase:'idle',token:null,stream:null,side:'blue',match:null,lastSnapshot:0,lastSend:0,sending:false,queue:[],seq:0,joinId:0,previous:'',goals:0,socket:null,offer:null,buttonAt:{},lastPing:0,rtt:0};
 function onlineStatus(text){document.getElementById('onlineStatus').textContent=text;}
+const ONLINE_PROFILE_STORAGE='miniSaha.onlineProfile.v1';
+const CHAT_LINES=['İyi oyun! 👋','Güzel gol! ⚽','Şanslıydın 😄','Harika kurtarış! 🧤','Az kalmıştı! 😮','Hadi bakalım! 🔥','Bir maç daha? 🔁','GG 🤝'];
+function randomHex(bytes){const values=new Uint8Array(bytes);if(window.crypto?.getRandomValues)window.crypto.getRandomValues(values);else for(let i=0;i<bytes;i++)values[i]=Math.floor(Math.random()*256);return Array.from(values,v=>v.toString(16).padStart(2,'0')).join('');}
+function onlineProfileCredentials(){
+ try{const saved=JSON.parse(localStorage.getItem(ONLINE_PROFILE_STORAGE)||'null');if(saved&&/^[0-9a-f]{32}$/.test(saved.id)&&/^[0-9a-f]{64}$/.test(saved.secret))return {id:saved.id,secret:saved.secret};}catch{}
+ const fresh={id:randomHex(16),secret:randomHex(32)};try{localStorage.setItem(ONLINE_PROFILE_STORAGE,JSON.stringify(fresh));}catch{}return fresh;
+}
+function renderOnlineProfile(p){document.getElementById('onlineProfileInfo').textContent=p.name+' · Derece '+p.rating+(p.rank?' · Sıra '+p.rank:'')+' · '+p.wins+'G '+p.draws+'B '+p.losses+'M · Gol '+p.goalsFor+'–'+p.goalsAgainst;}
+async function loadLeaderboard(){
+ const list=document.getElementById('leaderboardList');list.replaceChildren();
+ try{
+  const [board,mine]=await Promise.all([onlineFetch('/online/leaderboard').then(r=>{if(!r.ok)throw new Error();return r.json();}),onlineFetch('/online/profile',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(onlineProfileCredentials())}).then(r=>r.ok?r.json():null).catch(()=>null)]);
+  if(mine?.profile)renderOnlineProfile(mine.profile);
+  for(const p of board.players){const li=document.createElement('li');li.textContent=p.name+' · '+p.rating+' · '+p.wins+'G '+p.draws+'B '+p.losses+'M';list.append(li);}
+  if(!board.players.length)list.textContent='Henüz dereceli maç oynanmadı.';
+ }catch{list.textContent='Sıralama için çevrimiçi servis gerekiyor.';}
+}
+function setOnlineResult(text){const info=document.getElementById('onlineResultInfo');info.textContent=text;info.style.display=text?'block':'none';}
+function syncRematchButton(){
+ if(!net.active||net.phase!=='post')return;
+ el.playAgain.textContent=net.rematch==='waiting'?'Rakip bekleniyor…':net.rematch==='declined'?'Rövanş yok':net.rematch==='requested'?'Rövanşı kabul et ↗':'Rövanş iste ↗';
+ el.playAgain.disabled=net.rematch==='waiting'||net.rematch==='declined';
+}
+function onlineCommand(type,data={}){
+ if(net.socket?.readyState===1){net.socket.send(JSON.stringify({type,...data}));return Promise.resolve(true);}
+ return onlineFetch('/online/'+type,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+net.token},body:JSON.stringify(data)}).then(r=>r.ok).catch(()=>false);
+}
+function requestRematch(){if(net.phase!=='post'||net.rematch==='waiting'||net.rematch==='declined')return;net.rematch='waiting';syncRematchButton();onlineCommand('rematch');}
+let chatToastJob=0;
+function showChatMessage(m){const text=CHAT_LINES[m.id];if(!text)return;const toast=document.getElementById('chatToast'),job=++chatToastJob;toast.textContent=(m.mine?'Sen':m.name)+': '+text;toast.classList.add('show');setTimeout(()=>{if(job===chatToastJob)toast.classList.remove('show');},2600);}
+function initQuickChat(){
+ const menu=document.getElementById('chatMenu'),toggle=document.getElementById('chatToggle');
+ CHAT_LINES.forEach((line,id)=>{const b=document.createElement('button');b.type='button';b.textContent=line;b.addEventListener('click',()=>{menu.hidden=true;toggle.setAttribute('aria-expanded','false');onlineCommand('chat',{id});focusGame();});menu.append(b);});
+ toggle.addEventListener('click',()=>{const show=menu.hidden!==false;menu.hidden=!show;toggle.setAttribute('aria-expanded',String(show));});
+ document.getElementById('leaderboardBtn').addEventListener('click',loadLeaderboard);
+}
 function onlineButtons(){
  if(net.active)showMainMenuTab('Online');
  renderLeague();
@@ -9318,10 +9356,11 @@ async function joinOnline(mode='random',room=null,size=matchSize){
  if(mode==='host'&&(!title||[...title].length>20||[...description].length>50)){onlineStatus('Başlık 1–20, açıklama en fazla 50 karakter olmalı.');return;}
  const attempt=++net.joinId;net.mode=mode;net.accepted=false;net.active=true;net.phase='joining';onlineButtons();onlineStatus('Eşleştirmeye bağlanılıyor…');
  try{
-  const response=await onlineFetch('/online/join',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({team:el.blueTeamSelect.value,size,version:3,name,mode,room,title,description})});
+  const response=await onlineFetch('/online/join',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({team:el.blueTeamSelect.value,size,version:3,name,mode,room,title,description,profile:onlineProfileCredentials()})});
   const data=await response.json();
-  if(!response.ok)throw new Error(({'name-taken':'Bu ad şu anda kullanılıyor. Başka bir ad gir.','room':'Oda dolmuş veya kapanmış. Listeyi yenile.','full':'Sunucu dolu; birazdan tekrar dene.','selection':'Sunucu güncellemesi gerekiyor.','name':'Geçerli bir oyuncu adı gir.','room-size':'Odanın oyuncu sayısı değişmiş.'})[data.error]||'Çevrimiçi servis kullanılamıyor. Sunucu güncellemesi gerekiyor.');
+  if(!response.ok)throw new Error(({'name-taken':'Bu ad şu anda kullanılıyor. Başka bir ad gir.','room':'Oda dolmuş veya kapanmış. Listeyi yenile.','full':'Sunucu dolu; birazdan tekrar dene.','selection':'Sunucu güncellemesi gerekiyor.','name':'Geçerli bir oyuncu adı gir.','room-size':'Odanın oyuncu sayısı değişmiş.','draining':'Sunucu güncelleniyor; süren maçlar bitince birkaç dakika içinde tekrar dene.'})[data.error]||'Çevrimiçi servis kullanılamıyor. Sunucu güncellemesi gerekiyor.');
   if(attempt!==net.joinId){fetch('/online/leave',{method:'POST',headers:{Authorization:'Bearer '+data.token}}).catch(()=>{});return;}
+  if(data.profile)renderOnlineProfile(data.profile);
   net.token=data.token;net.phase='waiting';net.lastSnapshot=performance.now();onlineStatus(`${matchSize}’e ${matchSize} rakip aranıyor…`);
   connectOnlineSocket(attempt);
  }catch(err){if(attempt===net.joinId){leaveOnline(false);onlineStatus(err.message||'Eşleştirme bağlantısı kurulamadı.');}}
@@ -9339,8 +9378,16 @@ function receiveOnline(m){
   // Random opponents return to the queue; their next waiting packet keeps the session.
   if(net.mode!=='random'||m.reason==='expired'&&!net.accepted){leaveOnline(false);fullReset();}
  }
- else if(m.type==='left'){leaveOnline(false);fullReset();onlineStatus('Rakibin bağlantısı koptu. Yeniden oynayabilirsin.');}
+ else if(m.type==='left'){
+  if(net.phase==='post'){leaveOnline(false);setOnlineResult((net.resultText?net.resultText+' · ':'')+'Rövanş süresi doldu.');el.playAgain.textContent='Yeni maç ↗';onlineStatus('Çevrimiçi maç tamamlandı.');}
+  else{const text=net.resultText;leaveOnline(false);fullReset();onlineStatus('Rakibin bağlantısı koptu. Yeniden oynayabilirsin.'+(text?' '+text:''));}
+ }
+ else if(m.type==='result'){if(m.profile)renderOnlineProfile(m.profile);net.resultText=m.rating?(m.ranked?'Derece '+m.rating.before+' → '+m.rating.after+' ('+(m.rating.delta>=0?'+':'')+m.rating.delta+')':'Dostluk maçı · derece değişmedi')+(m.forfeit?' · Hükmen':''):'';setOnlineResult(net.resultText);}
+ else if(m.type==='post'){net.phase='post';net.rematch=m.gone?'declined':net.rematch||'';syncRematchButton();}
+ else if(m.type==='rematch'){net.rematch=m.state;if(m.state==='requested')setOnlineResult((net.resultText?net.resultText+' · ':'')+m.by+' rövanş istiyor!');else if(m.state==='declined')setOnlineResult((net.resultText?net.resultText+' · ':'')+'Rakip ayrıldı; rövanş yapılamıyor.');syncRematchButton();}
+ else if(m.type==='chat')showChatMessage(m);
  else if(m.type==='error'&&m.error==='not-offered')onlineStatus('Kabul süresi sona erdi.');
+ else if(m.type==='error'&&m.error==='rematch-gone'){net.rematch='declined';syncRematchButton();}
 }
 function connectOnlineSocket(attempt=net.joinId){
  if(!net.active||attempt!==net.joinId)return;
@@ -9376,17 +9423,19 @@ async function acceptOnline(){
  catch(e){document.getElementById('onlineAcceptBtn').disabled=false;document.getElementById('onlineOfferStatus').textContent=e.message;}
 }
 function leaveOnline(notify=true){
+ document.getElementById('quickChat').hidden=true;document.getElementById('chatMenu').hidden=true;
  const token=net.token;++net.joinId;net.sending=false;const socket=net.socket;net.socket=null;socket?.close();net.offer=null;document.getElementById('onlineOffer').style.display='none';net.stream?.close();net.stream=null;net.active=false;net.token=null;net.phase='idle';net.match=null;net.queue=[];net.previous='';net.blend=null;clearInput();onlineButtons();
  if(notify&&token)fetch('/online/leave',{method:'POST',headers:{Authorization:'Bearer '+token},keepalive:true}).catch(()=>{});
  document.getElementById('onlineMatchBar').style.display='none';document.getElementById('pauseMenu').style.display='none';for(const id of ['pauseWatch','pauseFinish'])document.getElementById(id).style.display='';document.getElementById('pauseResume').disabled=false;
 }
 function startOnlineMatch(m){
  if(net.match===m.match)return;
- net.match=m.match;net.side=m.side;net.phase='playing';net.seq=0;net.queue=[];net.previous='';net.goals=0;net.subSeen=0;net.cardsSeen=0;net.foulsSeen=0;net.halfTimeSeen=false;net.blend=null;net.blendReady=false;net.stateAt=0;net.snapshotInterval=33;net.buttonAt={};document.getElementById('onlineOffer').style.display='none';
+ net.match=m.match;net.side=m.side;net.phase='playing';net.seq=0;net.queue=[];net.previous='';net.goals=0;net.subSeen=0;net.rematch='';net.resultText='';setOnlineResult('');net.cardsSeen=0;net.foulsSeen=0;net.halfTimeSeen=false;net.blend=null;net.blendReady=false;net.stateAt=0;net.snapshotInterval=33;net.buttonAt={};document.getElementById('onlineOffer').style.display='none';
  matchSize=m.size;formation='433';formation5='5';document.getElementById('duration').value='180';
  teamChoice.blue=m[net.side];teamChoice.red=m[net.side==='blue'?'red':'blue'];populateTeamSelects();fullReset();
  state='playing';el.teamMenu.style.display='none';el.end.style.display='none';document.getElementById('onlineMatchBar').style.display='block';
- onlineStatus('Rakip bulundu. Canlı maç başladı!');document.getElementById('onlineMatchBar').textContent='ÇEVRİMİÇİ · Sen '+getCountry(teamChoice.blue).name+' · 3 dakika';
+ document.getElementById('quickChat').hidden=false;el.playAgain.disabled=false;
+ onlineStatus('Rakip bulundu. Canlı maç başladı!'+(m.ranked?' · Dereceli maç':''));document.getElementById('onlineMatchBar').textContent='ÇEVRİMİÇİ · Sen '+getCountry(teamChoice.blue).name+' · 3 dakika';
  clearInput();activateCommentary();sayCommentary('start',{},6);focusGame();
 }
 function applyOnlineState(s){
@@ -9439,7 +9488,7 @@ function applyOnlineState(s){
  updateHud();
  if(s.state==='ended'){
   penaltyResult=s.penaltyResult?{blue:s.penaltyResult[net.side],red:s.penaltyResult[reverse?'blue':'red'],winner:swap(s.penaltyResult.winner)}:null;
-  endMatch();leaveOnline(false);onlineStatus('Çevrimiçi maç tamamlandı.');
+  endMatch();net.phase='post';net.rematch='';syncRematchButton();onlineStatus('Çevrimiçi maç tamamlandı. 30 saniye içinde rövanş isteyebilirsin.');
  }
 }
 function cancelOnlineControls(){
@@ -9450,7 +9499,7 @@ function cancelOnlineControls(){
 }
 function onlineClientFrame(now){
  if(!net.active)return;
- if(net.phase!=='joining'&&now-net.lastSnapshot>12000){leaveOnline();fullReset();onlineStatus('Bağlantı kesildi. Tekrar eşleştirmeye girebilirsin.');return;}
+ if(net.phase!=='joining'&&net.phase!=='post'&&now-net.lastSnapshot>12000){leaveOnline();fullReset();onlineStatus('Bağlantı kesildi. Tekrar eşleştirmeye girebilirsin.');return;}
  if(net.phase!=='playing')return;
  if(net.blend){
   const b=net.blend,age=Math.max(0,now-b.at),duration=b.duration||33,t=clamp(age/duration,0,1),extra=clamp((age-duration)/1000,0,.08);
@@ -9492,6 +9541,7 @@ addEventListener('pagehide',()=>leaveOnline());
 addEventListener('pageshow',()=>{document.getElementById('onlineName').value='';if(net.active){leaveOnline();fullReset();}});
 document.getElementById('onlineName').value='';
 initEnhancements();
+initQuickChat();
 populateTeamSelects();
 initLeague();
 initMainMenu();

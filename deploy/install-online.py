@@ -26,8 +26,56 @@ def nginx_online(text):
     if text.count(root)!=1:raise RuntimeError('Mini Saha site kökü tekil olarak bulunamadı; yapılandırma değiştirilmedi.')
     return text.replace(root,root+'\n'+block,1)
 
+def service_unit(node,origin):
+    return f'''# Managed by Mini Saha online
+[Unit]
+Description=Mini Saha online matches
+After=network.target
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/lib/minisaha-online/current
+ExecStart={node} /var/lib/minisaha-online/current/server/server.cjs
+Environment=PUBLIC_ORIGIN={origin}
+Environment=PORT=8787
+Environment=MINISAHA_VOICE_PYTHON=/var/lib/minisaha-voice/venv/bin/python
+Environment=MINISAHA_VOICE_MODEL=/var/lib/minisaha-voice/tr_TR-dfki-medium.onnx
+Environment=MINISAHA_VOICE_CACHE=/var/cache/minisaha-voice
+Environment=MINISAHA_DATA=/var/lib/minisaha-online-data
+StateDirectory=minisaha-online-data
+Restart=on-failure
+RestartSec=2
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/cache/minisaha-voice
+[Install]
+WantedBy=multi-user.target
+'''
+
+def service_health():
+    return json.load(urllib.request.urlopen('http://127.0.0.1:8787/online/health',timeout=2))
+
+def drain_running(timeout):
+    """Let running matches finish before a restart; new players are asked to wait."""
+    if subprocess.run(['systemctl','is-active','--quiet','minisaha-online']).returncode:return
+    try:
+        if 'matches' not in service_health():return
+    except Exception:return
+    subprocess.run(['systemctl','kill','-s','SIGUSR2','minisaha-online'],check=False)
+    deadline=time.monotonic()+timeout;last=None
+    while time.monotonic()<deadline:
+        try:matches=service_health().get('matches',0)
+        except Exception:return
+        if not matches:return
+        if matches!=last:print(f'{matches} çevrimiçi maçın bitmesi bekleniyor…',flush=True);last=matches
+        time.sleep(2)
+    print('Bekleme süresi doldu; kalan maçlar yeniden başlatmada sonlanacak.',flush=True)
+
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('domain');parser.add_argument('--check',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('domain');parser.add_argument('--check',action='store_true');parser.add_argument('--drain-timeout',type=int,default=600,help='süren maçlar için en fazla bekleme (saniye)');args=parser.parse_args()
     domain=args.domain.lower().rstrip('.')
     if not re.fullmatch(r'(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}',domain):sys.exit('Geçerli tam alan adı gerekli.')
     if os.geteuid()!=0:sys.exit('sudo ile çalıştırın.')
@@ -56,32 +104,9 @@ def main():
     tmp=base/'pending';tmp.unlink(missing_ok=True);tmp.symlink_to(release);tmp.replace(current)
     origin=('https://' if 'ssl_certificate' in old_config else 'http://')+domain
     try:
-        unit.write_text(f'''# Managed by Mini Saha online
-[Unit]
-Description=Mini Saha online matches
-After=network.target
-[Service]
-Type=simple
-User=www-data
-Group=www-data
-WorkingDirectory=/var/lib/minisaha-online/current
-ExecStart={node} /var/lib/minisaha-online/current/server/server.cjs
-Environment=PUBLIC_ORIGIN={origin}
-Environment=PORT=8787
-Environment=MINISAHA_VOICE_PYTHON=/var/lib/minisaha-voice/venv/bin/python
-Environment=MINISAHA_VOICE_MODEL=/var/lib/minisaha-voice/tr_TR-dfki-medium.onnx
-Environment=MINISAHA_VOICE_CACHE=/var/cache/minisaha-voice
-Restart=on-failure
-RestartSec=2
-NoNewPrivileges=true
-PrivateTmp=true
-ProtectSystem=strict
-ProtectHome=true
-ReadWritePaths=/var/cache/minisaha-voice
-[Install]
-WantedBy=multi-user.target
-''')
+        unit.write_text(service_unit(node,origin))
         config.write_text(new_config);subprocess.run(['nginx','-t'],check=True)
+        drain_running(args.drain_timeout)
         subprocess.run(['systemctl','daemon-reload'],check=True);subprocess.run(['systemctl','enable','--now','minisaha-online'],check=True);subprocess.run(['systemctl','restart','minisaha-online'],check=True)
         healthy=False
         for _ in range(100):
