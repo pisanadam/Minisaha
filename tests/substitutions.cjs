@@ -9,8 +9,8 @@ for(const size of [5,11]){
  if(size===11){for(let n=0;n<4;n++){run("window.next=rosterFor(teamChoice.blue).find(c=>!blue.some(p=>p.roster.id===c.id)&&!usedSubs.blue.has(c.id)&&!c.positions.includes('GK')).id");assert(run("MINISAHA_ENGINE.substitute('blue',1,next).ok"));}run("window.next=rosterFor(teamChoice.blue).find(c=>!blue.some(p=>p.roster.id===c.id)&&!usedSubs.blue.has(c.id)&&!c.positions.includes('GK')).id");assert.equal(run("MINISAHA_ENGINE.substitute('blue',1,next).ok"),false);}
  run('fullReset()');assert.equal(run('substitutionLog.length'),0);
 }
-assert.equal(run('Object.values(COMMENTARY_LINES).flat().length'),3000);assert.equal(run('new Set(Object.values(COMMENTARY_LINES).flat()).size'),3000);
+assert.equal(run('Object.values(COMMENTARY_LINES).flat().length'),3060);assert.equal(run('new Set(Object.values(COMMENTARY_LINES).flat()).size'),3060);
 assert.match(run("commentaryText('Oyuncu değişikliği. {out} çıkıyor, {incoming} giriyor.',{out:'Kylian Mbappé',incoming:'Harry Kane'})"),/Kylian Mbappé çıkıyor, Harry Kane giriyor/);
 assert.equal(run("speechCommentaryText('Kevin De Bruyne ve Harry Kane')"),'Kevin Dö Bröyne ve Heri Keyn');
 assert(run("commentaryDelivery('goal').level>commentaryDelivery('miss').level"));assert.equal(run("commentaryDelivery('goal').emotion"),'excited');assert.equal(run("commentaryDelivery('miss').emotion"),'disappointed');assert.equal(run("commentaryDelivery('substitution').emotion"),'clear');assert.deepEqual(errors,[]);
-console.log('PASS bench replacements, positions, reentry/5-sub limits, fresh stamina, score/time and kickoff persistence; 3000 unique lines, spoken in/out names and contextual emotion');
+console.log('PASS bench replacements, positions, reentry/5-sub limits, fresh stamina, score/time and kickoff persistence; 3060 unique lines, spoken in/out names and contextual emotion');

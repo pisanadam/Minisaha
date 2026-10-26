@@ -1,0 +1,16 @@
+{
+  "name": "Mini Saha · Futbol",
+  "short_name": "Mini Saha",
+  "description": "Telefon ve bilgisayarda 5'e 5 / 11'e 11 futbol: hızlı maç, lig kariyeri ve çevrimiçi maç.",
+  "lang": "tr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#07131b",
+  "theme_color": "#0e3324",
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}

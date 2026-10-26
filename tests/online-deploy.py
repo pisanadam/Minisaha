@@ -20,4 +20,7 @@ for bad in ['server {}',config+'\nlocation /online/ {}']:
  try:m.nginx_online(bad)
  except RuntimeError:pass
  else:raise AssertionError('unmanaged configuration must be rejected')
-print('PASS online install preserves TLS/redirects, is idempotent, rejects conflicting location')
+unit=m.service_unit('/usr/bin/node','https://minisaha.pisankus.dedyn.io')
+assert 'StateDirectory=minisaha-online-data' in unit and 'Environment=MINISAHA_DATA=/var/lib/minisaha-online-data' in unit and 'ProtectSystem=strict' in unit
+assert callable(m.drain_running)
+print('PASS online install keeps a writable profile directory under strict protection, drains matches before restart, preserves TLS/redirects, is idempotent, rejects conflicting location')

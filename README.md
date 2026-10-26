@@ -8,9 +8,17 @@ Ana menüde takımını seç, **Arkadaşlarla / çevrimiçi oyna** düğmesine b
 
 **Oyun bulundu!** ekranı kendi takımını, rakip takımını, rakibin oyuncu adını ve gerçek ilk 5 / ilk 11’i ad, mevki ve puanla gösterir. **Kabul et / İptal et** vardır. İki taraf kabul edene kadar maçın süresi ve fiziği başlamaz. Teklif 30 saniye geçerlidir; iptal veya zaman aşımında bekleyen diğer rastgele oyuncu tekrar sıraya alınır.
 
-Oyuncu adı hesap değildir ve kalıcı kaydedilmez; her sayfa yenilemede boşalır. Aynı normalleştirilmiş ad sunucuda eşzamanlı kullanılamaz. Ayrılınca ad serbest kalır; beklenmedik kopuşta en geç 8 saniye içinde temizlenir. Host ayrılınca oda kapanır. Bağlantı isteği 10 saniyede zaman aşımına uğrar; beklerken **Ayrıl / iptal et** ile çıkılabilir.
+Oyuncu adı hesap değildir ve her sayfa yenilemede boşalır; derece ve istatistikler tarayıcıdaki anonim profile bağlıdır (aşağıya bakın). Aynı normalleştirilmiş ad sunucuda eşzamanlı kullanılamaz. Ayrılınca ad serbest kalır; beklenmedik kopuşta en geç 8 saniye içinde temizlenir. Host ayrılınca oda kapanır. Bağlantı isteği 10 saniyede zaman aşımına uğrar; beklerken **Ayrıl / iptal et** ile çıkılabilir.
 
 Maçlar üç dakikadır; beraberlikte uzatma ve otomatik penaltılar vardır. İki ekran da kendi takımını soldan sağa hücum ederken gösterir. Sunucu 60 Hz fizik hesaplar ve 30 Hz durum yayınlar. Tarayıcılar durum üretmez; hareket ve tuş geçişlerini sürekli WebSocket üzerinden gönderir. Kısa dokunuşun basma/bırakma geçişi ve gerçek tutma gücü korunur; önceki HTTP yanıtı beklenmez. WebSocket açılamazsa SSE/HTTP yedeği kullanılır; bu yol daha fazla gecikme yapabilir. İnternet gecikmesi tamamen ortadan kalkmaz.
+
+### Dereceli profil, sıralama, rövanş ve hızlı sohbet
+
+- İlk çevrimiçi maçta tarayıcı rastgele bir profil kimliği ve gizli anahtar üretir (`localStorage`). Sunucu yalnızca anahtarın SHA-256 özetini, son kullanılan adı ve maç istatistiklerini `MINISAHA_DATA/profiles.json` dosyasında tutar; e-posta veya hesap yoktur. Tarayıcı verisi silinirse profil yeniden başlar.
+- **Rastgele eşleşmeler derecelidir** (ELO, başlangıç 1000; ilk 10 maçta K=40, sonra 24). Arkadaş odaları galibiyet/beraberlik/mağlubiyet sayar, dereceyi değiştirmez. Süren maçtan ayrılan oyuncu hükmen kaybeder. Maç sonunda derece değişimi gösterilir.
+- **Çok Oyunculu → Profil ve sıralama**: kendi derecen, sıran ve ilk 20 oyuncu.
+- **Rövanş**: maç bitince iki oyuncu 30 saniye içinde **Rövanş iste**’ye basarsa aynı takımlarla, taraflar ve başlama vuruşu değişerek yeni maç hemen başlar. **Ana Menü** veya süre dolması oturumu kapatır.
+- **Hızlı sohbet (💬)**: yalnızca sekiz hazır mesaj (“İyi oyun!”, “GG” …) gönderilir; serbest metin yoktur, 1,5 saniyede en fazla bir mesaj.
 
 ### Duraklatma ve oyuncu değişiklikleri
 
@@ -41,13 +49,32 @@ Sezon bu tarayıcıda otomatik kaydedilir. Bitmemiş maçı bırakmak veya sayfa
 
 Kaleci erişebildiği, tutmaya uygun topu yakalar; çok sert veya yetişilemeyen vuruşları otomatik garantiyle tutmaz. Top elindeyken klavye/joystick ile kendi ceza sahası içinde hareket edebilir; sınırların dışına çıkamaz, top elinde kalır ve rakip müdahale edemez. Kendi takımında pas alıcısını korner ve taçtaki gibi **sahadaki oyuncuya dokunarak** seç: ardından **Pas**. Seçilen oyuncunun çevresinde sarı halka görünür. Kaleci topu eliyle yüksekten seçilen hedefe atar; şut atmaz veya topu sürmez. Aynı davranış yerel ve çevrimiçi maçta kullanılır.
 
-### 3.000 replik ve duygulu spiker
+### Faul, serbest vuruş, penaltı, kartlar ve devre arası
 
-Olaylara göre seçilen **3.000 benzersiz replik** vardır. Gol, kurtarış, kaçan fırsat, baskı, son dakikalar ve oyuncu değişikliği ayrı havuzlardan seçilir. Golde daha canlı tempo ve ton, kaçan fırsatta daha düşük ton, yakın skorlu son anlarda daha fazla heyecan; isim ve değişiklik anonsunda açık ve sakin telaffuz kullanılır. Sıradan paslarda gol coşkusu uygulanmaz. Replik torbası ve bekleme aralıkları tekrar/üst üste konuşmayı azaltır.
+- Topa değil adama giden ayakta/kayarak müdahaleler, araya giren gövdeye yapılan müdahaleler ve özellikle arkadan kaymalar faul olur. Yapay zekâ ve otomatik müdahalelerde de faul ihtimali vardır; top kapma puanı yüksek oyuncu daha az faul yapar.
+- Faul yerinden **serbest vuruş** kullanılır; rakipler topa yaklaşamaz, kaleye yakın vuruşlarda 2–3 kişilik **baraj** kurulur ve en iyi bitirici topun başına geçer. Serbest vuruştan pas veya doğrudan şut çekilebilir.
+- Ceza sahasındaki faul **penaltı**dır: atıcı penaltı noktasında, kaleci kalede, diğer herkes ceza sahası dışında bekler. İnsan atıcı yalnızca **Şut** kullanabilir; yön çubuğuyla köşe seçilir, kaleci aynı fizik modeliyle kurtarmaya çalışır ve dönen top oyunda kalır.
+- **Sarı kart** müdahalenin sertliğine göre verilir; ikinci sarı kırmızıdır. Son adamın gol şansını faulle engellemesi kırmızı karta, arkadan sert kayma nadiren doğrudan kırmızıya yol açabilir. Kartlar oyuncunun üstünde, maç sonu istatistiğinde ve zaman çizelgesinde görünür.
+- 11’e 11’de atılan oyuncunun yeri boş kalır, yerine oyuncu alınamaz ve takım eksikken diziliş değiştirilemez; takım 7 kişinin altına düşürülmez. 5’e 5’te futsal kuralı uygulanır: eksik takım 30 saniye veya gol yiyene kadar eksik oynar, sonra yedekten başka bir oyuncu girer; atılan oyuncu geri dönmez.
+- Maçın yarısında **devre arası** verilir: oyun 2,4 saniye durur, oyuncular enerji toplar ve ikinci yarıya diğer takım başlar. Her ekran kendi takımını soldan sağa hücum ederken gösterdiği için kale değişimi yapılmaz.
+- Bu kurallar ortak motorda olduğundan çevrimiçi maçta da aynı çalışır; iki tarayıcı kartları, eksik oyuncuyu ve duran topları aynı görür. Kontrol: `tests/fouls-cards.cjs`.
+
+### 3.060 replik ve duygulu spiker
+
+Olaylara göre seçilen **3.060 benzersiz replik** vardır. Faul, sarı/kırmızı kart, penaltı kararı ve devre arası için ayrı havuzlar eklendi. Gol, kurtarış, kaçan fırsat, baskı, son dakikalar ve oyuncu değişikliği ayrı havuzlardan seçilir. Golde daha canlı tempo ve ton, kaçan fırsatta daha düşük ton, yakın skorlu son anlarda daha fazla heyecan; isim ve değişiklik anonsunda açık ve sakin telaffuz kullanılır. Sıradan paslarda gol coşkusu uygulanmaz. Replik torbası ve bekleme aralıkları tekrar/üst üste konuşmayı azaltır.
 
 **Spikerin tuttuğu taraf** menüsünde Tarafsız / Bizim takım / Rakip takım seçilebilir. Tek oyunculuda desteklediği takımın golüne sevinir, kaçan fırsatına üzülür; rakip golünde tonu düşer. Çok oyunculuda seçim devre dışıdır ve her zaman tarafsız anlatır. Çevrimiçi maçtan çıkınca kaydedilen tek oyunculu tercihi geri gelir.
 
-146 yabancı oyuncu adı için Türkçe okunuş düzeltmeleri vardır; görünen gerçek isimler değişmez. Yeni replikler ve isimler, gömülü sesle aynı **Piper tr_TR-dfki-medium** modeliyle VPS’de üretilir ve MP3 önbelleğine alınır. 3.000 repliğin tümü önceden kaydedilmiş dosyalar değildir; eksik parçalar ilk kullanımda oluşturulur. Ses modeli ayrı işlemde ve tek CPU iş parçacığında çalışır. Telefona Türkçe ses kurulması gerekmez. GitHub Pages veya sunucusuz HTML’de yalnızca önceden gömülü kayıtlar tam çalışır; yeni sesler için çevrimiçi servis gerekir.
+146 yabancı oyuncu adı için Türkçe okunuş düzeltmeleri vardır; görünen gerçek isimler değişmez. Yeni replikler ve isimler, gömülü sesle aynı **Piper tr_TR-dfki-medium** modeliyle VPS’de üretilir ve MP3 önbelleğine alınır. 3.060 repliğin tümü önceden kaydedilmiş dosyalar değildir; eksik parçalar ilk kullanımda oluşturulur. Ses modeli ayrı işlemde ve tek CPU iş parçacığında çalışır. Telefona Türkçe ses kurulması gerekmez. GitHub Pages veya sunucusuz HTML’de yalnızca önceden gömülü kayıtlar tam çalışır; yeni sesler için çevrimiçi servis gerekir.
+
+### Uygulama olarak yükle ve cihaz ayarları
+
+- Site HTTPS üzerinden açılınca tarayıcı menüsünden **Ana ekrana ekle / Uygulamayı yükle** ile tam ekran uygulama gibi açılır (`manifest.webmanifest`, `icons/`). `sw.js` sayfayı ağdan önce dener, içerik özetli kadro/ses dosyalarını önbellekte tutar; ilk açılıştan sonra hızlı maç ve kariyer internetsiz de açılır. Çevrimiçi maç, profil ve yeni spiker sesleri her zaman ağdan gelir. Eski sürümün dosyaları yeni sayfa yüklenince önbellekten silinir.
+- **Ayarlar → Cihaz:** gol, şut, top kapma, faul ve maç sonunda kısa **titreşim**; maç sürerken **ekranı açık tutma** (Screen Wake Lock); **maç sonu sürprizi** aç/kapa. Destekleyen tarayıcılarda çalışır, ayarlar kaydedilir.
+- **Ayarlar → Başarımlar:** 14 başarım (ilk galibiyet, farklı galibiyet, gol yemeden galibiyet, hat-trick, geri dönüş, penaltı kahramanı, centilmen, 10 maç, çevrimiçi galibiyet, 1100 derece, kupa, şampiyonluk, yükselme, yeni kulüp). Yalnızca bu tarayıcıda saklanır; yenileri maç sonu ekranında gösterilir.
+- Telefonda hızlı maç düğmeleri artık kesilmez: **Sahaya çık** tam genişlikte, diğer üç düğme altında yan yana durur.
+
+Kontrol: `tests/device-achievements.cjs`, `tests/online-profiles.cjs`, `tests/online-post-match.cjs`.
 
 ### Server.pro güncelleme
 
@@ -57,13 +84,13 @@ Shell’e tek seferde yapıştır:
 bash <(curl -fsSL https://raw.githubusercontent.com/pisanadam/Minisaha/main/deploy/update.sh) minisaha.pisankus.dedyn.io
 ```
 
-Güncelleme temiz geçici checkout kullanır; kurulum düzenini ve bağlantı testlerini kontrol eder, Python sanal ortamına Piper 1.8.0 ve Türkçe ses modelini, gerekiyorsa Node.js 18+ ve FFmpeg’i kurar. Ardından ses hazır durumunu doğrulayıp çevrimiçi servisi ve oyunu günceller. İlk ses kurulumu model indirdiği için daha uzun sürebilir. Aktif maçlar servis yeniden başlatıldığında sonlanır.
+Güncelleme önce çalışan servise `SIGUSR2` gönderir: yeni maç başlatılmaz, yeni oyunculara “Sunucu güncelleniyor” denir ve süren maçların bitmesi en fazla 10 dakika beklenir (`install-online.py --drain-timeout SANİYE`). Profiller `/var/lib/minisaha-online-data` (systemd `StateDirectory`) içinde kalıcıdır ve güncellemelerde korunur. Güncelleme temiz geçici checkout kullanır; kurulum düzenini ve bağlantı testlerini kontrol eder, Python sanal ortamına Piper 1.8.0 ve Türkçe ses modelini, gerekiyorsa Node.js 18+ ve FFmpeg’i kurar. Ardından ses hazır durumunu doğrulayıp çevrimiçi servisi ve oyunu günceller. İlk ses kurulumu model indirdiği için daha uzun sürebilir. Aktif maçlar servis yeniden başlatıldığında sonlanır.
 
 - Servis: `sudo systemctl status minisaha-online`
 - Hata kaydı: `sudo journalctl -u minisaha-online -n 50 --no-pager`
-- Sağlık: `https://minisaha.pisankus.dedyn.io/online/health` → `version: 3`, `voiceReady: true`.
+- Sağlık: `https://minisaha.pisankus.dedyn.io/online/health` → `version: 3`, `voiceReady: true`, süren maç sayısı `matches`, `draining`.
 - WebSocket: aynı alan adındaki `/online/socket`; Nginx yükseltme başlıklarını aktarır. Backend yalnızca `127.0.0.1:8787` dinler.
-- Kurulum mevcut Mini Saha TLS ayarlarını ve diğer siteleri korur. Maçlar/odalar RAM’de tutulur; yeniden başlatmada sonlanır.
+- Kurulum mevcut Mini Saha TLS ayarlarını ve diğer siteleri korur. Maçlar/odalar RAM’de tutulur; güncelleme sırasında süren maçlar beklenir, beklenmedik yeniden başlatmada sonlanır.
 
 Doğrulama: `tests/online.cjs`, `tests/lobbies.cjs`, `tests/online-socket.cjs`, `tests/online-client.cjs`, `tests/keeper-hands.cjs`, `tests/substitutions.cjs`, `tests/online-deploy.py`. İki gerçek bağlantı; teklif/kabul, karışık oyuncu sayısı, iptal/zaman aşımı, hareket ve tuş geçişleri, ortak duraklatma ve yetkili değişiklikleri sınar.
 
@@ -104,6 +131,8 @@ Kontrol: `node tests/pronunciation.cjs`. Kayıt metinleri: `audio-source/pronunc
 ## Dosyalar
 
 - `public/index.html`: oyun.
+- `public/sw.js`, `public/manifest.webmanifest`, `public/icons/`: yüklenebilir uygulama ve çevrim dışı önbellek.
+- `server/profiles.cjs`: anonim çevrimiçi profiller, ELO ve sıralama.
 - `public/assets/voice-*.js`: 1.776 gömülü ses kaydı. Tamamı oyunla birlikte yayımlanmalıdır.
 - `deploy/install.py`: mevcut Debian/Ubuntu Nginx sunucusuna ayrı site kurulumu ve güncelleme.
 - `SHA256SUMS`: yayımlanan dosyaların bütünlük kontrolü.
@@ -207,7 +236,15 @@ Transfer görüşmesi iki aşamalıdır: önce kulüple bedel, ardından oyuncuy
 
 Hücum, savunma ve pas antrenörleri ile izleme uzmanı üç seviyeye kadar geliştirilebilir. İşe alım bedeli bütçeden, haftalık personel ücreti maaş giderinden düşülür. Antrenörler ilgili çalışma gelişimini hızlandırır; izleme uzmanı kulübün pazarlık talebini düşürür. Oyuncu araması isim, mevki uyumu, genel puan ve bedel filtrelerini kullanır. En fazla 30 oyunculuk izleme listesi, personel ve kiralamalar kariyer kaydında saklanır.
 
-Bu sürüm Avrupa/ülke kupaları, sakatlık/moral sistemi veya kulüp değiştirerek iş arama/kovulma sistemi içermez. Kontrol: `tests/manager-career.cjs`, `tests/manager-negotiation.cjs`.
+**Sakatlık, ceza ve moral:** Maçta forma giyen oyuncular sakatlanabilir (1–6 hafta). Kırmızı kart sonraki maçlarda ceza getirir (ikinci sarı 1, doğrudan kırmızı 2 maç). Sakat/cezalı oyuncular ilk 11’e ve yedeklere alınmaz; geçerli bir kadro için gerekirse en az etkilenen oyuncu döner. Galibiyetler ve süre alan oyuncuların morali yükselir; yedekte kalan yıldızların morali düşer. Yüksek moral genel puanı ve özellikleri maç için +1/+2, düşük moral −1/−2 etkiler; kayıtlı oyuncu puanı değişmez. Durumlar **Gelişim** sekmesinde görünür.
+
+**Yönetim, kovulma ve iş teklifleri:** Yönetim güveni %30’un altına düşünce uyarı verilir; %12 veya altında ya da sezon hedefi güven düşükken kaçırılınca görevden alınırsın. Ofis sekmesinde aynı ligden gelen tekliflerden birini kabul ederek aynı sezonda yeni kulüple devam edersin; eski kulübün kadrosu orada kalır, kiralıklar sahibine döner. Hedefi aşıp güveni %85’e çıkarırsan daha güçlü kulüplerden teklif gelebilir; reddedebilirsin.
+
+Avrupa kupaları kapsam dışıdır. Kontrol: `tests/manager-career.cjs`, `tests/manager-negotiation.cjs`, `tests/career-cup-fitness.cjs`.
+
+### Ülke kupası
+
+Her iki kariyer modunda da sezona bir ülke kupası eklenir: Türkiye Kupası, FA Cup, Copa del Rey, Coppa Italia, DFB-Pokal, Coupe de France. İki ligin bütün kulüpleri (yükselemeyen rezerv takımlar hariç) tek maçlık eleme oynar; gerekiyorsa üst lig kulüpleri ilk turu bay geçer. Turlar lig haftalarının arasına dağıtılır; kupa maçın geldiğinde **Maça çık** kupa maçını açar. Beraberlikte uzatma ve penaltılar oynanır, lig haftası ilerlemez. Diğer kupa maçları kadro gücüyle simüle edilir. Teknik direktör kariyerinde her geçilen tur ve şampiyonluk bütçeye ödül ve yönetim güveni getirir. Eski kayıtlarda kupa kaldığın haftadan itibaren planlanır.
 
 ### Transfer fiyat danışmanı
 
