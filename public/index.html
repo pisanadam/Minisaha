@@ -4,6 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>Mini Saha • Akıllı Futbol 2.2</title>
+<link rel="manifest" href="manifest.webmanifest" />
+<meta name="theme-color" content="#0e3324" />
+<link rel="icon" href="icons/icon-192.png" type="image/png" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
 <style>
   :root{
     --panel:rgba(5,15,25,.82);
@@ -280,7 +286,9 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
 #simReturn{display:none;position:absolute;z-index:12;left:50%;top:76px;transform:translateX(-50%);background:#c5fa75;color:#172c1b;font-size:12px;padding:9px 14px}
 #simProgress{display:none;position:absolute;inset:0;z-index:45;background:#0c1e16f5;align-items:center;justify-content:center;color:#c5fa75;font-size:clamp(17px,4vw,28px);text-align:center;padding:24px}
 
-#onlineOffer{position:absolute;inset:0;z-index:40;background:#06130ded;display:flex;align-items:center;justify-content:center;padding:12px}#onlineOffer .offerCard{width:min(620px,95%);max-height:95%;overflow:auto;background:#193528;border:1px solid #82aa68;border-radius:16px;padding:18px;color:#eff8e9}#onlineOffer h2{margin:0 0 12px}#onlineOffer .offerTeams{display:grid;grid-template-columns:1fr 1fr;gap:18px}#onlineOffer ol{padding-left:25px;font-size:12px;line-height:1.8}#onlineAcceptBtn{background:#cef389;color:#152414}#keeperPassBar{position:absolute;z-index:12;left:50%;top:112px;transform:translateX(-50%);width:min(360px,90%);background:#102d23ee;padding:8px;border-radius:8px;color:white;font-size:11px}#keeperPassBar{pointer-events:none}#matchmakeBtn{background:#6cadde;color:#102519;flex:1}#onlineLobbyPanel input{display:block;width:100%;box-sizing:border-box;background:#102219;color:#eff8e9;border:1px solid #698466;border-radius:8px;padding:11px;margin:8px 0}#onlineLobbyPanel .menuActions{flex-wrap:wrap}#onlineLobbyPanel .menuActions button{flex:1;min-width:95px}#onlineRooms p{display:block!important;overflow-wrap:anywhere;margin:12px 0 4px}#onlineStatus{display:block!important;font-size:12px!important;line-height:1.5}#quickChat{position:absolute;z-index:45;top:112px;right:10px;display:flex;flex-direction:column;align-items:flex-end;gap:6px}#quickChat[hidden]{display:none}#chatToggle{width:40px;height:40px;border-radius:50%;padding:0;font-size:19px}#chatMenu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;background:#0c211bf0;padding:7px;border-radius:10px;max-width:min(300px,80vw)}#chatMenu[hidden]{display:none}#chatMenu button{font-size:12px;padding:7px 8px;white-space:normal}#chatToast{position:absolute;z-index:46;top:112px;left:50%;transform:translateX(-50%);background:#0c211bf0;color:#ebffd7;font-size:13px;font-weight:700;padding:7px 12px;border-radius:9px;pointer-events:none;opacity:0;transition:opacity .2s;max-width:70%;text-align:center}#chatToast.show{opacity:1}#onlineResultInfo{font-weight:700;color:#d8fb9b}#leaderboardList{margin:6px 0 0;padding-left:22px;font-size:13px;line-height:1.6}
+#onlineOffer{position:absolute;inset:0;z-index:40;background:#06130ded;display:flex;align-items:center;justify-content:center;padding:12px}#onlineOffer .offerCard{width:min(620px,95%);max-height:95%;overflow:auto;background:#193528;border:1px solid #82aa68;border-radius:16px;padding:18px;color:#eff8e9}#onlineOffer h2{margin:0 0 12px}#onlineOffer .offerTeams{display:grid;grid-template-columns:1fr 1fr;gap:18px}#onlineOffer ol{padding-left:25px;font-size:12px;line-height:1.8}#onlineAcceptBtn{background:#cef389;color:#152414}#keeperPassBar{position:absolute;z-index:12;left:50%;top:112px;transform:translateX(-50%);width:min(360px,90%);background:#102d23ee;padding:8px;border-radius:8px;color:white;font-size:11px}#keeperPassBar{pointer-events:none}#matchmakeBtn{background:#6cadde;color:#102519;flex:1}#onlineLobbyPanel input{display:block;width:100%;box-sizing:border-box;background:#102219;color:#eff8e9;border:1px solid #698466;border-radius:8px;padding:11px;margin:8px 0}#onlineLobbyPanel .menuActions{flex-wrap:wrap}#onlineLobbyPanel .menuActions button{flex:1;min-width:95px}#onlineRooms p{display:block!important;overflow-wrap:anywhere;margin:12px 0 4px}#onlineStatus{display:block!important;font-size:12px!important;line-height:1.5}@media (max-width:560px){#mainViewQuick .menuActions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}#mainViewQuick #menuStart{grid-column:1/-1}#mainViewQuick .menuActions button{min-width:0;white-space:normal}}
+.deviceToggles{flex-wrap:wrap}.achievementList{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px}.achievementList li{background:#ffffff0d;border-radius:8px;padding:8px 10px;font-size:13px;line-height:1.4}.achievementList li.locked{opacity:.55}.achievementList small{display:block;opacity:.8}#achievementInfo{font-weight:700;color:#ffd76a}#deviceInfo{font-size:12px!important;font-weight:400!important;line-height:1.5;opacity:.85}
+#quickChat{position:absolute;z-index:45;top:112px;right:10px;display:flex;flex-direction:column;align-items:flex-end;gap:6px}#quickChat[hidden]{display:none}#chatToggle{width:40px;height:40px;border-radius:50%;padding:0;font-size:19px}#chatMenu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;background:#0c211bf0;padding:7px;border-radius:10px;max-width:min(300px,80vw)}#chatMenu[hidden]{display:none}#chatMenu button{font-size:12px;padding:7px 8px;white-space:normal}#chatToast{position:absolute;z-index:46;top:112px;left:50%;transform:translateX(-50%);background:#0c211bf0;color:#ebffd7;font-size:13px;font-weight:700;padding:7px 12px;border-radius:9px;pointer-events:none;opacity:0;transition:opacity .2s;max-width:70%;text-align:center}#chatToast.show{opacity:1}#onlineResultInfo{font-weight:700;color:#d8fb9b}#leaderboardList{margin:6px 0 0;padding-left:22px;font-size:13px;line-height:1.6}
 #onlineMatchBar{display:none;position:absolute;z-index:9;top:78px;left:50%;transform:translateX(-50%);font-size:11px;background:#0c211bdc;padding:6px 12px;border-radius:8px;max-width:90%;text-align:center;pointer-events:none}
 #victoryScare{position:fixed;inset:0;z-index:9999;display:none;place-items:center;background:#000;overflow:hidden;touch-action:manipulation;cursor:pointer}
 #victoryScare img{width:100%;height:100%;object-fit:contain;animation:scareZoom .16s ease-out both;pointer-events:none}
@@ -488,7 +496,7 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
       </div><p id="onlineStatus" role="status" aria-live="polite">Host ol, arkadaşının odasına katıl veya rastgele rakip bul. Maçlar 3 dakika.</p>
       <section class="menuSection" id="onlineRankSection"><h3>Profil ve sıralama <span>Rastgele eşleşmeler derecelidir</span></h3><p id="onlineProfileInfo">Profilin bu tarayıcıda anonim olarak tutulur; ilk çevrimiçi maçında oluşur.</p><div class="menuActions"><button id="leaderboardBtn" type="button">Sıralamayı göster</button></div><ol id="leaderboardList" aria-live="polite"></ol></section>
 </section>
-      <section id="mainViewSettings" aria-labelledby="mainTabSettings" hidden><section class="menuSection"><h3>Spiker <span>Ses ve anlatım</span></h3>      <div class="menuActions"><button id="menuCommentaryBtn" aria-pressed="true">Spiker: açık</button><button id="commentaryTestBtn">Sesi dene 🔊</button></div><div class="audioSettingsGrid"><label for="commentaryProfileSelect">ANLATIM TARZI</label><select id="commentaryProfileSelect" aria-label="Spiker anlatım tarzı"><option value="balanced">Dengeli · Maç spikeri</option><option value="passionate">Coşkulu · Tribün heyecanı</option><option value="radio">Tok ses · Radyo anlatımı</option><option value="analyst">Sakin · Analist</option></select><label for="commentaryAllegianceSelect">Spikerin tuttuğu taraf</label><select id="commentaryAllegianceSelect"><option value="neutral">Tarafsız</option><option value="blue">Bizim takım</option><option value="red">Rakip takım</option></select><small id="commentaryAllegianceHint">Tek oyunculuda spikerin desteklediği tarafı seç.</small><label for="commentaryVoiceSelect">SPİKER SESİ</label><select id="commentaryVoiceSelect" aria-label="Spiker sesi"></select><p id="commentaryStatus" role="status">Türkçe sesli anlatım · 3.000 replik varyasyonu</p></div></section><section class="menuSection"><h3>Kontroller ve yardım</h3><details id="keyboardSettings" class="helpDetails"><summary>Klavye ve tuş atamaları</summary><p>Bilgisayarda klavyeyle oyna. Bir tuş alanına tıkla, ardından istediğin tuşa bas. Her hareket için iki tuş seçebilirsin. Esc: atamayı iptal et · Delete: seçili atamayı temizle.</p><div class="keyBindingHeading"><span>Hareket</span><span>Birinci tuş</span><span>İkinci tuş</span></div><div id="keyBindingRows"></div><p id="keyBindingStatus" role="status" aria-live="polite"></p><button id="resetKeyBindings" type="button">Varsayılana dön</button></details><details class="helpDetails"><summary>Nasıl oynanır?</summary><p id="keyboardHelp"></p><p>Telefonda sol çubuğu ve sağdaki tuşları kullan. Şut yönünü hareket çubuğuyla belirle. Joystick’i dış kenarda 0,5 saniyeden uzun tutunca otomatik koşarsın. Yavaşlamak için çubuğu merkeze yaklaştır. Pas, ara pas ve orta: basılı tutarak güç biriktir, bırakınca vur. Kısa dokunuşlarda da mesafeye uygun hız kullanılır. Top rakipteyken: PAS → PRES (basılı tut), ŞUT → AYAKTA MÜDAHALE, ORTA → KAYARAK MÜDAHALE, ARA PAS → İKİNCİ PRES (basılı tut). Pres sırasında çubukla yön verebilirsin. İkinci pres en fazla 2,5 saniye sürer. Müdahaleler yalnızca erişilebilen topa işler; kaymayı kaçırınca toparlanmak zaman alır. Kaleciler iki takımda da otomatik çalışır. Oyuncu seçimi pas alıcısına ve topun gidişine göre yapılır. Gamepad: sol analog, A/✕ pas, B/○ şut, Y/△ ara pas, X/□ orta, analog dış kenarda 0,5 saniye: koşu; RT/R2 sprint, LB/L1 oyuncu değiştir.</p><p>Beraberlikte 30 saniye uzatma, ardından zamanlama barıyla penaltılar. Takımlar oyun içi seçim listesidir.</p></details>
+      <section id="mainViewSettings" aria-labelledby="mainTabSettings" hidden><section class="menuSection"><h3>Spiker <span>Ses ve anlatım</span></h3>      <div class="menuActions"><button id="menuCommentaryBtn" aria-pressed="true">Spiker: açık</button><button id="commentaryTestBtn">Sesi dene 🔊</button></div><div class="audioSettingsGrid"><label for="commentaryProfileSelect">ANLATIM TARZI</label><select id="commentaryProfileSelect" aria-label="Spiker anlatım tarzı"><option value="balanced">Dengeli · Maç spikeri</option><option value="passionate">Coşkulu · Tribün heyecanı</option><option value="radio">Tok ses · Radyo anlatımı</option><option value="analyst">Sakin · Analist</option></select><label for="commentaryAllegianceSelect">Spikerin tuttuğu taraf</label><select id="commentaryAllegianceSelect"><option value="neutral">Tarafsız</option><option value="blue">Bizim takım</option><option value="red">Rakip takım</option></select><small id="commentaryAllegianceHint">Tek oyunculuda spikerin desteklediği tarafı seç.</small><label for="commentaryVoiceSelect">SPİKER SESİ</label><select id="commentaryVoiceSelect" aria-label="Spiker sesi"></select><p id="commentaryStatus" role="status">Türkçe sesli anlatım · 3.060 replik varyasyonu</p></div></section><section class="menuSection"><h3>Cihaz <span>Titreşim, ekran ve sürprizler</span></h3><div class="menuActions deviceToggles"><button id="vibrationBtn" type="button" aria-pressed="true">Titreşim: açık</button><button id="wakeLockBtn" type="button" aria-pressed="true">Ekranı açık tut: açık</button><button id="scareBtn" type="button" aria-pressed="true">Maç sonu sürprizi: açık</button></div><p id="deviceInfo">Titreşim ve ekranı açık tutma yalnızca destekleyen telefon/tarayıcılarda çalışır. Maç sonu sürprizi 10 gol farkla kazanınca tam ekran görsel gösterir; kapatılabilir.</p></section><section class="menuSection"><h3>Başarımlar <span id="achievementCount"></span></h3><ul id="achievementList" class="achievementList"></ul></section><section class="menuSection"><h3>Kontroller ve yardım</h3><details id="keyboardSettings" class="helpDetails"><summary>Klavye ve tuş atamaları</summary><p>Bilgisayarda klavyeyle oyna. Bir tuş alanına tıkla, ardından istediğin tuşa bas. Her hareket için iki tuş seçebilirsin. Esc: atamayı iptal et · Delete: seçili atamayı temizle.</p><div class="keyBindingHeading"><span>Hareket</span><span>Birinci tuş</span><span>İkinci tuş</span></div><div id="keyBindingRows"></div><p id="keyBindingStatus" role="status" aria-live="polite"></p><button id="resetKeyBindings" type="button">Varsayılana dön</button></details><details class="helpDetails"><summary>Nasıl oynanır?</summary><p id="keyboardHelp"></p><p>Telefonda sol çubuğu ve sağdaki tuşları kullan. Şut yönünü hareket çubuğuyla belirle. Joystick’i dış kenarda 0,5 saniyeden uzun tutunca otomatik koşarsın. Yavaşlamak için çubuğu merkeze yaklaştır. Pas, ara pas ve orta: basılı tutarak güç biriktir, bırakınca vur. Kısa dokunuşlarda da mesafeye uygun hız kullanılır. Top rakipteyken: PAS → PRES (basılı tut), ŞUT → AYAKTA MÜDAHALE, ORTA → KAYARAK MÜDAHALE, ARA PAS → İKİNCİ PRES (basılı tut). Pres sırasında çubukla yön verebilirsin. İkinci pres en fazla 2,5 saniye sürer. Müdahaleler yalnızca erişilebilen topa işler; kaymayı kaçırınca toparlanmak zaman alır. Kaleciler iki takımda da otomatik çalışır. Oyuncu seçimi pas alıcısına ve topun gidişine göre yapılır. Gamepad: sol analog, A/✕ pas, B/○ şut, Y/△ ara pas, X/□ orta, analog dış kenarda 0,5 saniye: koşu; RT/R2 sprint, LB/L1 oyuncu değiştir.</p><p>Beraberlikte 30 saniye uzatma, ardından zamanlama barıyla penaltılar. Takımlar oyun içi seçim listesidir.</p></details>
       <details class="helpDetails"><summary>Ses kaynağı ve lisans</summary><p>Gömülü erkek ses: Piper tr_TR-dfki-medium modeliyle üretilen sentetik Türkçe konuşma. Kaynak veri: © 2009 DFKI GmbH, <a href="https://github.com/marytts/dfki-ot-data/" target="_blank" rel="noopener">DFKI OT</a>. Ses verileri ve bu oyundaki dönüştürülmüş kayıtlar: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> (atıf, ticari olmayan kullanım, aynı lisansla paylaşım). Kayıtlar sentezlendi, sessizlikleri kısaltıldı ve MP3 biçimine çevrildi.</p></details></section></section>
       <footer class="menuSection" id="offlineDownloadSection"><button type="button" id="offlineDownloadBtn">Çevrim dışı oynamak için HTML indir ↓</button><p id="offlineDownloadStatus" role="status" aria-live="polite">Kadrolar ve gömülü sesler tek dosyada. İndirmek için internet gerekir; dosyayı sonra çevrim dışı açabilirsin.</p></footer>
       </div>
@@ -521,7 +529,7 @@ input::placeholder{color:#8ba396}select,summary{touch-action:manipulation}
           <tbody id="statsRows"></tbody>
         </table>
       </div>
-      <p id="leagueEndInfo" style="display:none"></p><p id="onlineResultInfo" style="display:none" role="status"></p><div id="goalTimeline"></div><div class="resultActions"><button id="playAgain">Rövanş ↗</button><button id="endMenu">Ana Menü</button></div>
+      <p id="leagueEndInfo" style="display:none"></p><p id="onlineResultInfo" style="display:none" role="status"></p><p id="achievementInfo" style="display:none" role="status"></p><div id="goalTimeline"></div><div class="resultActions"><button id="playAgain">Rövanş ↗</button><button id="endMenu">Ana Menü</button></div>
     </div>
   </div>
 
@@ -5673,7 +5681,7 @@ function commentaryLabels(){
  const label=!supported?'Spiker: desteklenmiyor':!commentatorEnabled?'Spiker: kapalı':commentary.error?'Spiker: sesi dene':!commentary.voice?(commentary.voices.length?'Spiker: ses seç':'Spiker: Türkçe ses gerekli'):'Spiker: açık';
  for(const id of ['commentaryBtn','menuCommentaryBtn']){const b=document.getElementById(id);if(b){b.textContent=label;b.setAttribute('aria-pressed',String(commentatorEnabled));}}
  const status=document.getElementById('commentaryStatus');
- if(status)status.textContent=!supported?'Bu tarayıcı sesli anlatımı desteklemiyor. Oyunu konuşma desteği olan bir tarayıcıda aç.':commentary.error||(!commentary.voice?(commentary.voiceNotice||'Cihazında Türkçe metin okuma sesini etkinleştir, ardından Sesi dene düğmesine dokun.'):commentary.voiceNotice+activeCommentaryProfile().name+' anlatım · '+commentary.voice.name+(commentary.voice.bundled?' · 3.000 replik. Yeni replikler ve oyuncu isimleri sunucu spikeriyle okunur.':' · Cihaz sesi. Profiller ton ve tempoyu değiştirir.'));
+ if(status)status.textContent=!supported?'Bu tarayıcı sesli anlatımı desteklemiyor. Oyunu konuşma desteği olan bir tarayıcıda aç.':commentary.error||(!commentary.voice?(commentary.voiceNotice||'Cihazında Türkçe metin okuma sesini etkinleştir, ardından Sesi dene düğmesine dokun.'):commentary.voiceNotice+activeCommentaryProfile().name+' anlatım · '+commentary.voice.name+(commentary.voice.bundled?' · 3.060 replik. Yeni replikler ve oyuncu isimleri sunucu spikeriyle okunur.':' · Cihaz sesi. Profiller ton ve tempoyu değiştirir.'));
 }
 function commentaryVoiceKey(v){return 'voice:'+String(v.voiceURI||v.name)+'|'+v.lang;}
 function isMaleCommentaryVoice(v){
@@ -6084,7 +6092,7 @@ function fullReset(){
   REGULATION_SECONDS = Number(document.getElementById('duration').value) || 90;
   elapsed = 0; goalPause = 0; scoringLock = 0; manualLock = 0; keeperControlLock = 0;
   extraTimeStarted = false; stoppageSeconds = 0; penalty = null; penaltyTimer = 0; penaltyResult = null; passAssist = null; offsideLine = null;
-  halfTimeDone = false; halfTimePause = 0; secondHalfKickoff = 'red';
+  halfTimeDone = false; halfTimePause = 0; secondHalfKickoff = 'red'; matchDeficit = 0;
   applyTeamNames();
   resetStats();
   resetKickoff('blue');
@@ -6489,7 +6497,7 @@ function resolveDefensiveTackles(){
   p.tackleHit=true;ball.owner=null;passAssist=null;ball.kicker=null;
   ball.vx=p.tackleX*(sliding?180:90);ball.vy=p.tackleY*(sliding?180:90);
   ball.z=0;ball.vz=0;ball.pickupDelay=.07;ball.lastTouch=p.team;ball.lastPlayer=p;ball.shotTeam=null;ball.shotOnTarget=false;
-  if(carrier){carrier.cooldown=.28;stats[p.team].tackles++;}
+  if(carrier){carrier.cooldown=.28;stats[p.team].tackles++;if(p.team==='blue')haptic(25);}
   p.cooldown=sliding?.45:.10;
   sayCommentary('tackle',{team:p.team,player:p},2);
   setMessage(sliding?'Kayarak müdahale':'Temiz müdahale',.4);
@@ -6570,7 +6578,7 @@ function commitFoul(offender,victim,how={}){
  if(penaltyKick)sayCommentary('penaltykick',{team:fouled,player:victim},6);
  else if(!card)sayCommentary('foul',{team,player:offender},4);
  setMessage((penaltyKick?'PENALTI! ':'FAUL · ')+(cardText?cardText+' · '+name:name),1.6);
- tone(card?980:740,.16,.06);
+ tone(card?980:740,.16,.06);haptic(card?[50,40,50]:30);
  return true;
 }
 function updateDefensiveButtons(){
@@ -7063,7 +7071,7 @@ function shootBall(p, power=0.65, aimX=0, aimY=0, ai=null){
   ball.shotOnTarget = targetY > GOAL.top+8 && targetY < GOAL.bot-8 && Math.abs(n.x)>.58;
   ball.saveCounted=false;
   sayCommentary('shot',{player:p,team},3);
-  stats[team].shots++; tone(110,.10,.08);
+  stats[team].shots++; tone(110,.10,.08);if(team==='blue')haptic(15);
   if(ball.shotOnTarget) stats[team].onTarget++;
   p.cooldown=.32;
   shotCharge=0;
@@ -7563,7 +7571,7 @@ function scoreGoal(team){
   tone(523,.18,.1); setTimeout(()=>tone(784,.25,.1),140);
   scoringLock = 1.6;
   goalPause = 1.25;
-  score[team]++;
+  score[team]++;matchDeficit=Math.max(matchDeficit,score.red-score.blue);haptic(team==='blue'?[80,50,120]:60);
   // Futsal: the short-handed side may complete again after conceding.
   for(const info of dismissals[otherTeam(team)].values())if(info.active&&matchSize===5)info.until=Math.min(info.until,elapsed);
   const scorer=ball.lastPlayer&&ball.lastPlayer.team===team?ball.lastPlayer:null;
@@ -7988,6 +7996,71 @@ function emergencyEnd(err){
   if(el.statsRows) el.statsRows.innerHTML = '<tr><td>Oyun güvenli moda geçti</td><td>-</td><td>-</td></tr>';
 }
 
+// --- Device feedback: vibration and screen wake lock (browser only) ---
+let vibrationEnabled=true,wakeLockEnabled=true,scareEnabled=true,wakeLock=null,wakeLockPending=false;
+function haptic(pattern){
+ if(!vibrationEnabled||onlineServer||fastSimulation)return;
+ try{navigator.vibrate?.(pattern);}catch(_){}
+}
+function syncWakeLock(){
+ const want=wakeLockEnabled&&!onlineServer&&!document.hidden&&['playing','paused','penalties'].includes(state);
+ if(want&&!wakeLock&&!wakeLockPending&&navigator.wakeLock?.request){
+  wakeLockPending=true;
+  navigator.wakeLock.request('screen').then(lock=>{wakeLock=lock;lock.addEventListener?.('release',()=>{if(wakeLock===lock)wakeLock=null;});if(!wakeLockEnabled||!['playing','paused','penalties'].includes(state)){lock.release().catch(()=>{});wakeLock=null;}}).catch(()=>{}).finally(()=>{wakeLockPending=false;});
+ }else if(!want&&wakeLock){const lock=wakeLock;wakeLock=null;lock.release().catch(()=>{});}
+}
+// --- Achievements (stored only in this browser) ---
+const ACHIEVEMENTS=[
+ ['first_win','İlk galibiyet','Herhangi bir maçı kazan.'],
+ ['big_win','Farklı galibiyet','Bir maçı en az 5 gol farkla kazan.'],
+ ['clean_sheet','Kalesini gole kapattı','Gol yemeden bir maçı kazan.'],
+ ['hat_trick','Hat-trick','Bir oyuncunla aynı maçta 3 gol at.'],
+ ['comeback','Geri dönüş','2 gol geriye düştüğün maçı kazan.'],
+ ['shootout','Penaltı kahramanı','Penaltı atışlarında kazan.'],
+ ['fair_play','Centilmen','11’e 11 maçı kart görmeden tamamla.'],
+ ['ten_matches','Maratoncu','10 maç tamamla.'],
+ ['online_win','Çevrimiçi zafer','Çevrimiçi bir maçı kazan.'],
+ ['rating_1100','Yükselen yıldız','Çevrimiçi derecen 1100’e ulaşsın.'],
+ ['cup_winner','Kupa sahibi','Kariyerde ülke kupasını kazan.'],
+ ['champion','Şampiyon','Kariyerde ligi birinci bitir.'],
+ ['promotion','Yükselme','Kariyerde takımını üst lige çıkar.'],
+ ['new_job','Yeni sayfa','Teknik direktör kariyerinde başka bir kulübün teklifini kabul et.']
+];
+const ACHIEVEMENT_STORAGE='miniSaha.achievements.v1';
+let achievementState={unlocked:{},matches:0};
+try{const saved=JSON.parse(localStorage.getItem(ACHIEVEMENT_STORAGE)||'null');if(saved&&typeof saved.unlocked==='object'&&Number.isInteger(saved.matches))achievementState={unlocked:Object.fromEntries(Object.entries(saved.unlocked).filter(([k,v])=>ACHIEVEMENTS.some(a=>a[0]===k)&&Number.isFinite(v))),matches:Math.max(0,saved.matches)};}catch(_){}
+let matchDeficit=0,newAchievements=[];
+function unlockAchievement(id){
+ if(onlineServer||achievementState.unlocked[id]||!ACHIEVEMENTS.some(a=>a[0]===id))return false;
+ achievementState.unlocked[id]=Date.now();newAchievements.push(id);
+ try{localStorage.setItem(ACHIEVEMENT_STORAGE,JSON.stringify(achievementState));}catch(_){}
+ renderAchievements();return true;
+}
+function renderAchievements(){
+ const list=document.getElementById('achievementList');if(!list)return;list.replaceChildren();
+ for(const [id,title,text] of ACHIEVEMENTS){const li=document.createElement('li'),at=achievementState.unlocked[id];li.className=at?'':'locked';li.textContent=(at?'🏆 ':'🔒 ')+title;const small=document.createElement('small');small.textContent=text+(at?' · '+new Date(at).toLocaleDateString('tr-TR'):'');li.append(small);list.append(li);}
+ document.getElementById('achievementCount').textContent=Object.keys(achievementState.unlocked).length+' / '+ACHIEVEMENTS.length;
+}
+function checkMatchAchievements(){
+ if(onlineServer)return;
+ achievementState.matches++;try{localStorage.setItem(ACHIEVEMENT_STORAGE,JSON.stringify(achievementState));}catch(_){}
+ const won=penaltyResult?penaltyResult.winner==='blue':score.blue>score.red,ownName=new Set(slots.blue.map(p=>p.roster.name).concat(substitutionLog.filter(e=>e.team==='blue').map(e=>e.out)));
+ if(won)unlockAchievement('first_win');
+ if(score.blue-score.red>=5)unlockAchievement('big_win');
+ if(won&&score.red===0)unlockAchievement('clean_sheet');
+ const goals={};for(const g of stats.goals)if(g.team==='blue'&&ownName.has(g.player))goals[g.player]=(goals[g.player]||0)+1;
+ if(Object.values(goals).some(n=>n>=3))unlockAchievement('hat_trick');
+ if(won&&matchDeficit>=2)unlockAchievement('comeback');
+ if(penaltyResult?.winner==='blue')unlockAchievement('shootout');
+ if(matchSize===11&&!(stats.cards||[]).some(c=>c.team==='blue'))unlockAchievement('fair_play');
+ if(achievementState.matches>=10)unlockAchievement('ten_matches');
+ if(won&&net.active)unlockAchievement('online_win');
+}
+function showNewAchievements(){
+ const info=document.getElementById('achievementInfo');if(!info)return;
+ const titles=newAchievements.map(id=>ACHIEVEMENTS.find(a=>a[0]===id)[1]);newAchievements=[];
+ info.textContent=titles.length?'🏆 Yeni başarım: '+titles.join(', '):'';info.style.display=titles.length?'block':'none';
+}
 // Local blue is always the viewer's team, including the mirrored online client.
 const VICTORY_SCARE_IMAGES=['assets/jumpscare-1.jpg','assets/jumpscare-2.jpg','assets/jumpscare-3.jpg'];
 let victoryScareUsed=false,victoryScareVisible=false,victoryScareJob=0,victoryScareFocus=null;
@@ -8000,7 +8073,7 @@ function closeVictoryScare(){
   victoryScareFocus=null;
 }
 function showVictoryScare(){
-  if(onlineServer||victoryScareUsed||state!=='ended'||score.blue-score.red<10)return;
+  if(onlineServer||!scareEnabled||victoryScareUsed||state!=='ended'||score.blue-score.red<10)return;
   victoryScareUsed=true;
   const overlay=document.getElementById('victoryScare'),img=document.getElementById('victoryScareImage');
   if(!overlay||!img)return;
@@ -8053,6 +8126,7 @@ function endMatch(){
   if((stats.cards||[]).length)document.getElementById('goalTimeline').textContent+=' · KARTLAR · '+stats.cards.map(c=>`${c.time} ${c.type==='red'?'🟥':'🟨'} ${c.player} (${getCountry(teamChoice[c.team]).short})`).join(' / ');
   recordMatch();
   completeLeagueMatch();
+  checkMatchAchievements();showNewAchievements();haptic([60,40,60]);syncWakeLock();
   el.end.style.display='flex';
   showVictoryScare();
 }
@@ -8347,6 +8421,7 @@ function render(){
 let fatalError = false;
 let accumulator=0;
 function loop(now){
+  syncWakeLock();
   if(net.active&&!onlineServer){onlineClientFrame(now);last=now;accumulator=0;render();requestAnimationFrame(loop);return;}
   const frame=Math.min(Math.max((now-last)/1000,0),.2);last=now;
   if(!fastSimulation)accumulator+=frame;else accumulator=0;
@@ -8391,7 +8466,7 @@ function tone(freq,duration,volume=.06){
   }catch(e){}
 }
 function saveSettings(){
-  try{localStorage.setItem('miniSaha.settings.v2',JSON.stringify({blue:teamChoice.blue,red:teamChoice.red,difficulty:el.diff.value,duration:document.getElementById('duration').value,tactic,soundEnabled,commentatorEnabled,commentaryVoiceChoice,embeddedVoiceVersion:1,commentaryProfile,commentaryProfileVoices,commentaryAllegiance,matchSize,formation,formation5,keyBindings}));}catch(e){}
+  try{localStorage.setItem('miniSaha.settings.v2',JSON.stringify({blue:teamChoice.blue,red:teamChoice.red,difficulty:el.diff.value,duration:document.getElementById('duration').value,tactic,soundEnabled,commentatorEnabled,commentaryVoiceChoice,embeddedVoiceVersion:1,commentaryProfile,commentaryProfileVoices,commentaryAllegiance,matchSize,formation,formation5,keyBindings,vibrationEnabled,wakeLockEnabled,scareEnabled}));}catch(e){}
 }
 function recordMatch(){
   if(historySaved) return;
@@ -8473,6 +8548,7 @@ function initEnhancements(){
       formation5=formationKeys(5).includes(s.formation5)?s.formation5:'5';
       tactic=['balanced','attack','defend'].includes(s.tactic)?s.tactic:'balanced';soundEnabled=s.soundEnabled===true;commentatorEnabled=s.commentatorEnabled!==false;
       if(['neutral','blue','red'].includes(s.commentaryAllegiance))commentaryAllegiance=s.commentaryAllegiance;
+      vibrationEnabled=s.vibrationEnabled!==false;wakeLockEnabled=s.wakeLockEnabled!==false;scareEnabled=s.scareEnabled!==false;
       if(COMMENTARY_PROFILES[s.commentaryProfile])commentaryProfile=s.commentaryProfile;
       if(s.commentaryProfileVoices&&typeof s.commentaryProfileVoices==='object')for(const key of Object.keys(COMMENTARY_PROFILES)){const v=s.commentaryProfileVoices[key];if(typeof v==='string'&&(v==='bundled'||v==='male'||v==='auto'||v.startsWith('voice:')))commentaryProfileVoices[key]=v;}
       if(typeof s.commentaryVoiceChoice==='string'&&(s.commentaryVoiceChoice==='bundled'||s.commentaryVoiceChoice==='male'||s.commentaryVoiceChoice==='auto'||s.commentaryVoiceChoice.startsWith('voice:')))commentaryVoiceChoice=s.commentaryVoiceChoice;
@@ -8494,6 +8570,10 @@ function initEnhancements(){
   function soundLabel(){sound.textContent='Efekt: '+(soundEnabled?'açık':'kapalı');sound.setAttribute('aria-pressed',String(soundEnabled));}
   soundLabel();
   sound.addEventListener('click',()=>{soundEnabled=!soundEnabled;soundLabel();saveSettings();tone(440,.08);});
+  const toggles=[['vibrationBtn','Titreşim',()=>vibrationEnabled,v=>{vibrationEnabled=v;if(v)haptic(30);}],['wakeLockBtn','Ekranı açık tut',()=>wakeLockEnabled,v=>{wakeLockEnabled=v;syncWakeLock();}],['scareBtn','Maç sonu sürprizi',()=>scareEnabled,v=>{scareEnabled=v;}]];
+  for(const [id,label,get,set] of toggles){const b=document.getElementById(id),show=()=>{b.textContent=label+': '+(get()?'açık':'kapalı');b.setAttribute('aria-pressed',String(get()));};show();b.addEventListener('click',()=>{set(!get());show();saveSettings();});}
+  renderAchievements();
+  document.addEventListener('visibilitychange',syncWakeLock);
   document.getElementById('duration').addEventListener('change',()=>{REGULATION_SECONDS=Number(document.getElementById('duration').value);updateHud();saveSettings();});
   document.getElementById('tactic').addEventListener('change',e=>setTactic(e.target.value));
   document.querySelectorAll('[data-tactic]').forEach(b=>b.addEventListener('click',()=>setTactic(b.dataset.tactic)));
@@ -8936,7 +9016,7 @@ function acceptManagerJob(key){
  Object.assign(m,{players:incoming,contracts:Object.fromEntries(incoming.map(p=>[p.id,{years:2,wage:managerWage(p)}])),development:{},injuries:{},suspensions:{},morale:{},loans:[],shortlist:[],staff:{attack:0,defense:0,passing:0,scout:0},
   balance:Math.round(Math.pow(Math.max(10,avg-50),2)*80000),wageLimit:Math.round(wages*1.3),trust:60,sacked:false,warned:false,offers:[]});
  m.targetRank=managerTargetRank(m.players);m.revision++;
- managerLog(getCountry(old).name+' kulübünden ayrıldın, '+getCountry(key).name+' teknik direktörü oldun.');
+ managerLog(getCountry(old).name+' kulübünden ayrıldın, '+getCountry(key).name+' teknik direktörü oldun.');unlockAchievement('new_job');
  saveLeague();renderLeague();return true;
 }
 // --- Domestic cup (both career modes) ---
@@ -8972,7 +9052,7 @@ function closeCupRound(s=leagueSeason){
  const winners=round.map(m=>m.winner);
  if(own&&s.manager){if(own.winner===s.club){const prize=400000*(c.round+1);s.manager.balance+=prize;managerLog(c.name+' · '+label+' geçildi · Ödül '+managerMoney(prize));}else{s.manager.trust=clamp(s.manager.trust-3,0,100);managerLog(c.name+' · '+label+' turunda elendin.');}}
  c.round++;
- if(winners.length===1){c.winner=winners[0];if(s.manager&&c.winner===s.club){s.manager.balance+=3000000;s.manager.trust=clamp(s.manager.trust+10,0,100);managerLog(c.name+' kazanıldı! Yönetim güveni arttı · Ödül '+managerMoney(3000000));}return;}
+ if(winners.length===1){c.winner=winners[0];if(s===leagueSeason&&c.winner===s.club)unlockAchievement('cup_winner');if(s.manager&&c.winner===s.club){s.manager.balance+=3000000;s.manager.trust=clamp(s.manager.trust+10,0,100);managerLog(c.name+' kazanıldı! Yönetim güveni arttı · Ödül '+managerMoney(3000000));}return;}
  c.rounds.push(cupPairs(shuffledCopy(c.round===1?[...winners,...c.byes]:winners)));
 }
 function processCup(includeOwn=false,s=leagueSeason){
@@ -9208,6 +9288,7 @@ function finishLeagueSeason(){
  }
  const nextUpper=upper.teams.filter(t=>!relegated.includes(t)).concat(promoted),nextLower=lower.teams.filter(t=>!promoted.includes(t)).concat(relegated);
  leagueSeason.transition={upper:pair.upper,lower:pair.lower,promoted,relegated,nextUpper,nextLower,playoffs:log,clubLeague:nextUpper.includes(leagueSeason.club)?pair.upper:pair.lower};
+ if(leagueTable()[0]?.key===leagueSeason.club)unlockAchievement('champion');if(promoted.includes(leagueSeason.club))unlockAchievement('promotion');
 }
 function advanceLeagueSeason(){
  if(net.active||!leagueSeason||leagueSeason.round!==leagueSeason.fixtures.length||leagueSeason.manager?.sacked||!['ready','ended'].includes(state))return;
@@ -9382,7 +9463,7 @@ function receiveOnline(m){
   if(net.phase==='post'){leaveOnline(false);setOnlineResult((net.resultText?net.resultText+' · ':'')+'Rövanş süresi doldu.');el.playAgain.textContent='Yeni maç ↗';onlineStatus('Çevrimiçi maç tamamlandı.');}
   else{const text=net.resultText;leaveOnline(false);fullReset();onlineStatus('Rakibin bağlantısı koptu. Yeniden oynayabilirsin.'+(text?' '+text:''));}
  }
- else if(m.type==='result'){if(m.profile)renderOnlineProfile(m.profile);net.resultText=m.rating?(m.ranked?'Derece '+m.rating.before+' → '+m.rating.after+' ('+(m.rating.delta>=0?'+':'')+m.rating.delta+')':'Dostluk maçı · derece değişmedi')+(m.forfeit?' · Hükmen':''):'';setOnlineResult(net.resultText);}
+ else if(m.type==='result'){if(m.profile){renderOnlineProfile(m.profile);if(m.profile.rating>=1100){unlockAchievement('rating_1100');showNewAchievements();}}net.resultText=m.rating?(m.ranked?'Derece '+m.rating.before+' → '+m.rating.after+' ('+(m.rating.delta>=0?'+':'')+m.rating.delta+')':'Dostluk maçı · derece değişmedi')+(m.forfeit?' · Hükmen':''):'';setOnlineResult(net.resultText);}
  else if(m.type==='post'){net.phase='post';net.rematch=m.gone?'declined':net.rematch||'';syncRematchButton();}
  else if(m.type==='rematch'){net.rematch=m.state;if(m.state==='requested')setOnlineResult((net.resultText?net.resultText+' · ':'')+m.by+' rövanş istiyor!');else if(m.state==='declined')setOnlineResult((net.resultText?net.resultText+' · ':'')+'Rakip ayrıldı; rövanş yapılamıyor.');syncRematchButton();}
  else if(m.type==='chat')showChatMessage(m);
@@ -9479,7 +9560,8 @@ function applyOnlineState(s){
  if(s.halfTime&&!net.halfTimeSeen){net.halfTimeSeen=true;sayCommentary('halftime',{},6);setMessage('DEVRE ARASI',1.6);}
  if(setPiece&&setPiece.id===previousRestart?.id&&setPiece.kind===previousRestart.kind&&setPiece.team===previousRestart.team&&setPiece.taker===previousRestart.taker)setPiece.target=previousRestart.target;
  substitutionLog=(s.substitutions||[]).map(e=>({...e,team:swap(e.team)}));for(const e of substitutionLog.slice(net.subSeen||0))announceSubstitution(e);net.subSeen=substitutionLog.length;usedSubs={blue:new Set(substitutionLog.filter(e=>e.team==='blue').map(e=>e.outId)),red:new Set(substitutionLog.filter(e=>e.team==='red').map(e=>e.outId))};
- if(stats.goals.length>net.goals){sayCommentary('goal',{team:stats.goals.at(-1).team},7);net.goals=stats.goals.length;}
+ matchDeficit=Math.max(matchDeficit,score.red-score.blue);
+ if(stats.goals.length>net.goals){sayCommentary('goal',{team:stats.goals.at(-1).team},7);haptic(stats.goals.at(-1).team==='blue'?[80,50,120]:60);net.goals=stats.goals.length;}
  if(s.state==='penalties'){state='playing';document.getElementById('onlineMatchBar').textContent=`ÇEVRİMİÇİ · Otomatik penaltılar ${s.penalty.blue}–${s.penalty.red}`;}
  else state=s.state==='ended'?'playing':s.state;
  if(s.state==='paused'){
@@ -9550,7 +9632,8 @@ fullReset();
 renderHistory();
 
 requestAnimationFrame(loop);
-
+// Installable app with offline cache; skipped for the downloaded file:// copy.
+if(window.navigator?.serviceWorker&&/^https?:$/.test(location.protocol)&&!document.documentElement.hasAttribute('data-minisaha-offline'))window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 
 })();
 </script>
